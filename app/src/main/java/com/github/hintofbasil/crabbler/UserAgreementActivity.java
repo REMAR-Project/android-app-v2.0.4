@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class UserAgreement extends AppCompatActivity {
+public class UserAgreementActivity extends AppCompatActivity {
 
     TextView agreement;
     Button acceptButton;

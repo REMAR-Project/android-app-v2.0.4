@@ -13,5 +13,10 @@ Suspendisse fermentum, erat at ullamcorper vehicula, arcu dui commodo libero, ne
 
 Aliquam porta dui eu quam egestas, eu sollicitudin lacus facilisis. Donec laoreet neque lectus, ac vehicula sem elementum et. Vivamus nec cursus dui. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean dapibus arcu lectus, quis feugiat ligula feugiat vel. Mauris auctor neque in quam dignissim auctor. Vestibulum ac tempus justo, non mollis nunc. Nunc vestibulum ligula ut maximus feugiat. </string>
 
+    <string name="first_name">First name</string>
+    <string name="surname">Surname</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+
     <string name="agreement_accepted_key">agreement_accepted_key</string>
 </resources>

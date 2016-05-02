@@ -24,11 +24,22 @@ public class UserAgreement extends AppCompatActivity {
         acceptButton = (Button) findViewById(R.id.accept_button);
         declineButton = (Button) findViewById(R.id.decline_button);
 
+        acceptButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launchNextActivity();
+            }
+        });
+
         declineButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
+    }
+
+    private void launchNextActivity() {
+
     }
 }

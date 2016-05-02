@@ -1,5 +1,7 @@
 package com.github.hintofbasil.crabbler;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
@@ -12,9 +14,17 @@ public class UserAgreement extends AppCompatActivity {
     TextView agreement;
     Button acceptButton;
     Button declineButton;
+    SharedPreferences sharedPrefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        sharedPrefs = getPreferences(Context.MODE_PRIVATE);
+        if(sharedPrefs.getBoolean(getString(R.string.agreement_accepted_key), false)) {
+            //Skip if already accepted
+            launchNextActivity();
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_agreement);
 
@@ -27,6 +37,7 @@ public class UserAgreement extends AppCompatActivity {
         acceptButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                sharedPrefs.edit().putBoolean(getString(R.string.agreement_accepted_key), true).commit();
                 launchNextActivity();
             }
         });

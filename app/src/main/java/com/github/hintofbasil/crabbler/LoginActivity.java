@@ -25,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
         toSendPrefs = getSharedPreferences(getString(R.string.to_send_preferences_key), Context.MODE_PRIVATE);
         savedPrefs = getSharedPreferences(getString(R.string.saved_preferences_key), Context.MODE_PRIVATE);
         if(savedPrefs.getString(getString(R.string.preference_session_id), null) != null) {
-            //Skip if already accepted
+            //Skip if already logged in
             launchNextActivity();
         }
 

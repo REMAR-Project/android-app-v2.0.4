@@ -3,6 +3,8 @@
     package="com.github.hintofbasil.crabbler">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -32,12 +34,15 @@
         </receiver>
 
         <service
-            android:name=".BackgroundDataPost.DataPostService"
+            android:name=".BackgroundDataPost.DataPostLaunchService"
             android:enabled="true">
         </service>
 
         <receiver android:name=".BackgroundDataPost.DataPostAlarm">
         </receiver>
+
+        <service android:name=".BackgroundDataPost.DataPostProcessService">
+        </service>
 
     </application>
 

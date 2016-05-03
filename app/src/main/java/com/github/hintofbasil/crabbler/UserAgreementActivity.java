@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostService;
+import com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostLaunchService;
 
 public class UserAgreementActivity extends AppCompatActivity {
 
@@ -22,7 +22,7 @@ public class UserAgreementActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        Intent dataPostIntent = new Intent(getBaseContext(), DataPostService.class);
+        Intent dataPostIntent = new Intent(getBaseContext(), DataPostLaunchService.class);
         getBaseContext().startService(dataPostIntent);
 
         sharedPrefs = getPreferences(Context.MODE_PRIVATE);

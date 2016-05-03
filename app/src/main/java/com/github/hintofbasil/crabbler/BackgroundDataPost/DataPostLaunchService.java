@@ -10,7 +10,7 @@ import com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostAlarm;
 /**
  * Created by will on 03/05/16.
  */
-public class DataPostService extends Service {
+public class DataPostLaunchService extends Service {
 
     DataPostAlarm alarm = new DataPostAlarm();
 

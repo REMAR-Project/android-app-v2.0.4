@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,6 +24,10 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         toSendPrefs = getSharedPreferences(getString(R.string.to_send_preferences_key), Context.MODE_PRIVATE);
         savedPrefs = getSharedPreferences(getString(R.string.saved_preferences_key), Context.MODE_PRIVATE);
+        if(savedPrefs.getString(getString(R.string.preference_session_id), null) != null) {
+            //Skip if already accepted
+            launchNextActivity();
+        }
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
@@ -33,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 calculateUserHash();
+                launchNextActivity();
             }
         });
     }
@@ -61,5 +67,9 @@ public class LoginActivity extends AppCompatActivity {
     private String getData(int resourceId) {
         EditText editText = (EditText) findViewById(resourceId);
         return editText.getText().toString();
+    }
+
+    private void launchNextActivity() {
+        
     }
 }

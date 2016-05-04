@@ -23,8 +23,7 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:noHistory="true">
-        </activity>
+            android:noHistory="true"></activity>
 
         <receiver android:name=".BackgroundDataPost.DataPostAutoStart">
             <intent-filter>
@@ -35,15 +34,13 @@
 
         <service
             android:name=".BackgroundDataPost.DataPostLaunchService"
-            android:enabled="true">
-        </service>
+            android:enabled="true"></service>
 
-        <receiver android:name=".BackgroundDataPost.DataPostAlarm">
-        </receiver>
+        <receiver android:name=".BackgroundDataPost.DataPostAlarm"></receiver>
 
-        <service android:name=".BackgroundDataPost.DataPostProcessService">
-        </service>
+        <service android:name=".BackgroundDataPost.DataPostProcessService"></service>
 
+        <activity android:name=".Questions.QuestionActivity"></activity>
     </application>
 
 </manifest>

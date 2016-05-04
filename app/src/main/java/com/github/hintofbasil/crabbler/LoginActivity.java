@@ -1,6 +1,7 @@
 package com.github.hintofbasil.crabbler;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostFactory;
+import com.github.hintofbasil.crabbler.Questions.QuestionActivity;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -70,6 +72,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void launchNextActivity() {
-        
+        Intent intent = new Intent(this, QuestionActivity.class);
+        intent.putExtra(getString(R.string.question_id_key), 0);
+        startActivity(intent);
     }
 }

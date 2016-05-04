@@ -36,6 +36,10 @@ public class DataPostProcessService extends IntentService {
         postData();
     }
 
+    /**
+     * Posts data saved in the post queue.
+     * Will remove entry from the post queue on successful post.
+     */
     private synchronized void postData() {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         //Remains null if set in constructor

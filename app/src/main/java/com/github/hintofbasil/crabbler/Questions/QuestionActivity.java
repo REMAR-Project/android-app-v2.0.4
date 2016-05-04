@@ -2,7 +2,9 @@ package com.github.hintofbasil.crabbler.Questions;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.github.hintofbasil.crabbler.R;
 
@@ -27,17 +29,19 @@ public class QuestionActivity extends AppCompatActivity {
             int questionId = getIntent().getIntExtra(getString(R.string.question_id_key), 0);
             JSONObject questionJson = new JSONArray(jsonString).getJSONObject(questionId);
 
-            switch(questionJson.getString("QuestionType")) {
+            switch(questionJson.getString("questionType")) {
                 case "TwoPictureChoice":
                     setContentView(R.layout.two_picture_choice_layout);
+                    TextView questionText = (TextView) findViewById(R.id.question_text);
+                    questionText.setMovementMethod(new ScrollingMovementMethod());
                     break;
                 default:
-                    Log.e("QuestionActivity", "Inknown question type.");
+                    Log.e("QuestionActivity", "Unknown question type.");
                     return;
             }
 
         } catch (IOException|JSONException e) {
-            Log.e("QuestionActivity", "Error reading questions");
+            Log.e("QuestionActivity", "Error reading questions\n" + Log.getStackTraceString(e));
             return;
         }
     }

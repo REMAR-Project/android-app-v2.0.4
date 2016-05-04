@@ -39,7 +39,7 @@
                 android:id="@+id/question_one_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/question_font_size"
+                android:textSize="@dimen/question_selection_title"
                 android:text="Question 1"
                 />
             <ImageView
@@ -61,7 +61,7 @@
                 android:id="@+id/question_two_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/question_font_size"
+                android:textSize="@dimen/question_selection_title"
                 android:text="Question 2"
                 />
             <ImageView

@@ -2,7 +2,8 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="question_font_size">26sp</dimen>
+    <dimen name="question_font_size">15sp</dimen>
+    <dimen name="question_selection_title">20sp</dimen>
     <dimen name="question_select_padding">10dp</dimen>
     <dimen name="question_select_margin">15dp</dimen>
 </resources>

@@ -1,13 +1,10 @@
 package com.github.hintofbasil.crabbler.BackgroundDataPost;
 
 import android.app.IntentService;
-import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
-import android.os.IBinder;
-import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.github.hintofbasil.crabbler.R;
@@ -46,7 +43,13 @@ public class DataPostProcessService extends IntentService {
             if(toSendPrefs.getAll() != null && !toSendPrefs.getAll().isEmpty()) {
                 for (String detail : toSendPrefs.getAll().keySet()) {
                     try {
-                        URL u = new URL("http://40180582.pythonanywhere.com/static/login");
+                        String url = toSendPrefs.getString(detail, null);
+                        if(url == null) {
+                            // Basic assert
+                            Log.e("DataPostProcessService", "Null value found in toSendPrefs.  Only Set<String> should be put here.");
+                            return;
+                        }
+                        URL u = new URL(url);
                         HttpURLConnection h = (HttpURLConnection) u.openConnection();
                         //TODO handle POST
                         if (h.getResponseCode() == 200) {
@@ -54,6 +57,7 @@ public class DataPostProcessService extends IntentService {
                             byte[] bytes = new byte[1024];
                             int length = inputStream.read(bytes);
                             String response = new String(bytes, "UTF-8").substring(0, length);
+                            Log.i("DataPostProcessService", "Posted: " + url);
                             //TODO handle response
                             toSendPrefs.edit().remove(detail).apply();
                         }

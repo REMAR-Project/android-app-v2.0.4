@@ -33,6 +33,10 @@ public class DataPostProcessService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
+        postData();
+    }
+
+    private synchronized void postData() {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         //Remains null if set in constructor
         if(toSendPrefs==null) {

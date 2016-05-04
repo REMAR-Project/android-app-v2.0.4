@@ -31,9 +31,7 @@ public class QuestionActivity extends AppCompatActivity {
 
             switch(questionJson.getString("questionType")) {
                 case "TwoPictureChoice":
-                    setContentView(R.layout.two_picture_choice_layout);
-                    TextView questionText = (TextView) findViewById(R.id.question_text);
-                    questionText.setMovementMethod(new ScrollingMovementMethod());
+                    expandTwoPictureLayout(questionJson);
                     break;
                 default:
                     Log.e("QuestionActivity", "Unknown question type.");
@@ -44,5 +42,19 @@ public class QuestionActivity extends AppCompatActivity {
             Log.e("QuestionActivity", "Error reading questions\n" + Log.getStackTraceString(e));
             return;
         }
+    }
+
+    private void expandTwoPictureLayout(JSONObject questionJson) throws JSONException {
+        setContentView(R.layout.two_picture_choice_layout);
+        TextView questionText = (TextView) findViewById(R.id.question_text);
+        TextView choiceOneTitle = (TextView) findViewById(R.id.choice_one_title);
+        TextView choiceTwoTitle = (TextView) findViewById(R.id.choice_two_title);
+
+        questionText.setText(questionJson.getString("questionText"));
+        questionText.setMovementMethod(new ScrollingMovementMethod());
+
+        choiceOneTitle.setText(questionJson.getString("choiceOneTitle"));
+        choiceTwoTitle.setText(questionJson.getString("choiceTwoTitle"));
+
     }
 }

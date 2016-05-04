@@ -16,7 +16,7 @@
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
         android:textSize="@dimen/question_font_size"
-        android:text="Hello!"
+        android:text=""
         android:scrollbars="vertical"
         />
 
@@ -41,7 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/question_selection_title"
-                android:text="Question 1"
+                android:text=""
                 />
             <ImageView
                 android:id="@+id/choice_one_image"
@@ -63,7 +63,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/question_selection_title"
-                android:text="Question 2"
+                android:text=""
                 />
             <ImageView
                 android:id="@+id/choice_two_image"

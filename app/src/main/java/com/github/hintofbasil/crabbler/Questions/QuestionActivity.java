@@ -32,13 +32,13 @@ public class QuestionActivity extends AppCompatActivity {
             Expander expander;
             switch(questionJson.getString("questionType")) {
                 case "TwoPictureChoice":
-                    expander = new TwoPictureLayoutExpander();
+                    expander = new TwoPictureLayoutExpander(this);
                     break;
                 default:
                     Log.e("QuestionActivity", "Unknown question type.");
                     return;
             }
-            expander.expandLayout(this, questionJson);
+            expander.expandLayout(questionJson);
 
         } catch (IOException|JSONException e) {
             Log.e("QuestionActivity", "Error reading questions\n" + Log.getStackTraceString(e));

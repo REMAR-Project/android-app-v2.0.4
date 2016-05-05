@@ -23,6 +23,7 @@ Aliquam porta dui eu quam egestas, eu sollicitudin lacus facilisis. Donec laoree
     <string name="to_send_preferences_key">to_send_preferences_key</string>
     <string name="saved_preferences_key">saved_preferences_key</string>
     <string name="question_id_key">question_id_key</string>
+    <string name="answers_key">answers</string>
 
     <string name="preference_session_id">session_id</string>
 

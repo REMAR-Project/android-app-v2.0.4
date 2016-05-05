@@ -8,12 +8,10 @@ import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.Expander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.TwoPictureLayoutExpander;
 import com.github.hintofbasil.crabbler.R;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.io.InputStream;
 
 public class QuestionActivity extends AppCompatActivity {
 
@@ -21,13 +19,11 @@ public class QuestionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        InputStream jsonInputStream = getBaseContext().getResources().openRawResource(R.raw.questions);
         byte[] buffer = new byte[1024];
         try {
-            int length = jsonInputStream.read(buffer);
-            String jsonString = new String(buffer).substring(0, length);
             int questionId = getIntent().getIntExtra(getString(R.string.question_id_key), 0);
-            JSONObject questionJson = new JSONArray(jsonString).getJSONObject(questionId);
+            QuestionReader qr = new QuestionReader();
+            JSONObject questionJson = qr.getJsonQuestion(this, questionId);
 
             Expander expander;
             switch(questionJson.getString("questionType")) {

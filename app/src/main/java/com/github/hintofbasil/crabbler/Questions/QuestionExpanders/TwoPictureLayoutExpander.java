@@ -11,10 +11,12 @@ import com.github.hintofbasil.crabbler.R;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
+
 /**
  * Created by will on 05/05/16.
  */
-public class TwoPictureLayoutExpander extends Expander {
+public class TwoPictureLayoutExpander extends Expander<Integer> {
 
     public TwoPictureLayoutExpander(AppCompatActivity activity) {
         super(activity);
@@ -28,6 +30,7 @@ public class TwoPictureLayoutExpander extends Expander {
         TextView choiceTwoTitle = (TextView) activity.findViewById(R.id.choice_two_title);
         final LinearLayout questionOneButton = (LinearLayout) activity.findViewById(R.id.question_one_button);
         final LinearLayout questionTwoButton = (LinearLayout) activity.findViewById(R.id.question_two_button);
+        final int questionNo = question.getInt("questionNumber");
 
         questionText.setText(question.getString("questionText"));
         questionText.setMovementMethod(new ScrollingMovementMethod());
@@ -38,26 +41,27 @@ public class TwoPictureLayoutExpander extends Expander {
         questionOneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                questionOneButton.setBackgroundResource(R.color.questionSelectedBackground);
-                saveAnswer();
-                nextQuestion();
+                try {
+                    questionOneButton.setBackgroundResource(R.color.questionSelectedBackground);
+                    saveAnswer(0, questionNo);
+                    nextQuestion();
+                } catch (IOException|JSONException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
         questionTwoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                questionTwoButton.setBackgroundResource(R.color.questionSelectedBackground);
-                saveAnswer();
-                nextQuestion();
+                try {
+                    questionTwoButton.setBackgroundResource(R.color.questionSelectedBackground);
+                    saveAnswer(1, questionNo);
+                    nextQuestion();
+                } catch (IOException|JSONException e) {
+                    e.printStackTrace();
+                }
             }
         });
-
-
-    }
-
-    @Override
-    protected void saveAnswer() {
-
     }
 }

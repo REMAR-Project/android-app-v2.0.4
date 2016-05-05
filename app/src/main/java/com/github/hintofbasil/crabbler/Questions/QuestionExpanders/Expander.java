@@ -1,6 +1,7 @@
 package com.github.hintofbasil.crabbler.Questions.QuestionExpanders;
 
 import android.content.Intent;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 
 import com.github.hintofbasil.crabbler.Questions.QuestionActivity;
@@ -27,10 +28,21 @@ public abstract class Expander {
     protected void nextQuestion() {
         int question = activity.getIntent().getIntExtra(activity.getString(R.string.question_id_key), 0);
         //TODO handle last question
-        Intent intent = new Intent(activity, QuestionActivity.class);
-        intent.putExtra(activity.getString(R.string.question_id_key), question+1);
-        activity.startActivity(intent);
-        activity.finish();
+        final Intent intent = new Intent(activity, QuestionActivity.class);
+        intent.putExtra(activity.getString(R.string.question_id_key), question + 1);
+        new CountDownTimer(1000, 1000) {
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+
+            }
+
+            @Override
+            public void onFinish() {
+                activity.startActivity(intent);
+                activity.finish();
+            }
+        }.start();
     }
 
 }

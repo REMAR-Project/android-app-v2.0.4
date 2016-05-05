@@ -26,8 +26,8 @@ public class TwoPictureLayoutExpander extends Expander {
         TextView questionText = (TextView) activity.findViewById(R.id.question_text);
         TextView choiceOneTitle = (TextView) activity.findViewById(R.id.choice_one_title);
         TextView choiceTwoTitle = (TextView) activity.findViewById(R.id.choice_two_title);
-        LinearLayout questionOneButton = (LinearLayout) activity.findViewById(R.id.question_one_button);
-        LinearLayout questionTwoButton = (LinearLayout) activity.findViewById(R.id.question_two_button);
+        final LinearLayout questionOneButton = (LinearLayout) activity.findViewById(R.id.question_one_button);
+        final LinearLayout questionTwoButton = (LinearLayout) activity.findViewById(R.id.question_two_button);
 
         questionText.setText(question.getString("questionText"));
         questionText.setMovementMethod(new ScrollingMovementMethod());
@@ -38,6 +38,16 @@ public class TwoPictureLayoutExpander extends Expander {
         questionOneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                questionOneButton.setBackgroundResource(R.color.questionSelectedBackground);
+                saveAnswer();
+                nextQuestion();
+            }
+        });
+
+        questionTwoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                questionTwoButton.setBackgroundResource(R.color.questionSelectedBackground);
                 saveAnswer();
                 nextQuestion();
             }

@@ -2,10 +2,10 @@ package com.github.hintofbasil.crabbler.Questions;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
-import android.widget.TextView;
 
+import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.Expander;
+import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.TwoPictureLayoutExpander;
 import com.github.hintofbasil.crabbler.R;
 
 import org.json.JSONArray;
@@ -29,32 +29,20 @@ public class QuestionActivity extends AppCompatActivity {
             int questionId = getIntent().getIntExtra(getString(R.string.question_id_key), 0);
             JSONObject questionJson = new JSONArray(jsonString).getJSONObject(questionId);
 
+            Expander expander;
             switch(questionJson.getString("questionType")) {
                 case "TwoPictureChoice":
-                    expandTwoPictureLayout(questionJson);
+                    expander = new TwoPictureLayoutExpander();
                     break;
                 default:
                     Log.e("QuestionActivity", "Unknown question type.");
                     return;
             }
+            expander.expandLayout(this, questionJson);
 
         } catch (IOException|JSONException e) {
             Log.e("QuestionActivity", "Error reading questions\n" + Log.getStackTraceString(e));
             return;
         }
-    }
-
-    private void expandTwoPictureLayout(JSONObject questionJson) throws JSONException {
-        setContentView(R.layout.two_picture_choice_layout);
-        TextView questionText = (TextView) findViewById(R.id.question_text);
-        TextView choiceOneTitle = (TextView) findViewById(R.id.choice_one_title);
-        TextView choiceTwoTitle = (TextView) findViewById(R.id.choice_two_title);
-
-        questionText.setText(questionJson.getString("questionText"));
-        questionText.setMovementMethod(new ScrollingMovementMethod());
-
-        choiceOneTitle.setText(questionJson.getString("choiceOneTitle"));
-        choiceTwoTitle.setText(questionJson.getString("choiceTwoTitle"));
-
     }
 }

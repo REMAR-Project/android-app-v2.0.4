@@ -3,7 +3,9 @@ package com.github.hintofbasil.crabbler.Questions.QuestionExpanders;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.os.CountDownTimer;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
@@ -81,6 +83,14 @@ public abstract class Expander<T> {
         SharedPreferences prefs = activity.getSharedPreferences(activity.getString(R.string.saved_preferences_key), Context.MODE_PRIVATE);
         prefs.edit().putString(activity.getString(R.string.saved_preferences_key), newAnswers).apply();
         Log.i("Expander", "Questions saved - " + newAnswers);
+    }
+
+    protected Drawable getDrawable(String name) {
+        if(name.contains(".")) {
+            name = name.substring(0, name.lastIndexOf('.'));
+        }
+        int drawableId = activity.getResources().getIdentifier(name, "drawable", activity.getPackageName());
+        return ContextCompat.getDrawable(activity, drawableId);
     }
 
 }

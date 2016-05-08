@@ -7,5 +7,13 @@
     "choiceOnePicture": "q0_0",
     "choiceTwoTitle": "Guaiamum",
     "choiceTwoPicture": "q0_1"
+  },
+  {
+    "questionNumber": 1,
+    "questionType": "TwoChoiceDate",
+    "questionPicture": "q0_0",
+    "questionTitle": "Monitoring Crab-uca",
+    "questionOneText": "I want to report the occurrence of walk",
+    "questionTwoText": "I want to inform absence of walk"
   }
 ]

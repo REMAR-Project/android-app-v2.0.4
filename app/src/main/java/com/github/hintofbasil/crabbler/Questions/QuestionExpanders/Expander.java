@@ -25,9 +25,12 @@ import java.util.Arrays;
 public abstract class Expander<T> {
 
     AppCompatActivity activity;
+    SharedPreferences prefs;
 
     public Expander(AppCompatActivity activity) {
         this.activity = activity;
+        this.prefs = activity.getSharedPreferences(activity.getString(R.string.saved_preferences_key), Context.MODE_PRIVATE);
+
     }
 
     public abstract void expandLayout(JSONObject question) throws JSONException;
@@ -53,9 +56,9 @@ public abstract class Expander<T> {
     }
 
     protected String[] getCurrentAnswers() throws IOException, JSONException {
-        SharedPreferences prefs = activity.getSharedPreferences(activity.getString(R.string.saved_preferences_key), Context.MODE_PRIVATE);
         String answers = prefs.getString(activity.getString(R.string.answers_key), null);
         if(answers==null) {
+            Log.i("Expander", "No current answers");
             //Create empty answers string
             QuestionReader qr = new QuestionReader();
             int noAnswers = qr.getJsonQuestions(activity).length();
@@ -67,21 +70,24 @@ public abstract class Expander<T> {
     }
 
     protected String getCurrentAnswer(int id) throws IOException, JSONException {
-        return getCurrentAnswers()[0];
+        return getCurrentAnswers()[id];
     }
 
     protected void saveAnswer(T answer, int questionId) throws IOException, JSONException {
         String[] answers = getCurrentAnswers();
         answers[questionId] = answer.toString();
         StringBuilder sb = new StringBuilder();
-        for(String a:answers) {
-            sb.append(a);
+        for(int i=0;i<answers.length;i++) {
+            if(i==questionId) {
+                sb.append(answer);
+            } else {
+                sb.append(answers[i]);
+            }
             sb.append(',');
         }
         int len = sb.length();
         String newAnswers = sb.substring(0, len - 1);
-        SharedPreferences prefs = activity.getSharedPreferences(activity.getString(R.string.saved_preferences_key), Context.MODE_PRIVATE);
-        prefs.edit().putString(activity.getString(R.string.saved_preferences_key), newAnswers).apply();
+        prefs.edit().putString(activity.getString(R.string.answers_key), newAnswers).apply();
         Log.i("Expander", "Questions saved - " + newAnswers);
     }
 

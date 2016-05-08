@@ -2,6 +2,7 @@ package com.github.hintofbasil.crabbler.Questions.QuestionExpanders;
 
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -51,7 +52,7 @@ public class TwoPictureLayoutExpander extends Expander<Integer> {
                     questionOneButton.setBackgroundResource(R.color.questionSelectedBackground);
                     saveAnswer(0, questionNo);
                     nextQuestion();
-                } catch (IOException|JSONException e) {
+                } catch (IOException | JSONException e) {
                     e.printStackTrace();
                 }
             }
@@ -69,5 +70,21 @@ public class TwoPictureLayoutExpander extends Expander<Integer> {
                 }
             }
         });
+
+        try {
+            String currentAnswerString = getCurrentAnswer(questionNo);
+            int currentAnswer = Integer.valueOf(currentAnswerString);
+            if(currentAnswer==0) {
+                questionOneButton.setBackgroundResource(R.color.questionPreviouslySelectedBackground);
+            } else {
+                questionTwoButton.setBackgroundResource(R.color.questionPreviouslySelectedBackground);
+            }
+        } catch (IOException e) {
+            Log.e("QuestionActivity", "Error reading questions\n" + Log.getStackTraceString(e));
+            return;
+        } catch (NumberFormatException e) {
+            Log.d("QuestionActivity", "No previous answer");
+            return;
+        }
     }
 }

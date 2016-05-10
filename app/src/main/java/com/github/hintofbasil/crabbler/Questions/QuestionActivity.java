@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.Expander;
+import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.TwoChoiceDate;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.TwoPictureLayoutExpander;
 import com.github.hintofbasil.crabbler.R;
 
@@ -30,6 +31,9 @@ public class QuestionActivity extends AppCompatActivity {
             switch(questionJson.getString("questionType")) {
                 case "TwoPictureChoice":
                     expander = new TwoPictureLayoutExpander(this);
+                    break;
+                case "TwoChoiceDate":
+                    expander = new TwoChoiceDate(this);
                     break;
                 default:
                     Log.e("QuestionActivity", "Unknown question type.");

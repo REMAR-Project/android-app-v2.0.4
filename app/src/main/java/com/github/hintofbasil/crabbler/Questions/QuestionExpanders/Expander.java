@@ -22,24 +22,28 @@ import java.util.Arrays;
 /**
  * Interface to expand a layout using a question JSON object
  */
-public abstract class Expander<T> {
+public abstract class Expander {
 
     AppCompatActivity activity;
     SharedPreferences prefs;
+    int questionId;
 
     public Expander(AppCompatActivity activity) {
         this.activity = activity;
         this.prefs = activity.getSharedPreferences(activity.getString(R.string.saved_preferences_key), Context.MODE_PRIVATE);
-
+        this.questionId = activity.getIntent().getIntExtra(activity.getString(R.string.question_id_key), 0);
     }
 
     public abstract void expandLayout(JSONObject question) throws JSONException;
 
+    protected abstract void setPreviousAnswer(String answer);
+
+    public abstract String getSelectedAnswer();
+
     protected void nextQuestion() {
-        int question = activity.getIntent().getIntExtra(activity.getString(R.string.question_id_key), 0);
         //TODO handle last question
         final Intent intent = new Intent(activity, QuestionActivity.class);
-        intent.putExtra(activity.getString(R.string.question_id_key), question + 1);
+        intent.putExtra(activity.getString(R.string.question_id_key), questionId + 1);
         new CountDownTimer(1000, 1000) {
 
             @Override
@@ -49,13 +53,19 @@ public abstract class Expander<T> {
 
             @Override
             public void onFinish() {
-                activity.startActivity(intent);
-                activity.finish();
+                try {
+                    saveAnswer();
+                    activity.startActivity(intent);
+                    activity.finish();
+                } catch (IOException|JSONException e) {
+                    Log.e("Expander", "Unable to save answer\n" + Log.getStackTraceString(e));
+                }
+
             }
         }.start();
     }
 
-    protected String[] getCurrentAnswers() throws IOException, JSONException {
+    private String[] getCurrentAnswers() throws IOException, JSONException {
         String answers = prefs.getString(activity.getString(R.string.answers_key), null);
         if(answers==null) {
             Log.i("Expander", "No current answers");
@@ -69,13 +79,18 @@ public abstract class Expander<T> {
         return answers.split(",", -1);
     }
 
-    protected String getCurrentAnswer(int id) throws IOException, JSONException {
-        return getCurrentAnswers()[id];
+    protected String getCurrentAnswer() throws IOException, JSONException {
+        return getCurrentAnswers()[questionId];
     }
 
-    protected void saveAnswer(T answer, int questionId) throws IOException, JSONException {
+    private void saveAnswer() throws IOException, JSONException {
         String[] answers = getCurrentAnswers();
-        answers[questionId] = answer.toString();
+        String answer = getSelectedAnswer();
+        // Don't save on null response
+        if(answer==null) {
+            return;
+        }
+        answers[questionId] = answer;
         StringBuilder sb = new StringBuilder();
         for(int i=0;i<answers.length;i++) {
             if(i==questionId) {
@@ -97,6 +112,15 @@ public abstract class Expander<T> {
         }
         int drawableId = activity.getResources().getIdentifier(name, "drawable", activity.getPackageName());
         return ContextCompat.getDrawable(activity, drawableId);
+    }
+
+
+    public void setPreviousAnswer() {
+        try {
+            setPreviousAnswer(getCurrentAnswer());
+        } catch (IOException|JSONException e) {
+            Log.e("Expander", "Unable to load answer\n" + Log.getStackTraceString(e));
+        }
     }
 
 }

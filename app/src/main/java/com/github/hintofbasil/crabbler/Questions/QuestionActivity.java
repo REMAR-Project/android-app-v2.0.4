@@ -15,6 +15,8 @@ import java.io.IOException;
 
 public class QuestionActivity extends AppCompatActivity {
 
+    Expander expander;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +27,6 @@ public class QuestionActivity extends AppCompatActivity {
             QuestionReader qr = new QuestionReader();
             JSONObject questionJson = qr.getJsonQuestion(this, questionId);
 
-            Expander expander;
             switch(questionJson.getString("questionType")) {
                 case "TwoPictureChoice":
                     expander = new TwoPictureLayoutExpander(this);
@@ -39,6 +40,14 @@ public class QuestionActivity extends AppCompatActivity {
         } catch (IOException|JSONException e) {
             Log.e("QuestionActivity", "Error reading questions\n" + Log.getStackTraceString(e));
             return;
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(expander!=null) {
+            expander.setPreviousAnswer();
         }
     }
 }

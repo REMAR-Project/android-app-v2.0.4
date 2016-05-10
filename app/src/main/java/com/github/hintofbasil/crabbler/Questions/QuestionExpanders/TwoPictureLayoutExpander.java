@@ -18,7 +18,11 @@ import java.io.IOException;
 /**
  * Created by will on 05/05/16.
  */
-public class TwoPictureLayoutExpander extends Expander<Integer> {
+public class TwoPictureLayoutExpander extends Expander {
+
+    private int currentAnswer = -1;
+    LinearLayout questionOneButton;
+    LinearLayout questionTwoButton;
 
     public TwoPictureLayoutExpander(AppCompatActivity activity) {
         super(activity);
@@ -30,11 +34,10 @@ public class TwoPictureLayoutExpander extends Expander<Integer> {
         TextView questionText = (TextView) activity.findViewById(R.id.question_text);
         TextView choiceOneTitle = (TextView) activity.findViewById(R.id.choice_one_title);
         TextView choiceTwoTitle = (TextView) activity.findViewById(R.id.choice_two_title);
-        final LinearLayout questionOneButton = (LinearLayout) activity.findViewById(R.id.question_one_button);
-        final LinearLayout questionTwoButton = (LinearLayout) activity.findViewById(R.id.question_two_button);
+        questionOneButton = (LinearLayout) activity.findViewById(R.id.question_one_button);
+        questionTwoButton = (LinearLayout) activity.findViewById(R.id.question_two_button);
         ImageView choiceOneImage = (ImageView) activity.findViewById(R.id.choice_one_image);
         ImageView choiceTwoImage = (ImageView) activity.findViewById(R.id.choice_two_image);
-        final int questionNo = question.getInt("questionNumber");
 
         choiceOneImage.setImageDrawable(getDrawable(question.getString("choiceOnePicture")));
         choiceTwoImage.setImageDrawable(getDrawable(question.getString("choiceTwoPicture")));
@@ -48,43 +51,46 @@ public class TwoPictureLayoutExpander extends Expander<Integer> {
         questionOneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    questionOneButton.setBackgroundResource(R.color.questionSelectedBackground);
-                    saveAnswer(0, questionNo);
-                    nextQuestion();
-                } catch (IOException | JSONException e) {
-                    e.printStackTrace();
-                }
+                currentAnswer = 0;
+                questionOneButton.setBackgroundResource(R.color.questionSelectedBackground);
+                nextQuestion();
             }
         });
 
         questionTwoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    questionTwoButton.setBackgroundResource(R.color.questionSelectedBackground);
-                    saveAnswer(1, questionNo);
-                    nextQuestion();
-                } catch (IOException|JSONException e) {
-                    e.printStackTrace();
-                }
+                currentAnswer = 1;
+                questionTwoButton.setBackgroundResource(R.color.questionSelectedBackground);
+                nextQuestion();
             }
         });
 
+
+    }
+
+    @Override
+    protected void setPreviousAnswer(String answer) {
         try {
-            String currentAnswerString = getCurrentAnswer(questionNo);
-            int currentAnswer = Integer.valueOf(currentAnswerString);
-            if(currentAnswer==0) {
+            int intAnswer = Integer.valueOf(answer);
+            if(intAnswer==0) {
                 questionOneButton.setBackgroundResource(R.color.questionPreviouslySelectedBackground);
             } else {
                 questionTwoButton.setBackgroundResource(R.color.questionPreviouslySelectedBackground);
             }
-        } catch (IOException e) {
-            Log.e("QuestionActivity", "Error reading questions\n" + Log.getStackTraceString(e));
-            return;
+            currentAnswer = intAnswer;
         } catch (NumberFormatException e) {
             Log.d("QuestionActivity", "No previous answer");
             return;
+        }
+    }
+
+    @Override
+    public String getSelectedAnswer() {
+        if(currentAnswer!=-1) {
+            return String.valueOf(currentAnswer);
+        } else {
+            return null;
         }
     }
 }

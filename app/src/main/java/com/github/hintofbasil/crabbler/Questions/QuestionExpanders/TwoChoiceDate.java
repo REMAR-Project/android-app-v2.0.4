@@ -10,7 +10,7 @@ import com.github.hintofbasil.crabbler.R;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class TwoChoiceDate extends Expander<Integer> {
+public class TwoChoiceDate extends Expander {
 
     public TwoChoiceDate(AppCompatActivity activity) {
         super(activity);
@@ -29,5 +29,15 @@ public class TwoChoiceDate extends Expander<Integer> {
         titleView.setText(question.getString("questionTitle"));
         choiceOneCheckBox.setText(question.getString("choiceOneText"));
         choiceTwoCheckBox.setText(question.getString("choiceTwoText"));
+    }
+
+    @Override
+    protected void setPreviousAnswer(String answer) {
+
+    }
+
+    @Override
+    public String getSelectedAnswer() {
+        return null;
     }
 }

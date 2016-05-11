@@ -87,7 +87,12 @@ public class TwoChoiceDate extends Expander {
         yearListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                View previous = parent.getChildAt(yearSelected);
+                if(previous!=null) {
+                    previous.setBackgroundResource(android.R.color.white);
+                }
                 yearSelected = position;
+                view.setBackgroundResource(R.color.questionSelectedBackground);
             }
         });
 

@@ -9,10 +9,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.github.hintofbasil.crabbler.Questions.QuestionExpanders.TwoChoiceDate">
 
-    <DatePicker
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:datePickerMode="spinner"
-        />
+    <include layout="@layout/activity_two_choice_common" />
 
 </RelativeLayout>

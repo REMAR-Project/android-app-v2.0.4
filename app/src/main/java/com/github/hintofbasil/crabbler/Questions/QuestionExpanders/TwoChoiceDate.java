@@ -19,6 +19,7 @@ public class TwoChoiceDate extends Expander {
     CheckBox choiceOneCheckBox;
     CheckBox choiceTwoCheckBox;
     ListView monthListView;
+    ListView yearListView;
 
     public TwoChoiceDate(AppCompatActivity activity) {
         super(activity);
@@ -33,6 +34,7 @@ public class TwoChoiceDate extends Expander {
         choiceOneCheckBox = (CheckBox) activity.findViewById(R.id.choice_one);
         choiceTwoCheckBox = (CheckBox) activity.findViewById(R.id.choice_two);
         monthListView = (ListView) activity.findViewById(R.id.month_list_view);
+        yearListView = (ListView) activity.findViewById(R.id.year_list_view);
 
         imageView.setImageDrawable(getDrawable(question.getString("questionPicture")));
         titleView.setText(question.getString("questionTitle"));
@@ -53,13 +55,20 @@ public class TwoChoiceDate extends Expander {
             }
         });
 
-
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+        ArrayAdapter<String> monthsAdapter = new ArrayAdapter<String>(
                 activity.getBaseContext(),
                 android.R.layout.simple_list_item_1,
                 activity.getResources().getStringArray(R.array.months));
-        monthListView.setAdapter(adapter);
+        monthListView.setAdapter(monthsAdapter);
+
+        ArrayAdapter<String> yearsAdapter = new ArrayAdapter<String>(
+                activity.getBaseContext(),
+                android.R.layout.simple_list_item_1,
+                activity.getResources().getStringArray(R.array.years));
+        yearListView.setAdapter(yearsAdapter);
+
+
+
     }
 
     @Override

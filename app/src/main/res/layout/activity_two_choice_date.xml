@@ -16,11 +16,29 @@
         android:layout_width="match_parent"
         />
 
-    <ListView
-        android:id="@+id/month_list_view"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        />
+        android:orientation="horizontal"
+        >
+
+        <ListView
+            android:id="@+id/month_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            />
+
+        <ListView
+            android:id="@+id/year_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            />
+
+    </LinearLayout>
+
+
 
 
 </LinearLayout>

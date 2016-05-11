@@ -28,4 +28,19 @@ Aliquam porta dui eu quam egestas, eu sollicitudin lacus facilisis. Donec laoree
     <string name="preference_session_id">session_id</string>
 
     <string name="url_login">http://40180582.pythonanywhere.com/static/login</string>
+
+    <string-array name="months">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
 </resources>

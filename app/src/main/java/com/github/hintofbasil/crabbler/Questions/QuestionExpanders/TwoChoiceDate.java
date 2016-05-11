@@ -3,8 +3,10 @@ package com.github.hintofbasil.crabbler.Questions.QuestionExpanders;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.github.hintofbasil.crabbler.R;
@@ -16,6 +18,7 @@ public class TwoChoiceDate extends Expander {
 
     CheckBox choiceOneCheckBox;
     CheckBox choiceTwoCheckBox;
+    ListView monthListView;
 
     public TwoChoiceDate(AppCompatActivity activity) {
         super(activity);
@@ -29,6 +32,7 @@ public class TwoChoiceDate extends Expander {
         TextView titleView = (TextView) activity.findViewById(R.id.title);
         choiceOneCheckBox = (CheckBox) activity.findViewById(R.id.choice_one);
         choiceTwoCheckBox = (CheckBox) activity.findViewById(R.id.choice_two);
+        monthListView = (ListView) activity.findViewById(R.id.month_list_view);
 
         imageView.setImageDrawable(getDrawable(question.getString("questionPicture")));
         titleView.setText(question.getString("questionTitle"));
@@ -48,6 +52,14 @@ public class TwoChoiceDate extends Expander {
                 choiceOneCheckBox.setChecked(false);
             }
         });
+
+
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                activity.getBaseContext(),
+                android.R.layout.simple_list_item_1,
+                activity.getResources().getStringArray(R.array.months));
+        monthListView.setAdapter(adapter);
     }
 
     @Override

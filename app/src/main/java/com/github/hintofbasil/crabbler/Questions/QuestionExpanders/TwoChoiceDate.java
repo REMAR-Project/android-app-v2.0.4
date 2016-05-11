@@ -3,6 +3,7 @@ package com.github.hintofbasil.crabbler.Questions.QuestionExpanders;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.ImageView;
@@ -20,6 +21,9 @@ public class TwoChoiceDate extends Expander {
     CheckBox choiceTwoCheckBox;
     ListView monthListView;
     ListView yearListView;
+
+    int monthSelected = -1;
+    int yearSelected = -1;
 
     public TwoChoiceDate(AppCompatActivity activity) {
         super(activity);
@@ -66,6 +70,26 @@ public class TwoChoiceDate extends Expander {
                 android.R.layout.simple_list_item_1,
                 activity.getResources().getStringArray(R.array.years));
         yearListView.setAdapter(yearsAdapter);
+
+        monthListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //Remove previous
+                View previous = parent.getChildAt(monthSelected);
+                if(previous!=null) {
+                    previous.setBackgroundResource(android.R.color.white);
+                }
+                monthSelected = position;
+                view.setBackgroundResource(R.color.questionSelectedBackground);
+            }
+        });
+
+        yearListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                yearSelected = position;
+            }
+        });
 
 
 

@@ -70,7 +70,8 @@ public class TwoChoiceDate extends Expander {
 
     @Override
     protected void setPreviousAnswer(String answer) {
-        switch(answer) {
+        String[] answers = answer.split(";");
+        switch(answers[0]) {
             case "0":
                 choiceOneCheckBox.setChecked(true);
                 break;
@@ -81,16 +82,34 @@ public class TwoChoiceDate extends Expander {
                 Log.d("TwoChoiceDate", "No previous answer");
                 break;
         }
+
+        try {
+            int month = Integer.parseInt(answers[1]);
+            monthListSpinner.setSelection(month);
+        } catch (NumberFormatException|ArrayIndexOutOfBoundsException e) {
+            Log.d("TwoChoiceDate", "No previous month");
+        }
+
+        try {
+            int month = Integer.parseInt(answers[2]);
+            yearListSpinner.setSelection(month);
+        } catch (NumberFormatException|ArrayIndexOutOfBoundsException e) {
+            Log.d("TwoChoiceDate", "No previous year");
+        }
     }
 
     @Override
     public String getSelectedAnswer() {
+        StringBuilder sb = new StringBuilder();
         if(choiceOneCheckBox.isChecked()) {
-            return "0";
+            sb.append('0');
         } else if(choiceTwoCheckBox.isChecked()) {
-            return "1";
-        } else {
-            return null;
+            sb.append('1');
         }
+        sb.append(';');
+        sb.append(monthListSpinner.getSelectedItemPosition());
+        sb.append(';');
+        sb.append(yearListSpinner.getSelectedItemPosition());
+        return sb.toString();
     }
 }

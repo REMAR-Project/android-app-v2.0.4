@@ -3,11 +3,10 @@ package com.github.hintofbasil.crabbler.Questions.QuestionExpanders;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.ImageView;
-import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.github.hintofbasil.crabbler.R;
@@ -19,11 +18,8 @@ public class TwoChoiceDate extends Expander {
 
     CheckBox choiceOneCheckBox;
     CheckBox choiceTwoCheckBox;
-    ListView monthListView;
-    ListView yearListView;
-
-    int monthSelected = -1;
-    int yearSelected = -1;
+    Spinner monthListSpinner;
+    Spinner yearListSpinner;
 
     public TwoChoiceDate(AppCompatActivity activity) {
         super(activity);
@@ -37,8 +33,8 @@ public class TwoChoiceDate extends Expander {
         TextView titleView = (TextView) activity.findViewById(R.id.title);
         choiceOneCheckBox = (CheckBox) activity.findViewById(R.id.choice_one);
         choiceTwoCheckBox = (CheckBox) activity.findViewById(R.id.choice_two);
-        monthListView = (ListView) activity.findViewById(R.id.month_list_view);
-        yearListView = (ListView) activity.findViewById(R.id.year_list_view);
+        monthListSpinner = (Spinner) activity.findViewById(R.id.month_list_view);
+        yearListSpinner = (Spinner) activity.findViewById(R.id.year_list_view);
 
         imageView.setImageDrawable(getDrawable(question.getString("questionPicture")));
         titleView.setText(question.getString("questionTitle"));
@@ -63,41 +59,13 @@ public class TwoChoiceDate extends Expander {
                 activity.getBaseContext(),
                 android.R.layout.simple_list_item_1,
                 activity.getResources().getStringArray(R.array.months));
-        monthListView.setAdapter(monthsAdapter);
+        monthListSpinner.setAdapter(monthsAdapter);
 
         ArrayAdapter<String> yearsAdapter = new ArrayAdapter<String>(
                 activity.getBaseContext(),
                 android.R.layout.simple_list_item_1,
                 activity.getResources().getStringArray(R.array.years));
-        yearListView.setAdapter(yearsAdapter);
-
-        monthListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //Remove previous
-                View previous = parent.getChildAt(monthSelected);
-                if(previous!=null) {
-                    previous.setBackgroundResource(android.R.color.white);
-                }
-                monthSelected = position;
-                view.setBackgroundResource(R.color.questionSelectedBackground);
-            }
-        });
-
-        yearListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                View previous = parent.getChildAt(yearSelected);
-                if(previous!=null) {
-                    previous.setBackgroundResource(android.R.color.white);
-                }
-                yearSelected = position;
-                view.setBackgroundResource(R.color.questionSelectedBackground);
-            }
-        });
-
-
-
+        yearListSpinner.setAdapter(yearsAdapter);
     }
 
     @Override

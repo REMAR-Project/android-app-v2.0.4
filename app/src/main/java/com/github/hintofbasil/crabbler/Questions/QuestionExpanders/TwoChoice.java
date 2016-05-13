@@ -1,6 +1,10 @@
 package com.github.hintofbasil.crabbler.Questions.QuestionExpanders;
 
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.github.hintofbasil.crabbler.R;
 
@@ -12,6 +16,9 @@ import org.json.JSONObject;
  */
 public class TwoChoice extends Expander {
 
+    CheckBox choiceOneCheckBox;
+    CheckBox choiceTwoCheckBox;
+
     public TwoChoice(AppCompatActivity activity) {
         super(activity);
     }
@@ -19,6 +26,29 @@ public class TwoChoice extends Expander {
     @Override
     public void expandLayout(JSONObject question) throws JSONException {
         activity.setContentView(R.layout.activity_two_choice);
+        ImageView imageView = (ImageView) activity.findViewById(R.id.image);
+        TextView titleView = (TextView) activity.findViewById(R.id.title);
+        choiceOneCheckBox = (CheckBox) activity.findViewById(R.id.choice_one);
+        choiceTwoCheckBox = (CheckBox) activity.findViewById(R.id.choice_two);
+
+        imageView.setImageDrawable(getDrawable(question.getString("questionPicture")));
+        titleView.setText(question.getString("questionTitle"));
+        choiceOneCheckBox.setText(question.getString("choiceOneText"));
+        choiceTwoCheckBox.setText(question.getString("choiceTwoText"));
+
+        choiceOneCheckBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                choiceTwoCheckBox.setChecked(false);
+            }
+        });
+
+        choiceTwoCheckBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                choiceOneCheckBox.setChecked(false);
+            }
+        });
     }
 
     @Override

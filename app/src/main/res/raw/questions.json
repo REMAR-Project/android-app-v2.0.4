@@ -23,5 +23,13 @@
     "questionTitle": "Monitoring Crab uçá",
     "choiceOneText": "There was walked after the new moon",
     "choiceTwoText": "There was walked after the full moon"
+  },
+  {
+    "questionNumber": 3,
+    "questionType": "TwoChoice",
+    "questionPicture": "q0_0",
+    "questionTitle": "Monitoring Crab uçá",
+    "choiceOneText": "I want to register more occurrences or absences of Andradas",
+    "choiceTwoText": "I want to proceed with information about the location tracking"
   }
 ]

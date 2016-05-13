@@ -80,7 +80,16 @@ public abstract class Expander {
     }
 
     protected String getCurrentAnswer() throws IOException, JSONException {
-        return getCurrentAnswers()[questionId];
+        // Can go out of bounds on questions.json update
+        try {
+            return getCurrentAnswers()[questionId];
+        } catch (ArrayIndexOutOfBoundsException e) {
+            // Recursively add commas until correct length
+            // TODO check for question change on boot instead
+            String answers = prefs.getString(activity.getString(R.string.answers_key), null);
+            prefs.edit().putString(activity.getString(R.string.answers_key), answers + ",").commit();
+            return getCurrentAnswer();
+        }
     }
 
     private void saveAnswer() throws IOException, JSONException {
@@ -103,7 +112,7 @@ public abstract class Expander {
         int len = sb.length();
         String newAnswers = sb.substring(0, len - 1);
         prefs.edit().putString(activity.getString(R.string.answers_key), newAnswers).apply();
-        Log.i("Expander", "Questions saved - " + newAnswers);
+        Log.i("Expander", "Question saved - " + newAnswers);
     }
 
     protected Drawable getDrawable(String name) {

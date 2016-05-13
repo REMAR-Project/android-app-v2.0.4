@@ -61,6 +61,6 @@ public class QuestionActivity extends AppCompatActivity {
     }
 
     public void nextQuestion(View view) {
-        expander.nextQuestion();
+        expander.nextQuestion(0);
     }
 }

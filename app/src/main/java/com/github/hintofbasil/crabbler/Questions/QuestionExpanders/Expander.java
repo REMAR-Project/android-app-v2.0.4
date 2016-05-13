@@ -40,11 +40,11 @@ public abstract class Expander {
 
     public abstract String getSelectedAnswer();
 
-    public void nextQuestion() {
+    public void nextQuestion(int delay) {
         //TODO handle last question
         final Intent intent = new Intent(activity, QuestionActivity.class);
         intent.putExtra(activity.getString(R.string.question_id_key), questionId + 1);
-        new CountDownTimer(1000, 1000) {
+        new CountDownTimer(delay, delay) {
 
             @Override
             public void onTick(long millisUntilFinished) {

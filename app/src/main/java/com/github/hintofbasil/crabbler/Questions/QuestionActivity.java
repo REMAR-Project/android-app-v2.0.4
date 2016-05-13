@@ -3,6 +3,7 @@ package com.github.hintofbasil.crabbler.Questions;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.Expander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.TwoChoiceDate;
@@ -53,5 +54,13 @@ public class QuestionActivity extends AppCompatActivity {
         if(expander!=null) {
             expander.setPreviousAnswer();
         }
+    }
+
+    public void previousQuestion(View view) {
+        expander.previousQuestion();
+    }
+
+    public void nextQuestion(View view) {
+        expander.nextQuestion();
     }
 }

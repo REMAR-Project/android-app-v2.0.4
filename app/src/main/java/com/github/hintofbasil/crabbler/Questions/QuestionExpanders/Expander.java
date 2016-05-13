@@ -40,7 +40,7 @@ public abstract class Expander {
 
     public abstract String getSelectedAnswer();
 
-    protected void nextQuestion() {
+    public void nextQuestion() {
         //TODO handle last question
         final Intent intent = new Intent(activity, QuestionActivity.class);
         intent.putExtra(activity.getString(R.string.question_id_key), questionId + 1);
@@ -132,4 +132,10 @@ public abstract class Expander {
         }
     }
 
+    public void previousQuestion() {
+        final Intent intent = new Intent(activity, QuestionActivity.class);
+        intent.putExtra(activity.getString(R.string.question_id_key), questionId - 1);
+        activity.startActivity(intent);
+        activity.finish();
+    }
 }

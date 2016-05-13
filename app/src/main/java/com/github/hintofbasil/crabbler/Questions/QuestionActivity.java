@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.Expander;
+import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.TwoChoice;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.TwoChoiceDate;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.TwoPictureLayoutExpander;
 import com.github.hintofbasil.crabbler.R;
@@ -35,6 +36,9 @@ public class QuestionActivity extends AppCompatActivity {
                     break;
                 case "TwoChoiceDate":
                     expander = new TwoChoiceDate(this);
+                    break;
+                case "TwoChoice":
+                    expander = new TwoChoice(this);
                     break;
                 default:
                     Log.e("QuestionActivity", "Unknown question type.");

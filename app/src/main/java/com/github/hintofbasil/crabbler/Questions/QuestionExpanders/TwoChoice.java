@@ -1,6 +1,7 @@
 package com.github.hintofbasil.crabbler.Questions.QuestionExpanders;
 
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
@@ -53,11 +54,27 @@ public class TwoChoice extends Expander {
 
     @Override
     protected void setPreviousAnswer(String answer) {
-
+        switch(answer) {
+            case "0":
+                choiceOneCheckBox.setChecked(true);
+                break;
+            case "1":
+                choiceTwoCheckBox.setChecked(true);
+                break;
+            default:
+                Log.d("TwoChoice", "No previous answer");
+                break;
+        }
     }
 
     @Override
     public String getSelectedAnswer() {
-        return null;
+        if(choiceOneCheckBox.isChecked()) {
+            return "0";
+        } else if(choiceTwoCheckBox.isChecked()) {
+            return "1";
+        } else {
+            return null;
+        }
     }
 }

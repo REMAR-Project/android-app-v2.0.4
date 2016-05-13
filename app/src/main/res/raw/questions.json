@@ -1,6 +1,15 @@
 [
   {
     "questionNumber": 0,
+    "questionType": "TwoPictureChoice",
+    "questionText": "Help monitor the occurrence and absence of reproductive Andradas crab-uca and crab dip over the moon at the Brazilian coast, between November and April",
+    "choiceOneTitle": "Crab uca",
+    "choiceOnePicture": "q0_0",
+    "choiceTwoTitle": "Guaiamum",
+    "choiceTwoPicture": "q0_1"
+  },
+  {
+    "questionNumber": 1,
     "questionType": "TwoChoiceDate",
     "questionPicture": "q0_0",
     "questionTitle": "Monitoring Crab-uca",

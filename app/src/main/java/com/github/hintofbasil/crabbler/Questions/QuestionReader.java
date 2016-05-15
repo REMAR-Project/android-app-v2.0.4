@@ -18,7 +18,7 @@ public class QuestionReader {
 
     public JSONArray getJsonQuestions(AppCompatActivity activity) throws IOException, JSONException {
         InputStream jsonInputStream = activity.getBaseContext().getResources().openRawResource(R.raw.questions);
-        byte[] buffer = new byte[1024];
+        byte[] buffer = new byte[2048];
         int length = jsonInputStream.read(buffer);
         String jsonString = new String(buffer).substring(0, length);
         return new JSONArray(jsonString);

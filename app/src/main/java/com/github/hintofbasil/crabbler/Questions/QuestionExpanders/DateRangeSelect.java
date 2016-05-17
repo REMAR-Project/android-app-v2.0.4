@@ -16,10 +16,13 @@ import com.roomorama.caldroid.CaldroidListener;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by will on 14/05/16.
@@ -67,6 +70,11 @@ public class DateRangeSelect extends Expander {
         caldroidFragment.setArguments(args);
         caldroidFragment.setCaldroidListener(caldroidListener);
 
+        // Disable out of range
+        List<Date> validDates = getValidDates(question);
+        caldroidFragment.setMinDate(getMinDate(validDates));
+        caldroidFragment.setMaxDate(getMaxDate(validDates));
+
         FragmentTransaction t = activity.getSupportFragmentManager().beginTransaction();
         t.replace(R.id.content_layout, caldroidFragment);
         t.commit();
@@ -98,5 +106,43 @@ public class DateRangeSelect extends Expander {
             return simpleDateFormat.format(selectedDate);
         }
         return "";
+    }
+
+    private List<Date> getValidDates(JSONObject question) {
+        List<Date> lst = new LinkedList<Date>();
+        try {
+            String previousAnswer = getAnswer(question.getInt("filterOnQuestion"));
+            if(previousAnswer.equals("")) {
+                return lst;
+            }
+            for(String s : previousAnswer.split(";")) {
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
+                Date date = simpleDateFormat.parse(s);
+                lst.add(date);
+            }
+        } catch (IOException|JSONException|ParseException e) {
+            e.printStackTrace();
+        }
+        return lst;
+    }
+
+    private Date getMinDate(List<Date> dates) {
+        Date min = null;
+        for(Date d : dates) {
+            if(min==null || d.before(min)) {
+                min = d;
+            }
+        }
+        return min;
+    }
+
+    private Date getMaxDate(List<Date> dates) {
+        Date max = null;
+        for(Date d : dates) {
+            if(max==null || d.after(max)) {
+                max = d;
+            }
+        }
+        return max;
     }
 }

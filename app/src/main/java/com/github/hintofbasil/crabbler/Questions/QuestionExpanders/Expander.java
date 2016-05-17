@@ -80,9 +80,13 @@ public abstract class Expander {
     }
 
     protected String getCurrentAnswer() throws IOException, JSONException {
+        return getAnswer(questionId);
+    }
+
+    protected String getAnswer(int id) throws IOException, JSONException {
         // Can go out of bounds on questions.json update
         try {
-            return getCurrentAnswers()[questionId];
+            return getCurrentAnswers()[id];
         } catch (ArrayIndexOutOfBoundsException e) {
             // Recursively add commas until correct length
             // TODO check for question change on boot instead

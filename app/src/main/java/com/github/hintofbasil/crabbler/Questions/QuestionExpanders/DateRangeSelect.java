@@ -20,18 +20,17 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
 
 /**
  * Created by will on 14/05/16.
  */
-public class DateRange extends Expander {
+public class DateRangeSelect extends Expander {
 
-    private List<Date> selectedDates = new LinkedList<Date>();
     CaldroidFragment caldroidFragment = new CaldroidFragment();
+    Date selectedDate;
+    View previousView;
 
-    public DateRange(AppCompatActivity activity) {
+    public DateRangeSelect(AppCompatActivity activity) {
         super(activity);
     }
 
@@ -47,16 +46,15 @@ public class DateRange extends Expander {
 
         // Build calendar
 
-        CaldroidListener caldroidListener = new CaldroidListener() {
+        final CaldroidListener caldroidListener = new CaldroidListener() {
             @Override
             public void onSelectDate(Date date, View view) {
-                if(selectedDates.contains(date)) {
-                    selectedDates.remove(date);
-                    view.setBackgroundResource(R.color.caldroid_white);
-                } else {
-                    selectedDates.add(date);
-                    view.setBackgroundResource(R.color.questionSelectedBackground);
+                if(selectedDate!=null) {
+                    previousView.setBackgroundResource(R.color.caldroid_white);
                 }
+                view.setBackgroundResource(R.color.questionSelectedBackground);
+                selectedDate = date;
+                previousView = view;
             }
         };
 
@@ -80,34 +78,25 @@ public class DateRange extends Expander {
             //Return early if no previous answer
             return;
         }
-        for (String s : answer.split(";")) {
-            try {
-                // Requires new SimpleDateFormat for each parse.
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
-                Date date = simpleDateFormat.parse(s);
-                selectedDates.add(date);
-                caldroidFragment.setSelectedDate(date);
-                Drawable drawable = activity.getResources().getDrawable(R.drawable.caldroid_cell_previously_selected);
-                caldroidFragment.setBackgroundDrawableForDate(drawable, date);
-            } catch (ParseException e) {
-                Log.e("DateRange", "Unable to create date from answer " + Log.getStackTraceString(e));
-                return;
-            }
+        try {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
+            Date date = simpleDateFormat.parse(answer);
+            selectedDate = date;
+            caldroidFragment.setSelectedDate(date);
+            Drawable drawable = activity.getResources().getDrawable(R.drawable.caldroid_cell_previously_selected);
+            caldroidFragment.setBackgroundDrawableForDate(drawable, date);
+        } catch (ParseException e) {
+            Log.e("DateRange", "Unable to create date from answer " + Log.getStackTraceString(e));
+            return;
         }
     }
 
     @Override
     public String getSelectedAnswer() {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
-        StringBuilder sb = new StringBuilder();
-        for (Date date: selectedDates) {
-            String dateString = simpleDateFormat.format(date);
-            sb.append(dateString);
-            sb.append(';');
+        if(selectedDate!=null) {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
+            return simpleDateFormat.format(selectedDate);
         }
-        // Remove trailing semicolon
-        if(sb.length()>0)
-            sb.deleteCharAt(sb.length()-1);
-        return sb.toString();
+        return "";
     }
 }

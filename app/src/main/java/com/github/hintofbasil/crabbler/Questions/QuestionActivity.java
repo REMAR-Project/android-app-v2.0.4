@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DateRange;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.Expander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.TwoChoice;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.TwoChoiceDate;
@@ -39,6 +40,9 @@ public class QuestionActivity extends AppCompatActivity {
                     break;
                 case "TwoChoice":
                     expander = new TwoChoice(this);
+                    break;
+                case "DateRange":
+                    expander = new DateRange(this);
                     break;
                 default:
                     Log.e("QuestionActivity", "Unknown question type.");

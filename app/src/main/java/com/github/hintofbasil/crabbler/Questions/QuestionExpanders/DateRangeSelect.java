@@ -52,6 +52,7 @@ public class DateRangeSelect extends Expander {
         final CaldroidListener caldroidListener = new CaldroidListener() {
             @Override
             public void onSelectDate(Date date, View view) {
+                // TODO remove previously selected highlighting
                 if(selectedDate!=null) {
                     if(previousView!=null) {
                         previousView.setBackgroundResource(R.color.caldroid_white);

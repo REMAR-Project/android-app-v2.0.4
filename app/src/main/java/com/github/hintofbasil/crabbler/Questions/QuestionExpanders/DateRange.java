@@ -3,6 +3,7 @@ package com.github.hintofbasil.crabbler.Questions.QuestionExpanders;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,6 +15,8 @@ import com.roomorama.caldroid.CaldroidListener;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedList;
@@ -25,6 +28,7 @@ import java.util.List;
 public class DateRange extends Expander {
 
     private List<Date> selectedDates = new LinkedList<Date>();
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
 
     public DateRange(AppCompatActivity activity) {
         super(activity);
@@ -72,11 +76,28 @@ public class DateRange extends Expander {
 
     @Override
     protected void setPreviousAnswer(String answer) {
-
+        for (String s : answer.split(";")) {
+            try {
+                Date date = simpleDateFormat.parse(answer);
+                selectedDates.add(date);
+            } catch (ParseException e) {
+                Log.e("DateRange", "Unable to create date from answer " + Log.getStackTraceString(e));
+                return;
+            }
+        }
     }
 
     @Override
     public String getSelectedAnswer() {
-        return null;
+        StringBuilder sb = new StringBuilder();
+        for (Date date: selectedDates) {
+            String dateString = simpleDateFormat.format(date);
+            sb.append(dateString);
+            sb.append(';');
+        }
+        // Remove trailing semicolon
+        if(sb.length()>0)
+            sb.deleteCharAt(sb.length()-1);
+        return sb.toString();
     }
 }

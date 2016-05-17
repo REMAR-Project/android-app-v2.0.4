@@ -16,11 +16,15 @@ import org.json.JSONObject;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by will on 14/05/16.
  */
 public class DateRange extends Expander {
+
+    private List<Date> selectedDates = new LinkedList<Date>();
 
     public DateRange(AppCompatActivity activity) {
         super(activity);
@@ -41,7 +45,13 @@ public class DateRange extends Expander {
         CaldroidListener caldroidListener = new CaldroidListener() {
             @Override
             public void onSelectDate(Date date, View view) {
-                view.setBackgroundResource(R.color.questionPreviouslySelectedBackground);;
+                if(selectedDates.contains(date)) {
+                    selectedDates.remove(date);
+                    view.setBackgroundResource(R.color.caldroid_white);
+                } else {
+                    selectedDates.add(date);
+                    view.setBackgroundResource(R.color.questionSelectedBackground);
+                }
             }
         };
 

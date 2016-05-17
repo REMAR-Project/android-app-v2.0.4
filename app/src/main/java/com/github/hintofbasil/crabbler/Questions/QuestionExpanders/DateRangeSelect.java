@@ -53,7 +53,9 @@ public class DateRangeSelect extends Expander {
             @Override
             public void onSelectDate(Date date, View view) {
                 if(selectedDate!=null) {
-                    previousView.setBackgroundResource(R.color.caldroid_white);
+                    if(previousView!=null) {
+                        previousView.setBackgroundResource(R.color.caldroid_white);
+                    }
                 }
                 view.setBackgroundResource(R.color.questionSelectedBackground);
                 selectedDate = date;

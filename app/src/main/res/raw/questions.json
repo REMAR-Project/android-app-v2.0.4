@@ -31,5 +31,12 @@
     "questionTitle": "Monitoring Crab uçá",
     "choiceOneText": "I want to register more occurrences or absences of Andradas",
     "choiceTwoText": "I want to proceed with information about the location tracking"
+  },
+  {
+    "questionNumber": 4,
+    "questionType": "DateRangeSelect",
+    "questionPicture": "q0_0",
+    "questionTitle": "Monitoring Crab-uca",
+    "filterOnQuestion": 3
   }
 ]

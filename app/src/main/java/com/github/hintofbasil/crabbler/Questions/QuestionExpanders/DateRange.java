@@ -1,5 +1,6 @@
 package com.github.hintofbasil.crabbler.Questions.QuestionExpanders;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -28,7 +29,7 @@ import java.util.List;
 public class DateRange extends Expander {
 
     private List<Date> selectedDates = new LinkedList<Date>();
-    SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
+    CaldroidFragment caldroidFragment = new CaldroidFragment();
 
     public DateRange(AppCompatActivity activity) {
         super(activity);
@@ -59,7 +60,6 @@ public class DateRange extends Expander {
             }
         };
 
-        CaldroidFragment caldroidFragment = new CaldroidFragment();
         Bundle args = new Bundle();
         Calendar cal = Calendar.getInstance();
         args.putInt(CaldroidFragment.MONTH, cal.get(Calendar.MONTH) + 1);
@@ -76,10 +76,20 @@ public class DateRange extends Expander {
 
     @Override
     protected void setPreviousAnswer(String answer) {
+        if(answer.equals("")) {
+            //Return early if no previous answer
+            return;
+        }
         for (String s : answer.split(";")) {
             try {
-                Date date = simpleDateFormat.parse(answer);
+                // Requires new SimpleDateFormat for each parse.
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
+                Date date = simpleDateFormat.parse(s);
                 selectedDates.add(date);
+                caldroidFragment.setSelectedDate(date);
+                Drawable drawable = activity.getResources().getDrawable(R.drawable.caldroid_cell_previously_selected);
+                caldroidFragment.setBackgroundDrawableForDate(drawable, date);
+                Log.i("---------", "Date selected " + date);
             } catch (ParseException e) {
                 Log.e("DateRange", "Unable to create date from answer " + Log.getStackTraceString(e));
                 return;
@@ -89,6 +99,7 @@ public class DateRange extends Expander {
 
     @Override
     public String getSelectedAnswer() {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
         StringBuilder sb = new StringBuilder();
         for (Date date: selectedDates) {
             String dateString = simpleDateFormat.format(date);

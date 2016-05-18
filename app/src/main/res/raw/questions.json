@@ -34,9 +34,15 @@
   },
   {
     "questionNumber": 4,
+    "questionType": "DateRange",
+    "questionPicture": "q0_0",
+    "questionTitle": "Monitoring Crab-uca"
+  },
+  {
+    "questionNumber": 5,
     "questionType": "DateRangeSelect",
     "questionPicture": "q0_0",
     "questionTitle": "Monitoring Crab-uca",
-    "filterOnQuestion": 3
+    "filterOnQuestion": 4
   }
 ]

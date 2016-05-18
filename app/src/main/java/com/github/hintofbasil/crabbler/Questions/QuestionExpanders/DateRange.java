@@ -89,7 +89,6 @@ public class DateRange extends Expander {
                 caldroidFragment.setSelectedDate(date);
                 Drawable drawable = activity.getResources().getDrawable(R.drawable.caldroid_cell_previously_selected);
                 caldroidFragment.setBackgroundDrawableForDate(drawable, date);
-                Log.i("---------", "Date selected " + date);
             } catch (ParseException e) {
                 Log.e("DateRange", "Unable to create date from answer " + Log.getStackTraceString(e));
                 return;

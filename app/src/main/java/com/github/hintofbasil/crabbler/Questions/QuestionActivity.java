@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DateRange;
+import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DateRangeSelect;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.Expander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.TwoChoice;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.TwoChoiceDate;
@@ -43,6 +44,9 @@ public class QuestionActivity extends AppCompatActivity {
                     break;
                 case "DateRange":
                     expander = new DateRange(this);
+                    break;
+                case "DateRangeSelect":
+                    expander = new DateRangeSelect(this);
                     break;
                 default:
                     Log.e("QuestionActivity", "Unknown question type.");

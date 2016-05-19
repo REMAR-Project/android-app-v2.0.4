@@ -8,6 +8,7 @@ import android.view.View;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DateRange;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DateRangeSelect;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.Expander;
+import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.ListSelect;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.TwoChoice;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.TwoChoiceDate;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.TwoPictureLayoutExpander;
@@ -47,6 +48,9 @@ public class QuestionActivity extends AppCompatActivity {
                     break;
                 case "DateRangeSelect":
                     expander = new DateRangeSelect(this);
+                    break;
+                case "ListSelect":
+                    expander = new ListSelect(this);
                     break;
                 default:
                     Log.e("QuestionActivity", "Unknown question type.");

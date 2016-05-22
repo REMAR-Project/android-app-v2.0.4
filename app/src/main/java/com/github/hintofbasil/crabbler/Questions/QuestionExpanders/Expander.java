@@ -127,7 +127,6 @@ public abstract class Expander {
         return ContextCompat.getDrawable(activity, drawableId);
     }
 
-
     public void setPreviousAnswer() {
         try {
             setPreviousAnswer(getCurrentAnswer());

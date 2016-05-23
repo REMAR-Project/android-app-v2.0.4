@@ -44,5 +44,13 @@
     "questionPicture": "q0_0",
     "questionTitle": "Monitoring Crab-uca",
     "filterOnQuestion": 4
+  },
+  {
+    "questionNumber": 6,
+    "questionType": "ListSelect",
+    "questionPicture": "q0_0",
+    "questionTitle": "Monitoring Crab-uca",
+    "jsonInput": "regions.json",
+    "detailPicture": "brazil_regions.png"
   }
 ]

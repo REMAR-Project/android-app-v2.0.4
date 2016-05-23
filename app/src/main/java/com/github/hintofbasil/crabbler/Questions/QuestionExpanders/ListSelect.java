@@ -21,6 +21,8 @@ import java.io.InputStream;
  */
 public class ListSelect extends Expander {
 
+    Spinner listHolder;
+
     public ListSelect(AppCompatActivity activity) {
         super(activity);
     }
@@ -32,7 +34,7 @@ public class ListSelect extends Expander {
         ImageView imageView = (ImageView) activity.findViewById(R.id.image);
         TextView titleView = (TextView) activity.findViewById(R.id.title);
         ImageView detailImage = (ImageView) activity.findViewById(R.id.detail_picture);
-        Spinner listHolder = (Spinner) activity.findViewById(R.id.item_select);
+        listHolder = (Spinner) activity.findViewById(R.id.item_select);
 
         imageView.setImageDrawable(getDrawable(question.getString("questionPicture")));
         titleView.setText(question.getString("questionTitle"));
@@ -59,12 +61,18 @@ public class ListSelect extends Expander {
 
     @Override
     protected void setPreviousAnswer(String answer) {
-
+        try {
+            int position = Integer.parseInt(answer);
+            listHolder.setSelection(position);
+        } catch (NumberFormatException e) {
+            Log.d("ListSelect", "No previous answer");
+        }
     }
 
     @Override
     public String getSelectedAnswer() {
-        return null;
+        int position = listHolder.getSelectedItemPosition();
+        return String.valueOf(position);
     }
 
     private JSONArray readFile(String filename) throws IOException, JSONException {

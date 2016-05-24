@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -31,6 +30,9 @@ public class UserAgreementActivity extends AppCompatActivity {
             //Skip if already accepted
             launchNextActivity();
         }
+
+        SharedPreferences sp = getSharedPreferences(getString(R.string.to_send_preferences_key), Context.MODE_PRIVATE);
+        sp.edit().putString("Login", "").apply();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_agreement);

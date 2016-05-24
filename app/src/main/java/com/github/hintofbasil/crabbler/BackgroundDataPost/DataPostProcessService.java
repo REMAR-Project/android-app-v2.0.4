@@ -7,14 +7,12 @@ import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.util.Log;
 
+import com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostHelpers.LoginHelper;
+import com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostHelpers.PostHelper;
 import com.github.hintofbasil.crabbler.R;
 
-import java.io.BufferedInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
-import java.net.URL;
 
 /**
  * Created by will on 03/05/16.
@@ -51,22 +49,10 @@ public class DataPostProcessService extends IntentService {
             if(toSendPrefs.getAll() != null && !toSendPrefs.getAll().isEmpty()) {
                 for (String detail : toSendPrefs.getAll().keySet()) {
                     try {
-                        String url = toSendPrefs.getString(detail, null);
-                        if(url == null) {
-                            // Basic assert
-                            Log.e("DataPostProcessService", "Null value found in toSendPrefs.  Only Set<String> should be put here.");
-                            return;
-                        }
-                        URL u = new URL(url);
-                        HttpURLConnection h = (HttpURLConnection) u.openConnection();
-                        //TODO handle POST
-                        if (h.getResponseCode() == 200) {
-                            InputStream inputStream = new BufferedInputStream(h.getInputStream());
-                            byte[] bytes = new byte[1024];
-                            int length = inputStream.read(bytes);
-                            String response = new String(bytes, "UTF-8").substring(0, length);
-                            Log.i("DataPostProcessService", "Posted: " + url);
-                            //TODO handle response
+                        PostHelper helper = new LoginHelper();
+                        helper.post();
+                        if (helper.successful()) {
+                            Log.i("DataPostProcessService", "Posted: " + "LoginHelper");
                             toSendPrefs.edit().remove(detail).apply();
                         }
                     } catch (MalformedURLException e) {

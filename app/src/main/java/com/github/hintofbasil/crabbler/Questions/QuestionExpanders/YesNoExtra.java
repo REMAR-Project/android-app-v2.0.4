@@ -1,7 +1,10 @@
 package com.github.hintofbasil.crabbler.Questions.QuestionExpanders;
 
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.github.hintofbasil.crabbler.R;
@@ -27,10 +30,41 @@ public class YesNoExtra extends Expander {
         TextView questionText = (TextView) activity.findViewById(R.id.question_text);
         TextView hiddenDetail = (TextView) activity.findViewById(R.id.hidden_detail);
 
+        final CheckBox chkYes = (CheckBox) activity.findViewById(R.id.chk_yes);
+        final CheckBox chkNo = (CheckBox) activity.findViewById(R.id.chk_no);
+        final CheckBox chkMaybe = (CheckBox) activity.findViewById(R.id.chk_maybe);
+
         imageView.setImageDrawable(getDrawable(question.getString("questionPicture")));
         titleView.setText(question.getString("questionTitle"));
         questionText.setText(question.getString("questionText"));
         hiddenDetail.setText(question.getString("hiddenDetailText"));
+
+        chkYes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                chkNo.setChecked(false);
+                chkMaybe.setChecked(false);
+                showHidden(true);
+            }
+        });
+
+        chkNo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                chkYes.setChecked(false);
+                chkMaybe.setChecked(false);
+                showHidden(false);
+            }
+        });
+
+        chkMaybe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                chkYes.setChecked(false);
+                chkNo.setChecked(false);
+                showHidden(false);
+            }
+        });
     }
 
     @Override
@@ -41,5 +75,14 @@ public class YesNoExtra extends Expander {
     @Override
     public String getSelectedAnswer() {
         return null;
+    }
+
+    private void showHidden(boolean show) {
+        LinearLayout hiddenLayout = (LinearLayout) activity.findViewById(R.id.hidden_content);
+        if(show) {
+            hiddenLayout.setVisibility(View.VISIBLE);
+        } else {
+            hiddenLayout.setVisibility(View.INVISIBLE);
+        }
     }
 }

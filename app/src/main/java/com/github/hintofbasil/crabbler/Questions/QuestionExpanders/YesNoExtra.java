@@ -1,8 +1,10 @@
 package com.github.hintofbasil.crabbler.Questions.QuestionExpanders;
 
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -17,6 +19,11 @@ import org.json.JSONObject;
  */
 public class YesNoExtra extends Expander {
 
+    CheckBox chkYes;
+    CheckBox chkNo;
+    CheckBox chkMaybe;
+    EditText hiddenInput;
+
     public YesNoExtra(AppCompatActivity activity) {
         super(activity);
     }
@@ -30,9 +37,11 @@ public class YesNoExtra extends Expander {
         TextView questionText = (TextView) activity.findViewById(R.id.question_text);
         TextView hiddenDetail = (TextView) activity.findViewById(R.id.hidden_detail);
 
-        final CheckBox chkYes = (CheckBox) activity.findViewById(R.id.chk_yes);
-        final CheckBox chkNo = (CheckBox) activity.findViewById(R.id.chk_no);
-        final CheckBox chkMaybe = (CheckBox) activity.findViewById(R.id.chk_maybe);
+        chkYes = (CheckBox) activity.findViewById(R.id.chk_yes);
+        chkNo = (CheckBox) activity.findViewById(R.id.chk_no);
+        chkMaybe = (CheckBox) activity.findViewById(R.id.chk_maybe);
+
+        hiddenInput = (EditText) activity.findViewById(R.id.hidden_input);
 
         imageView.setImageDrawable(getDrawable(question.getString("questionPicture")));
         titleView.setText(question.getString("questionTitle"));
@@ -69,12 +78,44 @@ public class YesNoExtra extends Expander {
 
     @Override
     protected void setPreviousAnswer(String answer) {
-
+        String[] answers = answer.split(";", -1);
+        try {
+            int i = Integer.parseInt(answers[0]);
+            switch(i) {
+                case 0:
+                    chkYes.setChecked(true);
+                    showHidden(true);
+                    break;
+                case 1:
+                    chkNo.setChecked(true);
+                    break;
+                case 2:
+                    chkMaybe.setChecked(true);
+                    break;
+            }
+        } catch (NumberFormatException e) {
+            Log.d("YesNoExtra", "No previous selection");
+        }
+        if(answers.length > 1) {
+            hiddenInput.setText(answers[1]);
+        } else {
+            Log.d("YesNoExtra", "No previous text");
+        }
     }
 
     @Override
     public String getSelectedAnswer() {
-        return null;
+        StringBuilder sb = new StringBuilder();
+        if(chkYes.isChecked()) {
+            sb.append('0');
+        } else if(chkNo.isChecked()) {
+            sb.append('1');
+        } else if(chkMaybe.isChecked()) {
+            sb.append('2');
+        }
+        sb.append(';');
+        sb.append(hiddenInput.getText());
+        return sb.toString();
     }
 
     private void showHidden(boolean show) {

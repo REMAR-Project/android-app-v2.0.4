@@ -52,5 +52,13 @@
     "questionTitle": "Monitoring Crab-uca",
     "jsonInput": "regions.json",
     "detailPicture": "brazil_regions.png"
+  },
+  {
+    "questionNumber": 7,
+    "questionType": "YesNoExtra",
+    "questionPicture": "q0_0",
+    "questionTitle": "Monitoring Crab-uca",
+    "questionText": "The monitored mangrove forest is in protected area (eg. RESEX, APA Park)?",
+    "hiddenDetailText": "What is the name of the protected area?"
   }
 ]

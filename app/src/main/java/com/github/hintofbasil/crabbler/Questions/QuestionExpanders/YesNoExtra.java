@@ -24,9 +24,13 @@ public class YesNoExtra extends Expander {
 
         ImageView imageView = (ImageView) activity.findViewById(R.id.image);
         TextView titleView = (TextView) activity.findViewById(R.id.title);
+        TextView questionText = (TextView) activity.findViewById(R.id.question_text);
+        TextView hiddenDetail = (TextView) activity.findViewById(R.id.hidden_detail);
 
         imageView.setImageDrawable(getDrawable(question.getString("questionPicture")));
         titleView.setText(question.getString("questionTitle"));
+        questionText.setText(question.getString("questionText"));
+        hiddenDetail.setText(question.getString("hiddenDetailText"));
     }
 
     @Override

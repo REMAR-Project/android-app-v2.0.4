@@ -12,6 +12,7 @@ import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.ListSelect;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.TwoChoice;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.TwoChoiceDate;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.TwoPictureLayoutExpander;
+import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.YesNoExtra;
 import com.github.hintofbasil.crabbler.R;
 
 import org.json.JSONException;
@@ -51,6 +52,9 @@ public class QuestionActivity extends AppCompatActivity {
                     break;
                 case "ListSelect":
                     expander = new ListSelect(this);
+                    break;
+                case "YesNoExtra":
+                    expander = new YesNoExtra(this);
                     break;
                 default:
                     Log.e("QuestionActivity", "Unknown question type.");

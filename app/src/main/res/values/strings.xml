@@ -21,6 +21,10 @@ Aliquam porta dui eu quam egestas, eu sollicitudin lacus facilisis. Donec laoree
     <string name="back_button">Previous</string>
     <string name="forward_button">Forward</string>
 
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="maybe">Maybe</string>
+
     <string name="agreement_accepted_key">agreement_accepted_key</string>
     <string name="to_send_preferences_key">to_send_preferences_key</string>
     <string name="saved_preferences_key">saved_preferences_key</string>

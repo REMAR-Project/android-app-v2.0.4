@@ -20,7 +20,7 @@ public class YesNoExtra extends Expander {
 
     @Override
     public void expandLayout(JSONObject question) throws JSONException {
-        activity.setContentView(R.layout.activity_date_range);
+        activity.setContentView(R.layout.activity_yes_no_extra);
 
         ImageView imageView = (ImageView) activity.findViewById(R.id.image);
         TextView titleView = (TextView) activity.findViewById(R.id.title);

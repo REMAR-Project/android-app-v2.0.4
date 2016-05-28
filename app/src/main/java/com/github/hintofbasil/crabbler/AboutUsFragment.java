@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 public class AboutUsFragment extends Fragment {
 
@@ -53,8 +54,12 @@ public class AboutUsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_about_us, container, false);
+        View view = inflater.inflate(R.layout.fragment_about_us, container, false);
+        TextView title = (TextView) view.findViewById(R.id.title);
+        title.setText(this.title);
+        TextView content = (TextView) view.findViewById(R.id.content);
+        content.setText(this.content);
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

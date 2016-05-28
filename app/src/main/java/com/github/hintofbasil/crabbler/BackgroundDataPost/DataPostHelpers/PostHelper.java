@@ -55,6 +55,8 @@ public abstract class PostHelper {
             byte[] bytes = new byte[1024];
             int length = inputStream.read(bytes);
             return new String(bytes, "UTF-8").substring(0, length);
+        } else {
+            Log.d("PostHelper", "Invalid response: " + connection.getResponseMessage());
         }
         return null;
     }

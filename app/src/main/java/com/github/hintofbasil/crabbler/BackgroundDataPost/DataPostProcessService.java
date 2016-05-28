@@ -7,7 +7,6 @@ import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.util.Log;
 
-import com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostHelpers.LoginHelper;
 import com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostHelpers.PostHelper;
 import com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostHelpers.RegisterHelper;
 import com.github.hintofbasil.crabbler.R;
@@ -50,10 +49,19 @@ public class DataPostProcessService extends IntentService {
             if(toSendPrefs.getAll() != null && !toSendPrefs.getAll().isEmpty()) {
                 for (String detail : toSendPrefs.getAll().keySet()) {
                     try {
-                        PostHelper helper = new RegisterHelper(toSendPrefs);
+                        String[] split = toSendPrefs.getString(detail, null).split(";", -1); //Should never return null
+                        PostHelper helper;
+                        switch (split[0]) {
+                            case "Register":
+                                helper = new RegisterHelper(toSendPrefs);
+                                break;
+                            default:
+                                Log.e("DataPostProcessService", "Unknown Helper: " + split[0]);
+                                return;
+                        }
                         helper.post();
                         if (helper.successful()) {
-                            Log.i("DataPostProcessService", "Posted: " + "LoginHelper");
+                            Log.i("DataPostProcessService", "Posted: " + split[0]);
                             toSendPrefs.edit().remove(detail).apply();
                         }
                     } catch (MalformedURLException e) {

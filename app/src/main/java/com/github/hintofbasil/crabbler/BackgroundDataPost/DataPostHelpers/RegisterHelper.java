@@ -11,8 +11,6 @@ import org.json.JSONObject;
  */
 public class RegisterHelper extends PostHelper {
 
-    private String loginDataFormat = "{\"username\":\"fisherman\",\"password\":\"%s\"}";
-
     SharedPreferences prefs;
 
     public RegisterHelper(SharedPreferences prefs) {
@@ -22,7 +20,7 @@ public class RegisterHelper extends PostHelper {
 
     @Override
     protected String getData() {
-        return "{\"phone\":{\"phone_id\":\"100908\",\"role\":\"fisherman\"}}";
+        return "{\"phone\":{\"phone_id\":\"1009080\",\"role\":\"fisherman\"}}";
     }
 
     @Override

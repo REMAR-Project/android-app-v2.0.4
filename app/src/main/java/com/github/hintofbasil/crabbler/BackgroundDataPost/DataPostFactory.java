@@ -21,12 +21,18 @@ public class DataPostFactory {
         this.context = context;
     }
 
+    public void register() {
+        //TODO use constant
+        addData("Register", "");
+    }
+
     /**
      * Adds a URL to the list of data to be sent to the webserver
      *
-     * @param url The url to be sent
+     * @param helper The name of the helper class
+     * @param data The data to be posted
      */
-    public void addUrl(String url) {
+    private void addData(String helper, String data) {
         int id = 0;
         boolean flag = true;
         while(flag) {
@@ -35,7 +41,7 @@ public class DataPostFactory {
                 id++;
             } else {
                 // Unique id found
-                toSendPrefs.edit().putString(idString, url).apply();
+                toSendPrefs.edit().putString(idString, helper + ";" + data).apply();
                 flag = false;
                 Intent intent = new Intent(context, DataPostProcessService.class);
                 context.startService(intent);

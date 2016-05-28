@@ -57,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
             md.update(bytes);
             String hash = new String(Base64.encode(md.digest(), Base64.URL_SAFE));
             DataPostFactory dataPostFactory = new DataPostFactory(getBaseContext());
-            dataPostFactory.addUrl(getString(R.string.url_login));
+            dataPostFactory.register();
             savedPrefs.edit().putString(getString(R.string.preference_session_id), hash).apply();
         } catch (NoSuchAlgorithmException e) {
             Toast.makeText(getBaseContext(),

@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostFactory;
 import com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostLaunchService;
 
 public class UserAgreementActivity extends AppCompatActivity {
@@ -31,8 +32,8 @@ public class UserAgreementActivity extends AppCompatActivity {
             launchNextActivity();
         }
 
-        SharedPreferences sp = getSharedPreferences(getString(R.string.to_send_preferences_key), Context.MODE_PRIVATE);
-        sp.edit().putString("register", "").apply();
+        DataPostFactory dpf = new DataPostFactory(getBaseContext());
+        dpf.register();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_agreement);

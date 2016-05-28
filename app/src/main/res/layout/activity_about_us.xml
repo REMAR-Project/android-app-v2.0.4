@@ -10,12 +10,18 @@
     tools:context="com.github.hintofbasil.crabbler.AboutUs"
     android:orientation="horizontal">
 
-    <LinearLayout
-        android:id="@+id/fragment_container"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

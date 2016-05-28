@@ -7,6 +7,7 @@ import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -21,13 +22,15 @@ public class AboutUs extends AppCompatActivity {
         try {
             JSONArray data = readJSON();
             FragmentManager fm = getFragmentManager();
-            fm.beginTransaction().add(R.id.fragment_container,
-                    AboutUsFragment.newInstance("HellO!", "hhhhhhhhhh"),
-                    AboutUsFragment.FRAGMENT_TAG)
-            .commit();
-            /*for(int i=0;i<data.length();i++) {
-                JSONObject dataObject = data.getJSONObject(0);
-            }*/
+            for(int i=0;i<data.length();i++) {
+                JSONObject dataObject = data.getJSONObject(i);
+                String title = dataObject.getString("title");
+                String content = dataObject.getString("content");
+                fm.beginTransaction().add(R.id.fragment_container,
+                        AboutUsFragment.newInstance(title, content),
+                        AboutUsFragment.FRAGMENT_TAG)
+                        .commit();
+            }
         } catch (IOException|JSONException e) {
             Log.e("AboutUs", "Unable to read about_us.json\n" + Log.getStackTraceString(e));
             return;

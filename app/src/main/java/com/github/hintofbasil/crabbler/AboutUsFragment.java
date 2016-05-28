@@ -24,15 +24,6 @@ public class AboutUsFragment extends Fragment {
 
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param title Parameter 1.
-     * @param content Parameter 2.
-     * @return A new instance of fragment AboutUsFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static AboutUsFragment newInstance(String title, String content) {
         AboutUsFragment fragment = new AboutUsFragment();
         Bundle args = new Bundle();

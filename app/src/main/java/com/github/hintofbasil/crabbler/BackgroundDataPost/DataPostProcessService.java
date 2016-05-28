@@ -9,6 +9,7 @@ import android.util.Log;
 
 import com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostHelpers.LoginHelper;
 import com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostHelpers.PostHelper;
+import com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostHelpers.RegisterHelper;
 import com.github.hintofbasil.crabbler.R;
 
 import java.io.IOException;
@@ -49,7 +50,7 @@ public class DataPostProcessService extends IntentService {
             if(toSendPrefs.getAll() != null && !toSendPrefs.getAll().isEmpty()) {
                 for (String detail : toSendPrefs.getAll().keySet()) {
                     try {
-                        PostHelper helper = new LoginHelper();
+                        PostHelper helper = new RegisterHelper(toSendPrefs);
                         helper.post();
                         if (helper.successful()) {
                             Log.i("DataPostProcessService", "Posted: " + "LoginHelper");

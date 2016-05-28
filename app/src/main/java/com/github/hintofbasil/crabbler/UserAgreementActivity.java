@@ -32,7 +32,7 @@ public class UserAgreementActivity extends AppCompatActivity {
         }
 
         SharedPreferences sp = getSharedPreferences(getString(R.string.to_send_preferences_key), Context.MODE_PRIVATE);
-        sp.edit().putString("Login", "").apply();
+        sp.edit().putString("register", "").apply();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_agreement);

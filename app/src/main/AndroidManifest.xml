@@ -39,6 +39,7 @@
 
         <activity android:name=".Questions.QuestionActivity" />
         <activity android:name=".Questions.QuestionExpanders.TwoChoiceDateExpander"></activity>
+        <activity android:name=".AboutUs"></activity>
     </application>
 
 </manifest>

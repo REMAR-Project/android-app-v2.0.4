@@ -26,14 +26,16 @@ public class UserAgreementActivity extends AppCompatActivity {
         Intent dataPostIntent = new Intent(getBaseContext(), DataPostLaunchService.class);
         getBaseContext().startService(dataPostIntent);
 
-        sharedPrefs = getPreferences(Context.MODE_PRIVATE);
+        //TODO use constant
+        sharedPrefs = getSharedPreferences("SETTINGS_PREFS_KEY", Context.MODE_PRIVATE);
         if(sharedPrefs.getBoolean(getString(R.string.agreement_accepted_key), false)) {
             //Skip if already accepted
             launchNextActivity();
         }
 
         DataPostFactory dpf = new DataPostFactory(getBaseContext());
-        dpf.register();
+        //dpf.register();
+        //dpf.login();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_agreement);

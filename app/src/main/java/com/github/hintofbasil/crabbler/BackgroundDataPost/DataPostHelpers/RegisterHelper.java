@@ -20,7 +20,7 @@ public class RegisterHelper extends PostHelper {
 
     @Override
     protected String getData() {
-        return "{\"phone\":{\"phone_id\":\"1009080\",\"role\":\"fisherman\"}}";
+        return "{\"phone\":{\"phone_id\":\"100908010\",\"role\":\"fisherman\"}}";
     }
 
     @Override
@@ -34,6 +34,7 @@ public class RegisterHelper extends PostHelper {
             String id = responseJson.getString("phone_id");
             //TODO use contant
             prefs.edit().putString("PHONE_ID_KEY", id).commit();
+            Log.i("RegisterHelper", "Phone id: " + id);
             return true;
         } catch (JSONException e) {
             Log.e("RegisterHelper", "Invalid response\n" + Log.getStackTraceString(e));

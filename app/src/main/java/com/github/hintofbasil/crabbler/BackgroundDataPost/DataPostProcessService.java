@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.util.Log;
 
+import com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostHelpers.LoginHelper;
 import com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostHelpers.PostHelper;
 import com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostHelpers.RegisterHelper;
 import com.github.hintofbasil.crabbler.R;
@@ -20,6 +21,7 @@ import java.net.MalformedURLException;
 public class DataPostProcessService extends IntentService {
 
     private SharedPreferences toSendPrefs;
+    private SharedPreferences settingsPrefs;
 
     public DataPostProcessService() {
         super("DataPostProcessService");
@@ -44,6 +46,10 @@ public class DataPostProcessService extends IntentService {
         if(toSendPrefs==null) {
             toSendPrefs = getSharedPreferences(getString(R.string.to_send_preferences_key), Context.MODE_PRIVATE);
         }
+        if(settingsPrefs==null) {
+            //TODO use constant
+            settingsPrefs = getSharedPreferences("SETTINGS_PREFS_KEY", Context.MODE_PRIVATE);
+        }
         //Check for internet connection
         if(cm.getActiveNetworkInfo() != null) {
             if(toSendPrefs.getAll() != null && !toSendPrefs.getAll().isEmpty()) {
@@ -53,7 +59,10 @@ public class DataPostProcessService extends IntentService {
                         PostHelper helper;
                         switch (split[0]) {
                             case "Register":
-                                helper = new RegisterHelper(toSendPrefs);
+                                helper = new RegisterHelper(settingsPrefs);
+                                break;
+                            case "Login":
+                                helper = new LoginHelper(settingsPrefs);
                                 break;
                             default:
                                 Log.e("DataPostProcessService", "Unknown Helper: " + split[0]);
@@ -62,7 +71,7 @@ public class DataPostProcessService extends IntentService {
                         helper.post();
                         if (helper.successful()) {
                             Log.i("DataPostProcessService", "Posted: " + split[0]);
-                            toSendPrefs.edit().remove(detail).apply();
+                            toSendPrefs.edit().remove(detail).commit();
                         }
                     } catch (MalformedURLException e) {
                         Log.e("DataPostProcessService", "Malformed URL.");

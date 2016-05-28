@@ -33,6 +33,11 @@ public abstract class PostHelper {
             Log.e("PostHelper", "No URL set");
             return;
         }
+        String data = getData();
+        if(data == null) {
+            Log.d("PostHelper", "Data is null");
+            return;
+        }
         String response = doPost(getData());
         if(response!=null) {
             Log.i("PostHelper", "Posted: " + url);

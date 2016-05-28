@@ -26,6 +26,11 @@ public class DataPostFactory {
         addData("Register", "");
     }
 
+    public void login() {
+        //TODO use constant
+        addData("Login", "");
+    }
+
     /**
      * Adds a URL to the list of data to be sent to the webserver
      *

@@ -7,7 +7,8 @@
     <LinearLayout
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:onClick="onFragmentInteraction" >
 
         <TextView
             android:id="@+id/title"
@@ -17,7 +18,8 @@
         <TextView
             android:id="@+id/content"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
 
     </LinearLayout>
 

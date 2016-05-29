@@ -4,6 +4,7 @@ import android.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -12,7 +13,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class AboutUs extends AppCompatActivity {
+public class AboutUs extends AppCompatActivity implements AboutUsFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,5 +44,15 @@ public class AboutUs extends AppCompatActivity {
         int length = jsonInputStream.read(buffer);
         String jsonString = new String(buffer).substring(0, length);
         return new JSONArray(jsonString);
+    }
+
+    @Override
+    public void onFragmentInteraction(View view) {
+        View content = view.findViewById(R.id.content);
+        if(content.getVisibility()==View.VISIBLE) {
+            content.setVisibility(View.GONE);
+        } else {
+            content.setVisibility(View.VISIBLE);
+        }
     }
 }

@@ -29,7 +29,7 @@ public class UserAgreementActivity extends AppCompatActivity {
 
         //TODO use constant
         sharedPrefs = getSharedPreferences(Keys.SETTINGS_PREFS_KEY, Context.MODE_PRIVATE);
-        if(sharedPrefs.getBoolean(getString(R.string.agreement_accepted_key), false)) {
+        if(sharedPrefs.getBoolean(Keys.AGREEMENT_ACCEPTED_KEY, false)) {
             //Skip if already accepted
             launchNextActivity();
         }
@@ -46,7 +46,7 @@ public class UserAgreementActivity extends AppCompatActivity {
         acceptButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sharedPrefs.edit().putBoolean(getString(R.string.agreement_accepted_key), true).commit();
+                sharedPrefs.edit().putBoolean(Keys.AGREEMENT_ACCEPTED_KEY, true).commit();
                 launchNextActivity();
             }
         });

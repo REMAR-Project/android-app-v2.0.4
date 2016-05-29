@@ -49,10 +49,16 @@ public class AboutUs extends AppCompatActivity implements AboutUsFragment.OnFrag
     @Override
     public void onFragmentInteraction(View view) {
         View content = view.findViewById(R.id.content);
+        View expandButton = view.findViewById(R.id.expand);
+        View contractButton = view.findViewById(R.id.contract);
         if(content.getVisibility()==View.VISIBLE) {
             content.setVisibility(View.GONE);
+            expandButton.setVisibility(View.VISIBLE);
+            contractButton.setVisibility(View.GONE);
         } else {
             content.setVisibility(View.VISIBLE);
+            expandButton.setVisibility(View.GONE);
+            contractButton.setVisibility(View.VISIBLE);
         }
     }
 }

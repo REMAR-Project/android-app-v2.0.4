@@ -15,11 +15,6 @@
         <activity
             android:name=".UserAgreementActivity"
             android:noHistory="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <receiver android:name=".BackgroundDataPost.DataPostAutoStart">
@@ -39,7 +34,13 @@
 
         <activity android:name=".Questions.QuestionActivity" />
         <activity android:name=".Questions.QuestionExpanders.TwoChoiceDateExpander"></activity>
-        <activity android:name=".AboutUs"></activity>
+        <activity android:name=".AboutUs">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

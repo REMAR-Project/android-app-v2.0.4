@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostFactory;
 import com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostLaunchService;
+import com.github.hintofbasil.crabbler.Questions.QuestionActivity;
 
 public class UserAgreementActivity extends AppCompatActivity {
 
@@ -62,7 +63,10 @@ public class UserAgreementActivity extends AppCompatActivity {
         DataPostFactory dataPostFactory = new DataPostFactory(getBaseContext());
         dataPostFactory.login();
         dataPostFactory.register();
-        Intent intent = new Intent(this, LoginActivity.class);
+
+        Intent intent = new Intent(this, QuestionActivity.class);
+        intent.putExtra(getString(R.string.question_id_key), 0);
         startActivity(intent);
+
     }
 }

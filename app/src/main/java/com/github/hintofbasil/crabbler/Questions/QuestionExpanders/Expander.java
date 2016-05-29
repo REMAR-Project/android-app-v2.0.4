@@ -32,7 +32,7 @@ public abstract class Expander {
     public Expander(AppCompatActivity activity) {
         this.activity = activity;
         this.prefs = activity.getSharedPreferences(Keys.SAVED_PREFERENCES_KEY, Context.MODE_PRIVATE);
-        this.questionId = activity.getIntent().getIntExtra(activity.getString(R.string.question_id_key), 0);
+        this.questionId = activity.getIntent().getIntExtra(Keys.QUESTION_ID_KEY, 0);
     }
 
     public abstract void expandLayout(JSONObject question) throws JSONException;
@@ -44,7 +44,7 @@ public abstract class Expander {
     public void nextQuestion(int delay) {
         //TODO handle last question
         final Intent intent = new Intent(activity, QuestionActivity.class);
-        intent.putExtra(activity.getString(R.string.question_id_key), questionId + 1);
+        intent.putExtra(Keys.QUESTION_ID_KEY, questionId + 1);
         new CountDownTimer(delay, delay) {
 
             @Override
@@ -138,7 +138,7 @@ public abstract class Expander {
 
     public void previousQuestion() {
         final Intent intent = new Intent(activity, QuestionActivity.class);
-        intent.putExtra(activity.getString(R.string.question_id_key), questionId - 1);
+        intent.putExtra(Keys.QUESTION_ID_KEY, questionId - 1);
         activity.startActivity(intent);
         activity.finish();
     }

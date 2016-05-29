@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.github.hintofbasil.crabbler.Keys;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DateRange;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DateRangeSelect;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.Expander;
@@ -30,7 +31,7 @@ public class QuestionActivity extends AppCompatActivity {
 
         byte[] buffer = new byte[1024];
         try {
-            int questionId = getIntent().getIntExtra(getString(R.string.question_id_key), 0);
+            int questionId = getIntent().getIntExtra(Keys.QUESTION_ID_KEY, 0);
             QuestionReader qr = new QuestionReader();
             JSONObject questionJson = qr.getJsonQuestion(this, questionId);
 

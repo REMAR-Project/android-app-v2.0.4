@@ -9,5 +9,6 @@ public class Keys {
     public static String AGREEMENT_ACCEPTED_KEY = "AGREEMENT_ACCEPTED_KEY";
     public static String TO_SEND_PREFERENCES_KEY = "TO_SEND_PREFERENCES_KEY";
     public static String SAVED_PREFERENCES_KEY = "SAVED_PREFERENCES_KEY";
+    public static String QUESTION_ID_KEY = "QUESTION_ID_KEY";
 
 }

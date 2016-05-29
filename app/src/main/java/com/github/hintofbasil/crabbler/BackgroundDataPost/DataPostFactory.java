@@ -18,7 +18,7 @@ public class DataPostFactory {
     Context context;
 
     public DataPostFactory(Context context) {
-        this.toSendPrefs = context.getSharedPreferences(context.getString(R.string.to_send_preferences_key), Context.MODE_PRIVATE);
+        this.toSendPrefs = context.getSharedPreferences(Keys.TO_SEND_PREFERENCES_KEY, Context.MODE_PRIVATE);
         this.context = context;
     }
 

@@ -7,5 +7,6 @@ public class Keys {
 
     public static String SETTINGS_PREFS_KEY = "SETTINGS_PREFS_KEY";
     public static String AGREEMENT_ACCEPTED_KEY = "AGREEMENT_ACCEPTED_KEY";
+    public static String TO_SEND_PREFERENCES_KEY = "TO_SEND_PREFERENCES_KEY";
 
 }

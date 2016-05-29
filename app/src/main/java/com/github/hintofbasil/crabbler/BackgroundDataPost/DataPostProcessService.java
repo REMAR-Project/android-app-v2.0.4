@@ -46,7 +46,7 @@ public class DataPostProcessService extends IntentService {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         //Remains null if set in constructor
         if(toSendPrefs==null) {
-            toSendPrefs = getSharedPreferences(getString(R.string.to_send_preferences_key), Context.MODE_PRIVATE);
+            toSendPrefs = getSharedPreferences(Keys.TO_SEND_PREFERENCES_KEY, Context.MODE_PRIVATE);
         }
         if(settingsPrefs==null) {
             //TODO use constant

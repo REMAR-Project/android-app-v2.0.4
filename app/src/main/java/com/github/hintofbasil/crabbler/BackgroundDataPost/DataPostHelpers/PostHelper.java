@@ -10,6 +10,9 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by will on 23/05/16.
@@ -48,8 +51,9 @@ public abstract class PostHelper {
     protected String doPost(String content) throws IOException {
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setDoOutput(true);
-        connection.setRequestProperty("Content-Type", "application/json");
-        connection.setRequestProperty("Accept-Charset", "UTF-8");
+        for(Map.Entry<String, String> header : getHeaders().entrySet()) {
+            connection.setRequestProperty(header.getKey(), header.getValue());
+        }
         OutputStream out = new BufferedOutputStream(connection.getOutputStream());
         out.write(content.getBytes("UTF-8"));
         out.flush();
@@ -64,6 +68,13 @@ public abstract class PostHelper {
             Log.d("PostHelper", "Invalid response: " + connection.getResponseMessage());
         }
         return null;
+    }
+
+    protected Map<String, String> getHeaders() {
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("Content-Type", "application/json");
+        map.put("Accept-Charset", "UTF-8");
+        return map;
     }
 
     /**

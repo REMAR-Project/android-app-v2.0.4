@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.util.Log;
 
+import com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostHelpers.AnswersHelper;
 import com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostHelpers.LoginHelper;
 import com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostHelpers.PostHelper;
 import com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostHelpers.RegisterHelper;
@@ -63,6 +64,9 @@ public class DataPostProcessService extends IntentService {
                                 break;
                             case "Login":
                                 helper = new LoginHelper(settingsPrefs);
+                                break;
+                            case "Answers":
+                                helper = new AnswersHelper(settingsPrefs, split[1]);
                                 break;
                             default:
                                 Log.e("DataPostProcessService", "Unknown Helper: " + split[0]);

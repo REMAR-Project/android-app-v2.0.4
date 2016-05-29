@@ -31,6 +31,11 @@ public class DataPostFactory {
         addData("Login", "");
     }
 
+    public void submitAnswers(String answers) {
+        //TODO use constant
+        addData("Answers", answers);
+    }
+
     /**
      * Adds a URL to the list of data to be sent to the webserver
      *

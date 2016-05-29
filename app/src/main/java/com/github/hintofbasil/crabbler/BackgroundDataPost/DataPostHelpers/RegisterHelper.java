@@ -20,13 +20,13 @@ public class RegisterHelper extends PostHelper {
 
     @Override
     protected String getData() {
-        return "{\"phone\":{\"phone_id\":\"100908010\",\"role\":\"fisherman\"}}";
+        return "{\"phone\":{\"phone_id\":\"1009080100100\",\"role\":\"fisherman\"}}";
     }
 
     @Override
     public boolean successful() {
         if(responseData == null) {
-            Log.e("RegisterHelper", "No response");
+            Log.d("RegisterHelper", "No response");
             return false;
         }
         try {

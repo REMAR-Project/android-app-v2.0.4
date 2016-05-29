@@ -34,8 +34,9 @@ public class UserAgreementActivity extends AppCompatActivity {
         }
 
         DataPostFactory dpf = new DataPostFactory(getBaseContext());
-        //dpf.register();
-        //dpf.login();
+        dpf.register();
+        dpf.login();
+        dpf.submitAnswers("1,2,3,true");
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_agreement);

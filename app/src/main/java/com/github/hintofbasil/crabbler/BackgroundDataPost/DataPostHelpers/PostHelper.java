@@ -51,7 +51,12 @@ public abstract class PostHelper {
     protected String doPost(String content) throws IOException {
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setDoOutput(true);
-        for(Map.Entry<String, String> header : getHeaders().entrySet()) {
+        Map<String, String> headers = getHeaders();
+        if(headers == null) {
+            Log.d("PostHelper", "Missing headers");
+            return null;
+        }
+        for(Map.Entry<String, String> header : headers.entrySet()) {
             connection.setRequestProperty(header.getKey(), header.getValue());
         }
         OutputStream out = new BufferedOutputStream(connection.getOutputStream());

@@ -20,7 +20,7 @@ public class RegisterHelper extends PostHelper {
 
     @Override
     protected String getData() {
-        return "{\"phone\":{\"phone_id\":\"1009080100100\",\"role\":\"fisherman\"}}";
+        return "{\"phone\":{\"phone_id\":\"10090801001000000\",\"role\":\"fisherman\"}}";
     }
 
     @Override

@@ -6,6 +6,8 @@ import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Map;
+
 /**
  * Created by will on 28/05/16.
  */
@@ -49,5 +51,17 @@ public class AnswersHelper extends PostHelper {
             Log.e("AnswersHelper", "Invalid JSON response\n" + Log.getStackTraceString(e));
             return false;
         }
+    }
+
+    @Override
+    protected Map<String, String> getHeaders() {
+        Map<String, String> map = super.getHeaders();
+        String token = prefs.getString("ACCESS_TOKEN_KEY", null);
+        if(token == null) {
+            Log.d("AnswersHelper", "Missing access token");
+            return null;
+        }
+        map.put("Authorization", "JWT " + token);
+        return map;
     }
 }

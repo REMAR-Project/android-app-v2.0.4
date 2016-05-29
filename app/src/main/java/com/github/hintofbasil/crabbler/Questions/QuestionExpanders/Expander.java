@@ -9,6 +9,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import com.github.hintofbasil.crabbler.Keys;
 import com.github.hintofbasil.crabbler.Questions.QuestionActivity;
 import com.github.hintofbasil.crabbler.Questions.QuestionReader;
 import com.github.hintofbasil.crabbler.R;
@@ -30,7 +31,7 @@ public abstract class Expander {
 
     public Expander(AppCompatActivity activity) {
         this.activity = activity;
-        this.prefs = activity.getSharedPreferences(activity.getString(R.string.saved_preferences_key), Context.MODE_PRIVATE);
+        this.prefs = activity.getSharedPreferences(Keys.SAVED_PREFERENCES_KEY, Context.MODE_PRIVATE);
         this.questionId = activity.getIntent().getIntExtra(activity.getString(R.string.question_id_key), 0);
     }
 

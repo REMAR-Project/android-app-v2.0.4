@@ -25,7 +25,6 @@ Aliquam porta dui eu quam egestas, eu sollicitudin lacus facilisis. Donec laoree
     <string name="no">No</string>
     <string name="maybe">Maybe</string>
 
-    <string name="saved_preferences_key">saved_preferences_key</string>
     <string name="question_id_key">question_id_key</string>
     <string name="answers_key">answers</string>
 

@@ -13,7 +13,7 @@ import java.util.Map;
  */
 public class AnswersHelper extends PostHelper {
 
-    private static String dataFormat = "{\"sightings\":[{\"valid\": true, \"seen_by\": \"%s\", \"answers\":[%s]}]}";
+    private static String DATA_FORMAT = "{\"sightings\":[{\"valid\": true, \"seen_by\": \"%s\", \"answers\":[%s]}]}";
 
     private String questions;
     private SharedPreferences prefs;
@@ -31,7 +31,7 @@ public class AnswersHelper extends PostHelper {
             Log.d("AnswersHelper", "Unable to find phone id");
             return null;
         }
-        return String.format(dataFormat, phoneId, questions);
+        return String.format(DATA_FORMAT, phoneId, questions);
     }
 
     @Override

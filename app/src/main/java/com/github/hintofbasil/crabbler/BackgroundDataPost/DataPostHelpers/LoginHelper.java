@@ -11,7 +11,7 @@ import org.json.JSONObject;
  */
 public class LoginHelper extends PostHelper {
 
-    private String dataFormat = "{\"username\":\"fisherman\",\"password\":\"%s\"}";
+    private static String DATA_FORMAT = "{\"username\":\"fisherman\",\"password\":\"%s\"}";
 
     private SharedPreferences prefs;
 
@@ -27,7 +27,7 @@ public class LoginHelper extends PostHelper {
             Log.d("LoginHelper", "Unable to find phone id");
             return null;
         }
-        return String.format(dataFormat, phoneId);
+        return String.format(DATA_FORMAT, phoneId);
     }
 
     @Override

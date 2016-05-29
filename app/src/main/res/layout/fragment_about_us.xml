@@ -10,10 +10,32 @@
         android:orientation="vertical"
         android:onClick="onFragmentInteraction" >
 
-        <TextView
-            android:id="@+id/title"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/expand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/expand"
+                android:maxHeight="@dimen/about_us_title" />
+
+            <ImageView
+                android:id="@+id/contract"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:src="@drawable/contract"
+                android:maxHeight="@dimen/about_us_title" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/about_us_title" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/content"

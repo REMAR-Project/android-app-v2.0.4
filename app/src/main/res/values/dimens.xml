@@ -7,4 +7,6 @@
     <dimen name="question_select_padding">10dp</dimen>
     <dimen name="question_select_margin">10dp</dimen>
     <dimen name="question_select_outside_margin">0dp</dimen>
+
+    <dimen name="about_us_title">18dp</dimen>
 </resources>

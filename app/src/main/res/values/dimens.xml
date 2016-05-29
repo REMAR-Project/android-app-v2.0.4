@@ -9,4 +9,5 @@
     <dimen name="question_select_outside_margin">0dp</dimen>
 
     <dimen name="about_us_title">18dp</dimen>
+    <dimen name="about_us_content">15dp</dimen>
 </resources>

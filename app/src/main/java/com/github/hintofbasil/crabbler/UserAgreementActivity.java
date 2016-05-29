@@ -59,6 +59,9 @@ public class UserAgreementActivity extends AppCompatActivity {
     }
 
     private void launchNextActivity() {
+        DataPostFactory dataPostFactory = new DataPostFactory(getBaseContext());
+        dataPostFactory.login();
+        dataPostFactory.register();
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }

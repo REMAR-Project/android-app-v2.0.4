@@ -1,6 +1,8 @@
 package com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostHelpers;
 
+import android.content.Context;
 import android.content.SharedPreferences;
+import android.provider.Settings;
 import android.util.Log;
 
 import org.json.JSONException;
@@ -11,16 +13,20 @@ import org.json.JSONObject;
  */
 public class RegisterHelper extends PostHelper {
 
-    SharedPreferences prefs;
+    private static String DATA_FORMAT = "{\"phone\":{\"phone_id\":\"%s\",\"role\":\"fisherman\"}}";
 
-    public RegisterHelper(SharedPreferences prefs) {
+    SharedPreferences prefs;
+    Context context;
+
+    public RegisterHelper(SharedPreferences prefs, Context context) {
         super("http://crab.napier.ac.uk/api/0.1/users");
         this.prefs = prefs;
+        this.context = context;
     }
 
     @Override
     protected String getData() {
-        return "{\"phone\":{\"phone_id\":\"10090801001000000\",\"role\":\"fisherman\"}}";
+        return String.format(DATA_FORMAT, getUniquePhoneId());
     }
 
     @Override
@@ -39,6 +45,21 @@ public class RegisterHelper extends PostHelper {
         } catch (JSONException e) {
             Log.e("RegisterHelper", "Invalid response\n" + Log.getStackTraceString(e));
             return false;
+        }
+    }
+
+    /**
+     * Gets the unique phone id
+     * @return Unique phone id. "0" if unique id not found.
+     */
+    private String getUniquePhoneId() {
+        String id = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
+        if(id!=null) {
+            Log.d("RegisterHelper", "Unique id: " + id);
+            return id;
+        } else {
+            Log.d("RegisterHelper", "No unique id found.  Using 0");
+            return "0";
         }
     }
 }

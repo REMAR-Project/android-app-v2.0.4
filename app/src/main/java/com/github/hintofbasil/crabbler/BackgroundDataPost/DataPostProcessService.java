@@ -60,7 +60,7 @@ public class DataPostProcessService extends IntentService {
                         PostHelper helper;
                         switch (split[0]) {
                             case "Register":
-                                helper = new RegisterHelper(settingsPrefs);
+                                helper = new RegisterHelper(settingsPrefs, getBaseContext());
                                 break;
                             case "Login":
                                 helper = new LoginHelper(settingsPrefs);

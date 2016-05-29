@@ -11,6 +11,7 @@ import com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostHelpers.Answer
 import com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostHelpers.LoginHelper;
 import com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostHelpers.PostHelper;
 import com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostHelpers.RegisterHelper;
+import com.github.hintofbasil.crabbler.Keys;
 import com.github.hintofbasil.crabbler.R;
 
 import java.io.IOException;
@@ -49,7 +50,7 @@ public class DataPostProcessService extends IntentService {
         }
         if(settingsPrefs==null) {
             //TODO use constant
-            settingsPrefs = getSharedPreferences("SETTINGS_PREFS_KEY", Context.MODE_PRIVATE);
+            settingsPrefs = getSharedPreferences(Keys.SETTINGS_PREFS_KEY, Context.MODE_PRIVATE);
         }
         //Check for internet connection
         if(cm.getActiveNetworkInfo() != null) {

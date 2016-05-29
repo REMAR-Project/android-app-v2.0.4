@@ -28,7 +28,7 @@ public class UserAgreementActivity extends AppCompatActivity {
         getBaseContext().startService(dataPostIntent);
 
         //TODO use constant
-        sharedPrefs = getSharedPreferences("SETTINGS_PREFS_KEY", Context.MODE_PRIVATE);
+        sharedPrefs = getSharedPreferences(Keys.SETTINGS_PREFS_KEY, Context.MODE_PRIVATE);
         if(sharedPrefs.getBoolean(getString(R.string.agreement_accepted_key), false)) {
             //Skip if already accepted
             launchNextActivity();

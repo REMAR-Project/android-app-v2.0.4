@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
+import com.github.hintofbasil.crabbler.Keys;
 import com.github.hintofbasil.crabbler.R;
 
 /**
@@ -33,7 +34,7 @@ public class DataPostFactory {
 
     public void submitAnswers(String answers) {
         // Register phone if not already registered
-        SharedPreferences settingsPrefs = context.getSharedPreferences("SETTINGS_PREFS_KEY", Context.MODE_PRIVATE);
+        SharedPreferences settingsPrefs = context.getSharedPreferences(Keys.SETTINGS_PREFS_KEY, Context.MODE_PRIVATE);
         if(settingsPrefs.getString("ACCESS_TOKEN_KEY", null) == null) {
             login();
             register();

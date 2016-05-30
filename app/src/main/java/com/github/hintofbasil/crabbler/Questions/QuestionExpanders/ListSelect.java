@@ -29,7 +29,7 @@ public class ListSelect extends Expander {
 
     @Override
     public void expandLayout(JSONObject question) throws JSONException {
-        activity.setContentView(R.layout.activity_list_select);
+        activity.setContentView(R.layout.expander_list_select);
 
         ImageView imageView = (ImageView) activity.findViewById(R.id.image);
         TextView titleView = (TextView) activity.findViewById(R.id.title);

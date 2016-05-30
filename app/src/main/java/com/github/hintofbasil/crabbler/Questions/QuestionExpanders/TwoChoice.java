@@ -26,7 +26,7 @@ public class TwoChoice extends Expander {
 
     @Override
     public void expandLayout(JSONObject question) throws JSONException {
-        activity.setContentView(R.layout.activity_two_choice);
+        activity.setContentView(R.layout.expander_two_choice);
         ImageView imageView = (ImageView) activity.findViewById(R.id.image);
         TextView titleView = (TextView) activity.findViewById(R.id.title);
         choiceOneCheckBox = (CheckBox) activity.findViewById(R.id.choice_one);

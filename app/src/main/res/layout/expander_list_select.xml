@@ -20,16 +20,38 @@
             android:paddingTop="@dimen/activity_vertical_margin"
             android:orientation="vertical">
 
-            <include layout="@layout/image_text_header"
+            <include layout="@layout/include_image_text"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/item_select"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    />
+
+                <!-- TODO remove fixed height -->
+                <ImageView
+                    android:id="@+id/detail_picture"
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    android:layout_weight="0.5"
+                    />
+
+            </LinearLayout>
 
         </LinearLayout>
 
     </ScrollView>
 
-    <include layout="@layout/back_next_include"
+    <include layout="@layout/include_back_next"
         android:id="@+id/back_next_include"
         android:layout_alignParentBottom="true"
         android:layout_height="wrap_content"

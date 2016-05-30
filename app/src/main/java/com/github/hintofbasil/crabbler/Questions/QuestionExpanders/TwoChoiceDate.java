@@ -27,7 +27,7 @@ public class TwoChoiceDate extends Expander {
 
     @Override
     public void expandLayout(JSONObject question) throws JSONException {
-        activity.setContentView(R.layout.activity_two_choice_date);
+        activity.setContentView(R.layout.expander_two_choice_date);
 
         ImageView imageView = (ImageView) activity.findViewById(R.id.image);
         TextView titleView = (TextView) activity.findViewById(R.id.title);

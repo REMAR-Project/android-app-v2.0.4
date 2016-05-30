@@ -13,8 +13,6 @@ import com.github.hintofbasil.crabbler.R;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
-
 /**
  * Created by will on 05/05/16.
  */
@@ -30,7 +28,7 @@ public class TwoPictureLayoutExpander extends Expander {
 
     @Override
     public void expandLayout(JSONObject question) throws JSONException {
-        activity.setContentView(R.layout.two_picture_choice_layout);
+        activity.setContentView(R.layout.expander_two_picture_choice);
         TextView questionText = (TextView) activity.findViewById(R.id.question_text);
         TextView choiceOneTitle = (TextView) activity.findViewById(R.id.choice_one_title);
         TextView choiceTwoTitle = (TextView) activity.findViewById(R.id.choice_two_title);

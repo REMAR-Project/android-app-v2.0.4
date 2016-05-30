@@ -86,7 +86,7 @@
 
     </RelativeLayout>
 
-    <include layout="@layout/back_next_include"
+    <include layout="@layout/include_back_next"
         android:id="@+id/back_next_include"
         android:layout_alignParentBottom="true"
         android:layout_height="wrap_content"

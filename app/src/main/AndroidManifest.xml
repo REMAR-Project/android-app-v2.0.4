@@ -38,7 +38,7 @@
         <service android:name=".BackgroundDataPost.DataPostProcessService" />
 
         <activity android:name=".Questions.QuestionActivity" />
-        <activity android:name=".AboutUs" />
+        <activity android:name=".AboutUsActivity" />
     </application>
 
 </manifest>

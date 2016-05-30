@@ -13,7 +13,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class AboutUs extends AppCompatActivity implements AboutUsFragment.OnFragmentInteractionListener {
+public class AboutUsActivity extends AppCompatActivity implements AboutUsFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class AboutUs extends AppCompatActivity implements AboutUsFragment.OnFrag
                         .commit();
             }
         } catch (IOException|JSONException e) {
-            Log.e("AboutUs", "Unable to read about_us.json\n" + Log.getStackTraceString(e));
+            Log.e("AboutUsActivity", "Unable to read about_us.json\n" + Log.getStackTraceString(e));
             return;
         }
     }

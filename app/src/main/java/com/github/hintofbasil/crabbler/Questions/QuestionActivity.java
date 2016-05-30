@@ -9,7 +9,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.github.hintofbasil.crabbler.AboutUs;
+import com.github.hintofbasil.crabbler.AboutUsActivity;
 import com.github.hintofbasil.crabbler.Keys;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DateRangeExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DateRangeSelectExpander;
@@ -102,7 +102,7 @@ public class QuestionActivity extends AppCompatActivity {
             case R.id.about_us:
                 Log.i("QuestionActivity", "Launching about us");
                 Intent intent = new Intent(getBaseContext(),
-                        AboutUs.class);
+                        AboutUsActivity.class);
                 startActivity(intent);
                 return true;
             default:

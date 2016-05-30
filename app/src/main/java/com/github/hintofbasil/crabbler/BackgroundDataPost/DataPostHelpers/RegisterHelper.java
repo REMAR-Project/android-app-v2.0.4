@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 import android.provider.Settings;
 import android.util.Log;
 
+import com.github.hintofbasil.crabbler.Keys;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -39,7 +41,7 @@ public class RegisterHelper extends PostHelper {
             JSONObject responseJson = new JSONObject(responseData);
             String id = responseJson.getString("phone_id");
             //TODO use contant
-            prefs.edit().putString("PHONE_ID_KEY", id).commit();
+            prefs.edit().putString(Keys.PHONE_ID_KEY, id).commit();
             Log.i("RegisterHelper", "Phone id: " + id);
             return true;
         } catch (JSONException e) {

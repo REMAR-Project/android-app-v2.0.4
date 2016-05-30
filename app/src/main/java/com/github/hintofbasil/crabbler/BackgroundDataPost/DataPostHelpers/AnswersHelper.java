@@ -3,6 +3,8 @@ package com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostHelpers;
 import android.content.SharedPreferences;
 import android.util.Log;
 
+import com.github.hintofbasil.crabbler.Keys;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -26,7 +28,7 @@ public class AnswersHelper extends PostHelper {
 
     @Override
     protected String getData() {
-        String phoneId = prefs.getString("PHONE_ID_KEY", null);
+        String phoneId = prefs.getString(Keys.PHONE_ID_KEY, null);
         if(phoneId == null) {
             Log.d("AnswersHelper", "Unable to find phone id");
             return null;
@@ -56,7 +58,7 @@ public class AnswersHelper extends PostHelper {
     @Override
     protected Map<String, String> getHeaders() {
         Map<String, String> map = super.getHeaders();
-        String token = prefs.getString("ACCESS_TOKEN_KEY", null);
+        String token = prefs.getString(Keys.ACCESS_TOKEN_KEY, null);
         if(token == null) {
             Log.d("AnswersHelper", "Missing access token");
             return null;

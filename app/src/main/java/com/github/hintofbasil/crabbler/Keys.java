@@ -11,5 +11,7 @@ public class Keys {
     public static String SAVED_PREFERENCES_KEY = "SAVED_PREFERENCES_KEY";
     public static String QUESTION_ID_KEY = "QUESTION_ID_KEY";
     public static String ANSWERS_KEY = "ANSWERS_KEY";
+    public static String PHONE_ID_KEY = "PHONE_ID_KEY";
+    public static String ACCESS_TOKEN_KEY = "ACCESS_TOKEN_KEY";
 
 }

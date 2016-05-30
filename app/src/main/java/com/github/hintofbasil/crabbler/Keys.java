@@ -10,5 +10,6 @@ public class Keys {
     public static String TO_SEND_PREFERENCES_KEY = "TO_SEND_PREFERENCES_KEY";
     public static String SAVED_PREFERENCES_KEY = "SAVED_PREFERENCES_KEY";
     public static String QUESTION_ID_KEY = "QUESTION_ID_KEY";
+    public static String ANSWERS_KEY = "ANSWERS_KEY";
 
 }

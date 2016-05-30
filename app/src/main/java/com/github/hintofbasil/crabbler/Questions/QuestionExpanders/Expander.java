@@ -67,7 +67,7 @@ public abstract class Expander {
     }
 
     private String[] getCurrentAnswers() throws IOException, JSONException {
-        String answers = prefs.getString(activity.getString(R.string.answers_key), null);
+        String answers = prefs.getString(Keys.ANSWERS_KEY, null);
         if(answers==null) {
             Log.i("Expander", "No current answers");
             //Create empty answers string
@@ -91,8 +91,8 @@ public abstract class Expander {
         } catch (ArrayIndexOutOfBoundsException e) {
             // Recursively add commas until correct length
             // TODO check for question change on boot instead
-            String answers = prefs.getString(activity.getString(R.string.answers_key), null);
-            prefs.edit().putString(activity.getString(R.string.answers_key), answers + ",").commit();
+            String answers = prefs.getString(Keys.ANSWERS_KEY, null);
+            prefs.edit().putString(Keys.ANSWERS_KEY, answers + ",").commit();
             return getCurrentAnswer();
         }
     }
@@ -116,7 +116,7 @@ public abstract class Expander {
         }
         int len = sb.length();
         String newAnswers = sb.substring(0, len - 1);
-        prefs.edit().putString(activity.getString(R.string.answers_key), newAnswers).apply();
+        prefs.edit().putString(Keys.ANSWERS_KEY, newAnswers).apply();
         Log.i("Expander", "Question saved - " + newAnswers);
     }
 

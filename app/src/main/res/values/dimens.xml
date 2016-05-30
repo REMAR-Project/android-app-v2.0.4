@@ -8,6 +8,7 @@
     <dimen name="question_select_margin">10dp</dimen>
     <dimen name="question_select_outside_margin">0dp</dimen>
 
-    <dimen name="about_us_title">18dp</dimen>
-    <dimen name="about_us_content">15dp</dimen>
+    <dimen name="about_us_title">18sp</dimen>
+    <dimen name="about_us_content">15sp</dimen>
+    <dimen name="about_us_button_size">45dp</dimen>
 </resources>

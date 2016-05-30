@@ -34,7 +34,6 @@ public class QuestionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        byte[] buffer = new byte[1024];
         try {
             int questionId = getIntent().getIntExtra(Keys.QUESTION_ID_KEY, 0);
             QuestionReader qr = new QuestionReader();

@@ -6,15 +6,14 @@ import android.util.Log;
 import android.view.View;
 
 import com.github.hintofbasil.crabbler.Keys;
-import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DateRange;
-import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DateRangeSelect;
+import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DateRangeExpander;
+import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DateRangeSelectExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.Expander;
-import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.ListSelect;
-import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.TwoChoice;
-import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.TwoChoiceDate;
+import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.ListSelectExpander;
+import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.TwoChoiceExpander;
+import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.TwoChoiceDateExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.TwoPictureLayoutExpander;
-import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.YesNoExtra;
-import com.github.hintofbasil.crabbler.R;
+import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.YesNoExtraExpander;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -40,22 +39,22 @@ public class QuestionActivity extends AppCompatActivity {
                     expander = new TwoPictureLayoutExpander(this);
                     break;
                 case "TwoChoiceDate":
-                    expander = new TwoChoiceDate(this);
+                    expander = new TwoChoiceDateExpander(this);
                     break;
                 case "TwoChoice":
-                    expander = new TwoChoice(this);
+                    expander = new TwoChoiceExpander(this);
                     break;
                 case "DateRange":
-                    expander = new DateRange(this);
+                    expander = new DateRangeExpander(this);
                     break;
                 case "DateRangeSelect":
-                    expander = new DateRangeSelect(this);
+                    expander = new DateRangeSelectExpander(this);
                     break;
                 case "ListSelect":
-                    expander = new ListSelect(this);
+                    expander = new ListSelectExpander(this);
                     break;
                 case "YesNoExtra":
-                    expander = new YesNoExtra(this);
+                    expander = new YesNoExtraExpander(this);
                     break;
                 default:
                     Log.e("QuestionActivity", "Unknown question type.");

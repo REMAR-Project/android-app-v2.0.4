@@ -17,14 +17,14 @@ import org.json.JSONObject;
 /**
  * Created by will on 25/05/16.
  */
-public class YesNoExtra extends Expander {
+public class YesNoExtraExpander extends Expander {
 
     CheckBox chkYes;
     CheckBox chkNo;
     CheckBox chkMaybe;
     EditText hiddenInput;
 
-    public YesNoExtra(AppCompatActivity activity) {
+    public YesNoExtraExpander(AppCompatActivity activity) {
         super(activity);
     }
 

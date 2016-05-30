@@ -26,12 +26,12 @@ import java.util.List;
 /**
  * Created by will on 14/05/16.
  */
-public class DateRange extends Expander {
+public class DateRangeExpander extends Expander {
 
     private List<Date> selectedDates = new LinkedList<Date>();
     CaldroidFragment caldroidFragment = new CaldroidFragment();
 
-    public DateRange(AppCompatActivity activity) {
+    public DateRangeExpander(AppCompatActivity activity) {
         super(activity);
     }
 
@@ -90,7 +90,7 @@ public class DateRange extends Expander {
                 Drawable drawable = activity.getResources().getDrawable(R.drawable.caldroid_cell_previously_selected);
                 caldroidFragment.setBackgroundDrawableForDate(drawable, date);
             } catch (ParseException e) {
-                Log.e("DateRange", "Unable to create date from answer " + Log.getStackTraceString(e));
+                Log.e("DateRangeExpander", "Unable to create date from answer " + Log.getStackTraceString(e));
                 return;
             }
         }

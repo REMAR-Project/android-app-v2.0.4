@@ -19,11 +19,11 @@ import java.io.InputStream;
 /**
  * Created by will on 19/05/16.
  */
-public class ListSelect extends Expander {
+public class ListSelectExpander extends Expander {
 
     Spinner listHolder;
 
-    public ListSelect(AppCompatActivity activity) {
+    public ListSelectExpander(AppCompatActivity activity) {
         super(activity);
     }
 
@@ -53,9 +53,9 @@ public class ListSelect extends Expander {
                     android.R.layout.simple_list_item_1,
                     strings);
             listHolder.setAdapter(adapter);
-            Log.i("ListSelect", "Successfully populated spinner");
+            Log.i("ListSelectExpander", "Successfully populated spinner");
         } catch (IOException e) {
-            Log.e("ListSelect", "Failed to read file\n" + Log.getStackTraceString(e));
+            Log.e("ListSelectExpander", "Failed to read file\n" + Log.getStackTraceString(e));
         }
     }
 
@@ -65,7 +65,7 @@ public class ListSelect extends Expander {
             int position = Integer.parseInt(answer);
             listHolder.setSelection(position);
         } catch (NumberFormatException e) {
-            Log.d("ListSelect", "No previous answer");
+            Log.d("ListSelectExpander", "No previous answer");
         }
     }
 

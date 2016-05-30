@@ -14,8 +14,4 @@ public class Keys {
     public static final String PHONE_ID_KEY = "PHONE_ID_KEY";
     public static final String ACCESS_TOKEN_KEY = "ACCESS_TOKEN_KEY";
 
-    public static final String REGISTER = "REGISTER";
-    public static final String LOGIN = "LOGIN";
-    public static final String ANSWERS = "ANSWERS";
-
 }

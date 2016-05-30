@@ -12,7 +12,6 @@ import com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostHelpers.LoginH
 import com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostHelpers.PostHelper;
 import com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostHelpers.RegisterHelper;
 import com.github.hintofbasil.crabbler.Keys;
-import com.github.hintofbasil.crabbler.R;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -59,13 +58,13 @@ public class DataPostProcessService extends IntentService {
                         String[] split = toSendPrefs.getString(detail, null).split(";", -1); //Should never return null
                         PostHelper helper;
                         switch (split[0]) {
-                            case Keys.REGISTER:
+                            case DataPostFactory.REGISTER:
                                 helper = new RegisterHelper(settingsPrefs, getBaseContext());
                                 break;
-                            case Keys.LOGIN:
+                            case DataPostFactory.LOGIN:
                                 helper = new LoginHelper(settingsPrefs);
                                 break;
-                            case Keys.ANSWERS:
+                            case DataPostFactory.ANSWERS:
                                 helper = new AnswersHelper(settingsPrefs, split[1]);
                                 break;
                             default:

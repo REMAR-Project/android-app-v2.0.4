@@ -16,17 +16,21 @@ public class DataPostFactory {
     SharedPreferences toSendPrefs;
     Context context;
 
+    public static final String REGISTER = "REGISTER";
+    public static final String LOGIN = "LOGIN";
+    public static final String ANSWERS = "ANSWERS";
+
     public DataPostFactory(Context context) {
         this.toSendPrefs = context.getSharedPreferences(Keys.TO_SEND_PREFERENCES_KEY, Context.MODE_PRIVATE);
         this.context = context;
     }
 
     public void register() {
-        addData(Keys.REGISTER, "");
+        addData(REGISTER, "");
     }
 
     public void login() {
-        addData(Keys.LOGIN, "");
+        addData(LOGIN, "");
     }
 
     public void submitAnswers(String answers) {
@@ -36,7 +40,7 @@ public class DataPostFactory {
             login();
             register();
         }
-        addData(Keys.ANSWERS, answers);
+        addData(ANSWERS, answers);
     }
 
     /**

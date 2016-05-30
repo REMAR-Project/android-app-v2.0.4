@@ -38,9 +38,7 @@
         <service android:name=".BackgroundDataPost.DataPostProcessService" />
 
         <activity android:name=".Questions.QuestionActivity" />
-        <activity android:name=".Questions.QuestionExpanders.TwoChoiceDateExpander"></activity>
-        <activity android:name=".AboutUs">
-        </activity>
+        <activity android:name=".AboutUs" />
     </application>
 
 </manifest>

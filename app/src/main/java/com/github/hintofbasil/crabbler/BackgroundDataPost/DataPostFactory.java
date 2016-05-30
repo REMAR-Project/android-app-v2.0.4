@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 
 import com.github.hintofbasil.crabbler.Keys;
-import com.github.hintofbasil.crabbler.R;
 
 /**
  * Used to add urls to the post queue list
@@ -23,25 +22,21 @@ public class DataPostFactory {
     }
 
     public void register() {
-        //TODO use constant
-        addData("Register", "");
+        addData(Keys.REGISTER, "");
     }
 
     public void login() {
-        //TODO use constant
-        addData("Login", "");
+        addData(Keys.LOGIN, "");
     }
 
     public void submitAnswers(String answers) {
         // Register phone if not already registered
         SharedPreferences settingsPrefs = context.getSharedPreferences(Keys.SETTINGS_PREFS_KEY, Context.MODE_PRIVATE);
-        if(settingsPrefs.getString("ACCESS_TOKEN_KEY", null) == null) {
+        if(settingsPrefs.getString(Keys.ACCESS_TOKEN_KEY, null) == null) {
             login();
             register();
         }
-
-        //TODO use constant
-        addData("Answers", answers);
+        addData(Keys.ANSWERS, answers);
     }
 
     /**

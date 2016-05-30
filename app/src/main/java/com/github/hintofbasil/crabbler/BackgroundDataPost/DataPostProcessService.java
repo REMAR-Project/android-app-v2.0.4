@@ -49,7 +49,6 @@ public class DataPostProcessService extends IntentService {
             toSendPrefs = getSharedPreferences(Keys.TO_SEND_PREFERENCES_KEY, Context.MODE_PRIVATE);
         }
         if(settingsPrefs==null) {
-            //TODO use constant
             settingsPrefs = getSharedPreferences(Keys.SETTINGS_PREFS_KEY, Context.MODE_PRIVATE);
         }
         //Check for internet connection
@@ -60,13 +59,13 @@ public class DataPostProcessService extends IntentService {
                         String[] split = toSendPrefs.getString(detail, null).split(";", -1); //Should never return null
                         PostHelper helper;
                         switch (split[0]) {
-                            case "Register":
+                            case Keys.REGISTER:
                                 helper = new RegisterHelper(settingsPrefs, getBaseContext());
                                 break;
-                            case "Login":
+                            case Keys.LOGIN:
                                 helper = new LoginHelper(settingsPrefs);
                                 break;
-                            case "Answers":
+                            case Keys.ANSWERS:
                                 helper = new AnswersHelper(settingsPrefs, split[1]);
                                 break;
                             default:

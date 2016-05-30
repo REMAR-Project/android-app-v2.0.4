@@ -20,6 +20,7 @@ Aliquam porta dui eu quam egestas, eu sollicitudin lacus facilisis. Donec laoree
     <string name="internal_error">An internal error occurred.  Please restart.</string>
     <string name="back_button">Previous</string>
     <string name="forward_button">Forward</string>
+    <string name="about_us">About Us</string>
 
     <string name="yes">Yes</string>
     <string name="no">No</string>

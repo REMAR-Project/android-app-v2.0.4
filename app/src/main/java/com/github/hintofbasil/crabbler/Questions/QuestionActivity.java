@@ -1,10 +1,15 @@
 package com.github.hintofbasil.crabbler.Questions;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
+import com.github.hintofbasil.crabbler.AboutUs;
 import com.github.hintofbasil.crabbler.Keys;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DateRangeExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DateRangeSelectExpander;
@@ -14,6 +19,7 @@ import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.TwoChoiceExpa
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.TwoChoiceDateExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.TwoPictureLayoutExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.YesNoExtraExpander;
+import com.github.hintofbasil.crabbler.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -82,5 +88,26 @@ public class QuestionActivity extends AppCompatActivity {
 
     public void nextQuestion(View view) {
         expander.nextQuestion(0);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.base_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.about_us:
+                Log.i("QuestionActivity", "Launching about us");
+                Intent intent = new Intent(getBaseContext(),
+                        AboutUs.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

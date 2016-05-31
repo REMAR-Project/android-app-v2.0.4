@@ -6,4 +6,5 @@
     <color name="questionBackground">#FF0000</color>
     <color name="questionSelectedBackground">#0000FF</color>
     <color name="questionPreviouslySelectedBackground">#00FF00</color>
+    <color name="questionOfQuestionText">#AAAAAA</color>
 </resources>

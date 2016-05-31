@@ -1,28 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
+    <TextView
+        android:id="@+id/page_of"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/question_of_question"
+        android:textColor="@color/questionOfQuestionText"
+        android:text="0/0" />
+
+    <ImageView
         android:id="@+id/back_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.5"
-        android:text="@string/back_button"
-        android:textAlignment="center"
-        android:textSize="@dimen/question_font_size"
+        android:layout_width="@dimen/back_next_button_size"
+        android:layout_height="@dimen/back_next_button_size"
+        android:src="@drawable/previous"
         android:onClick="previousQuestion"
+        android:layout_toStartOf="@+id/forward_button"
+        android:layout_toLeftOf="@+id/forward_button"
         />
 
-    <Button
+    <ImageView
         android:id="@+id/forward_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.5"
-        android:text="@string/forward_button"
-        android:textAlignment="center"
-        android:textSize="@dimen/question_font_size"
+        android:layout_width="@dimen/back_next_button_size"
+        android:layout_height="@dimen/back_next_button_size"
         android:onClick="nextQuestion"
+        android:src="@drawable/next"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         />
 
-</LinearLayout>
+</RelativeLayout>

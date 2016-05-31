@@ -1,12 +1,22 @@
 <licences>
 	<drawable>
-		<image>expand.jpg</image>
+		<image>expand.png</image>
 		<licence>Creative Commons</licence>
 		<source>https://www.iconfinder.com/icons/69590/basic_blue_expand_toggle_icon#size=48</source>
 	</drawable>
 	<drawable>
-		<image>contract.jpg</image>
+		<image>contract.png</image>
 		<licence>Creative Commons</licence>
 		<source>https://www.iconfinder.com/icons/69586/basic_blue_collapse_toggle_icon#size=48</source>
+	</drawable>
+	<drawable>
+		<image>next.png</image>
+		<licence>Free for commercial use</licence>
+		<source>https://www.iconfinder.com/icons/293276/next_right_icon#size=64</source>
+	</drawable>
+	<drawable>
+		<image>previous.png</image>
+		<licence>Free for commercial use</licence>
+		<source>https://www.iconfinder.com/icons/293277/left_pre_previous_icon#size=64</source>
 	</drawable>
 </licences>

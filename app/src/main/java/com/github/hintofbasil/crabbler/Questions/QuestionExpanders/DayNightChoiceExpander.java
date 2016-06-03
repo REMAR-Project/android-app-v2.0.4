@@ -25,6 +25,8 @@ public class DayNightChoiceExpander extends Expander {
     LinearLayout nightLayout;
     LinearLayout dayNightLayout;
 
+    int dayNightChoice = -1;
+
     public DayNightChoiceExpander(AppCompatActivity activity) {
         super(activity);
     }
@@ -97,7 +99,15 @@ public class DayNightChoiceExpander extends Expander {
 
     @Override
     public String getSelectedAnswer() {
-        return null;
+        StringBuilder sb = new StringBuilder();
+        if(choiceOneCheckBox.isChecked()) {
+            sb.append('0');
+        } else if(choiceTwoCheckBox.isChecked()) {
+            sb.append('1');
+        }
+        sb.append(';');
+        sb.append(dayNightChoice);
+        return sb.toString();
     }
 
     private void setDayNightChoice(int choice, int colorId) {
@@ -105,6 +115,7 @@ public class DayNightChoiceExpander extends Expander {
         highlightLinearLayout(nightLayout, R.color.none);
         highlightLinearLayout(dayNightLayout, R.color.none);
         unknown.setChecked(false);
+        dayNightChoice = choice;
         switch(choice) {
             case 0:
                 highlightLinearLayout(dayLayout, R.color.questionSelectedBackground);

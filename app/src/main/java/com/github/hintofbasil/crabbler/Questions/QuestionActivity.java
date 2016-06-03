@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.github.hintofbasil.crabbler.AboutUsActivity;
 import com.github.hintofbasil.crabbler.Keys;
@@ -66,6 +67,10 @@ public class QuestionActivity extends AppCompatActivity {
                     return;
             }
             expander.expandLayout(questionJson);
+
+            TextView pageOf = (TextView) findViewById(R.id.page_of);
+            int questionCount = qr.getJsonQuestions(this).length();
+            pageOf.setText(String.format("%d/%d", questionId+1, questionCount));
 
         } catch (IOException|JSONException e) {
             Log.e("QuestionActivity", "Error reading questions\n" + Log.getStackTraceString(e));

@@ -1,6 +1,7 @@
 package com.github.hintofbasil.crabbler.Questions.QuestionExpanders;
 
 import android.support.v7.app.AppCompatActivity;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,9 +25,13 @@ public class DayNightChoiceExpander extends Expander {
 
         ImageView imageView = (ImageView) activity.findViewById(R.id.image);
         TextView titleView = (TextView) activity.findViewById(R.id.title);
+        CheckBox choiceOneCheckBox = (CheckBox) activity.findViewById(R.id.choice_one);
+        CheckBox choiceTwoCheckBox = (CheckBox) activity.findViewById(R.id.choice_two);
 
         imageView.setImageDrawable(getDrawable(question.getString("questionPicture")));
         titleView.setText(question.getString("questionTitle"));
+        choiceOneCheckBox.setText(question.getString("choiceOneText"));
+        choiceTwoCheckBox.setText(question.getString("choiceTwoText"));
     }
 
     @Override

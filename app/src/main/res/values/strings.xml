@@ -29,6 +29,7 @@ Aliquam porta dui eu quam egestas, eu sollicitudin lacus facilisis. Donec laoree
     <string name="only_day">Only day</string>
     <string name="only_night">Only night</string>
     <string name="day_and_night">Day and night</string>
+    <string name="day_night_unknown">I do not know if the stepped occurred, day or night</string>
 
     <string name="preference_session_id">session_id</string>
 

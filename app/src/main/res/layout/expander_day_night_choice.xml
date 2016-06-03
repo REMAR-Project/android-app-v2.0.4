@@ -104,6 +104,12 @@
 
             </RelativeLayout>
 
+            <CheckBox
+                android:id="@+id/day_night_unknown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/day_night_unknown" />
+
         </LinearLayout>
 
     </ScrollView>

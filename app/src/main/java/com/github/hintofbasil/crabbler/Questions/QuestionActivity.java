@@ -31,6 +31,8 @@ public class QuestionActivity extends AppCompatActivity {
 
     Expander expander;
 
+    boolean allowPrevious = true, allownext = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,6 +74,16 @@ public class QuestionActivity extends AppCompatActivity {
             int questionCount = qr.getJsonQuestions(this).length();
             pageOf.setText(String.format("%d/%d", questionId+1, questionCount));
 
+            //Disable previous
+            if(questionId==0) {
+                allowPrevious = false;
+            }
+
+            //Disable next
+            if(questionId==questionCount-1) {
+                allownext = false;
+            }
+
         } catch (IOException|JSONException e) {
             Log.e("QuestionActivity", "Error reading questions\n" + Log.getStackTraceString(e));
             return;
@@ -87,11 +99,15 @@ public class QuestionActivity extends AppCompatActivity {
     }
 
     public void previousQuestion(View view) {
-        expander.previousQuestion();
+        if(allowPrevious) {
+            expander.previousQuestion();
+        }
     }
 
     public void nextQuestion(View view) {
-        expander.nextQuestion(0);
+        if(allownext) {
+            expander.nextQuestion(0);
+        }
     }
 
     @Override

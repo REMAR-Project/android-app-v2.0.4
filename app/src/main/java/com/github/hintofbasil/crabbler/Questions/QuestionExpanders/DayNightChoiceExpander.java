@@ -1,5 +1,6 @@
 package com.github.hintofbasil.crabbler.Questions.QuestionExpanders;
 
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CheckBox;
@@ -59,6 +60,34 @@ public class DayNightChoiceExpander extends Expander {
                 choiceOneCheckBox.setChecked(false);
             }
         });
+
+        dayLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setDayNightChoice(0, R.color.questionSelectedBackground);
+            }
+        });
+
+        nightLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setDayNightChoice(1, R.color.questionSelectedBackground);
+            }
+        });
+
+        dayNightLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setDayNightChoice(2, R.color.questionSelectedBackground);
+            }
+        });
+
+        unknown.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setDayNightChoice(3, R.color.questionSelectedBackground);
+            }
+        });
     }
 
     @Override
@@ -69,5 +98,34 @@ public class DayNightChoiceExpander extends Expander {
     @Override
     public String getSelectedAnswer() {
         return null;
+    }
+
+    private void setDayNightChoice(int choice, int colorId) {
+        highlightLinearLayout(dayLayout, R.color.none);
+        highlightLinearLayout(nightLayout, R.color.none);
+        highlightLinearLayout(dayNightLayout, R.color.none);
+        unknown.setChecked(false);
+        switch(choice) {
+            case 0:
+                highlightLinearLayout(dayLayout, R.color.questionSelectedBackground);
+                break;
+            case 1:
+                highlightLinearLayout(nightLayout, R.color.questionSelectedBackground);
+                break;
+            case 2:
+                highlightLinearLayout(dayNightLayout, R.color.questionSelectedBackground);
+                break;
+            case 3:
+                unknown.setChecked(true);
+                break;
+        }
+    }
+
+    private void highlightLinearLayout(LinearLayout layout, int colorId) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            layout.setBackgroundColor(activity.getColor(colorId));
+        } else {
+            layout.setBackgroundColor(activity.getResources().getColor(colorId));
+        }
     }
 }

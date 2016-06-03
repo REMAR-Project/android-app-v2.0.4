@@ -16,6 +16,7 @@ import com.github.hintofbasil.crabbler.AboutUsActivity;
 import com.github.hintofbasil.crabbler.Keys;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DateRangeExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DateRangeSelectExpander;
+import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DayNightChoiceExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.Expander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.ListSelectExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.TwoChoiceExpander;
@@ -63,6 +64,9 @@ public class QuestionActivity extends AppCompatActivity {
                     break;
                 case "YesNoExtra":
                     expander = new YesNoExtraExpander(this);
+                    break;
+                case "DayNightChoice":
+                    expander = new DayNightChoiceExpander(this);
                     break;
                 default:
                     Log.e("QuestionActivity", "Unknown question type.");

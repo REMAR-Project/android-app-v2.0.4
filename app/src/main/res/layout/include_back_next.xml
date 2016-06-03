@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="@dimen/back_next_button_size">
 
     <TextView
         android:id="@+id/page_of"
@@ -9,7 +9,8 @@
         android:layout_height="wrap_content"
         android:textSize="@dimen/question_of_question"
         android:textColor="@color/questionOfQuestionText"
-        android:text="0/0" />
+        android:text="0/0"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin" />
 
     <ImageView
         android:id="@+id/back_button"

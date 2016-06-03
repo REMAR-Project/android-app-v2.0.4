@@ -1,8 +1,10 @@
 package com.github.hintofbasil.crabbler.Questions.QuestionExpanders;
 
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.github.hintofbasil.crabbler.R;
@@ -15,6 +17,13 @@ import org.json.JSONObject;
  */
 public class DayNightChoiceExpander extends Expander {
 
+    CheckBox choiceOneCheckBox;
+    CheckBox choiceTwoCheckBox;
+    CheckBox unknown;
+    LinearLayout dayLayout;
+    LinearLayout nightLayout;
+    LinearLayout dayNightLayout;
+
     public DayNightChoiceExpander(AppCompatActivity activity) {
         super(activity);
     }
@@ -25,13 +34,31 @@ public class DayNightChoiceExpander extends Expander {
 
         ImageView imageView = (ImageView) activity.findViewById(R.id.image);
         TextView titleView = (TextView) activity.findViewById(R.id.title);
-        CheckBox choiceOneCheckBox = (CheckBox) activity.findViewById(R.id.choice_one);
-        CheckBox choiceTwoCheckBox = (CheckBox) activity.findViewById(R.id.choice_two);
+        choiceOneCheckBox = (CheckBox) activity.findViewById(R.id.choice_one);
+        choiceTwoCheckBox = (CheckBox) activity.findViewById(R.id.choice_two);
+        unknown = (CheckBox) activity.findViewById(R.id.day_night_unknown);
+        dayLayout = (LinearLayout) activity.findViewById(R.id.day_view);
+        nightLayout = (LinearLayout) activity.findViewById(R.id.night_view);
+        dayNightLayout = (LinearLayout) activity.findViewById(R.id.day_night_view);
 
         imageView.setImageDrawable(getDrawable(question.getString("questionPicture")));
         titleView.setText(question.getString("questionTitle"));
         choiceOneCheckBox.setText(question.getString("choiceOneText"));
         choiceTwoCheckBox.setText(question.getString("choiceTwoText"));
+
+        choiceOneCheckBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                choiceTwoCheckBox.setChecked(false);
+            }
+        });
+
+        choiceTwoCheckBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                choiceOneCheckBox.setChecked(false);
+            }
+        });
     }
 
     @Override

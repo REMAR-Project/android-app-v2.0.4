@@ -1,6 +1,7 @@
 package com.github.hintofbasil.crabbler.Questions;
 
 import android.content.Intent;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.hintofbasil.crabbler.AboutUsActivity;
@@ -30,8 +32,6 @@ import java.io.IOException;
 public class QuestionActivity extends AppCompatActivity {
 
     Expander expander;
-
-    boolean allowPrevious = true, allownext = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,12 +76,24 @@ public class QuestionActivity extends AppCompatActivity {
 
             //Disable previous
             if(questionId==0) {
-                allowPrevious = false;
+                ImageView previousButton = (ImageView) findViewById(R.id.back_button);
+                previousButton.setEnabled(false);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    previousButton.setImageDrawable(getDrawable(R.drawable.previous_disabled));
+                } else {
+                    previousButton.setImageDrawable(getResources().getDrawable(R.drawable.previous_disabled));
+                }
             }
 
             //Disable next
             if(questionId==questionCount-1) {
-                allownext = false;
+                ImageView nextButton = (ImageView) findViewById(R.id.forward_button);
+                nextButton.setEnabled(false);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    nextButton.setImageDrawable(getDrawable(R.drawable.next_disabled));
+                } else {
+                    nextButton.setImageDrawable(getResources().getDrawable(R.drawable.next_disabled));
+                }
             }
 
         } catch (IOException|JSONException e) {
@@ -99,15 +111,11 @@ public class QuestionActivity extends AppCompatActivity {
     }
 
     public void previousQuestion(View view) {
-        if(allowPrevious) {
-            expander.previousQuestion();
-        }
+        expander.previousQuestion();
     }
 
     public void nextQuestion(View view) {
-        if(allownext) {
-            expander.nextQuestion(0);
-        }
+        expander.nextQuestion(0);
     }
 
     @Override

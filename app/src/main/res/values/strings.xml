@@ -26,6 +26,10 @@ Aliquam porta dui eu quam egestas, eu sollicitudin lacus facilisis. Donec laoree
     <string name="no">No</string>
     <string name="maybe">Maybe</string>
 
+    <string name="only_day">Only day</string>
+    <string name="only_night">Only night</string>
+    <string name="day_and_night">Day and night</string>
+
     <string name="preference_session_id">session_id</string>
 
     <string name="url_login">http://40180582.pythonanywhere.com/static/login</string>

@@ -35,6 +35,75 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
+            <RelativeLayout
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/day_view"
+                    android:layout_width="@dimen/day_night_image_holder_width"
+                    android:layout_height="@dimen/day_night_image_holder_height"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/only_day" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/day" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/night_view"
+                    android:layout_width="@dimen/day_night_image_holder_width"
+                    android:layout_height="@dimen/day_night_image_holder_height"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_toRightOf="@+id/day_view">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/only_day" />
+
+                    <ImageView
+                        android:id="@+id/night_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/night" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/day_night_view"
+                    android:layout_width="@dimen/day_night_image_holder_width"
+                    android:layout_height="@dimen/day_night_image_holder_height"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_below="@+id/day_view"
+                    android:layout_centerInParent="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/only_day" />
+
+                    <ImageView
+                        android:id="@+id/day_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/day_night" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
         </LinearLayout>
 
     </ScrollView>

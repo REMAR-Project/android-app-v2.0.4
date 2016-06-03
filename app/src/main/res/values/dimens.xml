@@ -9,6 +9,8 @@
     <dimen name="question_select_outside_margin">0dp</dimen>
     <dimen name="question_of_question">22sp</dimen>
     <dimen name="back_next_button_size">40dp</dimen>
+    <dimen name="day_night_image_holder_height">100dp</dimen>
+    <dimen name="day_night_image_holder_width">100dp</dimen>
 
     <dimen name="about_us_title">18sp</dimen>
     <dimen name="about_us_content">15sp</dimen>

@@ -1,8 +1,12 @@
 package com.github.hintofbasil.crabbler.Questions.QuestionExpanders;
 
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -25,6 +29,7 @@ public class ListSelectExpander extends Expander {
 
     Spinner listHolder;
     EditText itemTextInput;
+    String[] listStrings;
 
     public ListSelectExpander(AppCompatActivity activity) {
         super(activity);
@@ -56,6 +61,36 @@ public class ListSelectExpander extends Expander {
             Log.d("ListSelectExpander", "disableCustom not specified in questions.json.  Enabled by default");
         }
 
+        listHolder.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                itemTextInput.setText(((TextView) view).getText());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        itemTextInput.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String answer = itemTextInput.getText().toString();
+                setSpinnerTo(listHolder, answer);
+            }
+        });
+
         JSONArray jsonArray = null;
 
         try {
@@ -71,16 +106,16 @@ public class ListSelectExpander extends Expander {
         }
 
         if(jsonArray != null) {
-            String[] strings = new String[jsonArray.length()];
+            listStrings = new String[jsonArray.length()];
             for(int i=0; i<jsonArray.length(); i++) {
                 String listItem = jsonArray.getString(i);
-                strings[i] = listItem;
+                listStrings[i] = listItem;
             }
 
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                     activity.getBaseContext(),
                     android.R.layout.simple_list_item_1,
-                    strings);
+                    listStrings);
             listHolder.setAdapter(adapter);
             Log.i("ListSelectExpander", "Successfully populated spinner");
         } else {
@@ -90,18 +125,12 @@ public class ListSelectExpander extends Expander {
 
     @Override
     protected void setPreviousAnswer(String answer) {
-        try {
-            int position = Integer.parseInt(answer);
-            listHolder.setSelection(position);
-        } catch (NumberFormatException e) {
-            Log.d("ListSelectExpander", "No previous answer");
-        }
+        setSpinnerTo(listHolder, answer);
     }
 
     @Override
     public String getSelectedAnswer() {
-        int position = listHolder.getSelectedItemPosition();
-        return String.valueOf(position);
+        return itemTextInput.getText().toString();
     }
 
     private String readFile(String filename) throws IOException, JSONException {
@@ -121,5 +150,14 @@ public class ListSelectExpander extends Expander {
 
     private JSONObject readFileObject(String filename) throws IOException, JSONException {
         return new JSONObject(readFile(filename));
+    }
+
+    private void setSpinnerTo(Spinner spinner, String text) {
+        for(int i=0;i<listStrings.length;i++) {
+            if(listStrings[i].equals(text)) {
+                spinner.setSelection(i);
+                return;
+            }
+        }
     }
 }

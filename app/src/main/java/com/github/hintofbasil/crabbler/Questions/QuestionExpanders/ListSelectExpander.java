@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -23,6 +24,7 @@ import java.io.InputStream;
 public class ListSelectExpander extends Expander {
 
     Spinner listHolder;
+    EditText itemTextInput;
 
     public ListSelectExpander(AppCompatActivity activity) {
         super(activity);
@@ -36,6 +38,7 @@ public class ListSelectExpander extends Expander {
         TextView titleView = (TextView) activity.findViewById(R.id.title);
         ImageView detailImage = (ImageView) activity.findViewById(R.id.detail_picture);
         listHolder = (Spinner) activity.findViewById(R.id.item_select);
+        itemTextInput = (EditText) activity.findViewById(R.id.item_text_input);
 
         imageView.setImageDrawable(getDrawable(question.getString("questionPicture")));
         titleView.setText(question.getString("questionTitle"));
@@ -43,6 +46,14 @@ public class ListSelectExpander extends Expander {
             detailImage.setImageDrawable(getDrawable(question.getString("detailPicture")));
         } catch (JSONException e) {
             detailImage.setVisibility(View.GONE);
+        }
+        try {
+            boolean disableCustom = question.getBoolean("disableCustom");
+            if(disableCustom == true) {
+                itemTextInput.setVisibility(View.GONE);
+            }
+        } catch (JSONException e) {
+            Log.d("ListSelectExpander", "disableCustom not specified in questions.json.  Enabled by default");
         }
 
         JSONArray jsonArray = null;

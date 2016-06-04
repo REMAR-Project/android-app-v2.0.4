@@ -30,6 +30,12 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
+                <EditText
+                    android:id="@+id/item_text_input"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"/>
+
                 <Spinner
                     android:id="@+id/item_select"
                     android:layout_width="0dp"

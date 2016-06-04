@@ -2,6 +2,7 @@ package com.github.hintofbasil.crabbler.Questions.QuestionExpanders;
 
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
@@ -94,7 +95,19 @@ public class DayNightChoiceExpander extends Expander {
 
     @Override
     protected void setPreviousAnswer(String answer) {
-
+        String[] answers = answer.split(";", -1);
+        try {
+            int answerOne = Integer.parseInt(answers[0]);
+            if(answerOne == 0) {
+                choiceOneCheckBox.setChecked(true);
+            } else if(answerOne == 1) {
+                choiceTwoCheckBox.setChecked(true);
+            }
+            int answerTwo = Integer.parseInt(answers[1]);
+            setDayNightChoice(answerTwo, R.color.questionPreviouslySelectedBackground);
+        } catch (NumberFormatException|ArrayIndexOutOfBoundsException e) {
+            Log.d("DayNightChoiceExpander", "No previous answer");
+        }
     }
 
     @Override
@@ -118,13 +131,13 @@ public class DayNightChoiceExpander extends Expander {
         dayNightChoice = choice;
         switch(choice) {
             case 0:
-                highlightLinearLayout(dayLayout, R.color.questionSelectedBackground);
+                highlightLinearLayout(dayLayout, colorId);
                 break;
             case 1:
-                highlightLinearLayout(nightLayout, R.color.questionSelectedBackground);
+                highlightLinearLayout(nightLayout, colorId);
                 break;
             case 2:
-                highlightLinearLayout(dayNightLayout, R.color.questionSelectedBackground);
+                highlightLinearLayout(dayNightLayout, colorId);
                 break;
             case 3:
                 unknown.setChecked(true);

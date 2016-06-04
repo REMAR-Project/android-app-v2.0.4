@@ -2,6 +2,7 @@ package com.github.hintofbasil.crabbler.Questions.QuestionExpanders;
 
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -38,10 +39,27 @@ public class ListSelectExpander extends Expander {
 
         imageView.setImageDrawable(getDrawable(question.getString("questionPicture")));
         titleView.setText(question.getString("questionTitle"));
-        detailImage.setImageDrawable(getDrawable(question.getString("detailPicture")));
+        try{
+            detailImage.setImageDrawable(getDrawable(question.getString("detailPicture")));
+        } catch (JSONException e) {
+            detailImage.setVisibility(View.GONE);
+        }
+
+        JSONArray jsonArray = null;
 
         try {
-            JSONArray jsonArray = readFile(question.getString("jsonInput"));
+            jsonArray = readFileArray(question.getString("jsonInput"));
+        } catch (JSONException e) {
+            try {
+                jsonArray = readFileObject(question.getString("jsonInput")).getJSONArray(question.getString("jsonKey"));
+            } catch (JSONException|IOException e1) {
+                Log.e("ListSelectExpander", "Unable to parse json file" + Log.getStackTraceString(e1));
+            }
+        } catch (IOException e) {
+            Log.e("ListSelectExpander", "Unable to parse json file" + Log.getStackTraceString(e));
+        }
+
+        if(jsonArray != null) {
             String[] strings = new String[jsonArray.length()];
             for(int i=0; i<jsonArray.length(); i++) {
                 String listItem = jsonArray.getString(i);
@@ -54,8 +72,8 @@ public class ListSelectExpander extends Expander {
                     strings);
             listHolder.setAdapter(adapter);
             Log.i("ListSelectExpander", "Successfully populated spinner");
-        } catch (IOException e) {
-            Log.e("ListSelectExpander", "Failed to read file\n" + Log.getStackTraceString(e));
+        } else {
+            Log.e("ListSelectExpander", "No questions to load");
         }
     }
 
@@ -75,7 +93,7 @@ public class ListSelectExpander extends Expander {
         return String.valueOf(position);
     }
 
-    private JSONArray readFile(String filename) throws IOException, JSONException {
+    private String readFile(String filename) throws IOException, JSONException {
         if(filename.endsWith(".json")) {
             filename = filename.substring(0, filename.length() - 5);
         }
@@ -83,7 +101,14 @@ public class ListSelectExpander extends Expander {
         InputStream jsonInputStream = activity.getBaseContext().getResources().openRawResource(resourceId);
         byte[] buffer = new byte[2048];
         int length = jsonInputStream.read(buffer);
-        String jsonString = new String(buffer).substring(0, length);
-        return new JSONArray(jsonString);
+        return new String(buffer).substring(0, length);
+    }
+
+    private JSONArray readFileArray(String filename) throws IOException, JSONException {
+        return new JSONArray(readFile(filename));
+    }
+
+    private JSONObject readFileObject(String filename) throws IOException, JSONException {
+        return new JSONObject(readFile(filename));
     }
 }

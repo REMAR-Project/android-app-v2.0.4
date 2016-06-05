@@ -63,6 +63,15 @@
   },
   {
     "questionNumber": 8,
+    "questionType": "ListSelect",
+    "questionPicture": "q0_0",
+    "questionTitle": "Monitoring Crab-uca",
+    "questionText": "Enter the city closest to your mangrove:",
+    "jsonInput": "region_cities.json",
+    "jsonKey": "Rio de Janeiro"
+  },
+  {
+    "questionNumber": 9,
     "questionType": "YesNoExtra",
     "questionPicture": "q0_0",
     "questionTitle": "Monitoring Crab-uca",

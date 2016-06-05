@@ -17,6 +17,7 @@ import com.github.hintofbasil.crabbler.Keys;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DateRangeExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DateRangeSelectExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DayNightChoiceExpander;
+import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DoneExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.Expander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.ListSelectExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.TwoChoiceExpander;
@@ -41,42 +42,47 @@ public class QuestionActivity extends AppCompatActivity {
         try {
             int questionId = getIntent().getIntExtra(Keys.QUESTION_ID_KEY, 0);
             QuestionReader qr = new QuestionReader();
-            JSONObject questionJson = qr.getJsonQuestion(this, questionId);
+            JSONObject questionJson = null;
 
-            switch(questionJson.getString("questionType")) {
-                case "TwoPictureChoice":
-                    expander = new TwoPictureLayoutExpander(this);
-                    break;
-                case "TwoChoiceDate":
-                    expander = new TwoChoiceDateExpander(this);
-                    break;
-                case "TwoChoice":
-                    expander = new TwoChoiceExpander(this);
-                    break;
-                case "DateRange":
-                    expander = new DateRangeExpander(this);
-                    break;
-                case "DateRangeSelect":
-                    expander = new DateRangeSelectExpander(this);
-                    break;
-                case "ListSelect":
-                    expander = new ListSelectExpander(this);
-                    break;
-                case "YesNoExtra":
-                    expander = new YesNoExtraExpander(this);
-                    break;
-                case "DayNightChoice":
-                    expander = new DayNightChoiceExpander(this);
-                    break;
-                default:
-                    Log.e("QuestionActivity", "Unknown question type.");
-                    return;
+            if(questionId==qr.getJsonQuestions(this).length()) {
+                expander = new DoneExpander(this);
+            } else {
+                questionJson = qr.getJsonQuestion(this, questionId);
+                switch (questionJson.getString("questionType")) {
+                    case "TwoPictureChoice":
+                        expander = new TwoPictureLayoutExpander(this);
+                        break;
+                    case "TwoChoiceDate":
+                        expander = new TwoChoiceDateExpander(this);
+                        break;
+                    case "TwoChoice":
+                        expander = new TwoChoiceExpander(this);
+                        break;
+                    case "DateRange":
+                        expander = new DateRangeExpander(this);
+                        break;
+                    case "DateRangeSelect":
+                        expander = new DateRangeSelectExpander(this);
+                        break;
+                    case "ListSelect":
+                        expander = new ListSelectExpander(this);
+                        break;
+                    case "YesNoExtra":
+                        expander = new YesNoExtraExpander(this);
+                        break;
+                    case "DayNightChoice":
+                        expander = new DayNightChoiceExpander(this);
+                        break;
+                    default:
+                        Log.e("QuestionActivity", "Unknown question type.");
+                        return;
+                }
             }
             expander.expandLayout(questionJson);
 
             TextView pageOf = (TextView) findViewById(R.id.page_of);
             int questionCount = qr.getJsonQuestions(this).length();
-            pageOf.setText(String.format("%d/%d", questionId+1, questionCount));
+            pageOf.setText(String.format("%d/%d", questionId+1, questionCount+1));
 
             //Disable previous
             if(questionId==0) {
@@ -90,7 +96,7 @@ public class QuestionActivity extends AppCompatActivity {
             }
 
             //Disable next
-            if(questionId==questionCount-1) {
+            if(questionId==questionCount) {
                 ImageView nextButton = (ImageView) findViewById(R.id.forward_button);
                 nextButton.setEnabled(false);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

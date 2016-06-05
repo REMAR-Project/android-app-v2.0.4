@@ -19,7 +19,7 @@
   {
     "questionNumber": 2,
     "questionType": "TwoChoice",
-    "questionPicture": "q0_0",
+    "questionPicture": "q0_(0)",
     "questionTitle": "Monitoring Crab uçá",
     "choiceOneText": "There was walked after the new moon",
     "choiceTwoText": "There was walked after the full moon"
@@ -27,7 +27,7 @@
   {
     "questionNumber": 3,
     "questionType": "TwoChoice",
-    "questionPicture": "q0_0",
+    "questionPicture": "q0_(0)",
     "questionTitle": "Monitoring Crab uçá",
     "choiceOneText": "I want to register more occurrences or absences of Andradas",
     "choiceTwoText": "I want to proceed with information about the location tracking"
@@ -35,20 +35,20 @@
   {
     "questionNumber": 4,
     "questionType": "DateRange",
-    "questionPicture": "q0_0",
+    "questionPicture": "q0_(0)",
     "questionTitle": "Monitoring Crab-uca"
   },
   {
     "questionNumber": 5,
     "questionType": "DateRangeSelect",
-    "questionPicture": "q0_0",
+    "questionPicture": "q0_(0)",
     "questionTitle": "Monitoring Crab-uca",
     "filterOnQuestion": 4
   },
   {
     "questionNumber": 6,
     "questionType": "DayNightChoice",
-    "questionPicture": "q0_0",
+    "questionPicture": "q0_(0)",
     "questionTitle": "Monitoring Crab-uca",
     "choiceOneText": "In the new moon",
     "choiceTwoText": "The full moon"
@@ -56,7 +56,7 @@
   {
     "questionNumber": 7,
     "questionType": "ListSelect",
-    "questionPicture": "q0_0",
+    "questionPicture": "q0_(0)",
     "questionTitle": "Monitoring Crab-uca",
     "jsonInput": "regions.json",
     "detailPicture": "brazil_regions.png"
@@ -64,7 +64,7 @@
   {
     "questionNumber": 8,
     "questionType": "ListSelect",
-    "questionPicture": "q0_0",
+    "questionPicture": "q0_(0)",
     "questionTitle": "Monitoring Crab-uca",
     "questionText": "Enter the city closest to your mangrove:",
     "jsonInput": "region_cities.json",
@@ -73,7 +73,7 @@
   {
     "questionNumber": 9,
     "questionType": "YesNoExtra",
-    "questionPicture": "q0_0",
+    "questionPicture": "q0_(0)",
     "questionTitle": "Monitoring Crab-uca",
     "questionText": "The monitored mangrove forest is in protected area (eg. RESEX, APA Park)?",
     "hiddenDetailText": "What is the name of the protected area?"

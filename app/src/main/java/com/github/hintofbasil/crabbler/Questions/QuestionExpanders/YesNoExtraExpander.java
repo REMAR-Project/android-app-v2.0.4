@@ -24,12 +24,12 @@ public class YesNoExtraExpander extends Expander {
     CheckBox chkMaybe;
     EditText hiddenInput;
 
-    public YesNoExtraExpander(AppCompatActivity activity) {
-        super(activity);
+    public YesNoExtraExpander(AppCompatActivity activity, JSONObject questionJson) {
+        super(activity, questionJson);
     }
 
     @Override
-    public void expandLayout(JSONObject question) throws JSONException {
+    public void expandLayout() throws JSONException {
         activity.setContentView(R.layout.expander_yes_no_extra);
 
         ImageView imageView = (ImageView) activity.findViewById(R.id.image);
@@ -43,10 +43,10 @@ public class YesNoExtraExpander extends Expander {
 
         hiddenInput = (EditText) activity.findViewById(R.id.hidden_input);
 
-        imageView.setImageDrawable(getDrawable(question.getString("questionPicture")));
-        titleView.setText(question.getString("questionTitle"));
-        questionText.setText(question.getString("questionText"));
-        hiddenDetail.setText(question.getString("hiddenDetailText"));
+        imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
+        titleView.setText(getQuestionString("questionTitle"));
+        questionText.setText(getQuestionString("questionText"));
+        hiddenDetail.setText(getQuestionString("hiddenDetailText"));
 
         chkYes.setOnClickListener(new View.OnClickListener() {
             @Override

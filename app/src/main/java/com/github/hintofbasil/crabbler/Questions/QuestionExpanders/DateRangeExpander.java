@@ -31,19 +31,19 @@ public class DateRangeExpander extends Expander {
     private List<Date> selectedDates = new LinkedList<Date>();
     CaldroidFragment caldroidFragment = new CaldroidFragment();
 
-    public DateRangeExpander(AppCompatActivity activity) {
-        super(activity);
+    public DateRangeExpander(AppCompatActivity activity, JSONObject questionJson) {
+        super(activity, questionJson);
     }
 
     @Override
-    public void expandLayout(JSONObject question) throws JSONException {
+    public void expandLayout() throws JSONException {
         activity.setContentView(R.layout.expander_date_range);
 
         ImageView imageView = (ImageView) activity.findViewById(R.id.image);
         TextView titleView = (TextView) activity.findViewById(R.id.title);
 
-        imageView.setImageDrawable(getDrawable(question.getString("questionPicture")));
-        titleView.setText(question.getString("questionTitle"));
+        imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
+        titleView.setText(getQuestionString("questionTitle"));
 
         // Build calendar
 

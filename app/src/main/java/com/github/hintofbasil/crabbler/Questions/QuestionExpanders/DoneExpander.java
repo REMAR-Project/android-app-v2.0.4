@@ -20,12 +20,12 @@ import org.json.JSONObject;
  */
 public class DoneExpander extends Expander {
 
-    public DoneExpander(AppCompatActivity activity) {
-        super(activity);
+    public DoneExpander(AppCompatActivity activity, JSONObject questionJson) {
+        super(activity, questionJson);
     }
 
     @Override
-    public void expandLayout(JSONObject question) throws JSONException {
+    public void expandLayout() throws JSONException {
         activity.setContentView(R.layout.expander_done);
 
         CheckBox done = (CheckBox) activity.findViewById(R.id.chk_done);

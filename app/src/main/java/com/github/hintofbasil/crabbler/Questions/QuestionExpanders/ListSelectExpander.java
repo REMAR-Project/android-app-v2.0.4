@@ -31,12 +31,12 @@ public class ListSelectExpander extends Expander {
     EditText itemTextInput;
     String[] listStrings;
 
-    public ListSelectExpander(AppCompatActivity activity) {
-        super(activity);
+    public ListSelectExpander(AppCompatActivity activity, JSONObject questionJson) {
+        super(activity, questionJson);
     }
 
     @Override
-    public void expandLayout(JSONObject question) throws JSONException {
+    public void expandLayout() throws JSONException {
         activity.setContentView(R.layout.expander_list_select);
 
         ImageView imageView = (ImageView) activity.findViewById(R.id.image);
@@ -45,15 +45,15 @@ public class ListSelectExpander extends Expander {
         listHolder = (Spinner) activity.findViewById(R.id.item_select);
         itemTextInput = (EditText) activity.findViewById(R.id.item_text_input);
 
-        imageView.setImageDrawable(getDrawable(question.getString("questionPicture")));
-        titleView.setText(question.getString("questionTitle"));
+        imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
+        titleView.setText(getQuestionString("questionTitle"));
         try{
-            detailImage.setImageDrawable(getDrawable(question.getString("detailPicture")));
+            detailImage.setImageDrawable(getDrawable(getQuestionString("detailPicture")));
         } catch (JSONException e) {
             detailImage.setVisibility(View.GONE);
         }
         try {
-            boolean disableCustom = question.getBoolean("disableCustom");
+            boolean disableCustom = Boolean.parseBoolean(getQuestionString("disableCustom"));
             if(disableCustom == true) {
                 itemTextInput.setVisibility(View.GONE);
             }
@@ -94,10 +94,10 @@ public class ListSelectExpander extends Expander {
         JSONArray jsonArray = null;
 
         try {
-            jsonArray = readFileArray(question.getString("jsonInput"));
+            jsonArray = readFileArray(getQuestionString("jsonInput"));
         } catch (JSONException e) {
             try {
-                jsonArray = readFileObject(question.getString("jsonInput")).getJSONArray(question.getString("jsonKey"));
+                jsonArray = readFileObject(getQuestionString("jsonInput")).getJSONArray(getQuestionString("jsonKey"));
             } catch (JSONException|IOException e1) {
                 Log.e("ListSelectExpander", "Unable to parse json file" + Log.getStackTraceString(e1));
             }

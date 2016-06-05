@@ -22,12 +22,12 @@ public class TwoPictureLayoutExpander extends Expander {
     LinearLayout questionOneButton;
     LinearLayout questionTwoButton;
 
-    public TwoPictureLayoutExpander(AppCompatActivity activity) {
-        super(activity);
+    public TwoPictureLayoutExpander(AppCompatActivity activity, JSONObject questionJson) {
+        super(activity, questionJson);
     }
 
     @Override
-    public void expandLayout(JSONObject question) throws JSONException {
+    public void expandLayout() throws JSONException {
         activity.setContentView(R.layout.expander_two_picture_choice);
         TextView questionText = (TextView) activity.findViewById(R.id.question_text);
         TextView choiceOneTitle = (TextView) activity.findViewById(R.id.choice_one_title);
@@ -37,14 +37,14 @@ public class TwoPictureLayoutExpander extends Expander {
         ImageView choiceOneImage = (ImageView) activity.findViewById(R.id.choice_one_image);
         ImageView choiceTwoImage = (ImageView) activity.findViewById(R.id.choice_two_image);
 
-        choiceOneImage.setImageDrawable(getDrawable(question.getString("choiceOnePicture")));
-        choiceTwoImage.setImageDrawable(getDrawable(question.getString("choiceTwoPicture")));
+        choiceOneImage.setImageDrawable(getDrawable(getQuestionString("choiceOnePicture")));
+        choiceTwoImage.setImageDrawable(getDrawable(getQuestionString("choiceTwoPicture")));
 
-        questionText.setText(question.getString("questionText"));
+        questionText.setText(getQuestionString("questionText"));
         questionText.setMovementMethod(new ScrollingMovementMethod());
 
-        choiceOneTitle.setText(question.getString("choiceOneTitle"));
-        choiceTwoTitle.setText(question.getString("choiceTwoTitle"));
+        choiceOneTitle.setText(getQuestionString("choiceOneTitle"));
+        choiceTwoTitle.setText(getQuestionString("choiceTwoTitle"));
 
         questionOneButton.setOnClickListener(new View.OnClickListener() {
             @Override

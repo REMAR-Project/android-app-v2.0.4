@@ -21,12 +21,12 @@ public class TwoChoiceDateExpander extends Expander {
     Spinner monthListSpinner;
     Spinner yearListSpinner;
 
-    public TwoChoiceDateExpander(AppCompatActivity activity) {
-        super(activity);
+    public TwoChoiceDateExpander(AppCompatActivity activity, JSONObject questionJson) {
+        super(activity, questionJson);
     }
 
     @Override
-    public void expandLayout(JSONObject question) throws JSONException {
+    public void expandLayout() throws JSONException {
         activity.setContentView(R.layout.expander_two_choice_date);
 
         ImageView imageView = (ImageView) activity.findViewById(R.id.image);
@@ -36,10 +36,10 @@ public class TwoChoiceDateExpander extends Expander {
         monthListSpinner = (Spinner) activity.findViewById(R.id.month_list_view);
         yearListSpinner = (Spinner) activity.findViewById(R.id.year_list_view);
 
-        imageView.setImageDrawable(getDrawable(question.getString("questionPicture")));
-        titleView.setText(question.getString("questionTitle"));
-        choiceOneCheckBox.setText(question.getString("choiceOneText"));
-        choiceTwoCheckBox.setText(question.getString("choiceTwoText"));
+        imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
+        titleView.setText(getQuestionString("questionTitle"));
+        choiceOneCheckBox.setText(getQuestionString("choiceOneText"));
+        choiceTwoCheckBox.setText(getQuestionString("choiceTwoText"));
 
         choiceOneCheckBox.setOnClickListener(new View.OnClickListener() {
             @Override

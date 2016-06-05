@@ -154,7 +154,7 @@ public abstract class Expander {
             return questionAttr;
         }
         StringBuilder sb = new StringBuilder(questionAttr);
-        Pattern pattern = Pattern.compile("\\(0\\)");
+        Pattern pattern = Pattern.compile("\\(\\d+\\)");
         Matcher match = pattern.matcher(questionAttr);
         while(match.find()) {
             String found = match.group();

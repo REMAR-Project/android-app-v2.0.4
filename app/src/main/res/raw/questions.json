@@ -59,7 +59,8 @@
     "questionPicture": "q0_(0)",
     "questionTitle": "Monitoring Crab-uca",
     "jsonInput": "regions.json",
-    "detailPicture": "brazil_regions.png"
+    "detailPicture": "brazil_regions.png",
+    "disableCustom": "true"
   },
   {
     "questionNumber": 8,
@@ -68,7 +69,7 @@
     "questionTitle": "Monitoring Crab-uca",
     "questionText": "Enter the city closest to your mangrove:",
     "jsonInput": "region_cities.json",
-    "jsonKey": "Rio de Janeiro"
+    "jsonKey": "(7)"
   },
   {
     "questionNumber": 9,

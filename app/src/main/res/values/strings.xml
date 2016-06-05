@@ -31,6 +31,11 @@ Aliquam porta dui eu quam egestas, eu sollicitudin lacus facilisis. Donec laoree
     <string name="day_and_night">Day and night</string>
     <string name="day_night_unknown">I do not know if the stepped occurred, day or night</string>
 
+    <string name="done">Done</string>
+    <string name="thank_you">Thank you for participating!</string>
+    <string name="citizen_scientist">Now you are a citizen scientist!</string>
+    <string name="thank_you_toast">Your answers have been submitted.</string>
+
     <string name="preference_session_id">session_id</string>
 
     <string name="url_login">http://40180582.pythonanywhere.com/static/login</string>

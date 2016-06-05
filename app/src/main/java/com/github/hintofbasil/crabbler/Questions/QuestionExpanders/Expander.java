@@ -19,6 +19,8 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Interface to expand a layout using a question JSON object
@@ -146,6 +148,26 @@ public abstract class Expander {
     }
 
     public String getQuestionString(String string) throws JSONException {
-        return questionJson.getString(string);
+        String questionAttr = questionJson.getString(string);
+        // Return early if no expanding
+        if(!questionAttr.contains("(")) {
+            return questionAttr;
+        }
+        StringBuilder sb = new StringBuilder(questionAttr);
+        Pattern pattern = Pattern.compile("\\(0\\)");
+        Matcher match = pattern.matcher(questionAttr);
+        while(match.find()) {
+            String found = match.group();
+            // Remove brackets
+            String number = found.substring(1, found.length()-1);
+            try {
+                String answer = getAnswer(Integer.parseInt(number));
+                sb.replace(match.start(), match.end(), answer);
+            } catch (IOException e) {
+                Log.e("Expander", "Invalid question id in " + questionAttr);
+                return "";
+            }
+        }
+        return sb.toString();
     }
 }

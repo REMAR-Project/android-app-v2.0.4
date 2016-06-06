@@ -40,7 +40,15 @@ public class DataPostFactory {
             login();
             register();
         }
-        addData(ANSWERS, answers);
+        answers = answers.replaceAll("\n", "");
+        String[] split = answers.split(",");
+        StringBuilder sb = new StringBuilder();
+        for(String s : split) {
+            sb.append('"');
+            sb.append(s.toString());
+            sb.append("\",");
+        }
+        addData(ANSWERS, sb.substring(0, sb.length()-1));
     }
 
     /**

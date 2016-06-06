@@ -21,7 +21,7 @@ public class AnswersHelper extends PostHelper {
     private SharedPreferences prefs;
 
     public AnswersHelper(SharedPreferences prefs, String questions) {
-        super("http://crab.napier.ac.uk/api/0.1/sightings");
+        super("http://crab.napier.ac.uk/api/0.2/sightings");
         this.questions = questions;
         this.prefs = prefs;
     }

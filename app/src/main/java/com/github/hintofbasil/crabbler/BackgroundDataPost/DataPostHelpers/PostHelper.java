@@ -12,7 +12,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * Created by will on 23/05/16.
@@ -70,7 +69,7 @@ public abstract class PostHelper {
             int length = inputStream.read(bytes);
             return new String(bytes, "UTF-8").substring(0, length);
         } else {
-            Log.d("PostHelper", "Invalid response: " + connection.getResponseMessage());
+            Log.d("PostHelper", "Invalid response: " + url.toString() + " " + content + " " + connection.getResponseMessage());
         }
         return null;
     }

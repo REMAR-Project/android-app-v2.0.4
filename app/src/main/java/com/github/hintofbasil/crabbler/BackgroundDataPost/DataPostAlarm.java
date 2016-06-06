@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.github.hintofbasil.crabbler.R;
@@ -30,10 +31,19 @@ public class DataPostAlarm extends BroadcastReceiver {
     }
 
     public void SetAlarm(Context context) {
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
+        long delay = ALARM_DELAY;
+        String delayString = sharedPref.getString("pref_postFrequency", null);
+        if(delayString!=null) {
+            delay = Long.parseLong(delayString);
+        } else {
+            Log.d("DataPostAlarm", "Unable to parse frequency setting " + delayString);
+        }
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Intent i = new Intent(context, DataPostAlarm.class);
         PendingIntent pi = PendingIntent.getBroadcast(context, 0, i, 0);
+        Log.i("DataPostAlarm", "Launching background poster.  Delay: " + delay);
         // Will only create one instance even on phone boot
-        am.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), ALARM_DELAY, pi);
+        am.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), delay, pi);
     }
 }

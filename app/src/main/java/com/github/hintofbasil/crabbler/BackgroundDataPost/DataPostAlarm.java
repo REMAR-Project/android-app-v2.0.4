@@ -6,20 +6,10 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.ConnectivityManager;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.github.hintofbasil.crabbler.Keys;
-import com.github.hintofbasil.crabbler.R;
-
-import java.io.BufferedInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.Map;
 
 public class DataPostAlarm extends BroadcastReceiver {
 

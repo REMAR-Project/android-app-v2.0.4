@@ -15,7 +15,6 @@ import com.roomorama.caldroid.CaldroidListener;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

@@ -1,5 +1,6 @@
 package com.github.hintofbasil.crabbler.Questions;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
@@ -14,7 +15,7 @@ import android.widget.TextView;
 
 import com.github.hintofbasil.crabbler.AboutUsActivity;
 import com.github.hintofbasil.crabbler.Keys;
-import com.github.hintofbasil.crabbler.PreferenceActivity;
+import com.github.hintofbasil.crabbler.Settings.SettingsActivity;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DateRangeExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DateRangeSelectExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DayNightChoiceExpander;
@@ -158,7 +159,7 @@ public class QuestionActivity extends AppCompatActivity {
             case R.id.settings:
                 Log.i("QuestionActivity", "Launching settings");
                 Intent intent1 = new Intent(getBaseContext(),
-                        PreferenceActivity.class);
+                        SettingsActivity.class);
                 startActivity(intent1);
                 return true;
             default:

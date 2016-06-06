@@ -44,9 +44,11 @@ public class ListSelectExpander extends Expander {
         ImageView detailImage = (ImageView) activity.findViewById(R.id.detail_picture);
         listHolder = (Spinner) activity.findViewById(R.id.item_select);
         itemTextInput = (EditText) activity.findViewById(R.id.item_text_input);
+        TextView descriptionView = (TextView) activity.findViewById(R.id.description);
 
         imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
         titleView.setText(getQuestionString("questionTitle"));
+        descriptionView.setText(getQuestionString("description"));
         try{
             detailImage.setImageDrawable(getDrawable(getQuestionString("detailPicture")));
         } catch (JSONException e) {

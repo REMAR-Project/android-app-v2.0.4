@@ -61,6 +61,7 @@
     "questionType": "ListSelect",
     "questionPicture": "q0_(0)",
     "questionTitle": "crab_title_(0)",
+    "description": "Qual o estado em que foi feito o monitoramento?",
     "jsonInput": "regions.json",
     "detailPicture": "brazil_regions.png",
     "disableCustom": "true"
@@ -70,6 +71,7 @@
     "questionType": "ListSelect",
     "questionPicture": "q0_(0)",
     "questionTitle": "crab_title_(0)",
+    "description": "Digite o nome da cidade mais perto do seu manguezal:",
     "questionText": "Digite o nome da cidade mais perto do seu manguezal:",
     "jsonInput": "region_cities.json",
     "jsonKey": "(7)"

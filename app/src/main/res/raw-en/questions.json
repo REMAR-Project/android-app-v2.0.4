@@ -61,6 +61,7 @@
     "questionType": "ListSelect",
     "questionPicture": "q0_(0)",
     "questionTitle": "crab_title_(0)",
+    "description": "What is the state in which it was made monitoring?",
     "jsonInput": "regions.json",
     "detailPicture": "brazil_regions.png",
     "disableCustom": "true"
@@ -70,7 +71,7 @@
     "questionType": "ListSelect",
     "questionPicture": "q0_(0)",
     "questionTitle": "crab_title_(0)",
-    "questionText": "Enter the city closest to your mangrove:",
+    "description": "Enter the city closest to your mangrove:",
     "jsonInput": "region_cities.json",
     "jsonKey": "(7)"
   },

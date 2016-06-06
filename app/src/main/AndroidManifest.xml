@@ -39,6 +39,7 @@
 
         <activity android:name=".Questions.QuestionActivity" />
         <activity android:name=".AboutUsActivity" />
+        <activity android:name=".PreferenceActivity" />
     </application>
 
 </manifest>

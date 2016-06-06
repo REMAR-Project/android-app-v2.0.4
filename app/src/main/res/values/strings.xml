@@ -21,6 +21,7 @@ Aliquam porta dui eu quam egestas, eu sollicitudin lacus facilisis. Donec laoree
     <string name="back_button">Previous</string>
     <string name="forward_button">Forward</string>
     <string name="about_us">About Us</string>
+    <string name="settings">Settings</string>
 
     <string name="yes">Sim</string>
     <string name="no">Não</string>
@@ -61,4 +62,25 @@ Aliquam porta dui eu quam egestas, eu sollicitudin lacus facilisis. Donec laoree
         <item>2016</item>
         <item>2017</item>
     </string-array>
+
+    <string name="pref_postFrequency_title">Post Frequency</string>
+    <string name="pref_postFrequency_summary">The frequency with which the app attempts to post answers to the web.</string>
+    <string-array name="pref_postFrequency_entries">
+        <item>1 minute</item>
+        <item>5 minutes</item>
+        <item>15 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>24 hours</item>
+    </string-array>
+    <string-array name="pref_postFrequency_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+    <string name="pref_postFrequency_default">1</string>
+
 </resources>

@@ -46,4 +46,16 @@ Aliquam porta dui eu quam egestas, eu sollicitudin lacus facilisis. Donec laoree
         <item>November</item>
         <item>December</item>
     </string-array>
+
+    <string name="pref_postFrequency_title">Post Frequency</string>
+    <string name="pref_postFrequency_summary">The frequency with which the app attempts to post answers to the web.</string>
+    <string-array name="pref_postFrequency_entries">
+        <item>1 minute</item>
+        <item>5 minutes</item>
+        <item>15 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>24 hours</item>
+    </string-array>
+
 </resources>

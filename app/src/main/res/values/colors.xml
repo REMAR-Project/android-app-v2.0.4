@@ -3,9 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="questionBackground">#FF0000</color>
+    <color name="questionBackground">#729fcf</color>
     <color name="questionSelectedBackground">#0000FF</color>
-    <color name="questionPreviouslySelectedBackground">#00FF00</color>
+    <color name="questionPreviouslySelectedBackground">#0000FF</color>
     <color name="questionOfQuestionText">#AAAAAA</color>
     <color name="none">#00000000</color>
 </resources>

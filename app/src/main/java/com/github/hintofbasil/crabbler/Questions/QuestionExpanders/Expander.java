@@ -168,6 +168,15 @@ public abstract class Expander {
                 return "";
             }
         }
-        return sb.toString();
+        return getStringResourceOrReturn(sb.toString());
+    }
+
+    public String getStringResourceOrReturn(String string) {
+        int drawableId = activity.getResources().getIdentifier(string, "string", activity.getPackageName());
+        if(drawableId>0) {
+            return activity.getString(drawableId);
+        } else {
+            return string;
+        }
     }
 }

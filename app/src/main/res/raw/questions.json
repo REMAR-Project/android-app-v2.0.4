@@ -6,7 +6,8 @@
     "choiceOneTitle": "Crab uca",
     "choiceOnePicture": "q0_0",
     "choiceTwoTitle": "Guaiamum",
-    "choiceTwoPicture": "q0_1"
+    "choiceTwoPicture": "q0_1",
+    "hideBackNext": true
   },
   {
     "questionNumber": 1,

@@ -80,6 +80,16 @@ public class QuestionActivity extends AppCompatActivity {
             }
             expander.expandLayout();
 
+            try {
+                questionJson.getBoolean("hideBackNext");
+                ImageView previousButton = (ImageView) findViewById(R.id.back_button);
+                ImageView nextButton = (ImageView) findViewById(R.id.forward_button);
+                previousButton.setVisibility(View.GONE);
+                nextButton.setVisibility(View.GONE);
+            } catch (JSONException|NullPointerException e) {
+
+            }
+
             TextView pageOf = (TextView) findViewById(R.id.page_of);
             int questionCount = qr.getJsonQuestions(this).length();
             pageOf.setText(String.format("%d/%d", questionId+1, questionCount+1));

@@ -3,6 +3,7 @@ package com.github.hintofbasil.crabbler;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
@@ -23,6 +24,8 @@ public class UserAgreementActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 
         Intent dataPostIntent = new Intent(getBaseContext(), DataPostLaunchService.class);
         getBaseContext().startService(dataPostIntent);

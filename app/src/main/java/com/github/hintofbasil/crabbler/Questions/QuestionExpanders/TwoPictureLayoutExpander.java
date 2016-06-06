@@ -50,6 +50,7 @@ public class TwoPictureLayoutExpander extends Expander {
             @Override
             public void onClick(View v) {
                 currentAnswer = 0;
+                questionTwoButton.setBackgroundResource(R.color.questionBackground);
                 questionOneButton.setBackgroundResource(R.color.questionSelectedBackground);
                 nextQuestion(1000);
             }
@@ -59,6 +60,7 @@ public class TwoPictureLayoutExpander extends Expander {
             @Override
             public void onClick(View v) {
                 currentAnswer = 1;
+                questionOneButton.setBackgroundResource(R.color.questionBackground);
                 questionTwoButton.setBackgroundResource(R.color.questionSelectedBackground);
                 nextQuestion(1000);
             }

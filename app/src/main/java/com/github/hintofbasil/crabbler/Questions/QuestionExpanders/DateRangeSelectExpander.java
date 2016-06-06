@@ -43,9 +43,11 @@ public class DateRangeSelectExpander extends Expander {
 
         ImageView imageView = (ImageView) activity.findViewById(R.id.image);
         TextView titleView = (TextView) activity.findViewById(R.id.title);
+        TextView descriptionView = (TextView) activity.findViewById(R.id.description);
 
         imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
         titleView.setText(getQuestionString("questionTitle"));
+        descriptionView.setText(getQuestionString("description"));
 
         // Build calendar
 

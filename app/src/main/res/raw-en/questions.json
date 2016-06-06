@@ -37,13 +37,15 @@
     "questionNumber": 4,
     "questionType": "DateRange",
     "questionPicture": "q0_(0)",
-    "questionTitle": "crab_title_(0)"
+    "questionTitle": "crab_title_(0)",
+    "description": "Click on the days that you noted walked"
   },
   {
     "questionNumber": 5,
     "questionType": "DateRangeSelect",
     "questionPicture": "q0_(0)",
     "questionTitle": "crab_title_(0)",
+    "description": "Click the day that stepped it was stronger",
     "filterOnQuestion": 4
   },
   {

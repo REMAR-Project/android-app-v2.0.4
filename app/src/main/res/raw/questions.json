@@ -37,13 +37,15 @@
     "questionNumber": 4,
     "questionType": "DateRange",
     "questionPicture": "q0_(0)",
-    "questionTitle": "crab_title_(0)"
+    "questionTitle": "crab_title_(0)",
+    "description": "Clique nos dias em que  você observou andada"
   },
   {
     "questionNumber": 5,
     "questionType": "DateRangeSelect",
     "questionPicture": "q0_(0)",
     "questionTitle": "crab_title_(0)",
+    "description": "Clique no dia em que a andada foi mas forte ",
     "filterOnQuestion": 4
   },
   {

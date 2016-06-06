@@ -22,40 +22,39 @@ Aliquam porta dui eu quam egestas, eu sollicitudin lacus facilisis. Donec laoree
     <string name="forward_button">Forward</string>
     <string name="about_us">About Us</string>
 
-    <string name="yes">Yes</string>
-    <string name="no">No</string>
-    <string name="maybe">Maybe</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+    <string name="maybe">Não sei</string>
 
-    <string name="only_day">Only day</string>
-    <string name="only_night">Only night</string>
-    <string name="day_and_night">Day and night</string>
-    <string name="day_night_unknown">I do not know if the stepped occurred, day or night</string>
+    <string name="only_day">Somente de dia</string>
+    <string name="only_night">Somente de noite</string>
+    <string name="day_and_night">Dia e noite</string>
+    <string name="day_night_unknown">Não sei se a andada ocorreu de dia ou de noite</string>
 
     <string name="done">Done</string>
-    <string name="thank_you">Thank you for participating!</string>
-    <string name="citizen_scientist">Now you are a citizen scientist!</string>
+    <string name="thank_you">Muito obrigado pela participação!</string>
+    <string name="citizen_scientist">Agora você é um cientista cidadão!</string>
     <string name="thank_you_toast">Your answers have been submitted.</string>
 
-    <string name="crab_title_0">Monitoring Crab uçá</string>
-    <string name="crab_title_1">Monitoring Guaiamum</string>
+    <string name="crab_title_0">Monitoramento do Caranguejo-uçá</string>
+    <string name="crab_title_1">Monitoramento do Guaiamum</string>
 
     <string name="preference_session_id">session_id</string>
 
     <string name="url_login">http://40180582.pythonanywhere.com/static/login</string>
 
     <string-array name="months">
-        <item>January</item>
-        <item>February</item>
-        <item>March</item>
-        <item>April</item>
-        <item>May</item>
-        <item>June</item>
-        <item>July</item>
-        <item>August</item>
-        <item>September</item>
-        <item>October</item>
-        <item>November</item>
-        <item>December</item>
+        <item>Janeiro</item>
+        <item>Fevereiro</item>
+        <item>Marco</item>
+        <item>Abril</item>
+        <item>Maio</item>
+        <item>Junho</item>
+        <item>Julho</item>
+        <item>Agosto</item>
+        <item>Septembro</item>
+        <item>Outubro</item>
+        <item>Novembro Dezembro</item>
     </string-array>
 
     <string-array name="years">

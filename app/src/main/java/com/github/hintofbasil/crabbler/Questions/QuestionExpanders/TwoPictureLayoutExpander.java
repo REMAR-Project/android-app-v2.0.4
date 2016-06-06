@@ -65,8 +65,6 @@ public class TwoPictureLayoutExpander extends Expander {
                 nextQuestion(1000);
             }
         });
-
-
     }
 
     @Override

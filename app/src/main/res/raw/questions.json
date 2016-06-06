@@ -2,8 +2,8 @@
   {
     "questionNumber": 0,
     "questionType": "TwoPictureChoice",
-    "questionText": "Help monitor the occurrence and absence of reproductive Andradas crab-uca and crab dip over the moon at the Brazilian coast, between November and April",
-    "choiceOneTitle": "Crab uca",
+    "questionText": "Ajude monitorar a ocorrência e ausência das andadas reprodutivas do caranguejo-uçá e do guaiamum em relação a lua, na costa brasileira, entre Novembro e Abril\n\nEssa informação vai ajudar a melhorar a normativa que proíbe a captura do caranguejo-uçá e do guaiamum durante a andada, andança, suatá ou carnaval\n\nClique nas figuras se quiser fornecer as suas observações ",
+    "choiceOneTitle": "Caranguejo-uçá",
     "choiceOnePicture": "q0_0",
     "choiceTwoTitle": "Guaiamum",
     "choiceTwoPicture": "q0_1",
@@ -14,24 +14,24 @@
     "questionType": "TwoChoiceDate",
     "questionPicture": "q0_(0)",
     "questionTitle": "crab_title_(0)",
-    "choiceOneText": "I want to report the occurrence of walk",
-    "choiceTwoText": "I want to inform absence of walk"
+    "choiceOneText": "Quero informar ocorrência de andada",
+    "choiceTwoText": "Quero informar ausência de andada"
   },
   {
     "questionNumber": 2,
     "questionType": "TwoChoice",
     "questionPicture": "q0_(0)",
     "questionTitle": "crab_title_(0)",
-    "choiceOneText": "There was walked after the new moon",
-    "choiceTwoText": "There was walked after the full moon"
+    "choiceOneText": "Não houve andada após a lua nova",
+    "choiceTwoText": "Não houve andada após a lua cheia"
   },
   {
     "questionNumber": 3,
     "questionType": "TwoChoice",
     "questionPicture": "q0_(0)",
     "questionTitle": "crab_title_(0)",
-    "choiceOneText": "I want to register more occurrences or absences of Andradas",
-    "choiceTwoText": "I want to proceed with information about the location tracking"
+    "choiceOneText": "Quero registrar mais ocorrências ou ausências de andadas",
+    "choiceTwoText": "Quero prosseguir com informações sobre o local de monitoramento"
   },
   {
     "questionNumber": 4,
@@ -51,8 +51,8 @@
     "questionType": "DayNightChoice",
     "questionPicture": "q0_(0)",
     "questionTitle": "crab_title_(0)",
-    "choiceOneText": "In the new moon",
-    "choiceTwoText": "The full moon"
+    "choiceOneText": "Na lua nova",
+    "choiceTwoText": "Na lua cheia"
   },
   {
     "questionNumber": 7,
@@ -68,7 +68,7 @@
     "questionType": "ListSelect",
     "questionPicture": "q0_(0)",
     "questionTitle": "crab_title_(0)",
-    "questionText": "Enter the city closest to your mangrove:",
+    "questionText": "Digite o nome da cidade mais perto do seu manguezal:",
     "jsonInput": "region_cities.json",
     "jsonKey": "(7)"
   },
@@ -77,7 +77,7 @@
     "questionType": "YesNoExtra",
     "questionPicture": "q0_(0)",
     "questionTitle": "crab_title_(0)",
-    "questionText": "The monitored mangrove forest is in protected area (eg. RESEX, APA Park)?",
-    "hiddenDetailText": "What is the name of the protected area?"
+    "questionText": "O manguezal monitorado está em unidade de conservação (ex. RESEX, APA, Parque)?",
+    "hiddenDetailText": "Qual é o nome da unidade de conservação?"
   }
 ]

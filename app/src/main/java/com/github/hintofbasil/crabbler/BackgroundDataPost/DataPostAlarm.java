@@ -10,6 +10,7 @@ import android.net.ConnectivityManager;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
+import com.github.hintofbasil.crabbler.Keys;
 import com.github.hintofbasil.crabbler.R;
 
 import java.io.BufferedInputStream;
@@ -33,7 +34,7 @@ public class DataPostAlarm extends BroadcastReceiver {
     public void SetAlarm(Context context) {
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
         long delay = ALARM_DELAY;
-        String delayString = sharedPref.getString("pref_postFrequency", null);
+        String delayString = sharedPref.getString(Keys.PREF_POST_FREQUENCY, null);
         if(delayString!=null) {
             delay = Long.parseLong(delayString);
         } else {

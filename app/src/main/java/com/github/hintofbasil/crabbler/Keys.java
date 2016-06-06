@@ -13,5 +13,6 @@ public class Keys {
     public static final String ANSWERS_KEY = "ANSWERS_KEY";
     public static final String PHONE_ID_KEY = "PHONE_ID_KEY";
     public static final String ACCESS_TOKEN_KEY = "ACCESS_TOKEN_KEY";
+    public static final String PREF_POST_FREQUENCY = "pref_postFrequency";
 
 }

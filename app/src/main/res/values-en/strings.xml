@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">Crabbler</string>
+    <string name="accept">Accept</string>
+    <string name="decline">Decline</string>
+    <string name="user_agreement">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis consequat orci. Quisque ullamcorper ultrices vehicula. Integer in nibh eu arcu aliquet varius. Nam eleifend condimentum ipsum facilisis blandit. Maecenas dolor arcu, facilisis a auctor sit amet, posuere quis libero. Mauris tristique, sapien maximus suscipit laoreet, nisi quam vulputate metus, vel porta turpis turpis sed arcu. Aenean consectetur vulputate libero, ac tempor lacus maximus quis. Pellentesque scelerisque euismod justo. Proin vel vehicula eros, id maximus velit. Curabitur ultrices gravida tempor. Cras at neque aliquam, venenatis urna nec, efficitur erat.
+
+Praesent tempor augue risus, et ultricies tellus gravida nec. Aliquam erat volutpat. Vestibulum ultrices ligula at nibh efficitur, nec facilisis quam fermentum. Ut orci lectus, pretium nec turpis eget, viverra placerat lorem. Praesent velit ante, accumsan vel cursus id, facilisis in orci. Nulla viverra viverra metus quis faucibus. Integer eleifend gravida sem, ac sodales quam consectetur vel. Nunc cursus lobortis elit, suscipit tempor tortor tempus eu. Aenean in quam eget risus imperdiet interdum in eget nibh. Suspendisse porta suscipit metus at scelerisque. Donec felis nisi, scelerisque vel feugiat eu, euismod ut enim. Donec ac laoreet sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consequat euismod tempus. Phasellus dapibus augue in diam luctus congue. Quisque aliquet lobortis nulla, nec suscipit erat porta a.
+
+Etiam quis ultrices velit. Vivamus eleifend magna at est tempor, eu fringilla massa dapibus. Suspendisse et mattis sem, sit amet varius lacus. Aenean sit amet metus sed augue molestie iaculis a at turpis. Mauris vestibulum enim congue ante porta efficitur. Phasellus eu nibh id ligula tincidunt facilisis. Vivamus euismod sem non posuere pharetra. Nam fringilla ipsum leo, vel faucibus odio rutrum ut. Etiam lacinia ex at sem hendrerit, eget interdum velit dapibus. Morbi quis diam id odio pulvinar cursus ac vitae sapien. Nullam a augue eu nisl porttitor posuere.
+
+Suspendisse fermentum, erat at ullamcorper vehicula, arcu dui commodo libero, nec vehicula urna nisl in augue. Aliquam erat volutpat. Maecenas viverra vitae ex nec facilisis. Pellentesque maximus id odio eget cursus. Pellentesque eget libero faucibus, ultrices est venenatis, blandit enim. Morbi quis pretium est, non mollis nibh. In hac habitasse platea dictumst. Ut accumsan risus erat, nec faucibus erat lobortis nec. Vivamus vitae arcu sollicitudin, commodo tellus at, ullamcorper dui. Mauris quis lacus id velit posuere vestibulum a nec felis. Curabitur aliquam odio at quam iaculis, ac finibus ligula facilisis. Praesent ullamcorper, orci id aliquet rhoncus, metus libero rutrum velit, sed luctus nibh felis id leo. Praesent venenatis nisi et tristique feugiat. Nullam rhoncus vehicula nisl in venenatis. Ut ultricies at metus lacinia ornare.
+
+Aliquam porta dui eu quam egestas, eu sollicitudin lacus facilisis. Donec laoreet neque lectus, ac vehicula sem elementum et. Vivamus nec cursus dui. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean dapibus arcu lectus, quis feugiat ligula feugiat vel. Mauris auctor neque in quam dignissim auctor. Vestibulum ac tempus justo, non mollis nunc. Nunc vestibulum ligula ut maximus feugiat. </string>
+
+    <string name="internal_error">An internal error occurred.  Please restart.</string>
+
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="maybe">Maybe</string>
+
+    <string name="only_day">Only day</string>
+    <string name="only_night">Only night</string>
+    <string name="day_and_night">Day and night</string>
+    <string name="day_night_unknown">I do not know if the stepped occurred, day or night</string>
+
+    <string name="done">Done</string>
+    <string name="thank_you">Thank you for participating!</string>
+    <string name="citizen_scientist">Now you are a citizen scientist!</string>
+    <string name="thank_you_toast">Your answers have been submitted.</string>
+
+    <string name="crab_title_0">Monitoring Crab uçá</string>
+    <string name="crab_title_1">Monitoring Guaiamum</string>
+
+    <string-array name="months">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
+</resources>

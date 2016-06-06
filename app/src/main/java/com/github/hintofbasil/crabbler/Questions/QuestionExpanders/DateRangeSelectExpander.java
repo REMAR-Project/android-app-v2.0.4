@@ -33,19 +33,19 @@ public class DateRangeSelectExpander extends Expander {
     Date selectedDate;
     View previousView;
 
-    public DateRangeSelectExpander(AppCompatActivity activity) {
-        super(activity);
+    public DateRangeSelectExpander(AppCompatActivity activity, JSONObject questionJson) {
+        super(activity, questionJson);
     }
 
     @Override
-    public void expandLayout(JSONObject question) throws JSONException {
+    public void expandLayout() throws JSONException {
         activity.setContentView(R.layout.expander_date_range);
 
         ImageView imageView = (ImageView) activity.findViewById(R.id.image);
         TextView titleView = (TextView) activity.findViewById(R.id.title);
 
-        imageView.setImageDrawable(getDrawable(question.getString("questionPicture")));
-        titleView.setText(question.getString("questionTitle"));
+        imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
+        titleView.setText(getQuestionString("questionTitle"));
 
         // Build calendar
 
@@ -74,7 +74,7 @@ public class DateRangeSelectExpander extends Expander {
         caldroidFragment.setCaldroidListener(caldroidListener);
 
         // Disable out of range
-        List<Date> validDates = getValidDates(question);
+        List<Date> validDates = getValidDates(questionJson);
         caldroidFragment.setMinDate(getMinDate(validDates));
         caldroidFragment.setMaxDate(getMaxDate(validDates));
 

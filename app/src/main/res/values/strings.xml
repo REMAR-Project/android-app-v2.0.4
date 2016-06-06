@@ -36,6 +36,9 @@ Aliquam porta dui eu quam egestas, eu sollicitudin lacus facilisis. Donec laoree
     <string name="citizen_scientist">Now you are a citizen scientist!</string>
     <string name="thank_you_toast">Your answers have been submitted.</string>
 
+    <string name="crab_title_0">Monitoring Crab uçá</string>
+    <string name="crab_title_1">Monitoring Guaiamum</string>
+
     <string name="preference_session_id">session_id</string>
 
     <string name="url_login">http://40180582.pythonanywhere.com/static/login</string>

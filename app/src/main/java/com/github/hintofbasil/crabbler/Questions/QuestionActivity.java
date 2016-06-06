@@ -45,40 +45,40 @@ public class QuestionActivity extends AppCompatActivity {
             JSONObject questionJson = null;
 
             if(questionId==qr.getJsonQuestions(this).length()) {
-                expander = new DoneExpander(this);
+                expander = new DoneExpander(this, null);
             } else {
                 questionJson = qr.getJsonQuestion(this, questionId);
                 switch (questionJson.getString("questionType")) {
                     case "TwoPictureChoice":
-                        expander = new TwoPictureLayoutExpander(this);
+                        expander = new TwoPictureLayoutExpander(this, questionJson);
                         break;
                     case "TwoChoiceDate":
-                        expander = new TwoChoiceDateExpander(this);
+                        expander = new TwoChoiceDateExpander(this, questionJson);
                         break;
                     case "TwoChoice":
-                        expander = new TwoChoiceExpander(this);
+                        expander = new TwoChoiceExpander(this, questionJson);
                         break;
                     case "DateRange":
-                        expander = new DateRangeExpander(this);
+                        expander = new DateRangeExpander(this, questionJson);
                         break;
                     case "DateRangeSelect":
-                        expander = new DateRangeSelectExpander(this);
+                        expander = new DateRangeSelectExpander(this, questionJson);
                         break;
                     case "ListSelect":
-                        expander = new ListSelectExpander(this);
+                        expander = new ListSelectExpander(this, questionJson);
                         break;
                     case "YesNoExtra":
-                        expander = new YesNoExtraExpander(this);
+                        expander = new YesNoExtraExpander(this, questionJson);
                         break;
                     case "DayNightChoice":
-                        expander = new DayNightChoiceExpander(this);
+                        expander = new DayNightChoiceExpander(this, questionJson);
                         break;
                     default:
                         Log.e("QuestionActivity", "Unknown question type.");
                         return;
                 }
             }
-            expander.expandLayout(questionJson);
+            expander.expandLayout();
 
             TextView pageOf = (TextView) findViewById(R.id.page_of);
             int questionCount = qr.getJsonQuestions(this).length();

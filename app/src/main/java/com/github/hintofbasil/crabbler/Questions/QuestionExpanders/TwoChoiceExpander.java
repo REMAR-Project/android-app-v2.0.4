@@ -20,22 +20,22 @@ public class TwoChoiceExpander extends Expander {
     CheckBox choiceOneCheckBox;
     CheckBox choiceTwoCheckBox;
 
-    public TwoChoiceExpander(AppCompatActivity activity) {
-        super(activity);
+    public TwoChoiceExpander(AppCompatActivity activity, JSONObject questionJson) {
+        super(activity, questionJson);
     }
 
     @Override
-    public void expandLayout(JSONObject question) throws JSONException {
+    public void expandLayout() throws JSONException {
         activity.setContentView(R.layout.expander_two_choice);
         ImageView imageView = (ImageView) activity.findViewById(R.id.image);
         TextView titleView = (TextView) activity.findViewById(R.id.title);
         choiceOneCheckBox = (CheckBox) activity.findViewById(R.id.choice_one);
         choiceTwoCheckBox = (CheckBox) activity.findViewById(R.id.choice_two);
 
-        imageView.setImageDrawable(getDrawable(question.getString("questionPicture")));
-        titleView.setText(question.getString("questionTitle"));
-        choiceOneCheckBox.setText(question.getString("choiceOneText"));
-        choiceTwoCheckBox.setText(question.getString("choiceTwoText"));
+        imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
+        titleView.setText(getQuestionString("questionTitle"));
+        choiceOneCheckBox.setText(getQuestionString("choiceOneText"));
+        choiceTwoCheckBox.setText(getQuestionString("choiceTwoText"));
 
         choiceOneCheckBox.setOnClickListener(new View.OnClickListener() {
             @Override

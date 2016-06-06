@@ -19,6 +19,8 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Interface to expand a layout using a question JSON object
@@ -28,14 +30,16 @@ public abstract class Expander {
     AppCompatActivity activity;
     SharedPreferences prefs;
     int questionId;
+    JSONObject questionJson;
 
-    public Expander(AppCompatActivity activity) {
+    public Expander(AppCompatActivity activity, JSONObject questionJson) {
         this.activity = activity;
         this.prefs = activity.getSharedPreferences(Keys.SAVED_PREFERENCES_KEY, Context.MODE_PRIVATE);
         this.questionId = activity.getIntent().getIntExtra(Keys.QUESTION_ID_KEY, 0);
+        this.questionJson = questionJson;
     }
 
-    public abstract void expandLayout(JSONObject question) throws JSONException;
+    public abstract void expandLayout() throws JSONException;
 
     protected abstract void setPreviousAnswer(String answer);
 
@@ -141,5 +145,38 @@ public abstract class Expander {
         intent.putExtra(Keys.QUESTION_ID_KEY, questionId - 1);
         activity.startActivity(intent);
         activity.finish();
+    }
+
+    public String getQuestionString(String string) throws JSONException {
+        String questionAttr = questionJson.getString(string);
+        // Return early if no expanding
+        if(!questionAttr.contains("(")) {
+            return questionAttr;
+        }
+        StringBuilder sb = new StringBuilder(questionAttr);
+        Pattern pattern = Pattern.compile("\\(\\d+\\)");
+        Matcher match = pattern.matcher(questionAttr);
+        while(match.find()) {
+            String found = match.group();
+            // Remove brackets
+            String number = found.substring(1, found.length()-1);
+            try {
+                String answer = getAnswer(Integer.parseInt(number));
+                sb.replace(match.start(), match.end(), answer);
+            } catch (IOException e) {
+                Log.e("Expander", "Invalid question id in " + questionAttr);
+                return "";
+            }
+        }
+        return getStringResourceOrReturn(sb.toString());
+    }
+
+    public String getStringResourceOrReturn(String string) {
+        int drawableId = activity.getResources().getIdentifier(string, "string", activity.getPackageName());
+        if(drawableId>0) {
+            return activity.getString(drawableId);
+        } else {
+            return string;
+        }
     }
 }

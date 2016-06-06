@@ -28,12 +28,12 @@ public class DayNightChoiceExpander extends Expander {
 
     int dayNightChoice = -1;
 
-    public DayNightChoiceExpander(AppCompatActivity activity) {
-        super(activity);
+    public DayNightChoiceExpander(AppCompatActivity activity, JSONObject questionJson) {
+        super(activity, questionJson);
     }
 
     @Override
-    public void expandLayout(JSONObject question) throws JSONException {
+    public void expandLayout() throws JSONException {
         activity.setContentView(R.layout.expander_day_night_choice);
 
         ImageView imageView = (ImageView) activity.findViewById(R.id.image);
@@ -45,10 +45,10 @@ public class DayNightChoiceExpander extends Expander {
         nightLayout = (LinearLayout) activity.findViewById(R.id.night_view);
         dayNightLayout = (LinearLayout) activity.findViewById(R.id.day_night_view);
 
-        imageView.setImageDrawable(getDrawable(question.getString("questionPicture")));
-        titleView.setText(question.getString("questionTitle"));
-        choiceOneCheckBox.setText(question.getString("choiceOneText"));
-        choiceTwoCheckBox.setText(question.getString("choiceTwoText"));
+        imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
+        titleView.setText(getQuestionString("questionTitle"));
+        choiceOneCheckBox.setText(getQuestionString("choiceOneText"));
+        choiceTwoCheckBox.setText(getQuestionString("choiceTwoText"));
 
         choiceOneCheckBox.setOnClickListener(new View.OnClickListener() {
             @Override

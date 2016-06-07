@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.ImageView;
-import android.widget.Spinner;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.github.hintofbasil.crabbler.R;
@@ -19,8 +19,8 @@ public class TwoChoiceDateExpander extends Expander {
 
     CheckBox choiceOneCheckBox;
     CheckBox choiceTwoCheckBox;
-    Spinner monthListSpinner;
-    Spinner yearListSpinner;
+    ListView monthListView;
+    ListView yearListView;
 
     public TwoChoiceDateExpander(AppCompatActivity activity, JSONObject questionJson) {
         super(activity, questionJson);
@@ -34,8 +34,8 @@ public class TwoChoiceDateExpander extends Expander {
         TextView titleView = (TextView) activity.findViewById(R.id.title);
         choiceOneCheckBox = (CheckBox) activity.findViewById(R.id.choice_one);
         choiceTwoCheckBox = (CheckBox) activity.findViewById(R.id.choice_two);
-        monthListSpinner = (Spinner) activity.findViewById(R.id.month_list_view);
-        yearListSpinner = (Spinner) activity.findViewById(R.id.year_list_view);
+        monthListView = (ListView) activity.findViewById(R.id.month_list_view);
+        yearListView = (ListView) activity.findViewById(R.id.year_list_view);
 
         imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
         titleView.setText(getQuestionString("questionTitle"));
@@ -60,13 +60,13 @@ public class TwoChoiceDateExpander extends Expander {
                 activity.getBaseContext(),
                 android.R.layout.simple_list_item_1,
                 activity.getResources().getStringArray(R.array.months));
-        monthListSpinner.setAdapter(monthsAdapter);
+        monthListView.setAdapter(monthsAdapter);
 
         ArrayAdapter<String> yearsAdapter = new ArrayAdapter<String>(
                 activity.getBaseContext(),
                 android.R.layout.simple_list_item_1,
                 activity.getResources().getStringArray(R.array.years));
-        yearListSpinner.setAdapter(yearsAdapter);
+        yearListView.setAdapter(yearsAdapter);
     }
 
     @Override
@@ -90,14 +90,16 @@ public class TwoChoiceDateExpander extends Expander {
         }
 
         try {
-            monthListSpinner.setSelection(answer.getInt(1));
-        } catch (JSONException e) {
+            int month = answer.getInt(1);
+            monthListView.setSelection(month);
+        } catch (NumberFormatException|ArrayIndexOutOfBoundsException|JSONException e) {
             Log.d("TwoChoiceDate", "No previous month");
         }
 
         try {
-            yearListSpinner.setSelection(answer.getInt(2));
-        } catch (JSONException e) {
+            int month = answer.getInt(2);
+            yearListView.setSelection(month);
+        } catch (NumberFormatException|ArrayIndexOutOfBoundsException|JSONException e) {
             Log.d("TwoChoiceDate", "No previous year");
         }
     }
@@ -110,8 +112,8 @@ public class TwoChoiceDateExpander extends Expander {
         } else if(choiceTwoCheckBox.isChecked()) {
             array.put(1);
         }
-        array.put(monthListSpinner.getSelectedItemPosition());
-        array.put(yearListSpinner.getSelectedItemPosition());
+        array.put(monthListView.getSelectedItemPosition());
+        array.put(yearListView.getSelectedItemPosition());
         return array;
     }
 }

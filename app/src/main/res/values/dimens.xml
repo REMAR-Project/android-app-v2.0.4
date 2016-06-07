@@ -34,4 +34,5 @@
     <dimen name="calendar_legend_moon">15dp</dimen>
     <dimen name="calendar_legend_moon_text_spacing">10dp</dimen>
     <dimen name="calendar_legend_element_spacing">60dp</dimen>
+    <dimen name="title_image_max_height">100dp</dimen>
 </resources>

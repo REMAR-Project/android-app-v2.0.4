@@ -75,8 +75,8 @@ public abstract class Expander {
         if(answers==null) {
             Log.i("Expander", "No current answers");
             //Create empty answers string
-            QuestionReader qr = new QuestionReader();
-            int noAnswers = qr.getJsonQuestions(activity).length();
+            QuestionReader qr = new QuestionReader(activity);
+            int noAnswers = qr.getQuestionCount();
             char[] buffer = new char[noAnswers-1];
             Arrays.fill(buffer, ',');
             answers = new String(buffer);

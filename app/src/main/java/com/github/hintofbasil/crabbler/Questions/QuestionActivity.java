@@ -44,13 +44,14 @@ public class QuestionActivity extends AppCompatActivity {
 
         try {
             int questionId = getIntent().getIntExtra(Keys.QUESTION_ID_KEY, 0);
-            QuestionReader qr = new QuestionReader();
+            QuestionReader qr = new QuestionReader(this);
             JSONObject questionJson = null;
 
-            if(questionId==qr.getJsonQuestions(this).length()) {
+            // TODO make done an excludeFromCount question
+            if(questionId==qr.getRealQuestionCount()) {
                 expander = new DoneExpander(this, null);
             } else {
-                questionJson = qr.getJsonQuestion(this, questionId);
+                questionJson = qr.getJsonQuestion(questionId);
                 switch (questionJson.getString("questionType")) {
                     case "TwoPictureChoice":
                         expander = new TwoPictureLayoutExpander(this, questionJson);
@@ -97,8 +98,15 @@ public class QuestionActivity extends AppCompatActivity {
             }
 
             TextView pageOf = (TextView) findViewById(R.id.page_of);
-            int questionCount = qr.getJsonQuestions(this).length();
-            pageOf.setText(String.format("%d/%d", questionId+1, questionCount+1));
+            int realQuestionCount = qr.getRealQuestionCount();
+            int definedQuestionCount = qr.getQuestionCount();
+            try {
+                int definedQuestionId = qr.getJsonQuestion(questionId).getInt("questionNumber");
+                pageOf.setText(String.format("%d/%d", definedQuestionId + 1, definedQuestionCount + 1));
+            } catch (JSONException e) {
+                pageOf.setVisibility(View.INVISIBLE);
+                Log.i("QuestionActivity", "No question number.  Not displaying question of question");
+            }
 
             //Disable previous
             if(questionId==0) {
@@ -112,7 +120,7 @@ public class QuestionActivity extends AppCompatActivity {
             }
 
             //Disable next
-            if(questionId==questionCount) {
+            if(questionId==realQuestionCount) {
                 ImageView nextButton = (ImageView) findViewById(R.id.forward_button);
                 nextButton.setEnabled(false);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

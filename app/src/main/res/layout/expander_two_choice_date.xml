@@ -45,13 +45,17 @@
                     android:id="@+id/month_list_view"
                     android:layout_width="0dp"
                     android:layout_height="200dp"
-                    android:layout_weight="0.5" />
+                    android:layout_weight="0.5"
+                    android:choiceMode="singleChoice"
+                    android:listSelector="@drawable/list_background" />
 
                 <ListView
                     android:id="@+id/year_list_view"
                     android:layout_width="0dp"
                     android:layout_height="200dp"
                     android:layout_weight="0.5"
+                    android:choiceMode="singleChoice"
+                    android:listSelector="@drawable/list_background"
                     />
 
             </LinearLayout>

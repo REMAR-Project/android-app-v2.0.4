@@ -3,6 +3,7 @@ package com.github.hintofbasil.crabbler.Questions.QuestionExpanders;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.ImageView;
@@ -22,6 +23,9 @@ public class TwoChoiceDateExpander extends Expander {
     ListView monthListView;
     ListView yearListView;
 
+    int monthNo = -1;
+    int yearNo = -1;
+
     public TwoChoiceDateExpander(AppCompatActivity activity, JSONObject questionJson) {
         super(activity, questionJson);
     }
@@ -30,7 +34,7 @@ public class TwoChoiceDateExpander extends Expander {
     public void expandLayout() throws JSONException {
         activity.setContentView(R.layout.expander_two_choice_date);
 
-        ImageView imageView = (ImageView) activity.findViewById(R.id.image);
+        final ImageView imageView = (ImageView) activity.findViewById(R.id.image);
         TextView titleView = (TextView) activity.findViewById(R.id.title);
         choiceOneCheckBox = (CheckBox) activity.findViewById(R.id.choice_one);
         choiceTwoCheckBox = (CheckBox) activity.findViewById(R.id.choice_two);
@@ -67,6 +71,21 @@ public class TwoChoiceDateExpander extends Expander {
                 android.R.layout.simple_list_item_1,
                 activity.getResources().getStringArray(R.array.years));
         yearListView.setAdapter(yearsAdapter);
+
+        monthListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                monthNo = position;
+                view.setSelected(true);
+            }
+        });
+
+        yearListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                yearNo = position;
+            }
+        });
     }
 
     @Override

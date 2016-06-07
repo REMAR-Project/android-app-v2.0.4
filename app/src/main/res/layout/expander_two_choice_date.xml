@@ -40,16 +40,17 @@
                 android:baselineAligned="false"
                 >
 
+                <!-- TODO remove fixed height -->
                 <ListView
                     android:id="@+id/month_list_view"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="200dp"
                     android:layout_weight="0.5" />
 
                 <ListView
                     android:id="@+id/year_list_view"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="200dp"
                     android:layout_weight="0.5"
                     />
 

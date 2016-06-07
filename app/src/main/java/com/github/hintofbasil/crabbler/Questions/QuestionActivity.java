@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.github.hintofbasil.crabbler.AboutUsActivity;
 import com.github.hintofbasil.crabbler.Keys;
+import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.UserDetailsExpander;
 import com.github.hintofbasil.crabbler.Settings.SettingsActivity;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DateRangeExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DateRangeSelectExpander;
@@ -74,6 +75,9 @@ public class QuestionActivity extends AppCompatActivity {
                         break;
                     case "DayNightChoice":
                         expander = new DayNightChoiceExpander(this, questionJson);
+                        break;
+                    case "UserDetails":
+                        expander = new UserDetailsExpander(this, questionJson);
                         break;
                     default:
                         Log.e("QuestionActivity", "Unknown question type.");

@@ -83,5 +83,12 @@
     "questionTitle": "crab_title_(0)",
     "questionText": "O manguezal monitorado está em unidade de conservação (ex. RESEX, APA, Parque)?",
     "hiddenDetailText": "Qual é o nome da unidade de conservação?"
+  },
+  {
+    "questionNumber": 10,
+    "questionType": "UserDetails",
+    "questionPicture": "q0_(0)",
+    "questionTitle": "crab_title_(0)",
+    "description": "Seria ótimo saber quem é você e como mantermos contato"
   }
 ]

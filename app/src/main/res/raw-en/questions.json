@@ -2,10 +2,10 @@
   {
     "questionNumber": 0,
     "questionType": "TwoPictureChoice",
-    "questionText": "Help monitor the occurrence and absence of reproductive Andradas crab-uca and crab dip over the moon at the Brazilian coast, between November and April",
-    "choiceOneTitle": "Crab uca",
+    "questionText": "Help us monitor the occurance and absence of mass mating mangrove crabs Ucides cordatus and Cardisoma guanhumi, in relation to the moon, between November and April.\n\nThis information will help to improve fishing legislation which prohibits the catch of these crabs during mass mating.\n\nClick on the below pictures if you would like to share your observations.\n\nFor more information on this project see menu.",
+    "choiceOneTitle": "Ucides cordatus",
     "choiceOnePicture": "q0_0",
-    "choiceTwoTitle": "Guaiamum",
+    "choiceTwoTitle": "Cardisoma guanhumi",
     "choiceTwoPicture": "q0_1",
     "hideBackNext": true
   },
@@ -14,38 +14,38 @@
     "questionType": "TwoChoiceDate",
     "questionPicture": "q0_(0)",
     "questionTitle": "crab_title_(0)",
-    "choiceOneText": "I want to report the occurrence of walk",
-    "choiceTwoText": "I want to inform absence of walk"
+    "choiceOneText": "I want to report the occurrence of andada",
+    "choiceTwoText": "I want to inform absence of andada"
   },
   {
     "questionNumber": 2,
     "questionType": "TwoChoice",
     "questionPicture": "q0_(0)",
     "questionTitle": "crab_title_(0)",
-    "choiceOneText": "There was walked after the new moon",
-    "choiceTwoText": "There was walked after the full moon"
+    "choiceOneText": "There was NO andada after the new moon",
+    "choiceTwoText": "There was NO andada after the full moon"
   },
   {
     "questionNumber": 3,
     "questionType": "TwoChoice",
     "questionPicture": "q0_(0)",
     "questionTitle": "crab_title_(0)",
-    "choiceOneText": "I want to register more occurrences or absences of Andradas",
-    "choiceTwoText": "I want to proceed with information about the location tracking"
+    "choiceOneText": "I want to register more occurrences or absences of andadas",
+    "choiceTwoText": "I want to proceed with information about my locality"
   },
   {
     "questionNumber": 4,
     "questionType": "DateRange",
     "questionPicture": "q0_(0)",
     "questionTitle": "crab_title_(0)",
-    "description": "Click on the days that you noted walked"
+    "description": "Click on the days that you noted andada"
   },
   {
     "questionNumber": 5,
     "questionType": "DateRangeSelect",
     "questionPicture": "q0_(0)",
     "questionTitle": "crab_title_(0)",
-    "description": "Click the day that stepped it was stronger",
+    "description": "Click the day that andada it was strongest\n(optional)",
     "filterOnQuestion": 4
   },
   {
@@ -60,8 +60,8 @@
     "questionNumber": 7,
     "questionType": "ListSelect",
     "questionPicture": "q0_(0)",
-    "questionTitle": "crab_title_(0)",
-    "description": "What is the state in which it was made monitoring?",
+    "questionTitle": "Click on the period (moon phase) when andada occured.  In case you don't know proceed to the next page.",
+    "description": "Select the state where you made our observation",
     "jsonInput": "regions.json",
     "detailPicture": "brazil_regions.png",
     "disableCustom": "true"
@@ -71,7 +71,7 @@
     "questionType": "ListSelect",
     "questionPicture": "q0_(0)",
     "questionTitle": "crab_title_(0)",
-    "description": "Enter the city closest to your mangrove:",
+    "description": "Enter the city closest to your mangrove\nIf you can no find your city in the menu you can also type the name in",
     "jsonInput": "region_cities.json",
     "jsonKey": "(7)"
   },
@@ -80,7 +80,7 @@
     "questionType": "YesNoExtra",
     "questionPicture": "q0_(0)",
     "questionTitle": "crab_title_(0)",
-    "questionText": "The monitored mangrove forest is in protected area (eg. RESEX, APA Park)?",
+    "questionText": "The monitored mangrove in a protected area (eg. RESEX, APA, Park)?",
     "hiddenDetailText": "What is the name of the protected area?"
   }
 ]

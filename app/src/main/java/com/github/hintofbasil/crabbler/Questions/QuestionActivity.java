@@ -102,7 +102,7 @@ public class QuestionActivity extends AppCompatActivity {
             int definedQuestionCount = qr.getQuestionCount();
             try {
                 int definedQuestionId = qr.getJsonQuestion(questionId).getInt("questionNumber");
-                pageOf.setText(String.format("%d/%d", definedQuestionId + 1, definedQuestionCount + 1));
+                pageOf.setText(String.format("%d/%d", definedQuestionId + 1, definedQuestionCount));
             } catch (JSONException e) {
                 pageOf.setVisibility(View.INVISIBLE);
                 Log.i("QuestionActivity", "No question number.  Not displaying question of question");

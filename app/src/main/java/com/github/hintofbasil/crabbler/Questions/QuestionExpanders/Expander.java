@@ -12,7 +12,6 @@ import android.util.Log;
 import com.github.hintofbasil.crabbler.Keys;
 import com.github.hintofbasil.crabbler.Questions.QuestionActivity;
 import com.github.hintofbasil.crabbler.Questions.QuestionReader;
-import com.github.hintofbasil.crabbler.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,14 +28,21 @@ public abstract class Expander {
 
     AppCompatActivity activity;
     SharedPreferences prefs;
-    int questionId;
+    int realQuestionId;
+    int definedQuestionId = -1;
     JSONObject questionJson;
 
     public Expander(AppCompatActivity activity, JSONObject questionJson) {
         this.activity = activity;
         this.prefs = activity.getSharedPreferences(Keys.SAVED_PREFERENCES_KEY, Context.MODE_PRIVATE);
-        this.questionId = activity.getIntent().getIntExtra(Keys.QUESTION_ID_KEY, 0);
+        this.realQuestionId = activity.getIntent().getIntExtra(Keys.QUESTION_ID_KEY, 0);
         this.questionJson = questionJson;
+        try {
+            definedQuestionId = questionJson.getInt("questionNumber");
+        } catch (JSONException|NullPointerException e) {
+            Log.i("Expander", "No defined question id");
+        }
+
     }
 
     public abstract void expandLayout() throws JSONException;
@@ -48,7 +54,7 @@ public abstract class Expander {
     public void nextQuestion(int delay) {
         //TODO handle last question
         final Intent intent = new Intent(activity, QuestionActivity.class);
-        intent.putExtra(Keys.QUESTION_ID_KEY, questionId + 1);
+        intent.putExtra(Keys.QUESTION_ID_KEY, realQuestionId + 1);
         new CountDownTimer(delay, delay) {
 
             @Override
@@ -85,10 +91,13 @@ public abstract class Expander {
     }
 
     protected String getCurrentAnswer() throws IOException, JSONException {
-        return getAnswer(questionId);
+        return getAnswer(definedQuestionId);
     }
 
     protected String getAnswer(int id) throws IOException, JSONException {
+        if(id < 0) {
+            return null;
+        }
         // Can go out of bounds on questions.json update
         try {
             return getCurrentAnswers()[id];
@@ -108,10 +117,10 @@ public abstract class Expander {
         if(answer==null) {
             return;
         }
-        answers[questionId] = answer;
+        answers[definedQuestionId] = answer;
         StringBuilder sb = new StringBuilder();
         for(int i=0;i<answers.length;i++) {
-            if(i==questionId) {
+            if(i== definedQuestionId) {
                 sb.append(answer);
             } else {
                 sb.append(answers[i]);
@@ -142,7 +151,7 @@ public abstract class Expander {
 
     public void previousQuestion() {
         final Intent intent = new Intent(activity, QuestionActivity.class);
-        intent.putExtra(Keys.QUESTION_ID_KEY, questionId - 1);
+        intent.putExtra(Keys.QUESTION_ID_KEY, realQuestionId - 1);
         activity.startActivity(intent);
         activity.finish();
     }

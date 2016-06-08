@@ -95,8 +95,13 @@ public abstract class Expander {
     }
 
     protected String getAnswer(int id) throws IOException, JSONException {
-        if(id < 0) {
-            return null;
+        if(id == -1) {
+            try {
+                String key = questionJson.getString("postAs");
+                return prefs.getString(key, null);
+            } catch (JSONException|NullPointerException e) {
+                return null;
+            }
         }
         // Can go out of bounds on questions.json update
         try {
@@ -115,6 +120,17 @@ public abstract class Expander {
         String answer = getSelectedAnswer();
         // Don't save on null response
         if(answer==null) {
+            return;
+        }
+        // Save answer to prefs if given
+        if(definedQuestionId==-1) {
+            try {
+                String key = questionJson.getString("postAs");
+                prefs.edit().putString(key, answer).apply();
+                Log.i("Expander", "Saved " + answer + " into '" + key + "'");
+            } catch (JSONException|NullPointerException e) {
+                Log.i("Expander", "No postAs given");
+            }
             return;
         }
         answers[definedQuestionId] = answer;

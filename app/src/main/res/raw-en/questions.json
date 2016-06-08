@@ -87,6 +87,7 @@
     "questionType": "UserDetails",
     "questionPicture": "q0_(0)",
     "questionTitle": "crab_title_(0)",
-    "description": "It would be great to know who you are and how to maintain contact"
+    "description": "It would be great to know who you are and how to maintain contact",
+    "postAs": "userDetails"
   }
 ]

@@ -63,11 +63,14 @@ public class QuestionManager {
             JSONObject object = array.getJSONObject(i);
             if(object.has("loop")) {
                 JSONArray subArray = object.getJSONArray("questions");
-                JSONObject subSearch = findQuestionInArray(id-i, subArray);
-                id -= (subArray.length() - 1); // Remove subquestions from total
-                if(subSearch!=null) {
-                    return subSearch;
+                for(int j=1; j<=loopCounter[object.getInt("loop")]; j++) {
+                    JSONObject subSearch = findQuestionInArray(id - (i * j), subArray);
+                    id -= (subArray.length()); // Remove subquestions from total
+                    if (subSearch != null) {
+                        return subSearch;
+                    }
                 }
+                id += 1; // Need as loop is an item but not a question
             } else { // Must be a question
                 if(i==id) {
                     return object;

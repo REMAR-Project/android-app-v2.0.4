@@ -1,37 +1,43 @@
 [
   {
-    "questionNumber": 0,
-    "questionType": "TwoPictureChoice",
-    "questionText": "Help us monitor the occurance and absence of mass mating mangrove crabs Ucides cordatus and Cardisoma guanhumi, in relation to the moon, between November and April.\n\nThis information will help to improve fishing legislation which prohibits the catch of these crabs during mass mating.\n\nClick on the below pictures if you would like to share your observations.\n\nFor more information on this project see menu.",
-    "choiceOneTitle": "Ucides cordatus",
-    "choiceOnePicture": "q0_0",
-    "choiceTwoTitle": "Cardisoma guanhumi",
-    "choiceTwoPicture": "q0_1",
-    "hideBackNext": true
-  },
-  {
-    "questionNumber": 1,
-    "questionType": "TwoChoiceDate",
-    "questionPicture": "q0_(0)",
-    "questionTitle": "crab_title_(0)",
-    "choiceOneText": "I want to report the occurrence of andada",
-    "choiceTwoText": "I want to inform absence of andada"
-  },
-  {
-    "questionNumber": 2,
-    "questionType": "TwoChoice",
-    "questionPicture": "q0_(0)",
-    "questionTitle": "crab_title_(0)",
-    "choiceOneText": "There was NO andada after the new moon",
-    "choiceTwoText": "There was NO andada after the full moon"
-  },
-  {
-    "questionNumber": 3,
-    "questionType": "TwoChoice",
-    "questionPicture": "q0_(0)",
-    "questionTitle": "crab_title_(0)",
-    "choiceOneText": "I want to register more occurrences or absences of andadas",
-    "choiceTwoText": "I want to proceed with information about my locality"
+    "loop": true,
+    "stopOn": "1",
+    "questions": [
+      {
+        "questionNumber": 0,
+        "questionType": "TwoPictureChoice",
+        "questionText": "Help us monitor the occurance and absence of mass mating mangrove crabs Ucides cordatus and Cardisoma guanhumi, in relation to the moon, between November and April.\n\nThis information will help to improve fishing legislation which prohibits the catch of these crabs during mass mating.\n\nClick on the below pictures if you would like to share your observations.\n\nFor more information on this project see menu.",
+        "choiceOneTitle": "Ucides cordatus",
+        "choiceOnePicture": "q0_0",
+        "choiceTwoTitle": "Cardisoma guanhumi",
+        "choiceTwoPicture": "q0_1",
+        "hideBackNext": true
+      },
+      {
+        "questionNumber": 1,
+        "questionType": "TwoChoiceDate",
+        "questionPicture": "q0_(0)",
+        "questionTitle": "crab_title_(0)",
+        "choiceOneText": "I want to report the occurrence of andada",
+        "choiceTwoText": "I want to inform absence of andada"
+      },
+      {
+        "questionNumber": 2,
+        "questionType": "TwoChoice",
+        "questionPicture": "q0_(0)",
+        "questionTitle": "crab_title_(0)",
+        "choiceOneText": "There was NO andada after the new moon",
+        "choiceTwoText": "There was NO andada after the full moon"
+      },
+      {
+        "questionNumber": 3,
+        "questionType": "TwoChoice",
+        "questionPicture": "q0_(0)",
+        "questionTitle": "crab_title_(0)",
+        "choiceOneText": "I want to register more occurrences or absences of andadas",
+        "choiceTwoText": "I want to proceed with information about my locality"
+      }
+    ]
   },
   {
     "questionNumber": 4,

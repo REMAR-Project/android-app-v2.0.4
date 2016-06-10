@@ -7,6 +7,7 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -14,6 +15,12 @@ import android.widget.TextView;
 import com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostFactory;
 import com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostLaunchService;
 import com.github.hintofbasil.crabbler.Questions.QuestionActivity;
+import com.github.hintofbasil.crabbler.Questions.QuestionReader;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 
 public class UserAgreementActivity extends AppCompatActivity {
 

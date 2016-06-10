@@ -1,6 +1,6 @@
 package com.github.hintofbasil.crabbler.Questions;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Context;
 
 import com.github.hintofbasil.crabbler.R;
 
@@ -16,42 +16,69 @@ import java.io.InputStream;
  */
 public class QuestionReader {
 
-    JSONArray questions;
-    AppCompatActivity activity;
+    JSONArray cache;
+    Context context;
+    int[] loopsDone;
 
-    public QuestionReader(AppCompatActivity activity) {
-        this.activity = activity;
+    public QuestionReader(Context context) {
+        this.context = context;
     }
 
-    public JSONArray getJsonQuestions() throws IOException, JSONException {
-        if(questions == null) {
-            InputStream jsonInputStream = activity.getBaseContext().getResources().openRawResource(R.raw.questions);
+    private JSONArray readJSON() throws IOException, JSONException {
+        if(cache == null) {
+            InputStream jsonInputStream = context.getResources().openRawResource(R.raw.questions);
             byte[] buffer = new byte[4096];
             int length = jsonInputStream.read(buffer);
             String jsonString = new String(buffer).substring(0, length);
-            questions = new JSONArray(jsonString);
+            cache = new JSONArray(jsonString);
         }
-        return questions;
+        return cache;
+    }
+
+    private JSONObject findQuestionInArray(int id, JSONArray array) throws JSONException, IOException {
+        for(int i=0; i<array.length(); i++) {
+            JSONObject object = array.getJSONObject(i);
+            if(object.has("loop")) {
+                JSONArray subArray = object.getJSONArray("questions");
+                JSONObject subSearch = findQuestionInArray(id-i, subArray);
+                id -= (subArray.length() - 1); // Remove subquestions from total
+                if(subSearch!=null) {
+                    return subSearch;
+                }
+            } else { // Must be a question
+                if(i==id) {
+                    return object;
+                }
+            }
+        }
+        return null;
     }
 
     public JSONObject getJsonQuestion(int id) throws IOException, JSONException {
-        return getJsonQuestions().getJSONObject(id);
+        return findQuestionInArray(id, readJSON());
     }
 
-    public int getQuestionCount() throws IOException, JSONException {
+    private int getQuestionCount(boolean withNumberOnly, JSONArray array) throws JSONException {
         int count = 0;
-        for(int i=0;i<getJsonQuestions().length();i++) {
-            JSONObject question = getJsonQuestions().getJSONObject(i);
-            try {
-                question.getInt("questionNumber");
-                count++;
-            } catch (JSONException e) {
+        for(int i=0; i<array.length(); i++) {
+            JSONObject object = array.getJSONObject(i);
+            if(object.has("loop")) {
+                JSONArray subArray = object.getJSONArray("questions");
+                count += getQuestionCount(withNumberOnly, subArray);
+            } else { // Must be a question
+                if(!withNumberOnly || object.has("questionNumber")) {
+                    count++;
+                }
             }
         }
         return count;
     }
 
+    public int getQuestionCount() throws IOException, JSONException {
+        return getQuestionCount(true, readJSON());
+    }
+
     public int getRealQuestionCount() throws IOException, JSONException {
-        return getJsonQuestions().length();
+        return getQuestionCount(false, readJSON());
     }
 }

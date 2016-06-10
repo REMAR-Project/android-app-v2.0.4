@@ -48,6 +48,7 @@ public class QuestionActivity extends AppCompatActivity {
             JSONObject questionJson = null;
 
             // TODO make done an excludeFromCount question
+            Log.i("-mmmmmmm", "K: " + questionId + "==" + qr.getRealQuestionCount());
             if(questionId==qr.getRealQuestionCount()) {
                 expander = new DoneExpander(this, null);
             } else {
@@ -103,7 +104,7 @@ public class QuestionActivity extends AppCompatActivity {
             try {
                 int definedQuestionId = qr.getJsonQuestion(questionId).getInt("questionNumber");
                 pageOf.setText(String.format("%d/%d", definedQuestionId + 1, definedQuestionCount));
-            } catch (JSONException e) {
+            } catch (JSONException|NullPointerException e) {
                 pageOf.setVisibility(View.INVISIBLE);
                 Log.i("QuestionActivity", "No question number.  Not displaying question of question");
             }

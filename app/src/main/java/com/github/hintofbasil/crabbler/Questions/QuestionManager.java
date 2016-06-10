@@ -14,14 +14,24 @@ import java.io.InputStream;
 /**
  * Created by will on 05/05/16.
  */
-public class QuestionReader {
+public class QuestionManager {
+
+    private static QuestionManager questionManager = null;
 
     JSONArray cache;
     Context context;
     int[] loopsDone;
 
-    public QuestionReader(Context context) {
+    private QuestionManager(Context context) {
         this.context = context;
+    }
+
+    public static void init(Context context) {
+        questionManager = new QuestionManager(context);
+    }
+
+    public static QuestionManager get() {
+        return questionManager;
     }
 
     private JSONArray readJSON() throws IOException, JSONException {

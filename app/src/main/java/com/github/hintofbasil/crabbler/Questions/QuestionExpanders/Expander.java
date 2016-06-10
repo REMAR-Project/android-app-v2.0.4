@@ -11,7 +11,7 @@ import android.util.Log;
 
 import com.github.hintofbasil.crabbler.Keys;
 import com.github.hintofbasil.crabbler.Questions.QuestionActivity;
-import com.github.hintofbasil.crabbler.Questions.QuestionReader;
+import com.github.hintofbasil.crabbler.Questions.QuestionManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -81,7 +81,7 @@ public abstract class Expander {
         if(answers==null) {
             Log.i("Expander", "No current answers");
             //Create empty answers string
-            QuestionReader qr = new QuestionReader(activity);
+            QuestionManager qr = QuestionManager.get();
             int noAnswers = qr.getQuestionCount();
             char[] buffer = new char[noAnswers-1];
             Arrays.fill(buffer, ',');

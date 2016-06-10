@@ -1,6 +1,5 @@
 package com.github.hintofbasil.crabbler.Questions;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
@@ -44,7 +43,7 @@ public class QuestionActivity extends AppCompatActivity {
 
         try {
             int questionId = getIntent().getIntExtra(Keys.QUESTION_ID_KEY, 0);
-            QuestionReader qr = new QuestionReader(this);
+            QuestionManager qr = QuestionManager.get();
             JSONObject questionJson = null;
 
             // TODO make done an excludeFromCount question

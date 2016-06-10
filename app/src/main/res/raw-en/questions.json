@@ -79,7 +79,7 @@
     "questionTitle": "crab_title_(0)",
     "description": "Enter the city closest to your mangrove\nIf you can no find your city in the menu you can also type the name in",
     "jsonInput": "region_cities.json",
-    "jsonKey": "(7)"
+    "jsonKey": "(-1)"
   },
   {
     "questionNumber": 9,

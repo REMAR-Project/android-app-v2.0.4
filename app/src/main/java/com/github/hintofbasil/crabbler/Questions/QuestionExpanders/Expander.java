@@ -80,7 +80,7 @@ public abstract class Expander {
     }
 
     protected JSONArray getCurrentAnswer() throws IOException, JSONException {
-        return getAnswer(definedQuestionId);
+        return getAnswer(realQuestionId);
     }
 
     protected JSONArray getAnswer(int id) throws IOException, JSONException {
@@ -89,7 +89,7 @@ public abstract class Expander {
 
     private void saveAnswer() throws IOException, JSONException {
         JSONArray answer = getSelectedAnswer();
-        questionManager.saveAnswer(definedQuestionId, answer);
+        questionManager.saveAnswer(realQuestionId, answer);
     }
 
     protected Drawable getDrawable(String name) {
@@ -118,18 +118,25 @@ public abstract class Expander {
     public String getQuestionString(String string) throws JSONException {
         String value = questionJson.getString(string);
         StringBuilder sb = new StringBuilder(value);
-        Pattern pattern = Pattern.compile("\\(\\d+\\)");
+        Pattern pattern = Pattern.compile("\\((\\-?)(\\d)\\)");
         Matcher match = pattern.matcher(value);
-        while(match.find()) {
-            String found = match.group();
-            // Remove brackets
-            String number = found.substring(1, found.length()-1);
+        if(match.find()) {
+            String opr = match.group(1);
+            String number = match.group(2);
             try {
-                int answer = getAnswer(Integer.parseInt(number)).getInt(0);
+                int answerId = Integer.parseInt(number);
+                if(opr.equals("-")) {
+                    answerId = realQuestionId - answerId;
+                }
+                int answer = getAnswer(answerId).getInt(0);
                 sb.replace(match.start(), match.end(), String.valueOf(answer));
             } catch (IOException|JSONException e) {
                 try {
-                    String answer = getAnswer(Integer.parseInt(number)).getString(0);
+                    int answerId = Integer.parseInt(number);
+                    if(opr.equals("-")) {
+                        answerId = realQuestionId - answerId;
+                    }
+                    String answer = getAnswer(answerId).getString(0);
                     sb.replace(match.start(), match.end(), answer);
                 } catch (IOException|JSONException e1) {
                     Log.e("Expander", "Invalid question id in " + value);
@@ -141,9 +148,9 @@ public abstract class Expander {
     }
 
     public String getStringResourceOrReturn(String string) {
-        int drawableId = activity.getResources().getIdentifier(string, "string", activity.getPackageName());
-        if(drawableId>0) {
-            return activity.getString(drawableId);
+        int resourceId = activity.getResources().getIdentifier(string, "string", activity.getPackageName());
+        if(resourceId>0) {
+            return activity.getString(resourceId);
         } else {
             return string;
         }

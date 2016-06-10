@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.github.hintofbasil.crabbler.R;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -77,10 +78,9 @@ public class YesNoExtraExpander extends Expander {
     }
 
     @Override
-    protected void setPreviousAnswer(String answer) {
-        String[] answers = answer.split(";", -1);
+    protected void setPreviousAnswer(JSONArray answer) {
         try {
-            int i = Integer.parseInt(answers[0]);
+            int i = answer.getInt(0);
             switch(i) {
                 case 0:
                     chkYes.setChecked(true);
@@ -92,30 +92,36 @@ public class YesNoExtraExpander extends Expander {
                 case 2:
                     chkMaybe.setChecked(true);
                     break;
+                case -1:
+                    break;
+                default:
+                    Log.e("YesNoExtraExpander", "Invalid previous answer");
             }
-        } catch (NumberFormatException e) {
+        } catch (JSONException e) {
             Log.d("YesNoExtra", "No previous selection");
         }
-        if(answers.length > 1) {
-            hiddenInput.setText(answers[1]);
-        } else {
+        try {
+            hiddenInput.setText(answer.getString(1));
+        } catch (JSONException e) {
             Log.d("YesNoExtra", "No previous text");
         }
     }
 
     @Override
-    public String getSelectedAnswer() {
+    public JSONArray getSelectedAnswer() {
+        JSONArray array = new JSONArray();
         StringBuilder sb = new StringBuilder();
         if(chkYes.isChecked()) {
-            sb.append('0');
+            array.put(0);
         } else if(chkNo.isChecked()) {
-            sb.append('1');
+            array.put(1);
         } else if(chkMaybe.isChecked()) {
-            sb.append('2');
+            array.put(2);
+        } else {
+            array.put(-1);
         }
-        sb.append(';');
-        sb.append(hiddenInput.getText());
-        return sb.toString();
+        array.put(hiddenInput.getText());
+        return array;
     }
 
     private void showHidden(boolean show) {

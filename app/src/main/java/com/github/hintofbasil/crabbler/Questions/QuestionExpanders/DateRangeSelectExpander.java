@@ -13,6 +13,7 @@ import com.github.hintofbasil.crabbler.R;
 import com.roomorama.caldroid.CaldroidFragment;
 import com.roomorama.caldroid.CaldroidListener;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -86,47 +87,43 @@ public class DateRangeSelectExpander extends Expander {
     }
 
     @Override
-    protected void setPreviousAnswer(String answer) {
-        if(answer.equals("")) {
-            //Return early if no previous answer
-            return;
-        }
+    protected void setPreviousAnswer(JSONArray answer) {
         try {
+            String s = (String) answer.get(0);
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
-            Date date = simpleDateFormat.parse(answer);
+            Date date = simpleDateFormat.parse(s);
             selectedDate = date;
             caldroidFragment.setSelectedDate(date);
             Drawable drawable = activity.getResources().getDrawable(R.drawable.caldroid_cell_previously_selected);
             caldroidFragment.setBackgroundDrawableForDate(drawable, date);
-        } catch (ParseException e) {
+        } catch (ParseException|JSONException e) {
             Log.e("DateRangeExpander", "Unable to create date from answer " + Log.getStackTraceString(e));
             return;
         }
     }
 
     @Override
-    public String getSelectedAnswer() {
+    public JSONArray getSelectedAnswer() {
+        JSONArray array = new JSONArray();
         if(selectedDate!=null) {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
-            return simpleDateFormat.format(selectedDate);
+            array.put(simpleDateFormat.format(selectedDate));
         }
-        return "";
+        return array;
     }
 
     private List<Date> getValidDates(JSONObject question) {
         List<Date> lst = new LinkedList<Date>();
         try {
-            String previousAnswer = getAnswer(question.getInt("filterOnQuestion"));
-            if(previousAnswer.equals("")) {
-                return lst;
-            }
-            for(String s : previousAnswer.split(";")) {
+            JSONArray previousAnswer = questionManager.getAnswer(question.getInt("filterOnQuestion"));
+            for (int i=0; i<previousAnswer.length(); i++) {
+                String s = previousAnswer.getString(i);
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
                 Date date = simpleDateFormat.parse(s);
                 lst.add(date);
             }
-        } catch (IOException|JSONException|ParseException e) {
-            e.printStackTrace();
+        } catch (JSONException|ParseException e) {
+            Log.d("DateRangeSelectExpander", "Unable to parse previous answer");
         }
         return lst;
     }

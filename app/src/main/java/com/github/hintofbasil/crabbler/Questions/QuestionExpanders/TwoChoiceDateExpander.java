@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.github.hintofbasil.crabbler.R;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -69,47 +70,48 @@ public class TwoChoiceDateExpander extends Expander {
     }
 
     @Override
-    protected void setPreviousAnswer(String answer) {
-        String[] answers = answer.split(";");
-        switch(answers[0]) {
-            case "0":
-                choiceOneCheckBox.setChecked(true);
-                break;
-            case "1":
-                choiceTwoCheckBox.setChecked(true);
-                break;
-            default:
-                Log.d("TwoChoiceDate", "No previous answer");
-                break;
+    protected void setPreviousAnswer(JSONArray answer) {
+        try {
+            switch (answer.getInt(0)) {
+                case 0:
+                    choiceOneCheckBox.setChecked(true);
+                    break;
+                case 1:
+                    choiceTwoCheckBox.setChecked(true);
+                    break;
+                case -1: // Indicates not filled in yet
+                    break;
+                default:
+                    Log.d("TwoChoiceDate", "Invalid previous answer");
+                    break;
+            }
+        } catch (JSONException e) {
+            Log.i("TwoChoiceDateExpander", "Unable to parse answer (0)");
         }
 
         try {
-            int month = Integer.parseInt(answers[1]);
-            monthListSpinner.setSelection(month);
-        } catch (NumberFormatException|ArrayIndexOutOfBoundsException e) {
+            monthListSpinner.setSelection(answer.getInt(1));
+        } catch (JSONException e) {
             Log.d("TwoChoiceDate", "No previous month");
         }
 
         try {
-            int month = Integer.parseInt(answers[2]);
-            yearListSpinner.setSelection(month);
-        } catch (NumberFormatException|ArrayIndexOutOfBoundsException e) {
+            yearListSpinner.setSelection(answer.getInt(2));
+        } catch (JSONException e) {
             Log.d("TwoChoiceDate", "No previous year");
         }
     }
 
     @Override
-    public String getSelectedAnswer() {
-        StringBuilder sb = new StringBuilder();
+    public JSONArray getSelectedAnswer() {
+        JSONArray array = new JSONArray();
         if(choiceOneCheckBox.isChecked()) {
-            sb.append('0');
+            array.put(0);
         } else if(choiceTwoCheckBox.isChecked()) {
-            sb.append('1');
+            array.put(1);
         }
-        sb.append(';');
-        sb.append(monthListSpinner.getSelectedItemPosition());
-        sb.append(';');
-        sb.append(yearListSpinner.getSelectedItemPosition());
-        return sb.toString();
+        array.put(monthListSpinner.getSelectedItemPosition());
+        array.put(yearListSpinner.getSelectedItemPosition());
+        return array;
     }
 }

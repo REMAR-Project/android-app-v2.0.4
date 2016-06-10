@@ -47,7 +47,6 @@ public class QuestionActivity extends AppCompatActivity {
             JSONObject questionJson = null;
 
             // TODO make done an excludeFromCount question
-            Log.i("-mmmmmmm", "K: " + questionId + "==" + qr.getRealQuestionCount());
             if(questionId==qr.getRealQuestionCount()) {
                 expander = new DoneExpander(this, null);
             } else {

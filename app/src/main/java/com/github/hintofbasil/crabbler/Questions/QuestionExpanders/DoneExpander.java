@@ -12,6 +12,7 @@ import com.github.hintofbasil.crabbler.Keys;
 import com.github.hintofbasil.crabbler.Questions.QuestionActivity;
 import com.github.hintofbasil.crabbler.R;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -40,12 +41,12 @@ public class DoneExpander extends Expander {
     }
 
     @Override
-    protected void setPreviousAnswer(String answer) {
+    protected void setPreviousAnswer(JSONArray answer) {
 
     }
 
     @Override
-    public String getSelectedAnswer() {
+    public JSONArray getSelectedAnswer() {
         return null;
     }
 

@@ -13,6 +13,7 @@ import com.github.hintofbasil.crabbler.R;
 import com.roomorama.caldroid.CaldroidFragment;
 import com.roomorama.caldroid.CaldroidListener;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -77,21 +78,18 @@ public class DateRangeExpander extends Expander {
     }
 
     @Override
-    protected void setPreviousAnswer(String answer) {
-        if(answer.equals("")) {
-            //Return early if no previous answer
-            return;
-        }
-        for (String s : answer.split(";")) {
+    protected void setPreviousAnswer(JSONArray answer) {
+        for (int i=0; i<answer.length(); i++) {
             try {
+                String s = (String) answer.get(i);
                 // Requires new SimpleDateFormat for each parse.
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
-                Date date = simpleDateFormat.parse(s);
+                Date date = simpleDateFormat.parse(s.toString());
                 selectedDates.add(date);
                 caldroidFragment.setSelectedDate(date);
                 Drawable drawable = activity.getResources().getDrawable(R.drawable.caldroid_cell_previously_selected);
                 caldroidFragment.setBackgroundDrawableForDate(drawable, date);
-            } catch (ParseException e) {
+            } catch (ParseException|JSONException e) {
                 Log.e("DateRangeExpander", "Unable to create date from answer " + Log.getStackTraceString(e));
                 return;
             }
@@ -99,17 +97,13 @@ public class DateRangeExpander extends Expander {
     }
 
     @Override
-    public String getSelectedAnswer() {
+    public JSONArray getSelectedAnswer() {
+        JSONArray array = new JSONArray();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
-        StringBuilder sb = new StringBuilder();
         for (Date date: selectedDates) {
             String dateString = simpleDateFormat.format(date);
-            sb.append(dateString);
-            sb.append(';');
+            array.put(dateString);
         }
-        // Remove trailing semicolon
-        if(sb.length()>0)
-            sb.deleteCharAt(sb.length()-1);
-        return sb.toString();
+        return array;
     }
 }

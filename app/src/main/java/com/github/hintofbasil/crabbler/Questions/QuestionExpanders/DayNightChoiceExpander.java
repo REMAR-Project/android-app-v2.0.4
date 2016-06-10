@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.github.hintofbasil.crabbler.R;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -94,33 +95,37 @@ public class DayNightChoiceExpander extends Expander {
     }
 
     @Override
-    protected void setPreviousAnswer(String answer) {
-        String[] answers = answer.split(";", -1);
+    protected void setPreviousAnswer(JSONArray answer) {
         try {
-            int answerOne = Integer.parseInt(answers[0]);
+            int answerOne = answer.getInt(0);
             if(answerOne == 0) {
                 choiceOneCheckBox.setChecked(true);
             } else if(answerOne == 1) {
                 choiceTwoCheckBox.setChecked(true);
             }
-            int answerTwo = Integer.parseInt(answers[1]);
+        } catch (JSONException e) {
+            Log.d("DayNightChoiceExpander", "No previous answer (1)");
+        }
+        try {
+            int answerTwo = answer.getInt(1);
             setDayNightChoice(answerTwo, R.color.questionPreviouslySelectedBackground);
-        } catch (NumberFormatException|ArrayIndexOutOfBoundsException e) {
-            Log.d("DayNightChoiceExpander", "No previous answer");
+        } catch (JSONException e) {
+            Log.d("DayNightChoiceExpander", "No previous answer (1)");
         }
     }
 
     @Override
-    public String getSelectedAnswer() {
-        StringBuilder sb = new StringBuilder();
+    public JSONArray getSelectedAnswer() {
+        JSONArray array = new JSONArray();
         if(choiceOneCheckBox.isChecked()) {
-            sb.append('0');
+            array.put("0");
         } else if(choiceTwoCheckBox.isChecked()) {
-            sb.append('1');
+            array.put("1");
+        } else {
+            array.put("-1");
         }
-        sb.append(';');
-        sb.append(dayNightChoice);
-        return sb.toString();
+        array.put(dayNightChoice);
+        return array;
     }
 
     private void setDayNightChoice(int choice, int colorId) {

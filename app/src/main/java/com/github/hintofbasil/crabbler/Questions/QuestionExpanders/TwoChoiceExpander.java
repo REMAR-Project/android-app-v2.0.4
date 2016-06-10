@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.github.hintofbasil.crabbler.R;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -53,28 +54,36 @@ public class TwoChoiceExpander extends Expander {
     }
 
     @Override
-    protected void setPreviousAnswer(String answer) {
-        switch(answer) {
-            case "0":
-                choiceOneCheckBox.setChecked(true);
-                break;
-            case "1":
-                choiceTwoCheckBox.setChecked(true);
-                break;
-            default:
-                Log.d("TwoChoice", "No previous answer");
-                break;
+    protected void setPreviousAnswer(JSONArray answer) {
+        try {
+            switch (answer.getInt(0)) {
+                case 0:
+                    choiceOneCheckBox.setChecked(true);
+                    break;
+                case 1:
+                    choiceTwoCheckBox.setChecked(true);
+                    break;
+                case -1:
+                    break;
+                default:
+                    Log.d("TwoChoiceExpander", "Invalid previous answer");
+                    break;
+            }
+        } catch (JSONException e) {
+            Log.i("TwoChoiceExpander", "Unable to parse answer");
         }
     }
 
     @Override
-    public String getSelectedAnswer() {
+    public JSONArray getSelectedAnswer() {
+        JSONArray array = new JSONArray();
         if(choiceOneCheckBox.isChecked()) {
-            return "0";
+            array.put(0);
         } else if(choiceTwoCheckBox.isChecked()) {
-            return "1";
+            array.put(1);
         } else {
-            return null;
+            array.put(-1);
         }
+        return array;
     }
 }

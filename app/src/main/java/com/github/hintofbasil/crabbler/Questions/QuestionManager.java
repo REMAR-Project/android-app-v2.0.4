@@ -1,7 +1,10 @@
 package com.github.hintofbasil.crabbler.Questions;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.util.Log;
 
+import com.github.hintofbasil.crabbler.Keys;
 import com.github.hintofbasil.crabbler.R;
 
 import org.json.JSONArray;
@@ -20,10 +23,12 @@ public class QuestionManager {
 
     JSONArray cache;
     Context context;
+    SharedPreferences answerPrefs;
     int[] loopsDone;
 
     private QuestionManager(Context context) {
         this.context = context;
+        answerPrefs = context.getSharedPreferences(Keys.SAVED_PREFERENCES_KEY, Context.MODE_PRIVATE);
     }
 
     public static void init(Context context) {
@@ -90,5 +95,29 @@ public class QuestionManager {
 
     public int getRealQuestionCount() throws IOException, JSONException {
         return getQuestionCount(false, readJSON());
+    }
+
+    private JSONObject getCurrentAnswers() throws JSONException {
+        String answers = this.answerPrefs.getString(Keys.ANSWERS_KEY, null);
+        if(answers == null) {
+            return new JSONObject();
+        }
+        return new JSONObject(answers);
+    }
+
+    public JSONArray getAnswer(int id) throws JSONException {
+        JSONObject answers = getCurrentAnswers();
+        return answers.getJSONArray(String.valueOf(id));
+    }
+
+    public void saveAnswer(int id, JSONArray answer) throws JSONException {
+        if(answer == null) {
+            Log.i("QuestionManager", "Q" + id + " No answer given.");
+        }
+        JSONObject answers = getCurrentAnswers();
+        answers.put(String.valueOf(id), answer);
+        String newAnswers = answers.toString();
+        answerPrefs.edit().putString(Keys.ANSWERS_KEY, newAnswers).apply();
+        Log.i("QuestionManager", "New answers: " + newAnswers);
     }
 }

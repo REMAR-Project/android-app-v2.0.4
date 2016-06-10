@@ -40,21 +40,20 @@ public class UserDetailsExpander extends Expander {
     }
 
     @Override
-    protected void setPreviousAnswer(String answer) {
+    protected void setPreviousAnswer(JSONArray answer) {
         try {
-            JSONArray array = new JSONArray(answer);
-            nameView.setText(array.getString(0));
-            emailView.setText(array.getString(1));
+            nameView.setText(answer.getString(0));
+            emailView.setText(answer.getString(1));
         } catch (JSONException|NullPointerException e) {
             Log.d("UserDetailsExpander", "Unable to parse answer");
         }
     }
 
     @Override
-    public String getSelectedAnswer() {
+    public JSONArray getSelectedAnswer() {
         JSONArray array = new JSONArray();
         array.put(nameView.getText());
         array.put(emailView.getText());
-        return array.toString();
+        return array;
     }
 }

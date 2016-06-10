@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.github.hintofbasil.crabbler.R;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -68,27 +69,32 @@ public class TwoPictureLayoutExpander extends Expander {
     }
 
     @Override
-    protected void setPreviousAnswer(String answer) {
+    protected void setPreviousAnswer(JSONArray answer) {
         try {
-            int intAnswer = Integer.valueOf(answer);
-            if(intAnswer==0) {
-                questionOneButton.setBackgroundResource(R.color.questionPreviouslySelectedBackground);
-            } else {
-                questionTwoButton.setBackgroundResource(R.color.questionPreviouslySelectedBackground);
+            int i = answer.getInt(0);
+            switch(i) {
+                case 0:
+                    questionOneButton.setBackgroundResource(R.color.questionPreviouslySelectedBackground);
+                    break;
+                case 1:
+                    questionTwoButton.setBackgroundResource(R.color.questionPreviouslySelectedBackground);
+                    break;
+                case -1:
+                    break;
+                default:
+                    Log.d("TwoPictureLayoutExpander", "Invalid previous answer");
             }
-            currentAnswer = intAnswer;
-        } catch (NumberFormatException e) {
+            currentAnswer = i;
+        } catch (JSONException e) {
             Log.d("QuestionActivity", "No previous answer");
             return;
         }
     }
 
     @Override
-    public String getSelectedAnswer() {
-        if(currentAnswer!=-1) {
-            return String.valueOf(currentAnswer);
-        } else {
-            return null;
-        }
+    public JSONArray getSelectedAnswer() {
+        JSONArray array = new JSONArray();
+        array.put(currentAnswer);
+        return array;
     }
 }

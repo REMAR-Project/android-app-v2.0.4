@@ -49,6 +49,7 @@ public class ListSelectExpander extends Expander {
         imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
         titleView.setText(getQuestionString("questionTitle"));
         descriptionView.setText(getQuestionString("description"));
+
         try{
             detailImage.setImageDrawable(getDrawable(getQuestionString("detailPicture")));
         } catch (JSONException e) {
@@ -126,13 +127,19 @@ public class ListSelectExpander extends Expander {
     }
 
     @Override
-    protected void setPreviousAnswer(String answer) {
-        setSpinnerTo(listHolder, answer);
+    protected void setPreviousAnswer(JSONArray answer) {
+        try {
+            setSpinnerTo(listHolder, answer.getString(0));
+        } catch (JSONException e) {
+            Log.i("ListSelectExpander", "Unable to parse previous answer");
+        }
     }
 
     @Override
-    public String getSelectedAnswer() {
-        return itemTextInput.getText().toString();
+    public JSONArray getSelectedAnswer() {
+        JSONArray array = new JSONArray();
+        array.put(itemTextInput.getText().toString());
+        return array;
     }
 
     private String readFile(String filename) throws IOException, JSONException {

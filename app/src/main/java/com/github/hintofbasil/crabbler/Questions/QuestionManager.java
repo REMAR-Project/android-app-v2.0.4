@@ -24,15 +24,23 @@ public class QuestionManager {
     JSONArray cache;
     Context context;
     SharedPreferences answerPrefs;
-    int[] loopsDone;
+    int[] loopCounter;
 
     private QuestionManager(Context context) {
         this.context = context;
         answerPrefs = context.getSharedPreferences(Keys.SAVED_PREFERENCES_KEY, Context.MODE_PRIVATE);
     }
 
-    public static void init(Context context) {
+    public static void init(Context context) throws IOException, JSONException {
         questionManager = new QuestionManager(context);
+        questionManager.init();
+    }
+
+    public void init() throws IOException, JSONException {
+        loopCounter = new int[getNumberOfLoops()];
+        for(int i=0; i< loopCounter.length; i++) {
+            loopCounter[i] = 1;
+        }
     }
 
     public static QuestionManager get() {
@@ -74,12 +82,12 @@ public class QuestionManager {
     }
 
     private int getQuestionCount(boolean withNumberOnly, JSONArray array) throws JSONException {
-        int count = 0;
+        int count = 0, loopId = 0;
         for(int i=0; i<array.length(); i++) {
             JSONObject object = array.getJSONObject(i);
             if(object.has("loop")) {
                 JSONArray subArray = object.getJSONArray("questions");
-                count += getQuestionCount(withNumberOnly, subArray);
+                count += getQuestionCount(withNumberOnly, subArray) * loopCounter[loopId];
             } else { // Must be a question
                 if(!withNumberOnly || object.has("questionNumber")) {
                     count++;
@@ -119,5 +127,17 @@ public class QuestionManager {
         String newAnswers = answers.toString();
         answerPrefs.edit().putString(Keys.ANSWERS_KEY, newAnswers).apply();
         Log.i("QuestionManager", "New answers: " + newAnswers);
+    }
+
+    private int getNumberOfLoops() throws IOException, JSONException {
+        int count = 0;
+        JSONArray array = readJSON();
+        for(int i=0; i< array.length(); i++) {
+            JSONObject obj = array.getJSONObject(i);
+            if(obj.has("loop")) {
+                count++;
+            }
+        }
+        return count;
     }
 }

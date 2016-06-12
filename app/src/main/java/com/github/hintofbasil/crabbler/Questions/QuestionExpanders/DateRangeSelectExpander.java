@@ -122,7 +122,7 @@ public class DateRangeSelectExpander extends Expander {
                 Date date = simpleDateFormat.parse(s);
                 lst.add(date);
             }
-        } catch (JSONException|ParseException e) {
+        } catch (JSONException|ParseException|IOException e) {
             Log.d("DateRangeSelectExpander", "Unable to parse previous answer");
         }
         return lst;

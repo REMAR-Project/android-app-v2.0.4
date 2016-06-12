@@ -59,20 +59,21 @@ public class QuestionManager {
     }
 
     private JSONObject findQuestionInArray(int id, JSONArray array) throws JSONException, IOException {
+        int manipulatableId = id;
         for(int i=0; i<array.length(); i++) {
             JSONObject object = array.getJSONObject(i);
             if(object.has("loop")) {
                 JSONArray subArray = object.getJSONArray("questions");
                 for(int j=1; j<=loopCounter[object.getInt("loop")]; j++) {
-                    JSONObject subSearch = findQuestionInArray(id - (i * j), subArray);
-                    id -= (subArray.length()); // Remove subquestions from total
+                    JSONObject subSearch = findQuestionInArray(manipulatableId - (i * j), subArray);
+                    manipulatableId -= (subArray.length()); // Remove subquestions from total
                     if (subSearch != null) {
                         return subSearch;
                     }
                 }
-                id += 1; // Need as loop is an item but not a question
+                manipulatableId += 1; // Need as loop is an item but not a question
             } else { // Must be a question
-                if(i==id) {
+                if(i==manipulatableId) {
                     return object;
                 }
             }
@@ -108,28 +109,30 @@ public class QuestionManager {
         return getQuestionCount(false, readJSON());
     }
 
-    private JSONObject getCurrentAnswers() throws JSONException {
-        String answers = this.answerPrefs.getString(Keys.ANSWERS_KEY, null);
+    private JSONObject getCurrentAnswers(String container) throws JSONException {
+        String answers = this.answerPrefs.getString(container + Keys.ANSWERS_KEY, null);
         if(answers == null) {
             return new JSONObject();
         }
         return new JSONObject(answers);
     }
 
-    public JSONArray getAnswer(int id) throws JSONException {
-        JSONObject answers = getCurrentAnswers();
-        return answers.getJSONArray(String.valueOf(id));
+    public JSONArray getAnswer(int id) throws JSONException, IOException {
+        Tuple<String, Integer> container = getContainer(id, readJSON(), null);
+        JSONObject answers = getCurrentAnswers(container.first);
+        return answers.getJSONArray(String.valueOf(container.second));
     }
 
-    public void saveAnswer(int id, JSONArray answer) throws JSONException {
+    public void saveAnswer(int id, JSONArray answer) throws JSONException, IOException {
         if(answer == null) {
             Log.i("QuestionManager", "Q" + id + " No answer given.");
         }
-        JSONObject answers = getCurrentAnswers();
-        answers.put(String.valueOf(id), answer);
+        Tuple<String, Integer> container = getContainer(id, readJSON(), null);
+        JSONObject answers = getCurrentAnswers(container.first);
+        answers.put(String.valueOf(container.second), answer);
         String newAnswers = answers.toString();
-        answerPrefs.edit().putString(Keys.ANSWERS_KEY, newAnswers).apply();
-        Log.i("QuestionManager", "New answers: " + newAnswers);
+        answerPrefs.edit().putString(container.first + Keys.ANSWERS_KEY, newAnswers).apply();
+        Log.i("QuestionManager", "New answers: " + container.first + Keys.ANSWERS_KEY + " : "  + newAnswers);
     }
 
     private int getNumberOfLoops() throws IOException, JSONException {
@@ -142,5 +145,67 @@ public class QuestionManager {
             }
         }
         return count;
+    }
+
+    /**
+     * Returns the name of the container ("loop#" or "base") and the question number in that container
+     *
+     * @param id  The global id of the question
+     * @param array  The base array.  Should always be readJson()
+     * @param parent  Used for recursion.  Should always be null on first call.
+     * @return  A tuple of (containerName, questionId)
+     * @throws JSONException
+     */
+    private Tuple<String, Integer> getContainer(int id, JSONArray array, JSONObject parent) throws JSONException {
+        int questionId = 0;
+        for(int i=0; i<array.length(); i++) {
+            JSONObject object = array.getJSONObject(i);
+            if(object.has("loop")) {
+                JSONArray subArray = object.getJSONArray("questions");
+                for(int j=1; j<=loopCounter[object.getInt("loop")]; j++) {
+                    Tuple<String, Integer> found = getContainer(id - (i * j), subArray, object);
+                    id -= (subArray.length()); // Remove subquestions from total
+                    if (found != null) {
+                        return new Tuple<String, Integer>(found.first, found.second + ((j - 1) * subArray.length()));
+                    }
+                }
+                id += 1; // Need as loop is an item but not a question
+            } else { // Must be a question
+                if(i==id) {
+                    if(parent != null) {
+                        return new Tuple<String, Integer>("loop" + parent.getInt("loop"), questionId);
+                    } else {
+                        return new Tuple<String, Integer>("base", questionId);
+                    }
+                } else {
+                    questionId++;
+                }
+            }
+        }
+        return null;
+    }
+
+    class Tuple<T, U> {
+
+        private T first;
+        private U second;
+
+        public Tuple(T first, U second) {
+            this.first = first;
+            this.second = second;
+        }
+
+        public T getFirst() {
+            return first;
+        }
+
+        public U getSecond() {
+            return second;
+        }
+
+        @Override
+        public String toString() {
+            return "(" + first + "," + second + ")";
+        }
     }
 }

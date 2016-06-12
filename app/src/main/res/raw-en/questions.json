@@ -1,7 +1,7 @@
 [
   {
     "loop": 0,
-    "stopOn": "1",
+    "stopOn": "0:1",
     "questions": [
       {
         "questionNumber": 0,

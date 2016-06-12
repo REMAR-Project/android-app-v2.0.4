@@ -33,13 +33,6 @@ public class UserAgreementActivity extends AppCompatActivity {
 
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 
-        try {
-            QuestionManager.init(this);
-        } catch (IOException|JSONException e) {
-            Log.e("UserAgreementActivity", "Unable to read JSON.");
-            return;
-        }
-
         Intent dataPostIntent = new Intent(getBaseContext(), DataPostLaunchService.class);
         getBaseContext().startService(dataPostIntent);
 
@@ -51,6 +44,13 @@ public class UserAgreementActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_agreement);
+
+        try {
+            QuestionManager.init(this);
+        } catch (IOException|JSONException e) {
+            Log.e("UserAgreementActivity", "Unable to read JSON.\n" + Log.getStackTraceString(e));
+            return;
+        }
 
         agreement = (TextView) findViewById(R.id.agreement_text);
         agreement.setMovementMethod(new ScrollingMovementMethod());

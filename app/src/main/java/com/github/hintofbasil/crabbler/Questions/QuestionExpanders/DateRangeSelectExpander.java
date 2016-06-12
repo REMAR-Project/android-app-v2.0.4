@@ -115,7 +115,11 @@ public class DateRangeSelectExpander extends Expander {
     private List<Date> getValidDates(JSONObject question) {
         List<Date> lst = new LinkedList<Date>();
         try {
-            JSONArray previousAnswer = questionManager.getAnswer(question.getInt("filterOnQuestion"));
+            int filterOn = question.getInt("filterOnQuestion");
+            if(filterOn<0) { // Allow referencing previous questions
+                filterOn = realQuestionId + filterOn; // Plus because negative value given
+            }
+            JSONArray previousAnswer = questionManager.getAnswer(filterOn);
             for (int i=0; i<previousAnswer.length(); i++) {
                 String s = previousAnswer.getString(i);
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat();

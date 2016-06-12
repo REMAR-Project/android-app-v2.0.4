@@ -192,9 +192,8 @@ public class QuestionManager {
                         return new Tuple<JSONObject, Integer, JSONArray>(found.first, found.second + ((j - 1) * questionCount), subArray);
                     }
                 }
-                id += 1; // Need as loop is an item but not a question
             } else { // Must be a question
-                if(i==id) {
+                if(questionId==id) {
                     if(parent != null) {
                         return new Tuple<JSONObject, Integer, JSONArray>(parent, questionId, array);
                     } else {

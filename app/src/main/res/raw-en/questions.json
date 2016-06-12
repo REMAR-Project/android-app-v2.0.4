@@ -52,7 +52,7 @@
     "questionPicture": "q0_(0)",
     "questionTitle": "crab_title_(0)",
     "description": "Click the day that andada it was strongest\n(optional)",
-    "filterOnQuestion": 4
+    "filterOnQuestion": -1
   },
   {
     "questionNumber": 6,

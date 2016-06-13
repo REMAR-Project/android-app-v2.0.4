@@ -19,6 +19,7 @@
         android:textStyle="bold" />
 
     <LinearLayout
+        android:id="@+id/toolbar_menu_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -27,6 +28,7 @@
         android:gravity="center_vertical"
         android:layout_centerInParent="true"
         android:clickable="true"
+        android:onClick="menuClick"
         android:background="@drawable/square_black_border"
         android:padding="5dp" >
 

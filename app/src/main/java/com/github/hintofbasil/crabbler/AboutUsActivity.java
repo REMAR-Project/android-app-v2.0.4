@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -36,6 +37,9 @@ public class AboutUsActivity extends AppCompatActivity implements AboutUsFragmen
             Log.e("AboutUsActivity", "Unable to read about_us.json\n" + Log.getStackTraceString(e));
             return;
         }
+
+        LinearLayout toolbarMenu = (LinearLayout) findViewById(R.id.toolbar_menu_button);
+        toolbarMenu.setVisibility(View.GONE);
     }
 
     public JSONArray readJSON() throws IOException, JSONException {

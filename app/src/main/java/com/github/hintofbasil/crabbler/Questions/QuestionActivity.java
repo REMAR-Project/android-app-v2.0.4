@@ -11,6 +11,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.github.hintofbasil.crabbler.AboutUsActivity;
@@ -155,30 +157,10 @@ public class QuestionActivity extends AppCompatActivity {
         expander.nextQuestion(0);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.base_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.about_us:
-                Log.i("QuestionActivity", "Launching about us");
-                Intent intent = new Intent(getBaseContext(),
-                        AboutUsActivity.class);
-                startActivity(intent);
-                return true;
-            case R.id.settings:
-                Log.i("QuestionActivity", "Launching settings");
-                Intent intent1 = new Intent(getBaseContext(),
-                        SettingsActivity.class);
-                startActivity(intent1);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
+    public void menuClick(View view) {
+        Log.i("QuestionActivity", "Launching about us");
+        Intent intent = new Intent(getBaseContext(),
+                AboutUsActivity.class);
+        startActivity(intent);
     }
 }

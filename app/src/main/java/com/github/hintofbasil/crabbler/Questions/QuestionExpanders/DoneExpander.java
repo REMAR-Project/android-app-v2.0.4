@@ -52,10 +52,7 @@ public class DoneExpander extends Expander {
 
     private void postAnswers() {
         DataPostFactory dataPostFactory = new DataPostFactory(activity.getBaseContext());
-        String answers = popAnswers();
-        // Turns semi-colons into commas for processing
-        answers = answers.replaceAll(";", ",");
-        dataPostFactory.submitAnswers(answers);
+        dataPostFactory.submitAnswers();
 
         Toast.makeText(activity.getBaseContext(),
                 activity.getString(R.string.thank_you_toast),
@@ -65,12 +62,5 @@ public class DoneExpander extends Expander {
                 QuestionActivity.class);
         activity.startActivity(intent);
         activity.finish();
-    }
-
-    private String popAnswers() {
-        this.prefs = activity.getSharedPreferences(Keys.SAVED_PREFERENCES_KEY, Context.MODE_PRIVATE);
-        String answers = prefs.getString(Keys.ANSWERS_KEY, null);
-        prefs.edit().remove(Keys.ANSWERS_KEY).remove(Keys.QUESTION_ID_KEY).apply();
-        return answers;
     }
 }

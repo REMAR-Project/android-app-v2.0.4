@@ -13,6 +13,9 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * Created by will on 05/05/16.
@@ -128,12 +131,13 @@ public class QuestionManager {
             Log.i("QuestionManager", "Q" + id + " No answer given.");
         }
         Tuple<JSONObject, Integer, JSONArray> container = getContainer(id, readJSON(), null);
+        // TODO handle custom save to
         JSONObject answers = getCurrentAnswers(containerToAnswerKey(container.first));
         answers.put(String.valueOf(container.second), answer);
         // Check for expand/contract
         int questionCount = getQuestionCountInContainer(container.third);
         if((container.second+1) % questionCount == 0) {
-            if(container.first.has("loop") && container.first.has("stopOn")) {
+            if(container.first != null && container.first.has("loop") && container.first.has("stopOn")) {
                 String[] saveTo = container.first.getString("stopOn").split(":");
                 int loopCount = (container.second + 1) / questionCount;
                 int loopId = container.first.getInt("loop");
@@ -255,5 +259,64 @@ public class QuestionManager {
         public String toString() {
             return "(" + first + "," + second + "," + third + ")";
         }
+    }
+
+    public List<JSONObject> exportAnswers() throws JSONException, IOException {
+        List<JSONObject> lst = new ArrayList<JSONObject>();
+        String baseAnswersString = answerPrefs.getString(containerToAnswerKey(null), null);
+        JSONObject baseAnswers = new JSONObject(baseAnswersString);
+        lst.add(baseAnswers);
+        for(JSONObject loop : getLoops(readJSON())) {
+            List<JSONObject> newLst = new ArrayList<JSONObject>();
+            int loopLength = getQuestionCountInContainer(loop.getJSONArray("questions"));
+            int loopCount = loopCounter[loop.getInt("loop")];
+            String answersKey = containerToAnswerKey(loop);
+            JSONObject answers = new JSONObject(answerPrefs.getString(answersKey, null));
+            for(JSONObject obj : lst) {
+                for(int i = 0; i < loopCount; i++) {
+                    // TODO get position
+                    JSONObject newObj = duplicateJSONObject(obj, 0, loopLength);
+                    for (int j = 0; j < loopLength; j++) {
+                        newObj.put(String.valueOf(j), answers.get(String.valueOf((i*loopLength) + j)));
+                    }
+                    newLst.add(newObj);
+                }
+                answerPrefs.edit().remove(answersKey).apply();
+            }
+            lst = newLst;
+        }
+        answerPrefs.edit().remove(containerToAnswerKey(null)).apply();
+        init(); // Reinitialise to reset question loops
+        return lst;
+    }
+
+    private JSONObject duplicateJSONObject(JSONObject old, int position, int offset) throws JSONException {
+        JSONObject newObj = new JSONObject();
+        Iterator<String> itr = old.keys();
+        while(itr.hasNext()) {
+            String key = itr.next();
+            Object value = old.get(key);
+            int intKey = Integer.parseInt(key);
+            if(intKey >= position) {
+                key = String.valueOf(intKey + offset);
+            }
+            newObj.put(key, value);
+        }
+        return newObj;
+    }
+
+    private List<JSONObject> getLoops(JSONArray array) throws IOException, JSONException {
+        List<JSONObject> lst = new ArrayList<JSONObject>();
+        for(int i=0; i<array.length(); i++) {
+            JSONObject obj = array.getJSONObject(i);
+            if(obj.has("loop")) {
+                lst.add(obj);
+                List<JSONObject> subarray = getLoops(obj.getJSONArray("questions"));
+                for(JSONObject o : subarray) {
+                    lst.add(o);
+                }
+            }
+        }
+        return lst;
     }
 }

@@ -79,6 +79,9 @@ public class QuestionActivity extends AppCompatActivity {
                     case "UserDetails":
                         expander = new UserDetailsExpander(this, questionJson);
                         break;
+                    case "Done":
+                        expander = new DoneExpander(this, questionJson);
+                        break;
                     default:
                         Log.e("QuestionActivity", "Unknown question type.");
                         return;

@@ -3,8 +3,16 @@ package com.github.hintofbasil.crabbler.BackgroundDataPost;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import com.github.hintofbasil.crabbler.Keys;
+import com.github.hintofbasil.crabbler.Questions.QuestionManager;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.List;
 
 /**
  * Used to add urls to the post queue list
@@ -33,22 +41,22 @@ public class DataPostFactory {
         addData(LOGIN, "");
     }
 
-    public void submitAnswers(String answers) {
-        // Register phone if not already registered
+    public void submitAnswers() {
         SharedPreferences settingsPrefs = context.getSharedPreferences(Keys.SETTINGS_PREFS_KEY, Context.MODE_PRIVATE);
         if(settingsPrefs.getString(Keys.ACCESS_TOKEN_KEY, null) == null) {
             login();
             register();
         }
-        answers = answers.replaceAll("\n", "");
-        String[] split = answers.split(",");
-        StringBuilder sb = new StringBuilder();
-        for(String s : split) {
-            sb.append('"');
-            sb.append(s.toString());
-            sb.append("\",");
+        QuestionManager questionManager = QuestionManager.get();
+        try {
+            List<JSONObject> answers = questionManager.exportAnswers();
+            for(JSONObject answer : answers) {
+                Log.i("-----------", "M: " + answer);
+                addData(ANSWERS, answer.toString());
+            }
+        } catch (JSONException|IOException e) {
+            Log.e("DataPostFactory", "Unable to parse answers\n" + Log.getStackTraceString(e));
         }
-        addData(ANSWERS, sb.substring(0, sb.length()-1));
     }
 
     /**

@@ -11,6 +11,12 @@
     android:orientation="vertical"
     >
 
+    <include layout="@layout/include_toolbar"
+        android:id="@+id/toolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        />
+
     <TextView
         android:id="@+id/agreement_text"
         android:layout_width="wrap_content"

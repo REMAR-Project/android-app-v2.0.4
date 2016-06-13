@@ -117,7 +117,7 @@ public abstract class Expander {
     public String getQuestionString(String string) throws JSONException {
         String value = questionJson.getString(string);
         StringBuilder sb = new StringBuilder(value);
-        Pattern pattern = Pattern.compile("\\((\\-?)(\\d)\\)");
+        Pattern pattern = Pattern.compile("\\((\\-?)(\\d+)\\)");
         Matcher match = pattern.matcher(value);
         if(match.find()) {
             String opr = match.group(1);

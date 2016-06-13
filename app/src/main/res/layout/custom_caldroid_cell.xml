@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center" >
 
-        <Button
+        <View
             android:id="@+id/newMoon"
             android:layout_width="9dp"
             android:layout_height="9dp"
@@ -24,7 +24,7 @@
             android:paddingRight="4dp"
             android:paddingEnd="4dp" />
 
-        <Button
+        <View
             android:id="@+id/fullMoon"
             android:layout_width="9dp"
             android:layout_height="9dp"

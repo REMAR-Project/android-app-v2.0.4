@@ -69,8 +69,8 @@ public class CaldroidCustomAdapter extends CaldroidGridAdapter {
         }
 
         TextView tv1 = (TextView) cellView.findViewById(R.id.tv1);
-        Button fullMoon = (Button) cellView.findViewById(R.id.fullMoon);
-        Button newMoon = (Button) cellView.findViewById(R.id.newMoon);
+        View fullMoon = (View) cellView.findViewById(R.id.fullMoon);
+        View newMoon = (View) cellView.findViewById(R.id.newMoon);
 
         int topPadding = cellView.getPaddingTop();
         int leftPadding = cellView.getPaddingLeft();
@@ -109,8 +109,7 @@ public class CaldroidCustomAdapter extends CaldroidGridAdapter {
 
         // Customize for selected dates
         if (selectedDates != null && selectedDates.indexOf(dateTime) != -1) {
-            cellView.setBackgroundColor(resources
-                    .getColor(R.color.questionSelectedBackground));
+            cellView.setActivated(true);
 
             tv1.setTextColor(Color.BLACK);
 
@@ -153,6 +152,8 @@ public class CaldroidCustomAdapter extends CaldroidGridAdapter {
         // Set custom color if required
         setCustomResources(dateTime, cellView, tv1);
 
+
+        cellView.setBackgroundResource(R.drawable.caldroid_cell_selected);
         return cellView;
     }
 

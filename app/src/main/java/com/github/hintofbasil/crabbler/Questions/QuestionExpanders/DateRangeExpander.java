@@ -51,24 +51,24 @@ public class DateRangeExpander extends Expander {
 
         // Build calendar
 
-        /*CaldroidListener caldroidListener = new CaldroidListener() {
+        final CaldroidListener caldroidListener = new CaldroidListener() {
             @Override
             public void onSelectDate(Date date, View view) {
-                if(selectedDates.contains(date)) {
+                if(view.isActivated()) {
                     selectedDates.remove(date);
-                    //view.setBackgroundResource(R.color.caldroid_white);
+                    view.setActivated(false);
                 } else {
                     selectedDates.add(date);
-                    //view.setBackgroundResource(R.color.questionSelectedBackground);
+                    view.setActivated(true);
                 }
             }
-        };*/
+        };
 
         Bundle args = new Bundle();
         args.putBoolean(CaldroidFragment.ENABLE_SWIPE, false);
         args.putBoolean(CaldroidFragment.SHOW_NAVIGATION_ARROWS, false);
         caldroidFragment.setArguments(args);
-        //caldroidFragment.setCaldroidListener(caldroidListener);
+        caldroidFragment.setCaldroidListener(caldroidListener);
 
         FragmentTransaction t = activity.getSupportFragmentManager().beginTransaction();
         t.replace(R.id.content_layout, caldroidFragment);

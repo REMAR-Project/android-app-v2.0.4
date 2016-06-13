@@ -2,6 +2,9 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="toolbar_horizontal_margin">16dp</dimen>
+    <dimen name="toolbar_vertical_margin">10dp</dimen>
+
     <dimen name="question_font_size">15sp</dimen>
     <dimen name="question_selection_title">18sp</dimen>
     <dimen name="question_select_padding">10dp</dimen>
@@ -23,4 +26,7 @@
     <dimen name="day_night_choice_vertical_margin">0dp</dimen>
 
     <dimen name="user_details_input_width">220dp</dimen>
+
+    <dimen name="toolbar_title">22dp</dimen>
+    <dimen name="toolbar_menu">18dp</dimen>
 </resources>

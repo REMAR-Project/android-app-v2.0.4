@@ -8,4 +8,7 @@
     <color name="questionPreviouslySelectedBackground">#0000FF</color>
     <color name="questionOfQuestionText">#AAAAAA</color>
     <color name="none">#00000000</color>
+
+    <color name="newMoon">#000000</color>
+    <color name="fullMoon">#DDED2B</color>
 </resources>

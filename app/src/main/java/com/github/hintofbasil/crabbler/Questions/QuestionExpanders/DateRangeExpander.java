@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.hintofbasil.crabbler.R;
+import com.github.hintofbasil.crabbler.Settings.CaldroidCustomFragment;
 import com.roomorama.caldroid.CaldroidFragment;
 import com.roomorama.caldroid.CaldroidListener;
 
@@ -30,7 +31,7 @@ import java.util.List;
 public class DateRangeExpander extends Expander {
 
     private List<Date> selectedDates = new LinkedList<Date>();
-    CaldroidFragment caldroidFragment = new CaldroidFragment();
+    CaldroidCustomFragment caldroidFragment = new CaldroidCustomFragment();
 
     public DateRangeExpander(AppCompatActivity activity, JSONObject questionJson) {
         super(activity, questionJson);
@@ -50,27 +51,24 @@ public class DateRangeExpander extends Expander {
 
         // Build calendar
 
-        CaldroidListener caldroidListener = new CaldroidListener() {
+        /*CaldroidListener caldroidListener = new CaldroidListener() {
             @Override
             public void onSelectDate(Date date, View view) {
                 if(selectedDates.contains(date)) {
                     selectedDates.remove(date);
-                    view.setBackgroundResource(R.color.caldroid_white);
+                    //view.setBackgroundResource(R.color.caldroid_white);
                 } else {
                     selectedDates.add(date);
-                    view.setBackgroundResource(R.color.questionSelectedBackground);
+                    //view.setBackgroundResource(R.color.questionSelectedBackground);
                 }
             }
-        };
+        };*/
 
         Bundle args = new Bundle();
-        Calendar cal = Calendar.getInstance();
-        args.putInt(CaldroidFragment.MONTH, cal.get(Calendar.MONTH) + 1);
-        args.putInt(CaldroidFragment.YEAR, cal.get(Calendar.YEAR));
         args.putBoolean(CaldroidFragment.ENABLE_SWIPE, false);
         args.putBoolean(CaldroidFragment.SHOW_NAVIGATION_ARROWS, false);
         caldroidFragment.setArguments(args);
-        caldroidFragment.setCaldroidListener(caldroidListener);
+        //caldroidFragment.setCaldroidListener(caldroidListener);
 
         FragmentTransaction t = activity.getSupportFragmentManager().beginTransaction();
         t.replace(R.id.content_layout, caldroidFragment);
@@ -87,8 +85,6 @@ public class DateRangeExpander extends Expander {
                 Date date = simpleDateFormat.parse(s.toString());
                 selectedDates.add(date);
                 caldroidFragment.setSelectedDate(date);
-                Drawable drawable = activity.getResources().getDrawable(R.drawable.caldroid_cell_previously_selected);
-                caldroidFragment.setBackgroundDrawableForDate(drawable, date);
             } catch (ParseException|JSONException e) {
                 Log.e("DateRangeExpander", "Unable to create date from answer " + Log.getStackTraceString(e));
                 return;

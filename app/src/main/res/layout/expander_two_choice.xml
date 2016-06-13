@@ -3,8 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Questions.QuestionExpanders.TwoChoiceDateExpander"
-    >
+    tools:context=".Questions.QuestionExpanders.TwoChoiceDateExpander" >
+
+    <include layout="@layout/include_toolbar"
+        android:id="@+id/toolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,7 +19,8 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
         android:orientation="vertical"
-        android:layout_above="@+id/back_next_include">
+        android:layout_above="@+id/back_next_include"
+        android:layout_below="@id/toolbar" >
 
         <include layout="@layout/expander_two_choice_common"
             android:layout_height="wrap_content"

@@ -5,10 +5,17 @@
     android:layout_height="match_parent"
     tools:context=".Questions.QuestionExpanders.DateRangeExpander">
 
+    <include layout="@layout/include_toolbar"
+        android:id="@+id/toolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/back_next_include">
+        android:layout_above="@+id/back_next_include"
+        android:layout_below="@id/toolbar" >
 
         <LinearLayout
             android:id="@+id/content_layout"

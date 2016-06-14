@@ -27,6 +27,7 @@
 
     <dimen name="user_details_input_width">220dp</dimen>
 
-    <dimen name="toolbar_title">22dp</dimen>
+    <dimen name="toolbar_title">22sp</dimen>
+    <dimen name="toolbar_title_smaller">18sp</dimen>
     <dimen name="toolbar_menu">18dp</dimen>
 </resources>

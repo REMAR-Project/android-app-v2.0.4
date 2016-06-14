@@ -1,5 +1,8 @@
 <resources>
-    <string name="app_name">Crabbler</string>
+    <string name="app_name">REMAR citizen</string>
+
+    <string name="toolbar_app_name">REMAR_</string>
+    <string name="toolbar_app_sub_name">CITIZEN</string>
     <string name="accept">Accept</string>
     <string name="decline">Decline</string>
     <string name="user_agreement">

@@ -52,8 +52,16 @@ public class CaldroidCustomAdapter extends CaldroidGridAdapter {
             new int[]{14,12}
     };
 
-    public CaldroidCustomAdapter(Context context, int month, int year, Map<String, Object> caldroidData, Map<String, Object> extraData) {
+    private int resourceId;
+
+    public CaldroidCustomAdapter(Context context,
+                                 int month,
+                                 int year,
+                                 Map<String, Object> caldroidData,
+                                 Map<String, Object> extraData,
+                                 int resourceId) {
         super(context, month, year, caldroidData, extraData);
+        this.resourceId = resourceId;
     }
 
     @Override

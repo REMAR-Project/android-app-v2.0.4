@@ -93,10 +93,11 @@ public class CaldroidCustomAdapter extends CaldroidGridAdapter {
         if (dateTime.getMonth() != month) {
             tv1.setTextColor(resources
                     .getColor(com.caldroid.R.color.caldroid_darker_gray));
+        } else {
+            tv1.setTextColor(Color.BLACK);
         }
 
         boolean shouldResetDiabledView = false;
-        boolean shouldResetSelectedView = false;
 
         // Customize for disabled dates and date outside min/max dates
         if ((minDateTime != null && dateTime.lt(minDateTime))
@@ -118,14 +119,10 @@ public class CaldroidCustomAdapter extends CaldroidGridAdapter {
         if (selectedDates != null && selectedDates.indexOf(dateTime) != -1) {
             cellView.setActivated(true);
 
-            tv1.setTextColor(Color.BLACK);
-
-        } else {
-            shouldResetSelectedView = true;
         }
 
-        if (shouldResetDiabledView && shouldResetSelectedView) {
-                cellView.setBackgroundResource(com.caldroid.R.drawable.cell_bg);
+        if (shouldResetDiabledView) {
+                cellView.setBackgroundResource(resourceId);
         }
 
         tv1.setText("" + dateTime.getDay());
@@ -158,8 +155,6 @@ public class CaldroidCustomAdapter extends CaldroidGridAdapter {
 
         // Set custom color if required
         setCustomResources(dateTime, cellView, tv1);
-
-        cellView.setBackgroundResource(resourceId);
 
         return cellView;
     }

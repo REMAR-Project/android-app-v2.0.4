@@ -58,15 +58,15 @@
     "questionNumber": 6,
     "questionType": "DayNightChoice",
     "questionPicture": "q0_(-6)",
-    "questionTitle": "crab_title_(-6)",
-    "choiceOneText": "In the new moon",
-    "choiceTwoText": "The full moon"
+    "questionTitle": "Click on the period (moon phase) when andada occured.  In case you don't know proceed to the next page.",
+    "choiceOneText": "At new moon",
+    "choiceTwoText": "At full moon"
   },
   {
     "questionNumber": 7,
     "questionType": "ListSelect",
     "questionPicture": "q0_(-7)",
-    "questionTitle": "Click on the period (moon phase) when andada occured.  In case you don't know proceed to the next page.",
+    "questionTitle": "crab_title_(-7)",
     "description": "Select the state where you made your observation",
     "jsonInput": "regions.json",
     "detailPicture": "brazil_regions.png",

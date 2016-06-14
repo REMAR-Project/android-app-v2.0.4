@@ -159,8 +159,8 @@ public class CaldroidCustomAdapter extends CaldroidGridAdapter {
         // Set custom color if required
         setCustomResources(dateTime, cellView, tv1);
 
+        cellView.setBackgroundResource(resourceId);
 
-        cellView.setBackgroundResource(R.drawable.caldroid_cell_selected);
         return cellView;
     }
 

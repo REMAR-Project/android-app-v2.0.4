@@ -9,4 +9,6 @@
     <color name="questionOfQuestionText">#AAAAAA</color>
     <color name="none">#00000000</color>
     <color name="white">#ffffff</color>
+    <color name="newMoon">#000000</color>
+    <color name="fullMoon">#DDED2B</color>
 </resources>

@@ -94,4 +94,7 @@ Aliquam porta dui eu quam egestas, eu sollicitudin lacus facilisis. Donec laoree
 
     <string name="menu">Cardápio</string>
 
+    <string name="calendar_legend_new_moon">Lua nova</string>
+    <string name="calendar_legend_full_moon">Lua cheia</string>
+
 </resources>

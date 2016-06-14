@@ -15,4 +15,8 @@ public class Keys {
     public static final String ACCESS_TOKEN_KEY = "ACCESS_TOKEN_KEY";
     public static final String PREF_POST_FREQUENCY = "pref_postFrequency";
 
+
+
+    public static final String CALDROID_BACKGROUND_RESOURCE = "BACKGROUND_RESOURCE";
+
 }

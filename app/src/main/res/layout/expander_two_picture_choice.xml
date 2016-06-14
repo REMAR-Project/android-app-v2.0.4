@@ -64,6 +64,7 @@
                     android:id="@+id/choice_one_image"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/white"
                     />
             </LinearLayout>
             <LinearLayout
@@ -91,6 +92,7 @@
                     android:id="@+id/choice_two_image"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/white"
                     />
             </LinearLayout>
         </LinearLayout>

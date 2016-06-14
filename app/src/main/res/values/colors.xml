@@ -8,4 +8,5 @@
     <color name="questionPreviouslySelectedBackground">#0000FF</color>
     <color name="questionOfQuestionText">#AAAAAA</color>
     <color name="none">#00000000</color>
+    <color name="white">#ffffff</color>
 </resources>

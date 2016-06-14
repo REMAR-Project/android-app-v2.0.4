@@ -51,10 +51,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"/>
 
-                <Spinner
+                <ListView
                     android:id="@+id/item_select"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/default_list_height"
                     android:layout_weight="0.5"
                     />
 
@@ -64,6 +64,7 @@
                     android:layout_width="0dp"
                     android:layout_height="150dp"
                     android:layout_weight="0.5"
+                    android:layout_gravity="center_vertical"
                     />
 
             </LinearLayout>

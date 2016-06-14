@@ -4,12 +4,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.github.hintofbasil.crabbler.ColorListAdapter;
 import com.github.hintofbasil.crabbler.R;
 
 import org.json.JSONArray;
@@ -25,6 +25,9 @@ public class TwoChoiceDateExpander extends Expander {
 
     int monthNo = -1;
     int yearNo = -1;
+
+    ColorListAdapter<String> yearsAdapter;
+    ColorListAdapter<String> monthsAdapter;
 
     public TwoChoiceDateExpander(AppCompatActivity activity, JSONObject questionJson) {
         super(activity, questionJson);
@@ -60,23 +63,18 @@ public class TwoChoiceDateExpander extends Expander {
             }
         });
 
-        ArrayAdapter<String> monthsAdapter = new ArrayAdapter<String>(
-                activity.getBaseContext(),
-                android.R.layout.simple_list_item_1,
-                activity.getResources().getStringArray(R.array.months));
-        monthListView.setAdapter(monthsAdapter);
-
-        ArrayAdapter<String> yearsAdapter = new ArrayAdapter<String>(
-                activity.getBaseContext(),
-                android.R.layout.simple_list_item_1,
-                activity.getResources().getStringArray(R.array.years));
-        yearListView.setAdapter(yearsAdapter);
-
         monthListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 monthNo = position;
                 view.setSelected(true);
+                // Colour is set as background on first selected.  Must override
+                if(monthsAdapter != null) {
+                    View selected = monthsAdapter.getSelectedView();
+                    if (selected != null) {
+                        selected.setBackgroundResource(R.drawable.color_list);
+                    }
+                }
             }
         });
 
@@ -84,6 +82,14 @@ public class TwoChoiceDateExpander extends Expander {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 yearNo = position;
+                view.setSelected(true);
+                // Colour is set as background on first selected.  Must override
+                if(yearsAdapter != null) {
+                    View selected = yearsAdapter.getSelectedView();
+                    if (selected != null) {
+                        selected.setBackgroundResource(R.drawable.color_list);
+                    }
+                }
             }
         });
     }
@@ -109,18 +115,31 @@ public class TwoChoiceDateExpander extends Expander {
         }
 
         try {
-            int month = answer.getInt(1);
-            monthListView.setSelection(month);
+            monthNo = answer.getInt(1);
         } catch (NumberFormatException|ArrayIndexOutOfBoundsException|JSONException e) {
             Log.d("TwoChoiceDate", "No previous month");
         }
 
         try {
-            int month = answer.getInt(2);
-            yearListView.setSelection(month);
+            yearNo = answer.getInt(2);
         } catch (NumberFormatException|ArrayIndexOutOfBoundsException|JSONException e) {
             Log.d("TwoChoiceDate", "No previous year");
         }
+
+
+        monthsAdapter = new ColorListAdapter<String>(
+                activity.getBaseContext(),
+                android.R.layout.simple_list_item_1,
+                activity.getResources().getStringArray(R.array.months),
+                monthNo);
+        monthListView.setAdapter(monthsAdapter);
+
+        yearsAdapter = new ColorListAdapter<String>(
+                activity.getBaseContext(),
+                android.R.layout.simple_list_item_1,
+                activity.getResources().getStringArray(R.array.years),
+                yearNo);
+        yearListView.setAdapter(yearsAdapter);
     }
 
     @Override
@@ -131,8 +150,8 @@ public class TwoChoiceDateExpander extends Expander {
         } else if(choiceTwoCheckBox.isChecked()) {
             array.put(1);
         }
-        array.put(monthListView.getSelectedItemPosition());
-        array.put(yearListView.getSelectedItemPosition());
+        array.put(monthNo);
+        array.put(yearNo);
         return array;
     }
 }

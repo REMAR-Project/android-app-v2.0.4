@@ -29,4 +29,8 @@
 
     <dimen name="toolbar_title">22dp</dimen>
     <dimen name="toolbar_menu">18dp</dimen>
+
+    <dimen name="calendar_legend_moon">15dp</dimen>
+    <dimen name="calendar_legend_moon_text_spacing">10dp</dimen>
+    <dimen name="calendar_legend_element_spacing">60dp</dimen>
 </resources>

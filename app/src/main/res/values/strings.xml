@@ -67,6 +67,9 @@ Aliquam porta dui eu quam egestas, eu sollicitudin lacus facilisis. Donec laoree
     <string-array name="years">
         <item>2016</item>
         <item>2017</item>
+        <item>2018</item>
+        <item>2019</item>
+        <item>2020</item>
     </string-array>
 
     <string name="pref_postFrequency_title">Post Frequency</string>

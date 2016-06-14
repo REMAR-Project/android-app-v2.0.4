@@ -1,15 +1,14 @@
-package com.github.hintofbasil.crabbler;
+package com.github.hintofbasil.crabbler.Caldroid;
 
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
+import com.github.hintofbasil.crabbler.R;
 import com.roomorama.caldroid.CaldroidFragment;
 import com.roomorama.caldroid.CaldroidGridAdapter;
 

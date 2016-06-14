@@ -1,6 +1,5 @@
 package com.github.hintofbasil.crabbler.Questions.QuestionExpanders;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.hintofbasil.crabbler.R;
-import com.github.hintofbasil.crabbler.Settings.CaldroidCustomFragment;
+import com.github.hintofbasil.crabbler.Caldroid.CaldroidCustomFragment;
 import com.roomorama.caldroid.CaldroidFragment;
 import com.roomorama.caldroid.CaldroidListener;
 
@@ -20,7 +19,6 @@ import org.json.JSONObject;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;

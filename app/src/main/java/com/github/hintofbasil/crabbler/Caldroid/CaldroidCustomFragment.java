@@ -1,6 +1,5 @@
-package com.github.hintofbasil.crabbler.Settings;
+package com.github.hintofbasil.crabbler.Caldroid;
 
-import com.github.hintofbasil.crabbler.CaldroidCustomAdapter;
 import com.roomorama.caldroid.CaldroidFragment;
 import com.roomorama.caldroid.CaldroidGridAdapter;
 

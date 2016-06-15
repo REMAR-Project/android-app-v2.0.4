@@ -49,4 +49,7 @@
     <dimen name="description_margin_bottom">15dp</dimen>
     <dimen name="list_select_input_text">24sp</dimen>
 
+    <!-- User details -->
+    <dimen name="user_details_input_width">320dp</dimen>
+
 </resources>

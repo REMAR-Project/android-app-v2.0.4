@@ -38,7 +38,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center_horizontal"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textSize="@dimen/description"
+                android:layout_marginBottom="@dimen/description_margin_bottom"/>
 
             <EditText
                 android:id="@+id/name"
@@ -46,7 +48,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:textAlignment="center"
-                android:hint="@string/enter_name" />
+                android:hint="@string/enter_name"
+                android:textSize="@dimen/list_select_input_text"/>
 
             <EditText
                 android:id="@+id/email"
@@ -55,7 +58,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:textAlignment="center"
-                android:hint="@string/enter_email" />
+                android:hint="@string/enter_email"
+                android:textSize="@dimen/list_select_input_text"/>
 
         </LinearLayout>
 

@@ -24,6 +24,8 @@ import org.json.JSONObject;
  */
 public class DoneExpander extends Expander {
 
+    public static final int SEND_DELAY = 4000;
+
     public DoneExpander(AppCompatActivity activity, JSONObject questionJson) {
         super(activity, questionJson);
     }
@@ -37,6 +39,19 @@ public class DoneExpander extends Expander {
 
         imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
         titleView.setText(getQuestionString("questionTitle"));
+
+        new CountDownTimer(SEND_DELAY, SEND_DELAY) {
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+
+            }
+
+            @Override
+            public void onFinish() {
+                postAnswers();
+            }
+        }.start();
 
     }
 

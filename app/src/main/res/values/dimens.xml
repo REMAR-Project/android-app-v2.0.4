@@ -40,4 +40,6 @@
     <dimen name="list_horizontal_padding">5dp</dimen>
     <dimen name="list_vertical_padding">5dp</dimen>
     <dimen name="done_checkbox_margin_top">25dp</dimen>
+
+    <dimen name="two_choice_picture_height">160dp</dimen>
 </resources>

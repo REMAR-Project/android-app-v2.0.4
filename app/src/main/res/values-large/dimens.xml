@@ -1,0 +1,14 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+
+    <!-- Two choice pictures -->
+    <dimen name="question_font_size">25sp</dimen>
+    <dimen name="question_selection_title">32sp</dimen>
+    <dimen name="two_choice_picture_height">320dp</dimen>
+
+    <!-- Toolbar -->
+    <dimen name="toolbar_title">28sp</dimen>
+    <dimen name="toolbar_title_smaller">24sp</dimen>
+    <dimen name="toolbar_menu">24dp</dimen>
+
+</resources>

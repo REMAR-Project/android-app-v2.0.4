@@ -77,7 +77,7 @@
     "questionType": "ListSelect",
     "questionPicture": "q0_(-8)",
     "questionTitle": "crab_title_(-8)",
-    "description": "Enter the city closest to your mangrove\nIf you can no find your city in the menu you can also type the name in",
+    "description": "Enter the city closest to your mangrove\nIf you can not find your city in the menu you can also type the name in",
     "jsonInput": "region_cities.json",
     "jsonKey": "(-1)"
   },

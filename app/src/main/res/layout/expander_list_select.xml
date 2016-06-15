@@ -38,7 +38,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:textAlignment="center"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textSize="@dimen/description"
+                android:layout_marginBottom="@dimen/description_margin_bottom"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -49,12 +51,14 @@
                     android:id="@+id/item_text_input"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.5"/>
+                    android:layout_weight="0.5"
+                    android:textSize="@dimen/list_select_input_text"
+                    android:textAlignment="center" />
 
                 <ListView
                     android:id="@+id/item_select"
                     android:layout_width="0dp"
-                    android:layout_height="@dimen/default_list_height"
+                    android:layout_height="@dimen/list_select_list_height"
                     android:layout_weight="0.5"
                     android:choiceMode="singleChoice"
                     />
@@ -63,7 +67,7 @@
                 <ImageView
                     android:id="@+id/detail_picture"
                     android:layout_width="0dp"
-                    android:layout_height="150dp"
+                    android:layout_height="@dimen/list_select_image_height"
                     android:layout_weight="0.5"
                     android:layout_gravity="center_vertical"
                     />

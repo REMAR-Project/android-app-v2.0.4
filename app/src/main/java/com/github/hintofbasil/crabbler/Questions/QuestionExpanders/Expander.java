@@ -103,6 +103,7 @@ public abstract class Expander {
         try {
             setPreviousAnswer(getCurrentAnswer());
         } catch (IOException|JSONException e) {
+            setPreviousAnswer(new JSONArray()); // Allow populating of lists
             Log.d("Expander", "Unable to load answer");
         }
     }

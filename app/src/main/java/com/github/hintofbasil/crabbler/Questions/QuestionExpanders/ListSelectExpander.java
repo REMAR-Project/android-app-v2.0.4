@@ -4,15 +4,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Spinner;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.github.hintofbasil.crabbler.ColorListAdapter;
 import com.github.hintofbasil.crabbler.R;
 
 import org.json.JSONArray;
@@ -27,9 +26,12 @@ import java.io.InputStream;
  */
 public class ListSelectExpander extends Expander {
 
-    Spinner listHolder;
+    ListView listHolder;
     EditText itemTextInput;
     String[] listStrings;
+
+    JSONArray jsonArray = null;
+    ColorListAdapter<String> adapter;
 
     public ListSelectExpander(AppCompatActivity activity, JSONObject questionJson) {
         super(activity, questionJson);
@@ -42,7 +44,7 @@ public class ListSelectExpander extends Expander {
         ImageView imageView = (ImageView) activity.findViewById(R.id.image);
         TextView titleView = (TextView) activity.findViewById(R.id.title);
         ImageView detailImage = (ImageView) activity.findViewById(R.id.detail_picture);
-        listHolder = (Spinner) activity.findViewById(R.id.item_select);
+        listHolder = (ListView) activity.findViewById(R.id.item_select);
         itemTextInput = (EditText) activity.findViewById(R.id.item_text_input);
         TextView descriptionView = (TextView) activity.findViewById(R.id.description);
 
@@ -64,15 +66,13 @@ public class ListSelectExpander extends Expander {
             Log.d("ListSelectExpander", "disableCustom not specified in questions.json.  Enabled by default");
         }
 
-        listHolder.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        listHolder.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 itemTextInput.setText(((TextView) view).getText());
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
+                if (adapter != null) {
+                    adapter.removeDefault();
+                }
             }
         });
 
@@ -90,48 +90,57 @@ public class ListSelectExpander extends Expander {
             @Override
             public void afterTextChanged(Editable s) {
                 String answer = itemTextInput.getText().toString();
-                setSpinnerTo(listHolder, answer);
+                setListTo(listHolder, answer);
             }
         });
-
-        JSONArray jsonArray = null;
 
         try {
             jsonArray = readFileArray(getQuestionString("jsonInput"));
         } catch (JSONException e) {
             try {
                 jsonArray = readFileObject(getQuestionString("jsonInput")).getJSONArray(getQuestionString("jsonKey"));
+                Log.i("----", "ppppp");
             } catch (JSONException|IOException e1) {
                 Log.e("ListSelectExpander", "Unable to parse json file" + Log.getStackTraceString(e1));
             }
         } catch (IOException e) {
             Log.e("ListSelectExpander", "Unable to parse json file" + Log.getStackTraceString(e));
         }
-
-        if(jsonArray != null) {
-            listStrings = new String[jsonArray.length()];
-            for(int i=0; i<jsonArray.length(); i++) {
-                String listItem = jsonArray.getString(i);
-                listStrings[i] = listItem;
-            }
-
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-                    activity.getBaseContext(),
-                    android.R.layout.simple_list_item_1,
-                    listStrings);
-            listHolder.setAdapter(adapter);
-            Log.i("ListSelectExpander", "Successfully populated spinner");
-        } else {
-            Log.e("ListSelectExpander", "No questions to load");
-        }
     }
 
     @Override
     protected void setPreviousAnswer(JSONArray answer) {
+        String region = "";
         try {
-            setSpinnerTo(listHolder, answer.getString(0));
+            region = answer.getString(0);
         } catch (JSONException e) {
             Log.i("ListSelectExpander", "Unable to parse previous answer");
+        }
+        try {
+            int regionId = -1;
+            if (jsonArray != null) {
+                listStrings = new String[jsonArray.length()];
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    String listItem = jsonArray.getString(i);
+                    listStrings[i] = listItem;
+                    if (listItem.equals(region)) {
+                        regionId = i;
+                    }
+                }
+
+                adapter = new ColorListAdapter<String>(
+                        activity.getBaseContext(),
+                        R.layout.list_background,
+                        listStrings,
+                        regionId);
+                listHolder.setAdapter(adapter);
+                itemTextInput.setText(region);
+                Log.i("ListSelectExpander", "Successfully populated list");
+            } else {
+                Log.e("ListSelectExpander", "No questions to load");
+            }
+        } catch (JSONException e) {
+            Log.e("ListSelectExpander", "Unable to populate list\n" + Log.getStackTraceString(e));
         }
     }
 
@@ -161,10 +170,10 @@ public class ListSelectExpander extends Expander {
         return new JSONObject(readFile(filename));
     }
 
-    private void setSpinnerTo(Spinner spinner, String text) {
+    private void setListTo(ListView list, String text) {
         for(int i=0;i<listStrings.length;i++) {
             if(listStrings[i].equals(text)) {
-                spinner.setSelection(i);
+                list.setSelection(i);
                 return;
             }
         }

@@ -52,4 +52,5 @@
     <dimen name="caldroid_moon_size">0dp</dimen>
     <dimen name="caldroid_cell_text">0sp</dimen>
     <dimen name="caldroid_cell_height">0dp</dimen>
+    <dimen name="day_night_choice_text">0sp</dimen>
 </resources>

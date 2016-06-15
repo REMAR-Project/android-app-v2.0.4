@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CheckedTextView;
 
 /**
  * Created by will on 14/06/16.
@@ -29,7 +30,10 @@ public class ColorListAdapter<T> extends ArrayAdapter<T> {
         return view;
     }
 
-    public View getSelectedView() {
-        return selectedView;
+    public void removeDefault() {
+        selected = -1;
+        if(selectedView != null) {
+            selectedView.setBackgroundResource(R.drawable.color_list);
+        }
     }
 }

@@ -70,10 +70,7 @@ public class TwoChoiceDateExpander extends Expander {
                 view.setSelected(true);
                 // Colour is set as background on first selected.  Must override
                 if(monthsAdapter != null) {
-                    View selected = monthsAdapter.getSelectedView();
-                    if (selected != null) {
-                        selected.setBackgroundResource(R.drawable.color_list);
-                    }
+                    monthsAdapter.removeDefault();
                 }
             }
         });
@@ -85,10 +82,7 @@ public class TwoChoiceDateExpander extends Expander {
                 view.setSelected(true);
                 // Colour is set as background on first selected.  Must override
                 if(yearsAdapter != null) {
-                    View selected = yearsAdapter.getSelectedView();
-                    if (selected != null) {
-                        selected.setBackgroundResource(R.drawable.color_list);
-                    }
+                    yearsAdapter.removeDefault();
                 }
             }
         });
@@ -129,14 +123,14 @@ public class TwoChoiceDateExpander extends Expander {
 
         monthsAdapter = new ColorListAdapter<String>(
                 activity.getBaseContext(),
-                android.R.layout.simple_list_item_1,
+                R.layout.list_background,
                 activity.getResources().getStringArray(R.array.months),
                 monthNo);
         monthListView.setAdapter(monthsAdapter);
 
         yearsAdapter = new ColorListAdapter<String>(
                 activity.getBaseContext(),
-                android.R.layout.simple_list_item_1,
+                R.layout.list_background,
                 activity.getResources().getStringArray(R.array.years),
                 yearNo);
         yearListView.setAdapter(yearsAdapter);

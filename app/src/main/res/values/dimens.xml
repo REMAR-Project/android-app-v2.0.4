@@ -42,4 +42,9 @@
     <dimen name="done_checkbox_margin_top">25dp</dimen>
 
     <dimen name="two_choice_picture_height">160dp</dimen>
+
+    <dimen name="checkbox_text">0sp</dimen>
+    <dimen name="checkbox_margin_bottom">0dp</dimen>
+    <dimen name="list_element_text">0dp</dimen>
+    <dimen name="two_choice_date_list_size">0dp</dimen>
 </resources>

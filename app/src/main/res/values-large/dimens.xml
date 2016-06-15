@@ -18,4 +18,20 @@
     <dimen name="toolbar_title_smaller">24sp</dimen>
     <dimen name="toolbar_menu">24dp</dimen>
 
+    <!-- back next -->
+    <dimen name="question_of_question">32sp</dimen>
+    <dimen name="back_next_button_size">50dp</dimen>
+
+    <!-- Date range -->
+    <dimen name="description">24sp</dimen>
+    <dimen name="legend_text">22sp</dimen>
+    <dimen name="calendar_legend_moon">24dp</dimen>
+    <dimen name="calendar_legend_moon_text_spacing">20dp</dimen>
+    <dimen name="calendar_legend_element_spacing">120dp</dimen>
+
+    <!-- Caldroid -->
+    <dimen name="caldroid_moon_size">15dp</dimen>
+    <dimen name="caldroid_cell_text">16sp</dimen>
+    <dimen name="caldroid_cell_height">40dp</dimen>
+
 </resources>

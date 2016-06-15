@@ -38,7 +38,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:textAlignment="center"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textSize="@dimen/description"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -60,7 +61,8 @@
                     android:paddingLeft="@dimen/calendar_legend_moon_text_spacing"
                     android:paddingStart="@dimen/calendar_legend_moon_text_spacing"
                     android:paddingRight="@dimen/calendar_legend_element_spacing"
-                    android:paddingEnd="@dimen/calendar_legend_element_spacing" />
+                    android:paddingEnd="@dimen/calendar_legend_element_spacing"
+                    android:textSize="@dimen/legend_text"/>
 
                 <View
                     android:layout_width="@dimen/calendar_legend_moon"
@@ -72,7 +74,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/calendar_legend_full_moon"
                     android:paddingLeft="@dimen/calendar_legend_moon_text_spacing"
-                    android:paddingStart="@dimen/calendar_legend_moon_text_spacing" />
+                    android:paddingStart="@dimen/calendar_legend_moon_text_spacing"
+                    android:textSize="@dimen/legend_text"/>
 
             </LinearLayout>
 

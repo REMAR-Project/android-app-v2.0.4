@@ -11,13 +11,13 @@
     <LinearLayout
         android:id="@+id/container"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/caldroid_cell_height"
         android:layout_gravity="center" >
 
         <View
             android:id="@+id/newMoon"
-            android:layout_width="9dp"
-            android:layout_height="9dp"
+            android:layout_width="@dimen/caldroid_moon_size"
+            android:layout_height="@dimen/caldroid_moon_size"
             android:background="@drawable/new_moon_circle_background"
             android:layout_gravity="center_vertical"
             android:visibility="gone"
@@ -26,8 +26,8 @@
 
         <View
             android:id="@+id/fullMoon"
-            android:layout_width="9dp"
-            android:layout_height="9dp"
+            android:layout_width="@dimen/caldroid_moon_size"
+            android:layout_height="@dimen/caldroid_moon_size"
             android:background="@drawable/full_moon_circle_background"
             android:layout_gravity="center_vertical"
             android:visibility="gone"
@@ -37,7 +37,9 @@
         <TextView
             android:id="@+id/tv1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:textSize="@dimen/caldroid_cell_text"/>
 
     </LinearLayout>
 

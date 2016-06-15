@@ -25,28 +25,43 @@
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:paddingTop="@dimen/activity_vertical_margin"
-            android:layout_gravity="center"
             android:orientation="vertical">
 
-            <CheckBox
-                android:id="@+id/chk_done"
-                android:layout_width="wrap_content"
+            <include layout="@layout/include_image_text"
                 android:layout_height="wrap_content"
-                android:text="@string/done"
-                android:textSize="@dimen/done_text_size"/>
+                android:layout_width="match_parent"
+                />
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/thank_you"
-                android:textSize="@dimen/done_text_size" />
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/done_checkbox_margin_top">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/citizen_scientist"
-                android:textSize="@dimen/done_text_size"
-                android:textStyle="bold" />
+                <CheckBox
+                    android:id="@+id/chk_done"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/done"
+                    android:textSize="@dimen/done_text_size"
+                    android:checked="true"
+                    android:clickable="false"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/thank_you"
+                    android:textSize="@dimen/done_text_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/citizen_scientist"
+                    android:textSize="@dimen/done_text_size"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
 
         </LinearLayout>
 

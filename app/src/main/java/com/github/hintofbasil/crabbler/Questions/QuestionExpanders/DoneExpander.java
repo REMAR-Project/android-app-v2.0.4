@@ -2,9 +2,12 @@ package com.github.hintofbasil.crabbler.Questions.QuestionExpanders;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostFactory;
@@ -29,15 +32,12 @@ public class DoneExpander extends Expander {
     public void expandLayout() throws JSONException {
         activity.setContentView(R.layout.expander_done);
 
-        CheckBox done = (CheckBox) activity.findViewById(R.id.chk_done);
-        done.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (!isChecked)
-                    return;
-                postAnswers();
-            }
-        });
+        ImageView imageView = (ImageView) activity.findViewById(R.id.image);
+        TextView titleView = (TextView) activity.findViewById(R.id.title);
+
+        imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
+        titleView.setText(getQuestionString("questionTitle"));
+
     }
 
     @Override

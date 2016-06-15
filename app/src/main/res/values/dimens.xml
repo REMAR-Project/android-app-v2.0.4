@@ -39,4 +39,5 @@
     <dimen name="default_list_height">250dp</dimen>
     <dimen name="list_horizontal_padding">5dp</dimen>
     <dimen name="list_vertical_padding">5dp</dimen>
+    <dimen name="done_checkbox_margin_top">25dp</dimen>
 </resources>

@@ -52,4 +52,7 @@
     <!-- User details -->
     <dimen name="user_details_input_width">320dp</dimen>
 
+    <!-- Done -->
+    <dimen name="done_text_size">32sp</dimen>
+
 </resources>

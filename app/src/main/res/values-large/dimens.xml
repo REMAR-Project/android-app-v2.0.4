@@ -54,5 +54,6 @@
 
     <!-- Done -->
     <dimen name="done_text_size">32sp</dimen>
+    <dimen name="done_checkbox_margin_top">125dp</dimen>
 
 </resources>

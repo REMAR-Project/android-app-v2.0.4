@@ -52,7 +52,8 @@
     "questionPicture": "q0_(-5)",
     "questionTitle": "crab_title_(-5)",
     "description": "Clique no dia em que a andada foi mas forte ",
-    "filterOnQuestion": -1
+    "filterOnQuestion": -1,
+    "optional": true
   },
   {
     "questionNumber": 6,
@@ -95,9 +96,13 @@
     "questionPicture": "q0_(-10)",
     "questionTitle": "crab_title_(-10)",
     "description": "Seria ótimo saber quem é você e como mantermos contato",
-    "postAs": "userDetails"
+    "postAs": "userDetails",
+    "optional": true
   },
   {
-    "questionType": "Done"
+    "questionType": "Done",
+    "questionPicture": "q0_(-11)",
+    "questionTitle": "crab_title_(-11)",
+    "hideBackNext": true
   }
 ]

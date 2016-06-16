@@ -1,24 +1,16 @@
 package com.github.hintofbasil.crabbler.Questions;
 
 import android.content.Intent;
-import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.github.hintofbasil.crabbler.AboutUsActivity;
 import com.github.hintofbasil.crabbler.Keys;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.UserDetailsExpander;
-import com.github.hintofbasil.crabbler.Settings.SettingsActivity;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DateRangeExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DateRangeSelectExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DayNightChoiceExpander;
@@ -106,9 +98,8 @@ public class QuestionActivity extends AppCompatActivity {
             int realQuestionCount = qr.getRealQuestionCount();
             int definedQuestionCount = qr.getQuestionCount();
             try {
-                int definedQuestionId = qr.getJsonQuestion(questionId).getInt("questionNumber");
                 pageOf.setText(String.format("%d/%d", questionId + 1, definedQuestionCount));
-            } catch (JSONException|NullPointerException e) {
+            } catch (NullPointerException e) {
                 pageOf.setVisibility(View.INVISIBLE);
                 Log.i("QuestionActivity", "No question number.  Not displaying question of question");
             }
@@ -117,22 +108,12 @@ public class QuestionActivity extends AppCompatActivity {
             if(questionId==0) {
                 ImageView previousButton = (ImageView) findViewById(R.id.back_button);
                 previousButton.setEnabled(false);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    previousButton.setImageDrawable(getDrawable(R.drawable.previous_disabled));
-                } else {
-                    previousButton.setImageDrawable(getResources().getDrawable(R.drawable.previous_disabled));
-                }
             }
 
             //Disable next
             if(questionId==realQuestionCount) {
                 ImageView nextButton = (ImageView) findViewById(R.id.forward_button);
                 nextButton.setEnabled(false);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    nextButton.setImageDrawable(getDrawable(R.drawable.next_disabled));
-                } else {
-                    nextButton.setImageDrawable(getResources().getDrawable(R.drawable.next_disabled));
-                }
             }
 
         } catch (IOException|JSONException e) {
@@ -146,6 +127,7 @@ public class QuestionActivity extends AppCompatActivity {
         super.onStart();
         if(expander!=null) {
             expander.setPreviousAnswer();
+            expander.enableDisableNext();
         }
     }
 

@@ -16,7 +16,7 @@
         android:id="@+id/back_button"
         android:layout_width="@dimen/back_next_button_size"
         android:layout_height="@dimen/back_next_button_size"
-        android:src="@drawable/previous"
+        android:src="@drawable/previous_background"
         android:onClick="previousQuestion"
         android:layout_toStartOf="@+id/forward_button"
         android:layout_toLeftOf="@+id/forward_button"
@@ -27,7 +27,7 @@
         android:layout_width="@dimen/back_next_button_size"
         android:layout_height="@dimen/back_next_button_size"
         android:onClick="nextQuestion"
-        android:src="@drawable/next"
+        android:src="@drawable/next_background"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         />

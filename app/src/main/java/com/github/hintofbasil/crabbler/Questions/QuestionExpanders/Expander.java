@@ -8,10 +8,12 @@ import android.os.CountDownTimer;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.ImageView;
 
 import com.github.hintofbasil.crabbler.Keys;
 import com.github.hintofbasil.crabbler.Questions.QuestionActivity;
 import com.github.hintofbasil.crabbler.Questions.QuestionManager;
+import com.github.hintofbasil.crabbler.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,6 +34,7 @@ public abstract class Expander {
     int definedQuestionId = -1;
     JSONObject questionJson;
     QuestionManager questionManager;
+    int requiredAnswers = 0;
 
     public Expander(AppCompatActivity activity, JSONObject questionJson) {
         this.activity = activity;
@@ -43,6 +46,11 @@ public abstract class Expander {
             definedQuestionId = questionJson.getInt("questionNumber");
         } catch (JSONException|NullPointerException e) {
             Log.i("Expander", "No defined question id");
+        }
+        try {
+            requiredAnswers = questionJson.getInt("requiredAnswers");
+        } catch (JSONException|NullPointerException e) {
+            Log.i("Expander", "No defined required answers");
         }
 
     }
@@ -154,5 +162,36 @@ public abstract class Expander {
         } else {
             return string;
         }
+    }
+
+    protected boolean isComplete() {
+        int count = 0;
+        try {
+            JSONArray answers = getSelectedAnswer();
+            for(int i=0;i<answers.length(); i++) {
+                Object answer = answers.get(i);
+                if(answer instanceof Integer && ((Integer)answer) == -1){
+                    continue; // Skip invalid results
+                }
+                count++;
+            }
+        } catch (JSONException e) {
+            Log.e("Expander", "Unable to get selected questions");
+        }
+        return count >= requiredAnswers;
+    }
+
+    public void enableDisableNext() {
+        ImageView next = (ImageView) activity.findViewById(R.id.forward_button);
+        if(next != null) {
+            if(isComplete()) {
+                next.setEnabled(true);
+            } else {
+                next.setEnabled(false);
+            }
+        } else {
+            Log.d("Expander", "No next button found");
+        }
+
     }
 }

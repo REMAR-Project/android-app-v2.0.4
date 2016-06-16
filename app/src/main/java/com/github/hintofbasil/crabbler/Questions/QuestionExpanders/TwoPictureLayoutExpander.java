@@ -1,5 +1,6 @@
 package com.github.hintofbasil.crabbler.Questions.QuestionExpanders;
 
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
@@ -53,6 +54,7 @@ public class TwoPictureLayoutExpander extends Expander {
                 currentAnswer = 0;
                 questionTwoButton.setBackgroundResource(R.color.questionBackground);
                 questionOneButton.setBackgroundResource(R.color.questionSelectedBackground);
+                enableDisableNext();
                 nextQuestion(1000);
             }
         });
@@ -63,15 +65,15 @@ public class TwoPictureLayoutExpander extends Expander {
                 currentAnswer = 1;
                 questionOneButton.setBackgroundResource(R.color.questionBackground);
                 questionTwoButton.setBackgroundResource(R.color.questionSelectedBackground);
+                enableDisableNext();
                 nextQuestion(1000);
             }
-        });
-    }
+        });    }
 
     @Override
     protected void setPreviousAnswer(JSONArray answer) {
         try {
-            int i = answer.getInt(0);
+            Integer i = answer.getInt(0);
             switch(i) {
                 case 0:
                     questionOneButton.setBackgroundResource(R.color.questionPreviouslySelectedBackground);
@@ -79,10 +81,8 @@ public class TwoPictureLayoutExpander extends Expander {
                 case 1:
                     questionTwoButton.setBackgroundResource(R.color.questionPreviouslySelectedBackground);
                     break;
-                case -1:
-                    break;
                 default:
-                    Log.d("TwoPictureLayoutExpander", "Invalid previous answer");
+                    Log.d("TwoPictureLayoutExpande", "Invalid previous answer");
             }
             currentAnswer = i;
         } catch (JSONException e) {

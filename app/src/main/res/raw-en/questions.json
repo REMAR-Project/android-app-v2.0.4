@@ -103,7 +103,8 @@
     "questionPicture": "q0_(-10)",
     "questionTitle": "crab_title_(-10)",
     "description": "It would be great to know who you are and how to get in contact, to acknowledge you",
-    "postAs": "userDetails"
+    "postAs": "userDetails",
+    "requiredAnswers": 0
   },
   {
     "questionType": "Done",

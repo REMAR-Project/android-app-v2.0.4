@@ -168,13 +168,15 @@ public abstract class Expander {
         int count = 0;
         try {
             JSONArray answers = getSelectedAnswer();
-            for(int i=0;i<answers.length(); i++) {
-                Object answer = answers.get(i);
-                if((answer instanceof Integer && ((Integer)answer) == -1)
-                        || (answer instanceof String && ((String)answer).isEmpty())){
-                    continue; // Skip invalid results
+            if(answers != null) {
+                for (int i = 0; i < answers.length(); i++) {
+                    Object answer = answers.get(i);
+                    if ((answer instanceof Integer && ((Integer) answer) == -1)
+                            || (answer instanceof String && ((String) answer).isEmpty())) {
+                        continue; // Skip invalid results
+                    }
+                    count++;
                 }
-                count++;
             }
         } catch (JSONException e) {
             Log.e("Expander", "Unable to get selected questions");

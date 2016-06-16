@@ -170,8 +170,8 @@ public abstract class Expander {
             JSONArray answers = getSelectedAnswer();
             for(int i=0;i<answers.length(); i++) {
                 Object answer = answers.get(i);
-                if(answer instanceof Integer && ((Integer)answer) == -1
-                        || answer instanceof String && ((String)answer).isEmpty()){
+                if((answer instanceof Integer && ((Integer)answer) == -1)
+                        || (answer instanceof String && ((String)answer).isEmpty())){
                     continue; // Skip invalid results
                 }
                 count++;

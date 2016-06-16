@@ -95,7 +95,8 @@
     "questionPicture": "q0_(-9)",
     "questionTitle": "crab_title_(-9)",
     "questionText": "Is the monitored mangrove in a protected area? (eg. RESEX, APA, Park)",
-    "extraDetailText": "What is the name of the area?"
+    "extraDetailText": "What is the name of the area?",
+    "requiredAnswers": 2
   },
   {
     "questionType": "UserDetails",

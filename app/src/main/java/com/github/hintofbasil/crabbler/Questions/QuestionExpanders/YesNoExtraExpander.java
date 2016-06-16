@@ -1,6 +1,8 @@
 package com.github.hintofbasil.crabbler.Questions.QuestionExpanders;
 
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
@@ -54,6 +56,7 @@ public class YesNoExtraExpander extends Expander {
             public void onClick(View v) {
                 chkNo.setChecked(false);
                 chkMaybe.setChecked(false);
+                enableDisableNext();
             }
         });
 
@@ -62,6 +65,7 @@ public class YesNoExtraExpander extends Expander {
             public void onClick(View v) {
                 chkYes.setChecked(false);
                 chkMaybe.setChecked(false);
+                enableDisableNext();
             }
         });
 
@@ -70,6 +74,24 @@ public class YesNoExtraExpander extends Expander {
             public void onClick(View v) {
                 chkYes.setChecked(false);
                 chkNo.setChecked(false);
+                enableDisableNext();
+            }
+        });
+
+        hiddenInput.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                enableDisableNext();
             }
         });
     }
@@ -106,7 +128,6 @@ public class YesNoExtraExpander extends Expander {
     @Override
     public JSONArray getSelectedAnswer() {
         JSONArray array = new JSONArray();
-        StringBuilder sb = new StringBuilder();
         if(chkYes.isChecked()) {
             array.put(0);
         } else if(chkNo.isChecked()) {
@@ -116,7 +137,7 @@ public class YesNoExtraExpander extends Expander {
         } else {
             array.put(-1);
         }
-        array.put(hiddenInput.getText());
+        array.put(hiddenInput.getText().toString());
         return array;
     }
 }

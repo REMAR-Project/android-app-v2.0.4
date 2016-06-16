@@ -36,25 +36,24 @@ public class YesNoExtraExpander extends Expander {
         ImageView imageView = (ImageView) activity.findViewById(R.id.image);
         TextView titleView = (TextView) activity.findViewById(R.id.title);
         TextView questionText = (TextView) activity.findViewById(R.id.question_text);
-        TextView hiddenDetail = (TextView) activity.findViewById(R.id.hidden_detail);
+        TextView extraDetail = (TextView) activity.findViewById(R.id.extra_details);
 
         chkYes = (CheckBox) activity.findViewById(R.id.chk_yes);
         chkNo = (CheckBox) activity.findViewById(R.id.chk_no);
         chkMaybe = (CheckBox) activity.findViewById(R.id.chk_maybe);
 
-        hiddenInput = (EditText) activity.findViewById(R.id.hidden_input);
+        hiddenInput = (EditText) activity.findViewById(R.id.extra_input);
 
         imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
         titleView.setText(getQuestionString("questionTitle"));
         questionText.setText(getQuestionString("questionText"));
-        hiddenDetail.setText(getQuestionString("hiddenDetailText"));
+        extraDetail.setText(getQuestionString("extraDetailText"));
 
         chkYes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 chkNo.setChecked(false);
                 chkMaybe.setChecked(false);
-                showHidden(true);
             }
         });
 
@@ -63,7 +62,6 @@ public class YesNoExtraExpander extends Expander {
             public void onClick(View v) {
                 chkYes.setChecked(false);
                 chkMaybe.setChecked(false);
-                showHidden(false);
             }
         });
 
@@ -72,7 +70,6 @@ public class YesNoExtraExpander extends Expander {
             public void onClick(View v) {
                 chkYes.setChecked(false);
                 chkNo.setChecked(false);
-                showHidden(false);
             }
         });
     }
@@ -84,7 +81,6 @@ public class YesNoExtraExpander extends Expander {
             switch(i) {
                 case 0:
                     chkYes.setChecked(true);
-                    showHidden(true);
                     break;
                 case 1:
                     chkNo.setChecked(true);
@@ -122,14 +118,5 @@ public class YesNoExtraExpander extends Expander {
         }
         array.put(hiddenInput.getText());
         return array;
-    }
-
-    private void showHidden(boolean show) {
-        LinearLayout hiddenLayout = (LinearLayout) activity.findViewById(R.id.hidden_content);
-        if(show) {
-            hiddenLayout.setVisibility(View.VISIBLE);
-        } else {
-            hiddenLayout.setVisibility(View.INVISIBLE);
-        }
     }
 }

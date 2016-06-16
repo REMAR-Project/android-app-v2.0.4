@@ -63,26 +63,17 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/hidden_content"
+            <TextView
+                android:id="@+id/extra_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+            <EditText
+                android:id="@+id/extra_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="invisible" >
-
-                <TextView
-                    android:id="@+id/hidden_detail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    />
-
-                <EditText
-                    android:id="@+id/hidden_input"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    />
-
-            </LinearLayout>
+                />
 
         </LinearLayout>
 

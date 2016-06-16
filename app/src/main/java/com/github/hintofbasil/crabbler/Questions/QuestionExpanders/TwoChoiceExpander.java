@@ -18,11 +18,13 @@ import org.json.JSONObject;
  */
 public class TwoChoiceExpander extends Expander {
 
+    private static final int REQUIRED_ANSWERS = 1;
+
     CheckBox choiceOneCheckBox;
     CheckBox choiceTwoCheckBox;
 
     public TwoChoiceExpander(AppCompatActivity activity, JSONObject questionJson) {
-        super(activity, questionJson);
+        super(activity, questionJson, REQUIRED_ANSWERS);
     }
 
     @Override

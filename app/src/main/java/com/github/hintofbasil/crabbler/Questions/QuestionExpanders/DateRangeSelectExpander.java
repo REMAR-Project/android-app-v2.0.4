@@ -32,11 +32,13 @@ import java.util.List;
  */
 public class DateRangeSelectExpander extends Expander {
 
+    private static final int REQUIRED_ANSWERS = 1;
+
     CaldroidCustomFragment caldroidFragment = new CaldroidCustomFragment();
     Date selectedDate;
 
     public DateRangeSelectExpander(AppCompatActivity activity, JSONObject questionJson) {
-        super(activity, questionJson);
+        super(activity, questionJson, REQUIRED_ANSWERS);
     }
 
     @Override

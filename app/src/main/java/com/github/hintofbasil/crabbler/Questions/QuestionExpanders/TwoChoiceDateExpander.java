@@ -18,6 +18,8 @@ import org.json.JSONObject;
 
 public class TwoChoiceDateExpander extends Expander {
 
+    private static final int REQUIRED_ANSWERS = 3;
+
     CheckBox choiceOneCheckBox;
     CheckBox choiceTwoCheckBox;
     ListView monthListView;
@@ -30,7 +32,7 @@ public class TwoChoiceDateExpander extends Expander {
     ColorListAdapter<String> monthsAdapter;
 
     public TwoChoiceDateExpander(AppCompatActivity activity, JSONObject questionJson) {
-        super(activity, questionJson);
+        super(activity, questionJson, REQUIRED_ANSWERS);
     }
 
     @Override

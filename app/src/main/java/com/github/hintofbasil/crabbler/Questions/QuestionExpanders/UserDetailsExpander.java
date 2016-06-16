@@ -18,11 +18,13 @@ import org.json.JSONObject;
  */
 public class UserDetailsExpander extends Expander {
 
+    private static final int REQUIRED_ANSWERS = 2;
+
     TextView nameView;
     TextView emailView;
 
     public UserDetailsExpander(AppCompatActivity activity, JSONObject questionJson) {
-        super(activity, questionJson);
+        super(activity, questionJson, REQUIRED_ANSWERS);
     }
 
     @Override

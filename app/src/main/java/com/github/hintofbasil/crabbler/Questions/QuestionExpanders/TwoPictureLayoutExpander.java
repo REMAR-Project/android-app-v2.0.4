@@ -20,12 +20,14 @@ import org.json.JSONObject;
  */
 public class TwoPictureLayoutExpander extends Expander {
 
+    private static final int REQUIRED_ANSWERS = 1;
+
     private int currentAnswer = -1;
     LinearLayout questionOneButton;
     LinearLayout questionTwoButton;
 
     public TwoPictureLayoutExpander(AppCompatActivity activity, JSONObject questionJson) {
-        super(activity, questionJson);
+        super(activity, questionJson, REQUIRED_ANSWERS);
     }
 
     @Override

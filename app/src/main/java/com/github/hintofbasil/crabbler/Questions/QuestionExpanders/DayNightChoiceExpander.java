@@ -20,6 +20,8 @@ import org.json.JSONObject;
  */
 public class DayNightChoiceExpander extends Expander {
 
+    private static final int REQUIRED_ANSWERS = 2;
+
     CheckBox choiceOneCheckBox;
     CheckBox choiceTwoCheckBox;
     CheckBox unknown;
@@ -30,7 +32,7 @@ public class DayNightChoiceExpander extends Expander {
     int dayNightChoice = -1;
 
     public DayNightChoiceExpander(AppCompatActivity activity, JSONObject questionJson) {
-        super(activity, questionJson);
+        super(activity, questionJson, REQUIRED_ANSWERS);
     }
 
     @Override

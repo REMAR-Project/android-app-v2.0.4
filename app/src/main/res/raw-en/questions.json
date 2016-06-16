@@ -10,8 +10,7 @@
         "choiceOneTitle": "Ucides cordatus",
         "choiceOnePicture": "q0_0",
         "choiceTwoTitle": "Cardisoma guanhumi",
-        "choiceTwoPicture": "q0_1",
-        "requiredAnswers": 1
+        "choiceTwoPicture": "q0_1"
       },
       {
         "questionNumber": 1,
@@ -19,8 +18,7 @@
         "questionPicture": "q0_(-1)",
         "questionTitle": "crab_title_(-1)",
         "choiceOneText": "I want to report the occurrence of andada",
-        "choiceTwoText": "I want to inform absence of andada",
-        "requiredAnswers": 3
+        "choiceTwoText": "I want to inform absence of andada"
       },
       {
         "questionNumber": 2,
@@ -28,8 +26,7 @@
         "questionPicture": "q0_(-2)",
         "questionTitle": "crab_title_(-2)",
         "choiceOneText": "There was NO andada after the new moon",
-        "choiceTwoText": "There was NO andada after the full moon",
-        "requiredAnswers": 1
+        "choiceTwoText": "There was NO andada after the full moon"
       },
       {
         "questionNumber": 3,
@@ -37,8 +34,7 @@
         "questionPicture": "q0_(-3)",
         "questionTitle": "crab_title_(-3)",
         "choiceOneText": "I want to register more occurrences or absences of andadas",
-        "choiceTwoText": "I want to proceed with information about my locality",
-        "requiredAnswers": 1
+        "choiceTwoText": "I want to proceed with information about my locality"
       }
     ]
   },
@@ -47,8 +43,7 @@
     "questionType": "DateRange",
     "questionPicture": "q0_(-4)",
     "questionTitle": "crab_title_(-4)",
-    "description": "Click on the days that you noted andada",
-    "requiredAnswers": 1
+    "description": "Click on the days that you noted andada"
   },
   {
     "questionNumber": 5,
@@ -57,7 +52,7 @@
     "questionTitle": "crab_title_(-5)",
     "description": "Click the day that andada it was strongest\n(optional)",
     "filterOnQuestion": -1,
-    "requiredAnswers": 0
+    "optional": true
   },
   {
     "questionNumber": 6,
@@ -65,8 +60,7 @@
     "questionPicture": "q0_(-6)",
     "questionTitle": "Click on the period (moon phase) when andada occured.  In case you don't know proceed to the next page.",
     "choiceOneText": "At new moon",
-    "choiceTwoText": "At full moon",
-    "requiredAnswers": 2
+    "choiceTwoText": "At full moon"
   },
   {
     "questionNumber": 7,
@@ -76,8 +70,7 @@
     "description": "Select the state where you made your observation",
     "jsonInput": "regions.json",
     "detailPicture": "brazil_regions.png",
-    "disableCustom": "true",
-    "requiredAnswers": 1
+    "disableCustom": "true"
   },
   {
     "questionNumber": 8,
@@ -86,8 +79,7 @@
     "questionTitle": "crab_title_(-8)",
     "description": "Enter the city closest to your mangrove\nIf you can not find your city in the menu you can also type the name in",
     "jsonInput": "region_cities.json",
-    "jsonKey": "(-1)",
-    "requiredAnswers": 1
+    "jsonKey": "(-1)"
   },
   {
     "questionNumber": 9,
@@ -95,8 +87,7 @@
     "questionPicture": "q0_(-9)",
     "questionTitle": "crab_title_(-9)",
     "questionText": "Is the monitored mangrove in a protected area? (eg. RESEX, APA, Park)",
-    "extraDetailText": "What is the name of the area?",
-    "requiredAnswers": 2
+    "extraDetailText": "What is the name of the area?"
   },
   {
     "questionType": "UserDetails",
@@ -104,7 +95,7 @@
     "questionTitle": "crab_title_(-10)",
     "description": "It would be great to know who you are and how to get in contact, to acknowledge you",
     "postAs": "userDetails",
-    "requiredAnswers": 0
+    "optional": true
   },
   {
     "questionType": "Done",

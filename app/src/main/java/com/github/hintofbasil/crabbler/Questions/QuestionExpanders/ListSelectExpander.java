@@ -26,6 +26,8 @@ import java.io.InputStream;
  */
 public class ListSelectExpander extends Expander {
 
+    private static final int REQUIRED_ANSWERS = 1;
+
     ListView listHolder;
     EditText itemTextInput;
     String[] listStrings;
@@ -34,7 +36,7 @@ public class ListSelectExpander extends Expander {
     ColorListAdapter<String> adapter;
 
     public ListSelectExpander(AppCompatActivity activity, JSONObject questionJson) {
-        super(activity, questionJson);
+        super(activity, questionJson, REQUIRED_ANSWERS);
     }
 
     @Override

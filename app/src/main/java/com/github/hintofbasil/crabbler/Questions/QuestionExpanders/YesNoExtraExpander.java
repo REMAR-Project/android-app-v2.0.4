@@ -22,13 +22,15 @@ import org.json.JSONObject;
  */
 public class YesNoExtraExpander extends Expander {
 
+    private static final int REQUIRED_ANSWERS = 2;
+
     CheckBox chkYes;
     CheckBox chkNo;
     CheckBox chkMaybe;
     EditText hiddenInput;
 
     public YesNoExtraExpander(AppCompatActivity activity, JSONObject questionJson) {
-        super(activity, questionJson);
+        super(activity, questionJson, REQUIRED_ANSWERS);
     }
 
     @Override

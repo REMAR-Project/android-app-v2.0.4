@@ -34,13 +34,14 @@ public abstract class Expander {
     int definedQuestionId = -1;
     JSONObject questionJson;
     QuestionManager questionManager;
-    int requiredAnswers = 0;
+    int requiredAnswers;
 
-    public Expander(AppCompatActivity activity, JSONObject questionJson) {
+    public Expander(AppCompatActivity activity, JSONObject questionJson, int requiredAnswers) {
         this.activity = activity;
         this.prefs = activity.getSharedPreferences(Keys.SAVED_PREFERENCES_KEY, Context.MODE_PRIVATE);
         this.realQuestionId = activity.getIntent().getIntExtra(Keys.QUESTION_ID_KEY, 0);
         this.questionJson = questionJson;
+        this.requiredAnswers = requiredAnswers;
         questionManager = QuestionManager.get();
         try {
             definedQuestionId = questionJson.getInt("questionNumber");
@@ -48,9 +49,12 @@ public abstract class Expander {
             Log.i("Expander", "No defined question id");
         }
         try {
-            requiredAnswers = questionJson.getInt("requiredAnswers");
+            boolean optional = questionJson.getBoolean("optional");
+            if(optional) {
+                requiredAnswers = 0;
+            }
         } catch (JSONException|NullPointerException e) {
-            Log.i("Expander", "No defined required answers");
+            Log.i("Expander", "No optional argument given");
         }
 
     }

@@ -56,7 +56,8 @@
     "questionPicture": "q0_(-5)",
     "questionTitle": "crab_title_(-5)",
     "description": "Click the day that andada it was strongest\n(optional)",
-    "filterOnQuestion": -1
+    "filterOnQuestion": -1,
+    "requiredAnswers": 0
   },
   {
     "questionNumber": 6,

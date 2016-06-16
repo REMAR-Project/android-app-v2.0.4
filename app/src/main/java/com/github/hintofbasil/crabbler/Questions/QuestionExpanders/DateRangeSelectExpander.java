@@ -57,6 +57,7 @@ public class DateRangeSelectExpander extends Expander {
             public void onSelectDate(Date date, View view) {
                 selectedDate = date;
                 view.setSelected(true);
+                enableDisableNext();
             }
         };
 

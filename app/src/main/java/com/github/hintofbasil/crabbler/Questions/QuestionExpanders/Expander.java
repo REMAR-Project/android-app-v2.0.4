@@ -51,7 +51,7 @@ public abstract class Expander {
         try {
             boolean optional = questionJson.getBoolean("optional");
             if(optional) {
-                requiredAnswers = 0;
+                this.requiredAnswers = 0;
             }
         } catch (JSONException|NullPointerException e) {
             Log.i("Expander", "No optional argument given");

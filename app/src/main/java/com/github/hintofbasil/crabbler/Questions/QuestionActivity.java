@@ -98,6 +98,7 @@ public class QuestionActivity extends AppCompatActivity {
             int realQuestionCount = qr.getRealQuestionCount();
             int definedQuestionCount = qr.getQuestionCount();
             try {
+                qr.getJsonQuestion(questionId).getInt("questionNumber");
                 pageOf.setText(String.format("%d/%d", questionId + 1, definedQuestionCount));
             } catch (NullPointerException e) {
                 pageOf.setVisibility(View.INVISIBLE);

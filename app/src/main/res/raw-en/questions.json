@@ -19,7 +19,8 @@
         "questionPicture": "q0_(-1)",
         "questionTitle": "crab_title_(-1)",
         "choiceOneText": "I want to report the occurrence of andada",
-        "choiceTwoText": "I want to inform absence of andada"
+        "choiceTwoText": "I want to inform absence of andada",
+        "requiredAnswers": 3
       },
       {
         "questionNumber": 2,

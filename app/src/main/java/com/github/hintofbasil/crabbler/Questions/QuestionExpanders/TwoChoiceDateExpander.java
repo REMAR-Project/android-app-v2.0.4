@@ -53,6 +53,7 @@ public class TwoChoiceDateExpander extends Expander {
             @Override
             public void onClick(View v) {
                 choiceTwoCheckBox.setChecked(false);
+                enableDisableNext();
             }
         });
 
@@ -60,6 +61,7 @@ public class TwoChoiceDateExpander extends Expander {
             @Override
             public void onClick(View v) {
                 choiceOneCheckBox.setChecked(false);
+                enableDisableNext();
             }
         });
 
@@ -72,6 +74,7 @@ public class TwoChoiceDateExpander extends Expander {
                 if(monthsAdapter != null) {
                     monthsAdapter.removeDefault();
                 }
+                enableDisableNext();
             }
         });
 
@@ -84,6 +87,7 @@ public class TwoChoiceDateExpander extends Expander {
                 if(yearsAdapter != null) {
                     yearsAdapter.removeDefault();
                 }
+                enableDisableNext();
             }
         });
     }
@@ -143,6 +147,8 @@ public class TwoChoiceDateExpander extends Expander {
             array.put(0);
         } else if(choiceTwoCheckBox.isChecked()) {
             array.put(1);
+        } else {
+            array.put(-1);
         }
         array.put(monthNo);
         array.put(yearNo);

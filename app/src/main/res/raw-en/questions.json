@@ -28,7 +28,8 @@
         "questionPicture": "q0_(-2)",
         "questionTitle": "crab_title_(-2)",
         "choiceOneText": "There was NO andada after the new moon",
-        "choiceTwoText": "There was NO andada after the full moon"
+        "choiceTwoText": "There was NO andada after the full moon",
+        "requiredAnswers": 1
       },
       {
         "questionNumber": 3,

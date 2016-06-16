@@ -42,6 +42,7 @@ public class TwoChoiceExpander extends Expander {
             @Override
             public void onClick(View v) {
                 choiceTwoCheckBox.setChecked(false);
+                enableDisableNext();
             }
         });
 
@@ -49,6 +50,7 @@ public class TwoChoiceExpander extends Expander {
             @Override
             public void onClick(View v) {
                 choiceOneCheckBox.setChecked(false);
+                enableDisableNext();
             }
         });
     }

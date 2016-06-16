@@ -76,7 +76,8 @@
     "description": "Select the state where you made your observation",
     "jsonInput": "regions.json",
     "detailPicture": "brazil_regions.png",
-    "disableCustom": "true"
+    "disableCustom": "true",
+    "requiredAnswers": 1
   },
   {
     "questionNumber": 8,
@@ -85,7 +86,8 @@
     "questionTitle": "crab_title_(-8)",
     "description": "Enter the city closest to your mangrove\nIf you can not find your city in the menu you can also type the name in",
     "jsonInput": "region_cities.json",
-    "jsonKey": "(-1)"
+    "jsonKey": "(-1)",
+    "requiredAnswers": 1
   },
   {
     "questionNumber": 9,

@@ -73,6 +73,7 @@ public class ListSelectExpander extends Expander {
                 if (adapter != null) {
                     adapter.removeDefault();
                 }
+                enableDisableNext();
             }
         });
 
@@ -91,6 +92,7 @@ public class ListSelectExpander extends Expander {
             public void afterTextChanged(Editable s) {
                 String answer = itemTextInput.getText().toString();
                 setListTo(listHolder, answer);
+                enableDisableNext();
             }
         });
 
@@ -99,7 +101,6 @@ public class ListSelectExpander extends Expander {
         } catch (JSONException e) {
             try {
                 jsonArray = readFileObject(getQuestionString("jsonInput")).getJSONArray(getQuestionString("jsonKey"));
-                Log.i("----", "ppppp");
             } catch (JSONException|IOException e1) {
                 Log.e("ListSelectExpander", "Unable to parse json file" + Log.getStackTraceString(e1));
             }

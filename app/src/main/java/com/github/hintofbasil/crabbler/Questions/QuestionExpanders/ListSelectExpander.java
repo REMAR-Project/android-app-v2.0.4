@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -76,6 +77,15 @@ public class ListSelectExpander extends Expander {
                     adapter.removeDefault();
                 }
                 enableDisableNext();
+            }
+        });
+
+        // Fix scrolling
+        listHolder.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                v.getParent().requestDisallowInterceptTouchEvent(true);
+                return false;
             }
         });
 

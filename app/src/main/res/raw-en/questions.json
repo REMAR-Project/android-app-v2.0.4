@@ -65,7 +65,8 @@
     "questionPicture": "q0_(-6)",
     "questionTitle": "Click on the period (moon phase) when andada occured.  In case you don't know proceed to the next page.",
     "choiceOneText": "At new moon",
-    "choiceTwoText": "At full moon"
+    "choiceTwoText": "At full moon",
+    "requiredAnswers": 2
   },
   {
     "questionNumber": 7,

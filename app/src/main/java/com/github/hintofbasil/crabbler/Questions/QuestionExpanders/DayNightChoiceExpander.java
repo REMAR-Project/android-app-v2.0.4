@@ -55,6 +55,7 @@ public class DayNightChoiceExpander extends Expander {
             @Override
             public void onClick(View v) {
                 choiceTwoCheckBox.setChecked(false);
+                enableDisableNext();
             }
         });
 
@@ -62,6 +63,7 @@ public class DayNightChoiceExpander extends Expander {
             @Override
             public void onClick(View v) {
                 choiceOneCheckBox.setChecked(false);
+                enableDisableNext();
             }
         });
 
@@ -69,6 +71,7 @@ public class DayNightChoiceExpander extends Expander {
             @Override
             public void onClick(View v) {
                 setDayNightChoice(0, R.color.questionSelectedBackground);
+                enableDisableNext();
             }
         });
 
@@ -76,6 +79,7 @@ public class DayNightChoiceExpander extends Expander {
             @Override
             public void onClick(View v) {
                 setDayNightChoice(1, R.color.questionSelectedBackground);
+                enableDisableNext();
             }
         });
 
@@ -83,6 +87,7 @@ public class DayNightChoiceExpander extends Expander {
             @Override
             public void onClick(View v) {
                 setDayNightChoice(2, R.color.questionSelectedBackground);
+                enableDisableNext();
             }
         });
 
@@ -90,6 +95,7 @@ public class DayNightChoiceExpander extends Expander {
             @Override
             public void onClick(View v) {
                 setDayNightChoice(3, R.color.questionSelectedBackground);
+                enableDisableNext();
             }
         });
     }

@@ -59,6 +59,7 @@ public class DateRangeExpander extends Expander {
                     selectedDates.add(date);
                     view.setActivated(true);
                 }
+                enableDisableNext();
             }
         };
 

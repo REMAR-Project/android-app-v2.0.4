@@ -37,7 +37,8 @@
         "questionPicture": "q0_(-3)",
         "questionTitle": "crab_title_(-3)",
         "choiceOneText": "I want to register more occurrences or absences of andadas",
-        "choiceTwoText": "I want to proceed with information about my locality"
+        "choiceTwoText": "I want to proceed with information about my locality",
+        "requiredAnswers": 1
       }
     ]
   },
@@ -46,7 +47,8 @@
     "questionType": "DateRange",
     "questionPicture": "q0_(-4)",
     "questionTitle": "crab_title_(-4)",
-    "description": "Click on the days that you noted andada"
+    "description": "Click on the days that you noted andada",
+    "requiredAnswers": 1
   },
   {
     "questionNumber": 5,

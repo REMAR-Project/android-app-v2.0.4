@@ -69,4 +69,9 @@ Aliquam porta dui eu quam egestas, eu sollicitudin lacus facilisis. Donec laoree
     <string name="calendar_legend_new_moon">New moon</string>
     <string name="calendar_legend_full_moon">Full moon</string>
 
+    <string name="andada_new_0">There was andada after the new moon</string>
+    <string name="andada_full_0">There was andada after the full moon</string>
+    <string name="andada_new_1">There was NO andada after the new moon</string>
+    <string name="andada_full_1">There was NO andada after the full moon</string>
+
 </resources>

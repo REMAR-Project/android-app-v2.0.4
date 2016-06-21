@@ -15,24 +15,24 @@
       {
         "questionNumber": 1,
         "questionType": "TwoChoiceDate",
-        "questionPicture": "q0_(-1)",
-        "questionTitle": "crab_title_(-1)",
+        "questionPicture": "q0_(-1:0)",
+        "questionTitle": "crab_title_(-1:0)",
         "choiceOneText": "I want to report the occurrence of andada",
         "choiceTwoText": "I want to inform absence of andada"
       },
       {
         "questionNumber": 2,
         "questionType": "TwoChoice",
-        "questionPicture": "q0_(-2)",
-        "questionTitle": "crab_title_(-2)",
+        "questionPicture": "q0_(-2:0)",
+        "questionTitle": "crab_title_(-2:0)",
         "choiceOneText": "There was NO andada after the new moon",
         "choiceTwoText": "There was NO andada after the full moon"
       },
       {
         "questionNumber": 3,
         "questionType": "TwoChoice",
-        "questionPicture": "q0_(-3)",
-        "questionTitle": "crab_title_(-3)",
+        "questionPicture": "q0_(-3:0)",
+        "questionTitle": "crab_title_(-3:0)",
         "choiceOneText": "I want to register more occurrences or absences of andadas",
         "choiceTwoText": "I want to proceed with information about my locality"
       }
@@ -41,23 +41,28 @@
   {
     "questionNumber": 4,
     "questionType": "DateRange",
-    "questionPicture": "q0_(-4)",
-    "questionTitle": "crab_title_(-4)",
-    "description": "Click on the days that you noted andada"
+    "questionPicture": "q0_(-4:0)",
+    "questionTitle": "crab_title_(-4:0)",
+    "description": "Click on the days that you noted andada",
+    "month": "(1:1)",
+    "year": "(1:2)",
+    "filterOnQuestion": -1
   },
   {
     "questionNumber": 5,
     "questionType": "DateRangeSelect",
-    "questionPicture": "q0_(-5)",
-    "questionTitle": "crab_title_(-5)",
+    "questionPicture": "q0_(-5:0)",
+    "questionTitle": "crab_title_(-5:0)",
     "description": "Click the day that andada it was strongest\n(optional)",
+    "month": "(1:1)",
+    "year": "(1:2)",
     "filterOnQuestion": -1,
     "optional": true
   },
   {
     "questionNumber": 6,
     "questionType": "DayNightChoice",
-    "questionPicture": "q0_(-6)",
+    "questionPicture": "q0_(-6:0)",
     "questionTitle": "Click on the period (moon phase) when andada occured.  In case you don't know proceed to the next page.",
     "choiceOneText": "At new moon",
     "choiceTwoText": "At full moon"
@@ -65,8 +70,8 @@
   {
     "questionNumber": 7,
     "questionType": "ListSelect",
-    "questionPicture": "q0_(-7)",
-    "questionTitle": "crab_title_(-7)",
+    "questionPicture": "q0_(-7:0)",
+    "questionTitle": "crab_title_(-7:0)",
     "description": "Select the state where you made your observation",
     "jsonInput": "regions.json",
     "detailPicture": "brazil_regions.png",
@@ -75,32 +80,32 @@
   {
     "questionNumber": 8,
     "questionType": "ListSelect",
-    "questionPicture": "q0_(-8)",
-    "questionTitle": "crab_title_(-8)",
+    "questionPicture": "q0_(-8:0)",
+    "questionTitle": "crab_title_(-8:0)",
     "description": "Enter the city closest to your mangrove\nIf you can not find your city in the menu you can also type the name in",
     "jsonInput": "region_cities.json",
-    "jsonKey": "(-1)"
+    "jsonKey": "(-1:0)"
   },
   {
     "questionNumber": 9,
     "questionType": "YesNoExtra",
-    "questionPicture": "q0_(-9)",
-    "questionTitle": "crab_title_(-9)",
+    "questionPicture": "q0_(-9:0)",
+    "questionTitle": "crab_title_(-9:0)",
     "questionText": "Is the monitored mangrove in a protected area? (eg. RESEX, APA, Park)",
     "extraDetailText": "What is the name of the area?"
   },
   {
     "questionType": "UserDetails",
-    "questionPicture": "q0_(-10)",
-    "questionTitle": "crab_title_(-10)",
+    "questionPicture": "q0_(-10:0)",
+    "questionTitle": "crab_title_(-10:0)",
     "description": "It would be great to know who you are and how to get in contact, to acknowledge you",
     "postAs": "userDetails",
     "optional": true
   },
   {
     "questionType": "Done",
-    "questionPicture": "q0_(-11)",
-    "questionTitle": "crab_title_(-11)",
+    "questionPicture": "q0_(-11:0)",
+    "questionTitle": "crab_title_(-11:0)",
     "hideBackNext": true
   }
 ]

@@ -44,7 +44,9 @@
     "questionType": "DateRange",
     "questionPicture": "q0_(-4)",
     "questionTitle": "crab_title_(-4)",
-    "description": "Clique nos dias em que  você observou andada"
+    "description": "Clique nos dias em que  você observou andada",
+    "month": 2,
+    "year": 2016
   },
   {
     "questionNumber": 5,
@@ -52,6 +54,8 @@
     "questionPicture": "q0_(-5)",
     "questionTitle": "crab_title_(-5)",
     "description": "Clique no dia em que a andada foi mas forte ",
+    "month": "(1:1)",
+    "year": 2016,
     "filterOnQuestion": -1,
     "optional": true
   },

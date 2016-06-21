@@ -68,6 +68,14 @@ public class DateRangeExpander extends Expander {
         Bundle args = new Bundle();
         args.putBoolean(CaldroidFragment.ENABLE_SWIPE, false);
         args.putBoolean(CaldroidFragment.SHOW_NAVIGATION_ARROWS, false);
+        if (questionJson.has("month")) {
+            int month = Integer.parseInt(getQuestionString("month"));
+            args.putInt(CaldroidFragment.MONTH, month + 1); // + 1 because starts counting from 1
+        }
+        if (questionJson.has("year")) {
+            int year = Integer.parseInt(getQuestionString("year"));
+            args.putInt(CaldroidFragment.YEAR, TwoChoiceDateExpander.MIN_YEAR + year);
+        }
         caldroidFragment.setArguments(args);
         caldroidFragment.setCaldroidListener(caldroidListener);
 

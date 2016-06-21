@@ -130,17 +130,24 @@ public abstract class Expander {
     public String getQuestionString(String string) throws JSONException {
         String value = questionJson.getString(string);
         StringBuilder sb = new StringBuilder(value);
-        Pattern pattern = Pattern.compile("\\((\\-?)(\\d+)\\)");
+        Pattern pattern = Pattern.compile("\\((\\-?)(\\d+):(\\d+)?\\)");
         Matcher match = pattern.matcher(value);
         if(match.find()) {
             String opr = match.group(1);
             String number = match.group(2);
+            int subQuestionId = 0;
+            try {
+                String s = match.group(3);
+                subQuestionId = Integer.parseInt(s);
+            } catch (NumberFormatException|IllegalStateException e) {
+                Log.i("Expander", "Unable to get sub question id.  Defaulting to 0");
+            }
             try {
                 int answerId = Integer.parseInt(number);
                 if(opr.equals("-")) {
                     answerId = realQuestionId - answerId;
                 }
-                int answer = getAnswer(answerId).getInt(0);
+                int answer = getAnswer(answerId).getInt(subQuestionId);
                 sb.replace(match.start(), match.end(), String.valueOf(answer));
             } catch (IOException|JSONException e) {
                 try {
@@ -156,7 +163,12 @@ public abstract class Expander {
                 }
             }
         }
-        return getStringResourceOrReturn(sb.toString());
+        try {
+            Integer.parseInt(sb.toString()); // If number then skip
+            return sb.toString();
+        } catch(NumberFormatException e) {
+            return getStringResourceOrReturn(sb.toString());
+        }
     }
 
     public String getStringResourceOrReturn(String string) {

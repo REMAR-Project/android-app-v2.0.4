@@ -20,6 +20,7 @@ import org.json.JSONObject;
 public class TwoChoiceDateExpander extends Expander {
 
     private static final int REQUIRED_ANSWERS = 3;
+    public static final int MIN_YEAR = 2016;
 
     CheckBox choiceOneCheckBox;
     CheckBox choiceTwoCheckBox;

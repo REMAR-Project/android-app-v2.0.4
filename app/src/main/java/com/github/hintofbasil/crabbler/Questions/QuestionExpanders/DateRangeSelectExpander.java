@@ -64,9 +64,14 @@ public class DateRangeSelectExpander extends Expander {
         };
 
         Bundle args = new Bundle();
-        Calendar cal = Calendar.getInstance();
-        args.putInt(CaldroidFragment.MONTH, cal.get(Calendar.MONTH) + 1);
-        args.putInt(CaldroidFragment.YEAR, cal.get(Calendar.YEAR));
+        if (questionJson.has("month")) {
+            int month = Integer.parseInt(getQuestionString("month"));
+            args.putInt(CaldroidFragment.MONTH, month + 1); // + 1 because starts counting from 1
+        }
+        if (questionJson.has("year")) {
+            int year = Integer.parseInt(getQuestionString("year"));
+            args.putInt(CaldroidFragment.YEAR, TwoChoiceDateExpander.MIN_YEAR + year);
+        }
         args.putBoolean(CaldroidFragment.ENABLE_SWIPE, false);
         args.putBoolean(CaldroidFragment.SHOW_NAVIGATION_ARROWS, false);
         args.putInt(Keys.CALDROID_BACKGROUND_RESOURCE, R.drawable.caldroid_cell_date_select);

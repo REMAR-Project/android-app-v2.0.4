@@ -35,11 +35,12 @@
                 android:text=""
                 android:scrollbars="vertical"
                 />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
+                android:layout_margin="@dimen/question_select_margin"
+                android:padding="@dimen/question_select_padding"
+                android:layout_marginRight="@dimen/question_select_outside_margin"
                 android:layout_centerHorizontal="true"
                 android:orientation="horizontal"
                 android:layout_below="@id/question_text"
@@ -47,7 +48,7 @@
                 <LinearLayout
                     android:id="@+id/question_one_button"
                     android:layout_width="match_parent"
-                    android:layout_height="160dp"
+                    android:layout_height="@dimen/two_choice_picture_height"
                     android:layout_weight="0.5"
                     android:orientation="vertical"
                     android:background="@color/questionBackground"
@@ -75,7 +76,7 @@
                 <LinearLayout
                     android:id="@+id/question_two_button"
                     android:layout_width="match_parent"
-                    android:layout_height="160dp"
+                    android:layout_height="@dimen/two_choice_picture_height"
                     android:layout_weight="0.5"
                     android:orientation="vertical"
                     android:background="@color/questionBackground"

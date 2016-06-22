@@ -36,8 +36,27 @@
     <dimen name="calendar_legend_element_spacing">60dp</dimen>
     <dimen name="title_image_max_height">100dp</dimen>
 
-    <dimen name="default_list_height">250dp</dimen>
+    <dimen name="list_select_list_height">250dp</dimen>
     <dimen name="list_horizontal_padding">5dp</dimen>
     <dimen name="list_vertical_padding">5dp</dimen>
     <dimen name="done_checkbox_margin_top">25dp</dimen>
+
+    <dimen name="two_choice_picture_height">160dp</dimen>
+
+    <dimen name="checkbox_text">16sp</dimen>
+    <dimen name="checkbox_margin_bottom">10dp</dimen>
+
+    <dimen name="list_element_text">16dp</dimen>
+    <dimen name="two_choice_date_list_size">240dp</dimen>
+
+    <dimen name="description">16sp</dimen>
+    <dimen name="legend_text">14sp</dimen>
+    <dimen name="caldroid_moon_size">10dp</dimen>
+    <dimen name="caldroid_cell_text">12sp</dimen>
+    <dimen name="caldroid_cell_height">24dp</dimen>
+
+    <dimen name="day_night_choice_text">16sp</dimen>
+    <dimen name="list_select_image_height">140dp</dimen>
+    <dimen name="description_margin_bottom">8dp</dimen>
+    <dimen name="list_select_input_text">16sp</dimen>
 </resources>

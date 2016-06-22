@@ -36,44 +36,61 @@
                 android:id="@+id/question_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/description"
+                android:layout_marginBottom="@dimen/description_margin_bottom"
                 />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal" >
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/description_margin_bottom" >
 
                 <CheckBox
                     android:id="@+id/chk_yes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="@dimen/checkbox_text"
                     android:text="@string/yes"/>
 
                 <CheckBox
                     android:id="@+id/chk_no"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="@dimen/checkbox_text"
                     android:text="@string/no"/>
 
                 <CheckBox
                     android:id="@+id/chk_maybe"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="@dimen/checkbox_text"
                     android:text="@string/maybe"/>
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/extra_details"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
-
-            <EditText
-                android:id="@+id/extra_input"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                />
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/extra_details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/description"
+                    android:layout_marginBottom="@dimen/description_margin_bottom"
+                    />
+
+                <EditText
+                    android:id="@+id/extra_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/list_select_input_text"
+                    android:textAlignment="center"
+                    />
+
+            </LinearLayout>
 
         </LinearLayout>
 

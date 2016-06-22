@@ -28,9 +28,25 @@
             android:paddingTop="@dimen/activity_vertical_margin"
             android:orientation="vertical">
 
-            <include layout="@layout/expander_two_choice_common"
+            <include layout="@layout/include_image_text"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
+                />
+
+            <CheckBox
+                android:id="@+id/choice_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/checkbox_text"
+                android:layout_marginBottom="@dimen/checkbox_margin_bottom"
+                />
+
+            <CheckBox
+                android:id="@+id/choice_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/checkbox_text"
+                android:layout_marginBottom="@dimen/checkbox_margin_bottom"
                 />
 
             <LinearLayout

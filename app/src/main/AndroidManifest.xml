@@ -37,7 +37,8 @@
 
         <service android:name=".BackgroundDataPost.DataPostProcessService" />
 
-        <activity android:name=".Questions.QuestionActivity" />
+        <activity android:name=".Questions.QuestionActivity"
+            android:windowSoftInputMode="stateUnchanged"/>
         <activity android:name=".AboutUsActivity" />
         <activity android:name=".Settings.SettingsActivity" />
     </application>

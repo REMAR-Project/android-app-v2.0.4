@@ -113,7 +113,7 @@
 
                 <LinearLayout
                     android:id="@+id/day_night_view"
-                    android:layout_width="@dimen/day_night_image_holder_width"
+                    android:layout_width="@dimen/day_night_image_holder_width_double"
                     android:layout_height="@dimen/day_night_image_holder_height"
                     android:orientation="vertical"
                     android:gravity="center_horizontal"

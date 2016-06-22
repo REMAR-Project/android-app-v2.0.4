@@ -21,7 +21,8 @@
             android:layout_height="wrap_content"
             android:text="@string/toolbar_app_name"
             android:textSize="@dimen/toolbar_title"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/toolbarTitle" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -29,7 +30,8 @@
             android:text="@string/toolbar_app_sub_name"
             android:layout_gravity="bottom"
             android:textSize="@dimen/toolbar_title_smaller"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textColor="@color/toolbarTitle" />
 
     </LinearLayout>
 
@@ -51,7 +53,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/menu"
-            android:textSize="@dimen/toolbar_menu"/>
+            android:textSize="@dimen/toolbar_menu"
+            android:textColor="@color/toolbarTitle" />
 
         <ImageView
             android:layout_width="wrap_content"

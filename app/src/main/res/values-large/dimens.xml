@@ -9,6 +9,7 @@
     <!-- Two choice date -->
     <dimen name="title_image_max_height">200dp</dimen>
     <dimen name="checkbox_text">24sp</dimen>
+    <dimen name="checkbox_magin_top">150dp</dimen> <!-- TODO check value -->
     <dimen name="checkbox_margin_bottom">20dp</dimen>
     <dimen name="list_element_text">30dp</dimen>
     <dimen name="two_choice_date_list_size">400dp</dimen>

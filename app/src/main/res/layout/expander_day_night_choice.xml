@@ -36,13 +36,15 @@
                 android:id="@+id/choice_one"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/checkbox_text"/>
+                android:textSize="@dimen/checkbox_text"
+                android:visibility="gone"/>
 
             <CheckBox
                 android:id="@+id/choice_two"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/checkbox_text"/>
+                android:textSize="@dimen/checkbox_text"
+                android:visibility="gone"/>
 
             <RelativeLayout
                 android:layout_gravity="center_horizontal"

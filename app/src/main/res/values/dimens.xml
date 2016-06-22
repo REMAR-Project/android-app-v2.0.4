@@ -43,17 +43,20 @@
 
     <dimen name="two_choice_picture_height">160dp</dimen>
 
-    <dimen name="checkbox_text">0sp</dimen>
-    <dimen name="checkbox_margin_bottom">0dp</dimen>
-    <dimen name="list_element_text">0dp</dimen>
-    <dimen name="two_choice_date_list_size">0dp</dimen>
-    <dimen name="description">0sp</dimen>
-    <dimen name="legend_text">0sp</dimen>
-    <dimen name="caldroid_moon_size">0dp</dimen>
-    <dimen name="caldroid_cell_text">0sp</dimen>
-    <dimen name="caldroid_cell_height">0dp</dimen>
-    <dimen name="day_night_choice_text">0sp</dimen>
-    <dimen name="list_select_image_height">0dp</dimen>
-    <dimen name="description_margin_bottom">0dp</dimen>
-    <dimen name="list_select_input_text">0sp</dimen>
+    <dimen name="checkbox_text">16sp</dimen>
+    <dimen name="checkbox_margin_bottom">10dp</dimen>
+
+    <dimen name="list_element_text">16dp</dimen>
+    <dimen name="two_choice_date_list_size">240dp</dimen>
+
+    <dimen name="description">16sp</dimen>
+    <dimen name="legend_text">14sp</dimen>
+    <dimen name="caldroid_moon_size">10dp</dimen>
+    <dimen name="caldroid_cell_text">12sp</dimen>
+    <dimen name="caldroid_cell_height">24dp</dimen>
+
+    <dimen name="day_night_choice_text">16sp</dimen>
+    <dimen name="list_select_image_height">140dp</dimen>
+    <dimen name="description_margin_bottom">8dp</dimen>
+    <dimen name="list_select_input_text">16sp</dimen>
 </resources>

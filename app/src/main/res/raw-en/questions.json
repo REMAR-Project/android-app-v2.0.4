@@ -25,8 +25,8 @@
         "questionType": "TwoChoice",
         "questionPicture": "q0_(-2:0)",
         "questionTitle": "crab_title_(-2:0)",
-        "choiceOneText": "There was NO andada after the new moon",
-        "choiceTwoText": "There was NO andada after the full moon"
+        "choiceOneText": "andada_new_(-1:0)",
+        "choiceTwoText": "andada_full_(-1:0)"
       },
       {
         "questionNumber": 3,

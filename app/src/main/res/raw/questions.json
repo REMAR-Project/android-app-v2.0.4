@@ -26,8 +26,8 @@
         "questionType": "TwoChoice",
         "questionPicture": "q0_(-2:0)",
         "questionTitle": "crab_title_(-2:0)",
-        "choiceOneText": "Não houve andada após a lua nova",
-        "choiceTwoText": "Não houve andada após a lua cheia"
+        "choiceOneText": "andada_new_(-1:0)",
+        "choiceTwoText": "andada_full_(-1:0)"
       },
       {
         "questionNumber": 3,

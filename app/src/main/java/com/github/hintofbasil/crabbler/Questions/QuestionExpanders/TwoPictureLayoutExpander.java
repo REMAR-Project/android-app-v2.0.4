@@ -78,10 +78,10 @@ public class TwoPictureLayoutExpander extends Expander {
             Integer i = answer.getInt(0);
             switch(i) {
                 case 0:
-                    questionOneButton.setBackgroundResource(R.color.questionPreviouslySelectedBackground);
+                    questionOneButton.setBackgroundResource(R.color.questionSelectedBackground);
                     break;
                 case 1:
-                    questionTwoButton.setBackgroundResource(R.color.questionPreviouslySelectedBackground);
+                    questionTwoButton.setBackgroundResource(R.color.questionSelectedBackground);
                     break;
                 default:
                     Log.d("TwoPictureLayoutExpande", "Invalid previous answer");

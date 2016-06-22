@@ -116,7 +116,7 @@ public class DayNightChoiceExpander extends Expander {
         }
         try {
             int answerTwo = answer.getInt(1);
-            setDayNightChoice(answerTwo, R.color.questionPreviouslySelectedBackground);
+            setDayNightChoice(answerTwo, R.color.questionSelectedBackground);
         } catch (JSONException e) {
             Log.d("DayNightChoiceExpander", "No previous answer (1)");
         }

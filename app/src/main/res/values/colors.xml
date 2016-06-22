@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#729fcf</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="questionBackground">#729fcf</color>
-    <color name="questionSelectedBackground">#0000FF</color>
-    <color name="questionPreviouslySelectedBackground">#0000FF</color>
+    <color name="colorPrimary">#009933</color>
+    <color name="questionBackground">#55bb33</color>
+    <color name="questionSelectedBackground">#ffdd00</color>
+    <color name="questionPressed">#99aabb</color>
     <color name="questionOfQuestionText">#AAAAAA</color>
     <color name="none">#00000000</color>
     <color name="white">#ffffff</color>
     <color name="newMoon">#000000</color>
-    <color name="fullMoon">#DDED2B</color>
+    <color name="fullMoon">#ffdd00</color>
 </resources>

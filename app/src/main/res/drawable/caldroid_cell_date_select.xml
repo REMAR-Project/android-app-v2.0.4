@@ -2,7 +2,7 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:caldroid="http://schemas.android.com/apk/res-auto" xmlns:caldrdoid="http://schemas.android.com/tools">
 
     <item android:drawable="@color/questionSelectedBackground" android:state_selected="true" />
-    <item android:drawable="@color/questionPreviouslySelectedBackground" android:state_pressed="true" />
+    <item android:drawable="@color/questionPressed" android:state_pressed="true" />
     <item android:drawable="@color/questionBackground" android:state_pressed="false" />
 
 </selector>

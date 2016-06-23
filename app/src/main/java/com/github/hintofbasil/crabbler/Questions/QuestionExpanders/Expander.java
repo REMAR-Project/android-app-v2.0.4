@@ -3,10 +3,14 @@ package com.github.hintofbasil.crabbler.Questions.QuestionExpanders;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.CountDownTimer;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.style.StyleSpan;
 import android.util.Log;
 import android.widget.ImageView;
 
@@ -212,5 +216,18 @@ public abstract class Expander {
             Log.d("Expander", "No next button found");
         }
 
+    }
+
+    protected SpannableString toRichText(String text) {
+        SpannableStringBuilder richText = new SpannableStringBuilder(text);
+        // Bold
+        Pattern pattern = Pattern.compile("<b>(.+)<\\/b>");
+        Matcher match = pattern.matcher(richText);
+        while(match.find()) {
+            String replacement = match.group(1);
+            richText.replace(match.start(), match.end(), replacement);
+            richText.setSpan(new StyleSpan(Typeface.BOLD), match.start(), match.start() + replacement.length(), 0);
+        }
+        return new SpannableString(richText);
     }
 }

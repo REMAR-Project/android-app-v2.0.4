@@ -1,6 +1,5 @@
 package com.github.hintofbasil.crabbler.Questions.QuestionExpanders;
 
-import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
@@ -44,7 +43,7 @@ public class TwoPictureLayoutExpander extends Expander {
         choiceOneImage.setImageDrawable(getDrawable(getQuestionString("choiceOnePicture")));
         choiceTwoImage.setImageDrawable(getDrawable(getQuestionString("choiceTwoPicture")));
 
-        questionText.setText(getQuestionString("questionText"));
+        questionText.setText(toRichText(getQuestionString("questionText")));
         questionText.setMovementMethod(new ScrollingMovementMethod());
 
         choiceOneTitle.setText(getQuestionString("choiceOneTitle"));

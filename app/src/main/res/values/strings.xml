@@ -99,7 +99,7 @@ Aliquam porta dui eu quam egestas, eu sollicitudin lacus facilisis. Donec laoree
     </string-array>
     <string name="pref_postFrequency_default">3600000</string>
 
-    <string name="menu">Cardápio</string>
+    <string name="menu">Menu</string>
 
     <string name="calendar_legend_new_moon">Lua nova</string>
     <string name="calendar_legend_full_moon">Lua cheia</string>

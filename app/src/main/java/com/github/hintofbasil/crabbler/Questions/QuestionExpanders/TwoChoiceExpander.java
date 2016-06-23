@@ -22,6 +22,7 @@ public class TwoChoiceExpander extends Expander {
 
     CheckBox choiceOneCheckBox;
     CheckBox choiceTwoCheckBox;
+    boolean allowMultiple = false;
 
     public TwoChoiceExpander(AppCompatActivity activity, JSONObject questionJson) {
         super(activity, questionJson, REQUIRED_ANSWERS);
@@ -40,10 +41,16 @@ public class TwoChoiceExpander extends Expander {
         choiceOneCheckBox.setText(getRichTextQuestionString("choiceOneText"));
         choiceTwoCheckBox.setText(getRichTextQuestionString("choiceTwoText"));
 
+        try {
+            allowMultiple = questionJson.getBoolean("allowMultiple");
+        } catch (JSONException e) {}
+
         choiceOneCheckBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                choiceTwoCheckBox.setChecked(false);
+                if(!allowMultiple) {
+                    choiceTwoCheckBox.setChecked(false);
+                }
                 enableDisableNext();
             }
         });
@@ -51,7 +58,9 @@ public class TwoChoiceExpander extends Expander {
         choiceTwoCheckBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                choiceOneCheckBox.setChecked(false);
+                if(!allowMultiple) {
+                    choiceOneCheckBox.setChecked(false);
+                }
                 enableDisableNext();
             }
         });
@@ -60,19 +69,8 @@ public class TwoChoiceExpander extends Expander {
     @Override
     protected void setPreviousAnswer(JSONArray answer) {
         try {
-            switch (answer.getInt(0)) {
-                case 0:
-                    choiceOneCheckBox.setChecked(true);
-                    break;
-                case 1:
-                    choiceTwoCheckBox.setChecked(true);
-                    break;
-                case -1:
-                    break;
-                default:
-                    Log.d("TwoChoiceExpander", "Invalid previous answer");
-                    break;
-            }
+            choiceOneCheckBox.setChecked(answer.getBoolean(0));
+            choiceTwoCheckBox.setChecked(answer.getBoolean(1));
         } catch (JSONException e) {
             Log.i("TwoChoiceExpander", "Unable to parse answer");
         }
@@ -81,13 +79,8 @@ public class TwoChoiceExpander extends Expander {
     @Override
     public JSONArray getSelectedAnswer() {
         JSONArray array = new JSONArray();
-        if(choiceOneCheckBox.isChecked()) {
-            array.put(0);
-        } else if(choiceTwoCheckBox.isChecked()) {
-            array.put(1);
-        } else {
-            array.put(-1);
-        }
+        array.put(choiceOneCheckBox.isChecked());
+        array.put(choiceTwoCheckBox.isChecked());
         return array;
     }
 }

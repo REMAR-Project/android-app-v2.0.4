@@ -198,7 +198,8 @@ public abstract class Expander {
                 for (int i = 0; i < answers.length(); i++) {
                     Object answer = answers.get(i);
                     if ((answer instanceof Integer && ((Integer) answer) == -1)
-                            || (answer instanceof String && ((String) answer).isEmpty())) {
+                            || (answer instanceof String && ((String) answer).isEmpty())
+                            || (answer instanceof Boolean && !((Boolean) answer).booleanValue()) ) {
                         continue; // Skip invalid results
                     }
                     count++;

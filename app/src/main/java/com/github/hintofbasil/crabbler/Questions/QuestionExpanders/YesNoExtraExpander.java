@@ -49,9 +49,9 @@ public class YesNoExtraExpander extends Expander {
         hiddenInput = (EditText) activity.findViewById(R.id.extra_input);
 
         imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
-        titleView.setText(getQuestionString("questionTitle"));
-        questionText.setText(getQuestionString("questionText"));
-        extraDetail.setText(getQuestionString("extraDetailText"));
+        titleView.setText(getRichTextQuestionString("questionTitle"));
+        questionText.setText(getRichTextQuestionString("questionText"));
+        extraDetail.setText(getRichTextQuestionString("extraDetailText"));
 
         chkYes.setOnClickListener(new View.OnClickListener() {
             @Override

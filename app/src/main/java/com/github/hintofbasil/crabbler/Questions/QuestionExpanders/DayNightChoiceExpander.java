@@ -49,9 +49,9 @@ public class DayNightChoiceExpander extends Expander {
         dayNightLayout = (LinearLayout) activity.findViewById(R.id.day_night_view);
 
         imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
-        titleView.setText(getQuestionString("questionTitle"));
-        choiceOneCheckBox.setText(getQuestionString("choiceOneText"));
-        choiceTwoCheckBox.setText(getQuestionString("choiceTwoText"));
+        titleView.setText(getRichTextQuestionString("questionTitle"));
+        choiceOneCheckBox.setText(getRichTextQuestionString("choiceOneText"));
+        choiceTwoCheckBox.setText(getRichTextQuestionString("choiceTwoText"));
 
         choiceOneCheckBox.setOnClickListener(new View.OnClickListener() {
             @Override

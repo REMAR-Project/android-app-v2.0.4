@@ -49,9 +49,9 @@ public class TwoChoiceDateExpander extends Expander {
         yearListView = (ListView) activity.findViewById(R.id.year_list_view);
 
         imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
-        titleView.setText(getQuestionString("questionTitle"));
-        choiceOneCheckBox.setText(getQuestionString("choiceOneText"));
-        choiceTwoCheckBox.setText(getQuestionString("choiceTwoText"));
+        titleView.setText(getRichTextQuestionString("questionTitle"));
+        choiceOneCheckBox.setText(getRichTextQuestionString("choiceOneText"));
+        choiceTwoCheckBox.setText(getRichTextQuestionString("choiceTwoText"));
 
         choiceOneCheckBox.setOnClickListener(new View.OnClickListener() {
             @Override

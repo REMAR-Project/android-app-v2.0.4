@@ -175,6 +175,10 @@ public abstract class Expander {
         }
     }
 
+    protected SpannableString getRichTextQuestionString(String string) throws JSONException {
+        return toRichText(getQuestionString(string));
+    }
+
     public String getStringResourceOrReturn(String string) {
         int resourceId = activity.getResources().getIdentifier(string, "string", activity.getPackageName());
         if(resourceId>0) {

@@ -39,8 +39,8 @@ public class UserDetailsExpander extends Expander {
         emailView = (TextView) activity.findViewById(R.id.email);
 
         imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
-        titleView.setText(getQuestionString("questionTitle"));
-        descriptionView.setText(getQuestionString("description"));
+        titleView.setText(getRichTextQuestionString("questionTitle"));
+        descriptionView.setText(getRichTextQuestionString("description"));
 
         nameView.addTextChangedListener(new TextWatcher() {
             @Override

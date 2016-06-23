@@ -43,11 +43,11 @@ public class TwoPictureLayoutExpander extends Expander {
         choiceOneImage.setImageDrawable(getDrawable(getQuestionString("choiceOnePicture")));
         choiceTwoImage.setImageDrawable(getDrawable(getQuestionString("choiceTwoPicture")));
 
-        questionText.setText(toRichText(getQuestionString("questionText")));
+        questionText.setText(getRichTextQuestionString("questionText"));
         questionText.setMovementMethod(new ScrollingMovementMethod());
 
-        choiceOneTitle.setText(getQuestionString("choiceOneTitle"));
-        choiceTwoTitle.setText(getQuestionString("choiceTwoTitle"));
+        choiceOneTitle.setText(getRichTextQuestionString("choiceOneTitle"));
+        choiceTwoTitle.setText(getRichTextQuestionString("choiceTwoTitle"));
 
         questionOneButton.setOnClickListener(new View.OnClickListener() {
             @Override

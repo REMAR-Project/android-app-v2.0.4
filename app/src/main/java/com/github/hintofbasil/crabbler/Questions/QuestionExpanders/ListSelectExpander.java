@@ -52,8 +52,8 @@ public class ListSelectExpander extends Expander {
         TextView descriptionView = (TextView) activity.findViewById(R.id.description);
 
         imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
-        titleView.setText(getQuestionString("questionTitle"));
-        descriptionView.setText(getQuestionString("description"));
+        titleView.setText(getRichTextQuestionString("questionTitle"));
+        descriptionView.setText(getRichTextQuestionString("description"));
 
         try{
             detailImage.setImageDrawable(getDrawable(getQuestionString("detailPicture")));

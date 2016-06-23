@@ -36,9 +36,9 @@ public class TwoChoiceExpander extends Expander {
         choiceTwoCheckBox = (CheckBox) activity.findViewById(R.id.choice_two);
 
         imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
-        titleView.setText(getQuestionString("questionTitle"));
-        choiceOneCheckBox.setText(getQuestionString("choiceOneText"));
-        choiceTwoCheckBox.setText(getQuestionString("choiceTwoText"));
+        titleView.setText(getRichTextQuestionString("questionTitle"));
+        choiceOneCheckBox.setText(getRichTextQuestionString("choiceOneText"));
+        choiceTwoCheckBox.setText(getRichTextQuestionString("choiceTwoText"));
 
         choiceOneCheckBox.setOnClickListener(new View.OnClickListener() {
             @Override

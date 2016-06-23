@@ -38,7 +38,7 @@ public class DoneExpander extends Expander {
         TextView titleView = (TextView) activity.findViewById(R.id.title);
 
         imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
-        titleView.setText(getQuestionString("questionTitle"));
+        titleView.setText(getRichTextQuestionString("questionTitle"));
 
         new CountDownTimer(SEND_DELAY, SEND_DELAY) {
 

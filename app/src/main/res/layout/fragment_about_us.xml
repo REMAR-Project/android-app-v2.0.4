@@ -43,14 +43,17 @@
         <TableRow>
 
             <TextView
-                android:height="0dp"/>
+                android:height="0dp"
+                android:layout_width="@dimen/about_us_button_size"/>
 
             <TextView
                 android:id="@+id/content"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/about_us_content"
-                android:visibility="gone" />
+                android:visibility="gone"
+                android:paddingRight="@dimen/about_us_button_size"
+                android:paddingEnd="@dimen/about_us_button_size" />
 
         </TableRow>
 

@@ -25,6 +25,15 @@ public class RichTextExpander {
             richText.setSpan(new StyleSpan(Typeface.BOLD), match.start(), match.start() + replacement.length(), 0);
             match = pattern.matcher(richText);
         }
+        // Bold
+        pattern = Pattern.compile("<i>([^<>]+)<\\/i>");
+        match = pattern.matcher(richText);
+        while(match.find()) {
+            String replacement = match.group(1);
+            richText.replace(match.start(), match.end(), replacement);
+            richText.setSpan(new StyleSpan(Typeface.ITALIC), match.start(), match.start() + replacement.length(), 0);
+            match = pattern.matcher(richText);
+        }
         return new SpannableString(richText);
     }
 

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 import org.json.JSONArray;
@@ -40,6 +41,14 @@ public class AboutUsActivity extends AppCompatActivity implements AboutUsFragmen
 
         LinearLayout toolbarMenu = (LinearLayout) findViewById(R.id.toolbar_menu_button);
         toolbarMenu.setVisibility(View.GONE);
+
+        Button menuButton = (Button) findViewById(R.id.back_button);
+        menuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     public JSONArray readJSON() throws IOException, JSONException {

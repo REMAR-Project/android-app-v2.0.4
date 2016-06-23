@@ -22,9 +22,11 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Collections;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by will on 14/05/16.
@@ -34,8 +36,8 @@ public class DateRangeSelectExpander extends Expander {
     private static final int REQUIRED_ANSWERS = 1;
 
     CaldroidCustomFragment caldroidFragment = new CaldroidCustomFragment();
-    Date selectedDate;
-    View selectedView;
+    Date[] selectedDates;
+    View[] selectedViews;
 
     List<Date> validDates = null;
 
@@ -62,18 +64,18 @@ public class DateRangeSelectExpander extends Expander {
 
                 // Check date is valid
                 if(!validDates.contains(date)) {
-                    Log.i("----", "llllll");
                     return;
                 }
-                if(date.equals(selectedDate)) {
-                    selectedDate = null;
-                    selectedView.setBackgroundResource(R.color.questionBackground);
+                int block = getDateBlock(date);
+                if(date.equals(selectedDates[block])) {
+                    selectedDates[block] = null;
+                    selectedViews[block].setBackgroundResource(R.color.questionBackground);
                 } else {
-                    selectedDate = date;
-                    if(selectedView != null) {
-                        selectedView.setBackgroundResource(R.color.questionBackground);
+                    selectedDates[block] = date;
+                    if(selectedViews[block] != null) {
+                        selectedViews[block].setBackgroundResource(R.color.questionBackground);
                     }
-                    selectedView = view;
+                    selectedViews[block] = view;
                     view.setBackgroundResource(R.color.questionSelectedBackground);
                 }
                 enableDisableNext();
@@ -101,6 +103,9 @@ public class DateRangeSelectExpander extends Expander {
         for(Date date : validDates) {
             caldroidFragment.setBackgroundDrawableForDate(validDateDrawable, date);
         }
+        int blocks = getDateBlock(getMaxDate(validDates));
+        selectedDates = new Date[blocks + 1];
+        selectedViews = new View[blocks + 1];
 
         FragmentTransaction t = activity.getSupportFragmentManager().beginTransaction();
         t.replace(R.id.content_layout, caldroidFragment);
@@ -123,10 +128,10 @@ public class DateRangeSelectExpander extends Expander {
     @Override
     public JSONArray getSelectedAnswer() {
         JSONArray array = new JSONArray();
-        if(selectedDate!=null) {
+        /*if(selectedDate!=null) {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
             array.put(simpleDateFormat.format(selectedDate));
-        }
+        }*/
         return array;
     }
 
@@ -147,6 +152,41 @@ public class DateRangeSelectExpander extends Expander {
         } catch (JSONException|ParseException|IOException e) {
             Log.d("DateRangeSelectExpander", "Unable to parse previous answer");
         }
+        Collections.sort(lst);
         return lst;
+    }
+
+    private Date getMaxDate(List<Date> dates) {
+        Date max = null;
+        for (Date d : dates) {
+            if (max == null || d.after(max)) {
+                max = d;
+            }
+        }
+        return max;
+    }
+
+
+    private int getDateBlock(Date date) {
+        int i = 0;
+        Date previous = null;
+        for(Date d : validDates) {
+            if(date.equals(d)) {
+                return i;
+            }
+            if(previous != null) {
+                long days = getDifferenceDays(d, previous);
+                if(days > 1) {
+                    i++;
+                }
+            }
+            previous = d;
+        }
+        return -1;
+    }
+
+    private long getDifferenceDays(Date date1, Date date2) {
+        long diff = date1.getTime() - date2.getTime();
+        return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
     }
 }

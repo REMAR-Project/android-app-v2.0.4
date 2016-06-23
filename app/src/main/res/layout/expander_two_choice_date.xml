@@ -63,7 +63,8 @@
                     android:layout_height="@dimen/two_choice_date_list_size"
                     android:layout_weight="0.5"
                     android:choiceMode="singleChoice"
-                    android:listSelector="@drawable/list_background" />
+                    android:listSelector="@drawable/list_background"
+                    android:scrollbarAlwaysDrawVerticalTrack="true" />
 
                 <ListView
                     android:id="@+id/year_list_view"
@@ -72,6 +73,7 @@
                     android:layout_weight="0.5"
                     android:choiceMode="singleChoice"
                     android:listSelector="@drawable/list_background"
+                    android:scrollbarAlwaysDrawVerticalTrack="true"
                     />
 
             </LinearLayout>

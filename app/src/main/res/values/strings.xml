@@ -104,9 +104,9 @@ Aliquam porta dui eu quam egestas, eu sollicitudin lacus facilisis. Donec laoree
     <string name="calendar_legend_new_moon">Lua nova</string>
     <string name="calendar_legend_full_moon">Lua cheia</string>
 
-    <string name="andada_new_0">Não houve andada após a lua nova</string>
-    <string name="andada_full_0">Não houve andada após a lua cheia</string>
-    <string name="andada_new_1">Houve andada após a lua nova</string>
-    <string name="andada_full_1">Houve andada após a lua cheia</string>
+    <string name="andada_new_0">Houve andada após a lua nova</string>
+    <string name="andada_full_0">Houve andada após a lua cheia</string>
+    <string name="andada_new_1"><b>Não</b> houve andada após a lua nova</string>
+    <string name="andada_full_1"><b>Não</b> houve andada após a lua cheia</string>
 
 </resources>

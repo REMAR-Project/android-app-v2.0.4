@@ -73,7 +73,7 @@ Aliquam porta dui eu quam egestas, eu sollicitudin lacus facilisis. Donec laoree
 
     <string name="andada_new_0">There was andada after the new moon</string>
     <string name="andada_full_0">There was andada after the full moon</string>
-    <string name="andada_new_1">There was NO andada after the new moon</string>
-    <string name="andada_full_1">There was NO andada after the full moon</string>
+    <string name="andada_new_1">There was <b>NO</b> andada after the new moon</string>
+    <string name="andada_full_1">There was <b>NO</b> andada after the full moon</string>
 
 </resources>

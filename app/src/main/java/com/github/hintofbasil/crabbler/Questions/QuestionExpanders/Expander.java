@@ -18,6 +18,7 @@ import com.github.hintofbasil.crabbler.Keys;
 import com.github.hintofbasil.crabbler.Questions.QuestionActivity;
 import com.github.hintofbasil.crabbler.Questions.QuestionManager;
 import com.github.hintofbasil.crabbler.R;
+import com.github.hintofbasil.crabbler.RichTextExpander;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -176,7 +177,8 @@ public abstract class Expander {
     }
 
     protected SpannableString getRichTextQuestionString(String string) throws JSONException {
-        return toRichText(getQuestionString(string));
+        RichTextExpander richTextExpander = new RichTextExpander();
+        return richTextExpander.toRichText(getQuestionString(string));
     }
 
     public String getStringResourceOrReturn(String string) {
@@ -220,18 +222,5 @@ public abstract class Expander {
             Log.d("Expander", "No next button found");
         }
 
-    }
-
-    protected SpannableString toRichText(String text) {
-        SpannableStringBuilder richText = new SpannableStringBuilder(text);
-        // Bold
-        Pattern pattern = Pattern.compile("<b>(.+)<\\/b>");
-        Matcher match = pattern.matcher(richText);
-        while(match.find()) {
-            String replacement = match.group(1);
-            richText.replace(match.start(), match.end(), replacement);
-            richText.setSpan(new StyleSpan(Typeface.BOLD), match.start(), match.start() + replacement.length(), 0);
-        }
-        return new SpannableString(richText);
     }
 }

@@ -47,10 +47,11 @@ public class AboutUsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_about_us, container, false);
+        RichTextExpander richTextExpander = new RichTextExpander();
         TextView title = (TextView) view.findViewById(R.id.title);
-        title.setText(this.title);
+        title.setText(richTextExpander.toRichText(this.title));
         TextView content = (TextView) view.findViewById(R.id.content);
-        content.setText(this.content);
+        content.setText(richTextExpander.toRichText(this.content));
         return view;
     }
 

@@ -128,10 +128,12 @@ public class DateRangeSelectExpander extends Expander {
     @Override
     public JSONArray getSelectedAnswer() {
         JSONArray array = new JSONArray();
-        /*if(selectedDate!=null) {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
-            array.put(simpleDateFormat.format(selectedDate));
-        }*/
+        for(Date d : selectedDates) {
+            if(d != null) {
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
+                array.put(simpleDateFormat.format(d));
+            }
+        }
         return array;
     }
 

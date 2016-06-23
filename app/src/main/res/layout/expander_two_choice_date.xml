@@ -64,7 +64,8 @@
                     android:layout_weight="0.5"
                     android:choiceMode="singleChoice"
                     android:listSelector="@drawable/list_background"
-                    android:scrollbarAlwaysDrawVerticalTrack="true" />
+                    android:scrollbarAlwaysDrawVerticalTrack="true"
+                    android:scrollbarSize="20dp"/>
 
                 <ListView
                     android:id="@+id/year_list_view"

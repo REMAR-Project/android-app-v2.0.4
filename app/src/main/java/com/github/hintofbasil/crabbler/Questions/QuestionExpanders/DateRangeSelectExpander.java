@@ -22,7 +22,6 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -36,6 +35,9 @@ public class DateRangeSelectExpander extends Expander {
 
     CaldroidCustomFragment caldroidFragment = new CaldroidCustomFragment();
     Date selectedDate;
+    View selectedView;
+
+    List<Date> validDates = null;
 
     public DateRangeSelectExpander(AppCompatActivity activity, JSONObject questionJson) {
         super(activity, questionJson, REQUIRED_ANSWERS);
@@ -57,8 +59,23 @@ public class DateRangeSelectExpander extends Expander {
         final CaldroidListener caldroidListener = new CaldroidListener() {
             @Override
             public void onSelectDate(Date date, View view) {
-                selectedDate = date;
-                view.setSelected(true);
+
+                // Check date is valid
+                if(!validDates.contains(date)) {
+                    Log.i("----", "llllll");
+                    return;
+                }
+                if(date.equals(selectedDate)) {
+                    selectedDate = null;
+                    selectedView.setBackgroundResource(R.color.questionBackground);
+                } else {
+                    selectedDate = date;
+                    if(selectedView != null) {
+                        selectedView.setBackgroundResource(R.color.questionBackground);
+                    }
+                    selectedView = view;
+                    view.setBackgroundResource(R.color.questionSelectedBackground);
+                }
                 enableDisableNext();
             }
         };
@@ -74,14 +91,16 @@ public class DateRangeSelectExpander extends Expander {
         }
         args.putBoolean(CaldroidFragment.ENABLE_SWIPE, false);
         args.putBoolean(CaldroidFragment.SHOW_NAVIGATION_ARROWS, false);
-        args.putInt(Keys.CALDROID_BACKGROUND_RESOURCE, R.drawable.caldroid_cell_date_select);
+        args.putInt(Keys.CALDROID_BACKGROUND_RESOURCE, R.drawable.disable_cell);
         caldroidFragment.setArguments(args);
         caldroidFragment.setCaldroidListener(caldroidListener);
 
-        // Disable out of range
-        List<Date> validDates = getValidDates(questionJson);
-        caldroidFragment.setMinDate(getMinDate(validDates));
-        caldroidFragment.setMaxDate(getMaxDate(validDates));
+        // Disable invalid
+        validDates = getValidDates(questionJson);
+        Drawable validDateDrawable = activity.getResources().getDrawable(R.drawable.caldroid_cell_green);
+        for(Date date : validDates) {
+            caldroidFragment.setBackgroundDrawableForDate(validDateDrawable, date);
+        }
 
         FragmentTransaction t = activity.getSupportFragmentManager().beginTransaction();
         t.replace(R.id.content_layout, caldroidFragment);
@@ -90,7 +109,7 @@ public class DateRangeSelectExpander extends Expander {
 
     @Override
     protected void setPreviousAnswer(JSONArray answer) {
-        try {
+        /*try {
             String s = (String) answer.get(0);
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
             Date date = simpleDateFormat.parse(s);
@@ -98,7 +117,7 @@ public class DateRangeSelectExpander extends Expander {
         } catch (ParseException|JSONException e) {
             Log.e("DateRangeExpander", "Unable to create date from answer " + Log.getStackTraceString(e));
             return;
-        }
+        }*/
     }
 
     @Override
@@ -130,25 +149,4 @@ public class DateRangeSelectExpander extends Expander {
         }
         return lst;
     }
-
-    private Date getMinDate(List<Date> dates) {
-        Date min = null;
-        for(Date d : dates) {
-            if(min==null || d.before(min)) {
-                min = d;
-            }
-        }
-        return min;
-    }
-
-    private Date getMaxDate(List<Date> dates) {
-        Date max = null;
-        for(Date d : dates) {
-            if(max==null || d.after(max)) {
-                max = d;
-            }
-        }
-        return max;
-    }
-
 }

@@ -61,4 +61,6 @@
     <dimen name="list_select_image_height">140dp</dimen>
     <dimen name="description_margin_bottom">8dp</dimen>
     <dimen name="list_select_input_text">16sp</dimen>
+
+    <dimen name="button_text">16sp</dimen>
 </resources>

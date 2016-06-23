@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.github.hintofbasil.crabbler.AboutUsActivity;
@@ -115,6 +116,11 @@ public class QuestionActivity extends AppCompatActivity {
             if(questionId==realQuestionCount) {
                 ImageView nextButton = (ImageView) findViewById(R.id.forward_button);
                 nextButton.setEnabled(false);
+            }
+
+            if(questionId > 0) { // Only show menu button on first question
+                LinearLayout menuButton = (LinearLayout) findViewById(R.id.toolbar_menu_button);
+                menuButton.setVisibility(View.GONE);
             }
 
         } catch (IOException|JSONException e) {

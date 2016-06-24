@@ -39,6 +39,9 @@ public class QuestionActivity extends AppCompatActivity {
 
         try {
             int questionId = getIntent().getIntExtra(Keys.QUESTION_ID_KEY, 0);
+            if(QuestionManager.get() == null) {
+                QuestionManager.init(this);
+            }
             QuestionManager qr = QuestionManager.get();
             JSONObject questionJson = null;
 

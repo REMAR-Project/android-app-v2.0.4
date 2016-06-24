@@ -1,49 +1,36 @@
 [
   {
-    "loop": 0,
-    "stopOn": "0:1",
-    "questions": [
-      {
-        "questionNumber": 0,
-        "questionType": "TwoPictureChoice",
-        "questionText": "Ajude monitorar a ocorrência e ausência das andadas reprodutivas do caranguejo-uçá e do guaiamum em relação a lua, na costa brasileira, entre Novembro e Abril\n\nEssa informação vai ajudar a melhorar a normativa que proíbe a captura do caranguejo-uçá e do guaiamum durante a andada, andança, suatá ou carnaval\n\nPara mais informações, clique no botão abaixo.",
-        "choiceOneTitle": "Caranguejo-uçá",
-        "choiceOnePicture": "q0_0",
-        "choiceTwoTitle": "Guaiamum",
-        "choiceTwoPicture": "q0_1",
-        "hideBackNext": true
-      },
-      {
-        "questionNumber": 1,
-        "questionType": "TwoChoiceDate",
-        "questionPicture": "q0_(-1:0)",
-        "questionTitle": "crab_title_(-1:0)",
-        "choiceOneText": "Quero informar ocorrência de andada",
-        "choiceTwoText": "Quero informar ausência de andada"
-      },
-      {
-        "questionNumber": 2,
-        "questionType": "TwoChoice",
-        "questionPicture": "q0_(-2:0)",
-        "questionTitle": "crab_title_(-2:0)",
-        "choiceOneText": "andada_new_(-1:0)",
-        "choiceTwoText": "andada_full_(-1:0)"
-      },
-      {
-        "questionNumber": 3,
-        "questionType": "TwoChoice",
-        "questionPicture": "q0_(-3:0)",
-        "questionTitle": "crab_title_(-3:0)",
-        "choiceOneText": "Quero registrar mais ocorrências ou ausências de andadas",
-        "choiceTwoText": "Quero prosseguir com informações sobre o local de monitoramento"
-      }
-    ]
+    "questionNumber": 0,
+    "questionType": "TwoPictureChoice",
+    "questionText": "Ajude monitorar a ocorrência e ausência das andadas reprodutivas do caranguejo-uçá e do guaiamum em relação a lua, na costa brasileira, entre Novembro e Abril\n\nEssa informação vai ajudar a melhorar a normativa que proíbe a captura do caranguejo-uçá e do guaiamum durante a andada, andança, suatá ou carnaval\n\nPara mais informações, clique no botão abaixo.",
+    "choiceOneTitle": "Caranguejo-uçá",
+    "choiceOnePicture": "q0_0",
+    "choiceTwoTitle": "Guaiamum",
+    "choiceTwoPicture": "q0_1"
+  },
+  {
+    "questionNumber": 1,
+    "questionType": "TwoChoiceDate",
+    "questionPicture": "q0_(0:0)",
+    "questionTitle": "crab_title_(0:0)",
+    "choiceOneText": "Quero informar ocorrência de andada",
+    "choiceTwoText": "Quero informar ausência de andada",
+    "jumpOn": "0->3"
+  },
+  {
+    "questionNumber": 2,
+    "questionType": "TwoChoice",
+    "questionPicture": "q0_(0:0)",
+    "questionTitle": "crab_title_(0:0)",
+    "choiceOneText": "andada_new_(-1:0)",
+    "choiceTwoText": "andada_full_(-1:0)",
+    "allowMultiple": true
   },
   {
     "questionNumber": 4,
     "questionType": "DateRange",
-    "questionPicture": "q0_(-4:0)",
-    "questionTitle": "crab_title_(-4:0)",
+    "questionPicture": "q0_(0:0)",
+    "questionTitle": "crab_title_(0:0)",
     "description": "Clique nos dias em que  você observou andada",
     "month": "(1:1)",
     "year": "(1:2)",
@@ -52,8 +39,8 @@
   {
     "questionNumber": 5,
     "questionType": "DateRangeSelect",
-    "questionPicture": "q0_(-5:0)",
-    "questionTitle": "crab_title_(-5:0)",
+    "questionPicture": "q0_(0:0)",
+    "questionTitle": "crab_title_(0:0)",
     "description": "Clique no dia em que a andada foi mas forte ",
     "month": "(1:1)",
     "year": "(1:2)",
@@ -63,16 +50,16 @@
   {
     "questionNumber": 6,
     "questionType": "DayNightChoice",
-    "questionPicture": "q0_(-6:0)",
-    "questionTitle": "crab_title_(-6:0)",
+    "questionPicture": "q0_(0:0)",
+    "questionTitle": "crab_title_(0:0)",
     "choiceOneText": "Na lua nova",
     "choiceTwoText": "Na lua cheia"
   },
   {
     "questionNumber": 7,
     "questionType": "ListSelect",
-    "questionPicture": "q0_(-7:0)",
-    "questionTitle": "crab_title_(-7:0)",
+    "questionPicture": "q0_(0:0)",
+    "questionTitle": "crab_title_(0:0)",
     "description": "Qual o estado em que foi feito o monitoramento?",
     "jsonInput": "regions.json",
     "detailPicture": "brazil_regions.png",
@@ -81,33 +68,32 @@
   {
     "questionNumber": 8,
     "questionType": "ListSelect",
-    "questionPicture": "q0_(-8:0)",
-    "questionTitle": "crab_title_(-8:0)",
+    "questionPicture": "q0_(0:0)",
+    "questionTitle": "crab_title_(0:0)",
     "description": "Digite o nome da cidade mais perto do seu manguezal:",
-    "questionText": "Digite o nome da cidade mais perto do seu manguezal:",
     "jsonInput": "region_cities.json",
     "jsonKey": "(-1:0)"
   },
   {
     "questionNumber": 9,
     "questionType": "YesNoExtra",
-    "questionPicture": "q0_(-9:0)",
-    "questionTitle": "crab_title_(-9:0)",
+    "questionPicture": "q0_(0:0)",
+    "questionTitle": "crab_title_(0:0)",
     "questionText": "O manguezal monitorado está em unidade de conservação (ex. RESEX, APA, Parque)?",
     "extraDetailText": "Qual é o nome da unidade de conservação?"
   },
   {
     "questionType": "UserDetails",
-    "questionPicture": "q0_(-10:0)",
-    "questionTitle": "crab_title_(-10:0)",
+    "questionPicture": "q0_(0:0)",
+    "questionTitle": "crab_title_(0:0)",
     "description": "Seria ótimo saber quem é você e como mantermos contato",
     "postAs": "userDetails",
     "optional": true
   },
   {
     "questionType": "Done",
-    "questionPicture": "q0_(-11:0)",
-    "questionTitle": "crab_title_(-11:0)",
+    "questionPicture": "q0_(0:0)",
+    "questionTitle": "crab_title_(0:0)",
     "hideBackNext": true
   }
 ]

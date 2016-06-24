@@ -14,8 +14,7 @@
     "questionPicture": "q0_(0:0)",
     "questionTitle": "crab_title_(0:0)",
     "choiceOneText": "I want to report the occurrence of andada",
-    "choiceTwoText": "I want to inform absence of andada",
-    "jumpOn": "0->3"
+    "choiceTwoText": "I want to inform absence of andada"
   },
   {
     "questionNumber": 2,
@@ -24,7 +23,8 @@
     "questionTitle": "crab_title_(0:0)",
     "choiceOneText": "andada_new_(-1:0)",
     "choiceTwoText": "andada_full_(-1:0)",
-    "allowMultiple": true
+    "allowMultiple": true,
+    "jumpOn": "1:0->2"
   },
   {
     "questionNumber": 3,

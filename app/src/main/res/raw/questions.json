@@ -14,8 +14,7 @@
     "questionPicture": "q0_(0:0)",
     "questionTitle": "crab_title_(0:0)",
     "choiceOneText": "Quero informar ocorrência de andada",
-    "choiceTwoText": "Quero informar ausência de andada",
-    "jumpOn": "0->3"
+    "choiceTwoText": "Quero informar ausência de andada"
   },
   {
     "questionNumber": 2,
@@ -24,7 +23,8 @@
     "questionTitle": "crab_title_(0:0)",
     "choiceOneText": "andada_new_(-1:0)",
     "choiceTwoText": "andada_full_(-1:0)",
-    "allowMultiple": true
+    "allowMultiple": true,
+    "jumpOn": "1:0->2"
   },
   {
     "questionNumber": 4,

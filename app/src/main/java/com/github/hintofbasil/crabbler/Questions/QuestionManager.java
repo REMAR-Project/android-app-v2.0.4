@@ -81,8 +81,9 @@ public class QuestionManager {
                 if(object.has("jumpOn")) {
                     String[] split = object.getString("jumpOn").split("->");
                     try {
-                        JSONArray answer = getAnswer(i);
-                        if (answer.getString(Integer.parseInt(split[0])).equals("1")) {
+                        String[] split2 = split[0].split(":");
+                        JSONArray answer = getAnswer(Integer.parseInt(split2[0]));
+                        if (answer.getString(Integer.parseInt(split2[1])).equals("1")) {
                             i += Integer.parseInt(split[1]);
                             i += 1; //TODO check logic error
                         }
@@ -196,8 +197,9 @@ public class QuestionManager {
                     // Check for skip
                     if(object.has("jumpOn")) {
                         String[] split = object.getString("jumpOn").split("->");
-                        JSONArray answer = getAnswer(questionId);
-                        if(answer.getString(Integer.parseInt(split[0])).equals("1")) {
+                        String[] split2 = split[0].split(":");
+                        JSONArray answer = getAnswer(Integer.parseInt(split2[0]));
+                        if(answer.getString(Integer.parseInt(split2[1])).equals("1")) {
                             id += Integer.parseInt(split[1]);
                             continue;
                         }

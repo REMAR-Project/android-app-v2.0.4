@@ -61,35 +61,12 @@ public class QuestionManager {
         return cache;
     }
 
-    private JSONObject findQuestionInArray(int id, JSONArray array) throws JSONException, IOException {
-        int manipulatableId = id;
-        for(int i=0; i<array.length(); i++) {
-            JSONObject object = array.getJSONObject(i);
-            if(object.has("loop")) {
-                JSONArray subArray = object.getJSONArray("questions");
-                for(int j=1; j<=loopCounter[object.getInt("loop")]; j++) {
-                    JSONObject subSearch = findQuestionInArray(manipulatableId - (i * j), subArray);
-                    manipulatableId -= (subArray.length()); // Remove subquestions from total
-                    if (subSearch != null) {
-                        return subSearch;
-                    }
-                }
-                manipulatableId += 1; // Need as loop is an item but not a question
-            } else { // Must be a question
-                if(i==manipulatableId) {
-                    return object;
-                }
-            }
-        }
-        return null;
-    }
-
     public JSONObject getJsonQuestion(int id) throws IOException, JSONException {
         Tuple<JSONObject, Integer, JSONArray, JSONObject> container = getContainer(id, readJSON(), null);
         return container.fourth;
     }
 
-    private int getQuestionCount(boolean withNumberOnly, JSONArray array) throws JSONException {
+    private int getQuestionCount(boolean withNumberOnly, JSONArray array) throws JSONException, IOException {
         int count = 0, loopId = 0;
         for(int i=0; i<array.length(); i++) {
             JSONObject object = array.getJSONObject(i);
@@ -99,6 +76,17 @@ public class QuestionManager {
             } else { // Must be a question
                 if(!withNumberOnly || object.has("questionNumber")) {
                     count++;
+                }
+                // Check for skip
+                if(object.has("jumpOn")) {
+                    String[] split = object.getString("jumpOn").split("->");
+                    try {
+                        JSONArray answer = getAnswer(i);
+                        if (answer.getString(Integer.parseInt(split[0])).equals("1")) {
+                            i += Integer.parseInt(split[1]);
+                            i += 1; //TODO check logic error
+                        }
+                    } catch(JSONException e) {}
                 }
             }
         }
@@ -207,13 +195,10 @@ public class QuestionManager {
                 } else {
                     // Check for skip
                     if(object.has("jumpOn")) {
-                        Log.i("-----------", "oooooooooooooOO");
                         String[] split = object.getString("jumpOn").split("->");
                         JSONArray answer = getAnswer(questionId);
                         if(answer.getString(Integer.parseInt(split[0])).equals("1")) {
-                            Log.i("-----------", "aaaaa");
                             id += Integer.parseInt(split[1]);
-                            Log.i("-----------", "ccc " + id + " " + questionId);
                             continue;
                         }
                     }

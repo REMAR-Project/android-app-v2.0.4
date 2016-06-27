@@ -173,14 +173,14 @@ public class DateRangeSelectExpander extends Expander {
         int i = 0;
         Date previous = null;
         for(Date d : validDates) {
-            if(date.equals(d)) {
-                return i;
-            }
             if(previous != null) {
                 long days = getDifferenceDays(d, previous);
                 if(days > 1) {
                     i++;
                 }
+            }
+            if(date.equals(d)) {
+                return i;
             }
             previous = d;
         }

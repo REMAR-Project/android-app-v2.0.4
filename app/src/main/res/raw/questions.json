@@ -27,7 +27,7 @@
     "jumpOn": "1:0->2"
   },
   {
-    "questionNumber": 4,
+    "questionNumber": 3,
     "questionType": "DateRange",
     "questionPicture": "q0_(0:0)",
     "questionTitle": "crab_title_(0:0)",
@@ -37,7 +37,7 @@
     "filterOnQuestion": -1
   },
   {
-    "questionNumber": 5,
+    "questionNumber": 4,
     "questionType": "DateRangeSelect",
     "questionPicture": "q0_(0:0)",
     "questionTitle": "crab_title_(0:0)",
@@ -48,7 +48,7 @@
     "optional": true
   },
   {
-    "questionNumber": 6,
+    "questionNumber": 5,
     "questionType": "DayNightChoice",
     "questionPicture": "q0_(0:0)",
     "questionTitle": "crab_title_(0:0)",
@@ -56,7 +56,7 @@
     "choiceTwoText": "Na lua cheia"
   },
   {
-    "questionNumber": 7,
+    "questionNumber": 6,
     "questionType": "ListSelect",
     "questionPicture": "q0_(0:0)",
     "questionTitle": "crab_title_(0:0)",
@@ -66,7 +66,7 @@
     "disableCustom": "true"
   },
   {
-    "questionNumber": 8,
+    "questionNumber": 7,
     "questionType": "ListSelect",
     "questionPicture": "q0_(0:0)",
     "questionTitle": "crab_title_(0:0)",
@@ -75,7 +75,7 @@
     "jsonKey": "(-1:0)"
   },
   {
-    "questionNumber": 9,
+    "questionNumber": 8,
     "questionType": "YesNoExtra",
     "questionPicture": "q0_(0:0)",
     "questionTitle": "crab_title_(0:0)",

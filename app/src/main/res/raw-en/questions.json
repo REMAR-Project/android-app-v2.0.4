@@ -71,7 +71,8 @@
     "questionTitle": "crab_title_(-7:0)",
     "description": "Enter the city closest to your mangrove\nIf you can not find your city in the menu you can also type the name in",
     "jsonInput": "region_cities.json",
-    "jsonKey": "(-1:0)"
+    "jsonKey": "(-1:0)",
+    "cacheAnswer": true
   },
   {
     "questionNumber": 8,
@@ -79,7 +80,8 @@
     "questionPicture": "q0_(-8:0)",
     "questionTitle": "crab_title_(-8:0)",
     "questionText": "Is the monitored mangrove in a protected area? (eg. RESEX, APA, Park)",
-    "extraDetailText": "What is the name of the area?"
+    "extraDetailText": "What is the name of the area?",
+    "cacheAnswer": true
   },
   {
     "questionType": "UserDetails",
@@ -87,7 +89,8 @@
     "questionTitle": "crab_title_(-9:0)",
     "description": "It would be great to know who you are and how to get in contact, to acknowledge you",
     "postAs": "userDetails",
-    "optional": true
+    "optional": true,
+    "cacheAnswer": true
   },
   {
     "questionType": "Done",

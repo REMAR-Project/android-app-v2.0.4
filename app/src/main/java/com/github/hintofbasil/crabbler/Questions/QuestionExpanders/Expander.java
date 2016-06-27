@@ -3,14 +3,11 @@ package com.github.hintofbasil.crabbler.Questions.QuestionExpanders;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.CountDownTimer;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.text.style.StyleSpan;
 import android.util.Log;
 import android.widget.ImageView;
 
@@ -71,7 +68,6 @@ public abstract class Expander {
     public abstract JSONArray getSelectedAnswer();
 
     public void nextQuestion(int delay) {
-        //TODO handle last question
         final Intent intent = new Intent(activity, QuestionActivity.class);
         intent.putExtra(Keys.QUESTION_ID_KEY, realQuestionId + 1);
         new CountDownTimer(delay, delay) {
@@ -106,6 +102,9 @@ public abstract class Expander {
     private void saveAnswer() throws IOException, JSONException {
         JSONArray answer = getSelectedAnswer();
         questionManager.saveAnswer(realQuestionId, answer);
+        if(questionJson.has("cacheAnswer")) {
+            setCachedAnswer(answer);
+        }
     }
 
     protected Drawable getDrawable(String name) {
@@ -120,8 +119,13 @@ public abstract class Expander {
         try {
             setPreviousAnswer(getCurrentAnswer());
         } catch (IOException|JSONException e) {
-            setPreviousAnswer(new JSONArray()); // Allow populating of lists
-            Log.d("Expander", "Unable to load answer");
+            JSONArray def = getCachedAnswer();
+            if(def!=null) {
+                setPreviousAnswer(def);
+            } else {
+                setPreviousAnswer(new JSONArray()); // Allow populating of lists
+                Log.d("Expander", "Unable to load answer");
+            }
         }
     }
 
@@ -222,6 +226,26 @@ public abstract class Expander {
         } else {
             Log.d("Expander", "No next button found");
         }
+    }
 
+    public JSONArray getCachedAnswer() {
+        String jsonString = prefs.getString(Keys.ANSWER_CACHE, "{}");
+        try {
+            JSONObject json = new JSONObject(jsonString);
+            JSONArray answer = json.getJSONArray(String.valueOf(definedQuestionId));
+            return answer;
+        } catch(JSONException e) {}
+        return null;
+    }
+
+    public void setCachedAnswer(JSONArray answer) {
+        String jsonString = prefs.getString(Keys.ANSWER_CACHE, "{}");
+        try {
+            JSONObject json = new JSONObject(jsonString);
+            json.put(String.valueOf(definedQuestionId), answer);
+            prefs.edit().putString(Keys.ANSWER_CACHE, json.toString()).apply();
+        } catch(JSONException e) {
+            Log.e("QuestionManager", "Unable to save default answer: " + definedQuestionId + " " + answer);
+        }
     }
 }

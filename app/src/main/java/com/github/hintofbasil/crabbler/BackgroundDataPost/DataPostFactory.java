@@ -55,7 +55,7 @@ public class DataPostFactory {
             for(JSONObject answer : answers) {
                 JSONObject formatted = dataToString(answer);
                 Log.i("DataPostFactory", "Posting: " + formatted);
-                addData(ANSWERS, answer.toString());
+                addData(ANSWERS, formatted.toString());
             }
         } catch (JSONException|IOException e) {
             Log.e("DataPostFactory", "Unable to parse answers\n" + Log.getStackTraceString(e));

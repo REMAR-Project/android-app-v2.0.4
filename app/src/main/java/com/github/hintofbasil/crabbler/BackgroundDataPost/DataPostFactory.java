@@ -8,10 +8,12 @@ import android.util.Log;
 import com.github.hintofbasil.crabbler.Keys;
 import com.github.hintofbasil.crabbler.Questions.QuestionManager;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -51,12 +53,28 @@ public class DataPostFactory {
         try {
             List<JSONObject> answers = questionManager.exportAnswers();
             for(JSONObject answer : answers) {
-                Log.i("-----------", "M: " + answer);
+                JSONObject formatted = dataToString(answer);
+                Log.i("DataPostFactory", "Posting: " + formatted);
                 addData(ANSWERS, answer.toString());
             }
         } catch (JSONException|IOException e) {
             Log.e("DataPostFactory", "Unable to parse answers\n" + Log.getStackTraceString(e));
         }
+    }
+
+    private JSONObject dataToString(JSONObject data) throws JSONException {
+        JSONObject obj = new JSONObject();
+        Iterator<String> keyIter = data.keys();
+        while(keyIter.hasNext()) {
+            String key = keyIter.next();
+            JSONArray answer = (JSONArray) data.get(key);
+            JSONArray newArray = new JSONArray();
+            for (int i = 0; i < answer.length(); i++) {
+                newArray.put(answer.get(i).toString());
+            }
+            obj.put(key, newArray);
+        }
+        return obj;
     }
 
     /**

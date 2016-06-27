@@ -61,34 +61,12 @@ public class QuestionManager {
         return cache;
     }
 
-    private JSONObject findQuestionInArray(int id, JSONArray array) throws JSONException, IOException {
-        int manipulatableId = id;
-        for(int i=0; i<array.length(); i++) {
-            JSONObject object = array.getJSONObject(i);
-            if(object.has("loop")) {
-                JSONArray subArray = object.getJSONArray("questions");
-                for(int j=1; j<=loopCounter[object.getInt("loop")]; j++) {
-                    JSONObject subSearch = findQuestionInArray(manipulatableId - (i * j), subArray);
-                    manipulatableId -= (subArray.length()); // Remove subquestions from total
-                    if (subSearch != null) {
-                        return subSearch;
-                    }
-                }
-                manipulatableId += 1; // Need as loop is an item but not a question
-            } else { // Must be a question
-                if(i==manipulatableId) {
-                    return object;
-                }
-            }
-        }
-        return null;
-    }
-
     public JSONObject getJsonQuestion(int id) throws IOException, JSONException {
-        return findQuestionInArray(id, readJSON());
+        Tuple<JSONObject, Integer, JSONArray, JSONObject> container = getContainer(id, readJSON(), null);
+        return container.fourth;
     }
 
-    private int getQuestionCount(boolean withNumberOnly, JSONArray array) throws JSONException {
+    private int getQuestionCount(boolean withNumberOnly, JSONArray array) throws JSONException, IOException {
         int count = 0, loopId = 0;
         for(int i=0; i<array.length(); i++) {
             JSONObject object = array.getJSONObject(i);
@@ -98,6 +76,18 @@ public class QuestionManager {
             } else { // Must be a question
                 if(!withNumberOnly || object.has("questionNumber")) {
                     count++;
+                }
+                // Check for skip
+                if(object.has("jumpOn")) {
+                    String[] split = object.getString("jumpOn").split("->");
+                    try {
+                        String[] split2 = split[0].split(":");
+                        JSONArray answer = getAnswer(Integer.parseInt(split2[0]));
+                        if (answer.getString(Integer.parseInt(split2[1])).equals("1")) {
+                            i += Integer.parseInt(split[1]);
+                            i += 1; //TODO check logic error
+                        }
+                    } catch(JSONException e) {}
                 }
             }
         }
@@ -121,7 +111,7 @@ public class QuestionManager {
     }
 
     public JSONArray getAnswer(int id) throws JSONException, IOException {
-        Tuple<JSONObject, Integer, JSONArray> container = getContainer(id, readJSON(), null);
+        Tuple<JSONObject, Integer, JSONArray, JSONObject> container = getContainer(id, readJSON(), null);
         JSONObject answers = getCurrentAnswers(containerToAnswerKey(container.first));
         return answers.getJSONArray(String.valueOf(container.second));
     }
@@ -130,7 +120,7 @@ public class QuestionManager {
         if(answer == null) {
             Log.i("QuestionManager", "Q" + id + " No answer given.");
         }
-        Tuple<JSONObject, Integer, JSONArray> container = getContainer(id, readJSON(), null);
+        Tuple<JSONObject, Integer, JSONArray, JSONObject> container = getContainer(id, readJSON(), null);
         // TODO handle custom save to
         JSONObject answers = getCurrentAnswers(containerToAnswerKey(container.first));
         answers.put(String.valueOf(container.second), answer);
@@ -182,28 +172,38 @@ public class QuestionManager {
      * @return  A tuple of (parent, questionId, questionsArray).  Parent is null if parent is base array.
      * @throws JSONException
      */
-    private Tuple<JSONObject, Integer, JSONArray> getContainer(int id, JSONArray array, JSONObject parent) throws JSONException {
+    private Tuple<JSONObject, Integer, JSONArray, JSONObject> getContainer(int id, JSONArray array, JSONObject parent) throws JSONException, IOException {
         int questionId = 0;
         for(int i=0; i<array.length(); i++) {
             JSONObject object = array.getJSONObject(i);
             if(object.has("loop")) {
                 JSONArray subArray = object.getJSONArray("questions");
                 for(int j=1; j<=loopCounter[object.getInt("loop")]; j++) {
-                    Tuple<JSONObject, Integer, JSONArray> found = getContainer(id - (i * j), subArray, object);
+                    Tuple<JSONObject, Integer, JSONArray, JSONObject> found = getContainer(id - (i * j), subArray, object);
                     id -= (subArray.length()); // Remove subquestions from total
                     if (found != null) {
                         int questionCount = getQuestionCountInContainer(subArray);
-                        return new Tuple<JSONObject, Integer, JSONArray>(found.first, found.second + ((j - 1) * questionCount), subArray);
+                        return new Tuple<JSONObject, Integer, JSONArray, JSONObject>(found.first, found.second + ((j - 1) * questionCount), subArray, null);
                     }
                 }
             } else { // Must be a question
                 if(questionId==id) {
                     if(parent != null) {
-                        return new Tuple<JSONObject, Integer, JSONArray>(parent, questionId, array);
+                        return new Tuple<JSONObject, Integer, JSONArray, JSONObject>(parent, questionId, array, object);
                     } else {
-                        return new Tuple<JSONObject, Integer, JSONArray>(parent, questionId, array);
+                        return new Tuple<JSONObject, Integer, JSONArray, JSONObject>(parent, questionId, array, object);
                     }
                 } else {
+                    // Check for skip
+                    if(object.has("jumpOn")) {
+                        String[] split = object.getString("jumpOn").split("->");
+                        String[] split2 = split[0].split(":");
+                        JSONArray answer = getAnswer(Integer.parseInt(split2[0]));
+                        if(answer.getString(Integer.parseInt(split2[1])).equals("1")) {
+                            id += Integer.parseInt(split[1]);
+                            continue;
+                        }
+                    }
                     questionId++;
                 }
             }
@@ -231,16 +231,18 @@ public class QuestionManager {
         }
     }
 
-    class Tuple<T, U, V> {
+    class Tuple<T, U, V, W> {
 
         private T first;
         private U second;
         private V third;
+        private W fourth;
 
-        public Tuple(T first, U second, V third) {
+        public Tuple(T first, U second, V third, W fourth) {
             this.first = first;
             this.second = second;
             this.third = third;
+            this.fourth = fourth;
         }
 
         public T getFirst() {
@@ -255,9 +257,13 @@ public class QuestionManager {
             return third;
         }
 
+        public W getFourth() {
+            return fourth;
+        }
+
         @Override
         public String toString() {
-            return "(" + first + "," + second + "," + third + ")";
+            return "(" + first + "," + second + "," + third + "," + fourth + ")";
         }
     }
 

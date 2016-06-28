@@ -10,9 +10,9 @@
     <string name="no">No</string>
     <string name="maybe">I don\'t know</string>
 
-    <string name="only_day">Only day</string>
-    <string name="only_night">Only night</string>
-    <string name="day_and_night">Day and night</string>
+    <string name="only_day">Only at day</string>
+    <string name="only_night">Only at night</string>
+    <string name="day_and_night">At day and night</string>
     <string name="day_night_unknown">I don\'t know</string>
 
     <string name="back">Back</string>

@@ -41,7 +41,7 @@
     "questionType": "DateRangeSelect",
     "questionPicture": "q0_(0:0)",
     "questionTitle": "crab_title_(0:0)",
-    "description": "Click the day that andada it was strongest\n(optional)",
+    "description": "Click the day that andada was strongest\n(optional)",
     "month": "(1:1)",
     "year": "(1:2)",
     "filterOnQuestion": -1,

@@ -65,6 +65,7 @@
                         android:textAlignment="center"
                         android:textSize="@dimen/question_selection_title"
                         android:text=""
+                        android:lines="2"
                         />
                     <ImageView
                         android:id="@+id/choice_one_image"
@@ -93,6 +94,7 @@
                         android:textAlignment="center"
                         android:textSize="@dimen/question_selection_title"
                         android:text=""
+                        android:lines="2"
                         />
                     <ImageView
                         android:id="@+id/choice_two_image"

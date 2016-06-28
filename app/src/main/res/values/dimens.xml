@@ -17,6 +17,7 @@
     <dimen name="about_us_title">18sp</dimen>
     <dimen name="about_us_content">15sp</dimen>
     <dimen name="about_us_button_size">45dp</dimen>
+    <dimen name="about_us_text_padding">50dp</dimen>
 
     <dimen name="day_night_image_holder_height">120dp</dimen>
     <dimen name="day_night_image_holder_width">120dp</dimen>

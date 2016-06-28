@@ -52,8 +52,8 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/about_us_content"
                 android:visibility="gone"
-                android:paddingRight="@dimen/about_us_button_size"
-                android:paddingEnd="@dimen/about_us_button_size" />
+                android:paddingRight="@dimen/about_us_text_padding"
+                android:paddingEnd="@dimen/about_us_text_padding" />
 
         </TableRow>
 

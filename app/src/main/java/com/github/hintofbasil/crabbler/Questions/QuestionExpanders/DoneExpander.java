@@ -24,7 +24,7 @@ import org.json.JSONObject;
  */
 public class DoneExpander extends Expander {
 
-    public static final int SEND_DELAY = 4000;
+    public static final int SEND_DELAY = 6000;
 
     public DoneExpander(AppCompatActivity activity, JSONObject questionJson) {
         super(activity, questionJson, 0);
@@ -53,7 +53,7 @@ public class DoneExpander extends Expander {
 
             }
         }.start();
-        
+
         postAnswers();
 
     }

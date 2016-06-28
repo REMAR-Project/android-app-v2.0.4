@@ -49,9 +49,12 @@ public class DoneExpander extends Expander {
 
             @Override
             public void onFinish() {
-                postAnswers();
+                toFirstQuestion();
+
             }
         }.start();
+        
+        postAnswers();
 
     }
 
@@ -72,7 +75,9 @@ public class DoneExpander extends Expander {
         Toast.makeText(activity.getBaseContext(),
                 activity.getString(R.string.thank_you_toast),
                 Toast.LENGTH_LONG).show();
+    }
 
+    private void toFirstQuestion() {
         Intent intent = new Intent(activity.getBaseContext(),
                 QuestionActivity.class);
         activity.startActivity(intent);

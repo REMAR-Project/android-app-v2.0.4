@@ -60,7 +60,7 @@
     "questionType": "ListSelect",
     "questionPicture": "q0_(0:0)",
     "questionTitle": "crab_title_(0:0)",
-    "description": "Select the state where you made your observation",
+    "description": "Scroll and select the state where you made your observation",
     "jsonInput": "regions.json",
     "detailPicture": "brazil_regions.png",
     "disableCustom": "true"

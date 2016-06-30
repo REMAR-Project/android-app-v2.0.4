@@ -1,17 +1,13 @@
 package com.github.hintofbasil.crabbler.Questions.QuestionExpanders;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostFactory;
-import com.github.hintofbasil.crabbler.Keys;
 import com.github.hintofbasil.crabbler.Questions.QuestionActivity;
 import com.github.hintofbasil.crabbler.R;
 

@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,6 +52,7 @@ public class AboutUsFragment extends Fragment {
         title.setText(Html.fromHtml(this.title));
         TextView content = (TextView) view.findViewById(R.id.content);
         content.setText(Html.fromHtml(this.content));
+        content.setMovementMethod(LinkMovementMethod.getInstance());
         return view;
     }
 

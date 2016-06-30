@@ -1,5 +1,5 @@
 package com.github.hintofbasil.crabbler;
-import android.util.Log;
+import android.text.Html;
 
 import android.app.Fragment;
 import android.content.Context;
@@ -47,11 +47,10 @@ public class AboutUsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_about_us, container, false);
-        RichTextExpander richTextExpander = new RichTextExpander();
         TextView title = (TextView) view.findViewById(R.id.title);
-        title.setText(richTextExpander.toRichText(this.title));
+        title.setText(Html.fromHtml(this.title));
         TextView content = (TextView) view.findViewById(R.id.content);
-        content.setText(richTextExpander.toRichText(this.content));
+        content.setText(Html.fromHtml(this.content));
         return view;
     }
 

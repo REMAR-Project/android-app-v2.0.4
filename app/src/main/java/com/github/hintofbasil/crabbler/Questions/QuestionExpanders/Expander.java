@@ -7,7 +7,9 @@ import android.graphics.drawable.Drawable;
 import android.os.CountDownTimer;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
 import android.text.SpannableString;
+import android.text.Spanned;
 import android.util.Log;
 import android.widget.ImageView;
 
@@ -15,7 +17,6 @@ import com.github.hintofbasil.crabbler.Keys;
 import com.github.hintofbasil.crabbler.Questions.QuestionActivity;
 import com.github.hintofbasil.crabbler.Questions.QuestionManager;
 import com.github.hintofbasil.crabbler.R;
-import com.github.hintofbasil.crabbler.RichTextExpander;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -180,9 +181,9 @@ public abstract class Expander {
         }
     }
 
-    protected SpannableString getRichTextQuestionString(String string) throws JSONException {
-        RichTextExpander richTextExpander = new RichTextExpander();
-        return richTextExpander.toRichText(getQuestionString(string));
+    protected Spanned getRichTextQuestionString(String string) throws JSONException {
+        string = string.replaceAll("\\n", "\n");
+        return Html.fromHtml(getQuestionString(string));
     }
 
     public String getStringResourceOrReturn(String string) {

@@ -2,8 +2,8 @@
   {
     "questionNumber": 0,
     "questionType": "TwoPictureChoice",
-    "questionText": "<b>Become a citizen scientist</b> and help us to record mass mating events in the mangrove crabs <i>Ucides cordatus</i> and <i>Cardisoma guanhumi</i>, in relation to the moon, between November and April each year.\n\nThis information will help to improve fisheries legislation which prohibits the catch of these crabs during mass mating events.\n\nFor more information click on the menu.\n\nClick on the below pictures to share your observations.",
-    "choiceOneTitle": "Ucides\ncordatus",
+    "questionText": "<b>Become a citizen scientist</b> and help us to record mass mating events in the mangrove crabs <i>Ucides cordatus</i> and <i>Cardisoma guanhumi</i>, in relation to the moon, between November and April each year.<br><br>This information will help to improve fisheries legislation which prohibits the catch of these crabs during mass mating events.\n\nFor more information click on the menu.<br><br>Click on the below pictures to share your observations.",
+    "choiceOneTitle": "Ucides cordatus",
     "choiceOnePicture": "q0_0",
     "choiceTwoTitle": "Cardisoma guanhumi",
     "choiceTwoPicture": "q0_1"
@@ -41,7 +41,7 @@
     "questionType": "DateRangeSelect",
     "questionPicture": "q0_(0:0)",
     "questionTitle": "crab_title_(0:0)",
-    "description": "Click the day that andada was strongest\n(optional)",
+    "description": "Click the day that andada was strongest<br>(optional)",
     "month": "(1:1)",
     "year": "(1:2)",
     "filterOnQuestion": -1,
@@ -70,7 +70,7 @@
     "questionType": "ListSelect",
     "questionPicture": "q0_(0:0)",
     "questionTitle": "crab_title_(0:0)",
-    "description": "Enter the city closest to your mangrove\nIf you can not find your city in the menu you can also type the name in",
+    "description": "Enter the city closest to your mangrove<br>If you can not find your city in the menu you can also type the name in",
     "jsonInput": "region_cities.json",
     "jsonKey": "(-1:0)",
     "cacheAnswer": true

@@ -90,8 +90,32 @@ public class UserDetailsExpander extends Expander {
     @Override
     public JSONArray getSelectedAnswer() {
         JSONArray array = new JSONArray();
-        array.put(nameView.getText());
-        array.put(emailView.getText());
+        String name = nameView.getText().toString();
+        if(name.isEmpty() && !nameView.getHint().toString().equals(activity.getString(R.string.enter_name))) {
+            name = nameView.getHint().toString();
+        }
+        array.put(name);
+        String email = emailView.getText().toString();
+        if(email.isEmpty() && !emailView.getHint().toString().equals(activity.getString(R.string.enter_email))) {
+            email = emailView.getHint().toString();
+        }
+        array.put(email);
         return array;
+    }
+
+    @Override
+    protected void applyCachedAnswer(JSONArray answer) throws JSONException {
+        if(answer.length() > 0) {
+            String name = answer.getString(0);
+            if(!name.isEmpty()) {
+                nameView.setHint(name);
+            }
+        }
+        if(answer.length() > 1) {
+            String email = answer.getString(1);
+            if(!email.isEmpty()) {
+                emailView.setHint(email);
+            }
+        }
     }
 }

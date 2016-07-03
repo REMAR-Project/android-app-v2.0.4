@@ -70,12 +70,25 @@
     "questionType": "ListSelect",
     "questionPicture": "q0_(0:0)",
     "questionTitle": "crab_title_(0:0)",
-    "description": "Digite o nome da cidade mais perto do seu manguezal:",
-    "jsonInput": "region_cities.json",
+    "description": "Rolar e selecionar o município onde você fez sua observação",
+    "jsonInput": "region_counties.json",
+    "detailPicture": "brazil_regions.png",
+    "disableCustom": "true",
     "jsonKey": "(-1:0)"
   },
   {
     "questionNumber": 8,
+    "questionType": "ListSelect",
+    "questionPicture": "q0_(0:0)",
+    "questionTitle": "crab_title_(0:0)",
+    "description": "Digite o nome do distrito, bairro ou vila perto do manguezal onde você fez sua observação (opcional)",
+    "disableList": true,
+    "disablePicture": true,
+    "optional": true,
+    "cacheAnswer": true
+  },
+  {
+    "questionNumber": 9,
     "questionType": "YesNoExtra",
     "questionPicture": "q0_(0:0)",
     "questionTitle": "crab_title_(0:0)",
@@ -83,7 +96,7 @@
     "extraDetailText": "Qual é o nome da unidade de conservação?"
   },
   {
-    "questionNumber": 9,
+    "questionNumber": 10,
     "questionType": "UserDetails",
     "questionPicture": "q0_(0:0)",
     "questionTitle": "crab_title_(0:0)",

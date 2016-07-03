@@ -122,7 +122,12 @@ public abstract class Expander {
         } catch (IOException|JSONException e) {
             JSONArray def = getCachedAnswer();
             if(def!=null) {
-                setPreviousAnswer(def);
+                try {
+                    applyCachedAnswer(def);
+                } catch (JSONException e1) {
+                    setPreviousAnswer(new JSONArray()); // Allow populating of lists
+                    Log.d("Expander", "Unable to load answer");
+                }
             } else {
                 setPreviousAnswer(new JSONArray()); // Allow populating of lists
                 Log.d("Expander", "Unable to load answer");
@@ -247,6 +252,16 @@ public abstract class Expander {
             prefs.edit().putString(Keys.ANSWER_CACHE, json.toString()).apply();
         } catch(JSONException e) {
             Log.e("QuestionManager", "Unable to save default answer: " + definedQuestionId + " " + answer);
+        }
+    }
+
+    /**
+     * Calls setAnswer(answer).
+     * Can be overridden to provide alternative logic for cached answers.
+     */
+    protected void applyCachedAnswer(JSONArray answer) throws JSONException {
+        if(answer!=null) {
+            setPreviousAnswer(answer);
         }
     }
 }

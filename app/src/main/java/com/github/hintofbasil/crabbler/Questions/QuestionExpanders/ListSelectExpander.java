@@ -130,23 +130,8 @@ public class ListSelectExpander extends Expander {
             Log.i("ListSelectExpander", "Unable to parse previous answer");
         }
         try {
-            int regionId = -1;
             if (jsonArray != null) {
-                listStrings = new String[jsonArray.length()];
-                for (int i = 0; i < jsonArray.length(); i++) {
-                    String listItem = jsonArray.getString(i);
-                    listStrings[i] = listItem;
-                    if (listItem.equals(region)) {
-                        regionId = i;
-                    }
-                }
-
-                adapter = new ColorListAdapter<String>(
-                        activity.getBaseContext(),
-                        R.layout.list_background,
-                        listStrings,
-                        regionId);
-                listHolder.setAdapter(adapter);
+                populateLists(region);
                 itemTextInput.setText(region);
                 Log.i("ListSelectExpander", "Successfully populated list");
             } else {
@@ -190,5 +175,33 @@ public class ListSelectExpander extends Expander {
                 return;
             }
         }
+    }
+
+    @Override
+    protected void applyCachedAnswer(JSONArray answer) throws JSONException {
+        if(answer!=null && answer.length() > 0) {
+            String region = answer.getString(0);
+            itemTextInput.setHint(region);
+            populateLists(region);
+        }
+    }
+
+    private void populateLists(String selectedRegion) throws JSONException {
+        int regionId = -1;
+        listStrings = new String[jsonArray.length()];
+        for (int i = 0; i < jsonArray.length(); i++) {
+            String listItem = jsonArray.getString(i);
+            listStrings[i] = listItem;
+            if (listItem.equals(selectedRegion)) {
+                regionId = i;
+            }
+        }
+
+        adapter = new ColorListAdapter<String>(
+                activity.getBaseContext(),
+                R.layout.list_background,
+                listStrings,
+                regionId);
+        listHolder.setAdapter(adapter);
     }
 }

@@ -159,7 +159,7 @@ public class ListSelectExpander extends Expander {
         }
         int resourceId = activity.getResources().getIdentifier(filename, "raw", activity.getPackageName());
         InputStream jsonInputStream = activity.getBaseContext().getResources().openRawResource(resourceId);
-        byte[] buffer = new byte[65000];  // Large buffer required for region_cities.json
+        byte[] buffer = new byte[65000];  // Large buffer required for region_countieses.json
         int length = jsonInputStream.read(buffer);
         return new String(buffer).substring(0, length);
     }

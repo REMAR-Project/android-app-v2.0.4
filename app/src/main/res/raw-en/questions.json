@@ -70,10 +70,11 @@
     "questionType": "ListSelect",
     "questionPicture": "q0_(0:0)",
     "questionTitle": "crab_title_(0:0)",
-    "description": "Enter the city closest to your mangrove<br>If you can not find your city in the menu you can also type the name in",
-    "jsonInput": "region_cities.json",
-    "jsonKey": "(-1:0)",
-    "cacheAnswer": true
+    "description": "Scroll and select the county where you made your observation",
+    "jsonInput": "region_counties.json",
+    "detailPicture": "brazil_regions.png",
+    "disableCustom": "true",
+    "jsonKey": "(-1:0)"
   },
   {
     "questionNumber": 8,

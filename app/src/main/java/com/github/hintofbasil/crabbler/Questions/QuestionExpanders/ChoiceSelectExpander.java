@@ -36,6 +36,8 @@ public class ChoiceSelectExpander extends Expander {
     JSONArray jsonArray = null;
     ColorListAdapter<String> adapter;
 
+    boolean disableList = false;
+
     public ChoiceSelectExpander(AppCompatActivity activity, JSONObject questionJson) {
         super(activity, questionJson, REQUIRED_ANSWERS);
     }
@@ -62,32 +64,57 @@ public class ChoiceSelectExpander extends Expander {
         }
         try {
             boolean disableCustom = Boolean.parseBoolean(getQuestionString("disableCustom"));
-            if(disableCustom == true) {
+            if(disableCustom) {
                 itemTextInput.setVisibility(View.GONE);
             }
         } catch (JSONException e) {
             Log.d("ChoiceSelectExpander", "disableCustom not specified in questions.json.  Enabled by default");
         }
+        try {
+            disableList = Boolean.parseBoolean(getQuestionString("disablePicture"));
+            if(disableList) {
+                listHolder.setVisibility(View.GONE);
+            }
+        } catch (JSONException e) {
+            Log.d("ChoiceSelectExpander", "disablePicture not specified in questions.json.  Enabled by default");
+        }
 
-        listHolder.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                itemTextInput.setText(((TextView) view).getText());
-                if (adapter != null) {
-                    adapter.removeDefault();
+        if(!disableList) {
+            listHolder.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    itemTextInput.setText(((TextView) view).getText());
+                    if (adapter != null) {
+                        adapter.removeDefault();
+                    }
+                    enableDisableNext();
                 }
-                enableDisableNext();
-            }
-        });
+            });
 
-        // Fix scrolling
-        listHolder.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                v.getParent().requestDisallowInterceptTouchEvent(true);
-                return false;
+            // Fix scrolling
+            listHolder.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    v.getParent().requestDisallowInterceptTouchEvent(true);
+                    return false;
+                }
+            });
+
+            try {
+                jsonArray = readFileArray(getQuestionString("jsonInput"));
+            } catch (JSONException e) {
+                try {
+                    jsonArray = readFileObject(getQuestionString("jsonInput")).getJSONArray(getQuestionString("jsonKey"));
+                } catch (JSONException|IOException e1) {
+                    Log.e("ChoiceSelectExpander", "Unable to parse json file" + Log.getStackTraceString(e1));
+                }
+            } catch (IOException e) {
+                Log.e("ChoiceSelectExpander", "Unable to parse json file" + Log.getStackTraceString(e));
             }
-        });
+        } else {
+            // Populate list with empty data
+            jsonArray = new JSONArray();
+        }
 
         itemTextInput.addTextChangedListener(new TextWatcher() {
             @Override
@@ -107,18 +134,6 @@ public class ChoiceSelectExpander extends Expander {
                 enableDisableNext();
             }
         });
-
-        try {
-            jsonArray = readFileArray(getQuestionString("jsonInput"));
-        } catch (JSONException e) {
-            try {
-                jsonArray = readFileObject(getQuestionString("jsonInput")).getJSONArray(getQuestionString("jsonKey"));
-            } catch (JSONException|IOException e1) {
-                Log.e("ChoiceSelectExpander", "Unable to parse json file" + Log.getStackTraceString(e1));
-            }
-        } catch (IOException e) {
-            Log.e("ChoiceSelectExpander", "Unable to parse json file" + Log.getStackTraceString(e));
-        }
     }
 
     @Override

@@ -78,6 +78,17 @@
   },
   {
     "questionNumber": 8,
+    "questionType": "ListSelect",
+    "questionPicture": "q0_(0:0)",
+    "questionTitle": "crab_title_(0:0)",
+    "description": "Type in the name of the district or village close to the mangrove where you made your observation (optional)",
+    "disableList": true,
+    "disablePicture": true,
+    "optional": true,
+    "cacheAnswer": true
+  },
+  {
+    "questionNumber": 9,
     "questionType": "YesNoExtra",
     "questionPicture": "q0_(0:0)",
     "questionTitle": "crab_title_(0:0)",
@@ -86,7 +97,7 @@
     "cacheAnswer": true
   },
   {
-    "questionNumber": 9,
+    "questionNumber": 10,
     "questionType": "UserDetails",
     "questionPicture": "q0_(0:0)",
     "questionTitle": "crab_title_(0:0)",

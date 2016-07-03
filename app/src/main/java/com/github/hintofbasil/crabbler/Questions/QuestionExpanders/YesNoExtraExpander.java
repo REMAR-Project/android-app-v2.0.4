@@ -149,6 +149,19 @@ public class YesNoExtraExpander extends Expander {
 
     @Override
     protected void applyCachedAnswer(JSONArray answer) throws JSONException {
+        if(answer.length() > 0) {
+            switch (answer.getInt(0)) {
+                case 0:
+                    chkYes.setChecked(true);
+                    break;
+                case 1:
+                    chkNo.setChecked(true);
+                    break;
+                case 2:
+                    chkMaybe.setChecked(true);
+                    break;
+            }
+        }
         if(answer.length() > 1) {
             hiddenInput.setHint(answer.getString(1));
         }

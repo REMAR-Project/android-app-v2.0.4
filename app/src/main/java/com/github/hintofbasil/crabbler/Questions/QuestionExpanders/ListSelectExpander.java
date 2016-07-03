@@ -145,7 +145,11 @@ public class ListSelectExpander extends Expander {
     @Override
     public JSONArray getSelectedAnswer() {
         JSONArray array = new JSONArray();
-        array.put(itemTextInput.getText().toString());
+        String answer = itemTextInput.getText().toString();
+        if(answer.isEmpty() && itemTextInput.getHint() != null) {
+            answer = itemTextInput.getHint().toString();
+        }
+        array.put(answer);
         return array;
     }
 

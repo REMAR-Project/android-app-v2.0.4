@@ -11,13 +11,13 @@ import android.widget.TextView;
 
 import com.github.hintofbasil.crabbler.AboutUsActivity;
 import com.github.hintofbasil.crabbler.Keys;
+import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.ChoiceSelectExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.UserDetailsExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DateRangeExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DateRangeSelectExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DayNightChoiceExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DoneExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.Expander;
-import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.ListSelectExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.TwoChoiceExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.TwoChoiceDateExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.TwoPictureLayoutExpander;
@@ -67,7 +67,7 @@ public class QuestionActivity extends AppCompatActivity {
                         expander = new DateRangeSelectExpander(this, questionJson);
                         break;
                     case "ListSelect":
-                        expander = new ListSelectExpander(this, questionJson);
+                        expander = new ChoiceSelectExpander(this, questionJson);
                         break;
                     case "YesNoExtra":
                         expander = new YesNoExtraExpander(this, questionJson);

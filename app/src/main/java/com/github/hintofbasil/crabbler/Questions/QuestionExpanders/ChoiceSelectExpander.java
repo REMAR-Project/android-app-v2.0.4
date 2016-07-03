@@ -25,7 +25,7 @@ import java.io.InputStream;
 /**
  * Created by will on 19/05/16.
  */
-public class ListSelectExpander extends Expander {
+public class ChoiceSelectExpander extends Expander {
 
     private static final int REQUIRED_ANSWERS = 1;
 
@@ -36,13 +36,13 @@ public class ListSelectExpander extends Expander {
     JSONArray jsonArray = null;
     ColorListAdapter<String> adapter;
 
-    public ListSelectExpander(AppCompatActivity activity, JSONObject questionJson) {
+    public ChoiceSelectExpander(AppCompatActivity activity, JSONObject questionJson) {
         super(activity, questionJson, REQUIRED_ANSWERS);
     }
 
     @Override
     public void expandLayout() throws JSONException {
-        activity.setContentView(R.layout.expander_list_select);
+        activity.setContentView(R.layout.expander_choice_select);
 
         ImageView imageView = (ImageView) activity.findViewById(R.id.image);
         TextView titleView = (TextView) activity.findViewById(R.id.title);
@@ -66,7 +66,7 @@ public class ListSelectExpander extends Expander {
                 itemTextInput.setVisibility(View.GONE);
             }
         } catch (JSONException e) {
-            Log.d("ListSelectExpander", "disableCustom not specified in questions.json.  Enabled by default");
+            Log.d("ChoiceSelectExpander", "disableCustom not specified in questions.json.  Enabled by default");
         }
 
         listHolder.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -114,10 +114,10 @@ public class ListSelectExpander extends Expander {
             try {
                 jsonArray = readFileObject(getQuestionString("jsonInput")).getJSONArray(getQuestionString("jsonKey"));
             } catch (JSONException|IOException e1) {
-                Log.e("ListSelectExpander", "Unable to parse json file" + Log.getStackTraceString(e1));
+                Log.e("ChoiceSelectExpander", "Unable to parse json file" + Log.getStackTraceString(e1));
             }
         } catch (IOException e) {
-            Log.e("ListSelectExpander", "Unable to parse json file" + Log.getStackTraceString(e));
+            Log.e("ChoiceSelectExpander", "Unable to parse json file" + Log.getStackTraceString(e));
         }
     }
 
@@ -127,18 +127,18 @@ public class ListSelectExpander extends Expander {
         try {
             region = answer.getString(0);
         } catch (JSONException e) {
-            Log.i("ListSelectExpander", "Unable to parse previous answer");
+            Log.i("ChoiceSelectExpander", "Unable to parse previous answer");
         }
         try {
             if (jsonArray != null) {
                 populateLists(region);
                 itemTextInput.setText(region);
-                Log.i("ListSelectExpander", "Successfully populated list");
+                Log.i("ChoiceSelectExpander", "Successfully populated list");
             } else {
-                Log.e("ListSelectExpander", "No questions to load");
+                Log.e("ChoiceSelectExpander", "No questions to load");
             }
         } catch (JSONException e) {
-            Log.e("ListSelectExpander", "Unable to populate list\n" + Log.getStackTraceString(e));
+            Log.e("ChoiceSelectExpander", "Unable to populate list\n" + Log.getStackTraceString(e));
         }
     }
 

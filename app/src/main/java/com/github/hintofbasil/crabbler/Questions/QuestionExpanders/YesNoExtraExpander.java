@@ -139,7 +139,18 @@ public class YesNoExtraExpander extends Expander {
         } else {
             array.put(-1);
         }
-        array.put(hiddenInput.getText().toString());
+        String answer = hiddenInput.getText().toString();
+        if(answer.isEmpty() && hiddenInput.getHint() != null) {
+            answer = hiddenInput.getHint().toString();
+        }
+        array.put(answer);
         return array;
+    }
+
+    @Override
+    protected void applyCachedAnswer(JSONArray answer) throws JSONException {
+        if(answer.length() > 1) {
+            hiddenInput.setHint(answer.getString(1));
+        }
     }
 }

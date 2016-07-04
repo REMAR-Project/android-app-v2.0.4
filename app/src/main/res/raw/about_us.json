@@ -5,7 +5,7 @@
   },
   {
     "title": "O que é uma andada?",
-    "content": "A andada, também conhecida por andança, carnaval ou suatá, é um fenômeno no qual os caranguejos saem de suas tocas, ficam agitados e realizam movimentos em massa para acasalamento. As andadas ocorrem poucos dias após a lua nova, ou após a lua cheia, ou, raramente, após ambas as fases, durante 3 a 4 meses entre novembro e abril de cada ano. "
+    "content": "A andada, também conhecida por andança, carnaval ou suatá, é um fenômeno no qual os caranguejos saem de suas tocas, ficam agitados e realizam movimentos em massa para acasalamento. No Brasil, as andadas ocorrem poucos dias após a lua nova, ou após a lua cheia, ou, raramente, após ambas as fases da lua, durante 3 a 4 meses entre novembro e abril de cada ano. "
   },
   {
     "title": "Porque saber quando ocorrem andadas?",
@@ -20,11 +20,19 @@
     "content": "O caranguejo-uçá, <i>Ucides cordatus</i>, é uma espécie que vive em tocas na lama e se alimenta basicamente de folhas de mangues, sendo, portanto, de grande importância para a teia alimentar do manguezal. Já o guaiamum, <i>Cardisoma guanhumi</i>, cava suas tocas em áreas de restinga, um dos ambientes mais ameaçados pela ocupação humana desordenada. Ambas as espécies realizam andadas, quando então ficam extremamente vulneráveis à captura, não só por extrativistas profissionais, mas pelas pessoas em geral, o que pode comprometer a sustentabilidade das suas pescarias."
   },
   {
-    "title": "omo você pode contribuir?",
-    "content": "A REMAR não tem recursos para contar os caranguejos durante a andada em todos estados e localidades do Brasil, por isso precisamos da sua ajuda para, através do aplicativo REMAR-Cidadão, fornecer preciosas informações sobre presença e ausência de andadas após lua cheia e lua nova nos meses de reprodução dos caranguejos. Assim, com apenas XX min e XX cliques, você terá a chance de atuar como um verdadeiro pesquisador e ainda contribuir para o uso sustentável de um importante recurso pesqueiro e para melhorar a qualidade de vida dos extrativistas."
+    "title": "Como você pode contribuir?",
+    "content": "A REMAR não tem recursos para contar os caranguejos durante a andada em todos estados e localidades do Brasil, por isso precisamos da sua ajuda para, através do aplicativo REMAR<small>_CIDADÃO</small>, fornecer preciosas informações sobre presença e ausência de andadas após lua cheia e lua nova nos meses de reprodução dos caranguejos. Assim, com apenas 11 cliques, você terá a chance de atuar como um verdadeiro pesquisador e ainda contribuir para o uso sustentável de um importante recurso pesqueiro e para melhorar a qualidade de vida dos extrativistas."
   },
   {
     "title": "Quem somos?",
-    "content": "Nós somos pesquisadores de universidades e centros de pesquisa dedicados ao estudo de animais marinhos, entre os quais se destacam os caranguejos com importância ecológica e socioeconômica.<br>Coordenadores da REMAR:<br>Dr. Karen Diele, Edinburgh Napier University, Escócia<br>Dr. Anders Schmidt, UFSB, BA<br><br>Colaboradores Principais<br>MSc. Andrei Cardoso, ICMBio, RESEX de Soure, PA<br>Dr. Darlan Simith, UFPA, PA<br>Dr. Jose Mourão, UEPB, PB<br>Dr. Anarosa Araujo, UFS, SE<br>Dr. Luiz Fernando, UFES, ES<br>Prof. Paulo Lana, UFPR, PR<br>Dr. Rodrigo Medeiro, UFPR, PR<br>Dr. Paulo Pagliosa, UFSC, SC"
+    "content": "Nós somos pesquisadores de universidades e centros de pesquisa dedicados ao estudo de animais marinhos, entre os quais se destacam os caranguejos com importância ecológica e socioeconômica.<br>Coordenadores da REMAR:<br>Dr. Karen Diele, Edinburgh Napier University, Escócia, UK<br>Dr. Anders J. Schmidt, UFSB, BA, Brazil<br><br>Colaboradores principais no Brasil<br>MSc. Andrei Cardoso, ICMBio, RESEX de Soure, PA<br>Dr. Darlan Simith, UFPA, PA<br>Dr. Jose Mourão, UEPB, PB<br>Dr. Anarosa Araujo, UFS, SE<br>Dr. Luiz Fernando, UFES, ES<br>Prof. Paulo Lana, UFPR, PR<br>Dr. Rodrigo Medeiro, UFPR, PR<br>Dr. Paulo Pagliosa, UFSC, SC"
+  },
+  {
+    "title": "Contato",
+    "content": "<a href=\"mailto:remar.quest@gmail.com\">remar.quest@gmail.com</a>"
+  },
+  {
+    "title": "Quem desenvolveu este aplicativo?",
+    "content": "A ideia e o conteúdo deste aplicativo foram desenvolvidos pela Dra. Karen Diele, da Edinburgh Napier University, Reino Unido, e pelo Dr. Anders J. Schmidt, da Universidade Federal do Sul da Bahia, Brasil. A programação foi realizada por engenheiros de computação da Edinburgh Napier University: Profa. Emma Hart, Prof. Neil Urquhart, Dr. Simon Wells, Max Atkinson e William Hutcheson. O trabalho foi patrocinado pela Edinburgh Napier University. Créditos das ilustrações de caranguejos: Frederico Lencioni Neto."
   }
 ]

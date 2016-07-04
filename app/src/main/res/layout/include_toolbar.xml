@@ -54,14 +54,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/toolbar_image_height"
                 android:adjustViewBounds="true"
-                android:layout_marginRight="@dimen/toolbar_image_padding"
+                android:layout_marginLeft="@dimen/toolbar_image_padding"
                 android:src="@drawable/napier"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/toolbar_image_height"
                 android:adjustViewBounds="true"
-                android:layout_marginRight="@dimen/toolbar_image_padding"
+                android:layout_marginLeft="@dimen/toolbar_image_padding"
                 android:src="@drawable/ufsb" />
 
         </LinearLayout>

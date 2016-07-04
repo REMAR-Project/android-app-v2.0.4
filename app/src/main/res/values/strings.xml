@@ -26,8 +26,8 @@
     <string name="citizen_scientist">Agora você é um cientista cidadão!</string>
     <string name="thank_you_toast">Suas respostas foram enviadas com sucesso.</string>
 
-    <string name="enter_name">Full name</string>
-    <string name="enter_email">Email address</string>
+    <string name="enter_name">Escreva seu nome completo</string>
+    <string name="enter_email">Digite seu endereço eletrônico</string>
 
     <string name="crab_title_0">Monitoramento do Caranguejo-uçá</string>
     <string name="crab_title_1">Monitoramento do Guaiamum</string>

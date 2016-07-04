@@ -65,4 +65,7 @@
     <dimen name="list_select_input_text">16sp</dimen>
 
     <dimen name="button_text">16sp</dimen>
+
+    <dimen name="toolbar_image_height">24dp</dimen>
+    <dimen name="toolbar_image_padding">10dp</dimen>
 </resources>

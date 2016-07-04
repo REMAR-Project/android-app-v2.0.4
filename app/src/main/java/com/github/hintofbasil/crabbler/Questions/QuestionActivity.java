@@ -124,6 +124,9 @@ public class QuestionActivity extends AppCompatActivity {
             if(questionId > 0) { // Only show menu button on first question
                 LinearLayout menuButton = (LinearLayout) findViewById(R.id.toolbar_menu_button);
                 menuButton.setVisibility(View.GONE);
+            } else { //Hide images if menu button is present
+                LinearLayout toolbarImages = (LinearLayout) findViewById(R.id.toolbar_images);
+                toolbarImages.setVisibility(View.GONE);
             }
 
         } catch (IOException|JSONException e) {

@@ -43,6 +43,7 @@
         android:layout_centerVertical="true" >
 
         <LinearLayout
+            android:id="@+id/toolbar_images"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/toolbar_image_height"
             android:orientation="horizontal"

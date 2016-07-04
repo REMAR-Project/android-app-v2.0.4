@@ -24,7 +24,7 @@
     <string name="done">Done</string>
     <string name="thank_you">Muito obrigado pela participação!</string>
     <string name="citizen_scientist">Agora você é um cientista cidadão!</string>
-    <string name="thank_you_toast">Your answers have been submitted.</string>
+    <string name="thank_you_toast">Suas respostas foram enviadas com sucesso.</string>
 
     <string name="enter_name">Full name</string>
     <string name="enter_email">Email address</string>

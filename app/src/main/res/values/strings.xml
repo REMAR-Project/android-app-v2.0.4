@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">REMAR citizen</string>
+    <string name="app_name">REMAR cidadão</string>
 
     <string name="toolbar_app_name">REMAR_</string>
-    <string name="toolbar_app_sub_name">CITIZEN</string>
+    <string name="toolbar_app_sub_name">CIDADÃO</string>
 
     <string name="internal_error">An internal error occurred.  Please restart.</string>
     <string name="back_button">Previous</string>

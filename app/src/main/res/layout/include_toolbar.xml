@@ -36,30 +36,60 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/toolbar_menu_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:gravity="center_vertical"
-        android:layout_centerInParent="true"
-        android:clickable="true"
-        android:onClick="menuClick"
-        android:background="@drawable/square_black_border"
-        android:padding="5dp" >
+        android:layout_centerVertical="true" >
 
-        <TextView
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/toolbar_image_height"
+            android:orientation="horizontal"
+            android:layout_toLeftOf="@+id/toolbar_menu_button"
+            android:layout_gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/toolbar_image_height"
+                android:adjustViewBounds="true"
+                android:layout_marginRight="@dimen/toolbar_image_padding"
+                android:src="@drawable/napier"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/toolbar_image_height"
+                android:adjustViewBounds="true"
+                android:layout_marginRight="@dimen/toolbar_image_padding"
+                android:src="@drawable/ufsb" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/toolbar_menu_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/menu"
-            android:textSize="@dimen/toolbar_menu"
-            android:textColor="@color/toolbarTitle" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_centerInParent="true"
+            android:clickable="true"
+            android:onClick="menuClick"
+            android:background="@drawable/square_black_border"
+            android:padding="5dp" >
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@android:drawable/ic_menu_info_details" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/menu"
+                android:textSize="@dimen/toolbar_menu"
+                android:textColor="@color/toolbarTitle" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_menu_info_details" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

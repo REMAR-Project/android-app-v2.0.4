@@ -20,10 +20,8 @@ import org.json.JSONObject;
  */
 public class DayNightChoiceExpander extends Expander {
 
-    private static final int REQUIRED_ANSWERS = 2;
+    private static final int REQUIRED_ANSWERS = 1;
 
-    CheckBox choiceOneCheckBox;
-    CheckBox choiceTwoCheckBox;
     CheckBox unknown;
     LinearLayout dayLayout;
     LinearLayout nightLayout;
@@ -41,8 +39,6 @@ public class DayNightChoiceExpander extends Expander {
 
         ImageView imageView = (ImageView) activity.findViewById(R.id.image);
         TextView titleView = (TextView) activity.findViewById(R.id.title);
-        choiceOneCheckBox = (CheckBox) activity.findViewById(R.id.choice_one);
-        choiceTwoCheckBox = (CheckBox) activity.findViewById(R.id.choice_two);
         unknown = (CheckBox) activity.findViewById(R.id.day_night_unknown);
         dayLayout = (LinearLayout) activity.findViewById(R.id.day_view);
         nightLayout = (LinearLayout) activity.findViewById(R.id.night_view);
@@ -50,24 +46,6 @@ public class DayNightChoiceExpander extends Expander {
 
         imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
         titleView.setText(getRichTextQuestionString("questionTitle"));
-        choiceOneCheckBox.setText(getRichTextQuestionString("choiceOneText"));
-        choiceTwoCheckBox.setText(getRichTextQuestionString("choiceTwoText"));
-
-        choiceOneCheckBox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                choiceTwoCheckBox.setChecked(false);
-                enableDisableNext();
-            }
-        });
-
-        choiceTwoCheckBox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                choiceOneCheckBox.setChecked(false);
-                enableDisableNext();
-            }
-        });
 
         dayLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,17 +88,7 @@ public class DayNightChoiceExpander extends Expander {
     protected void setPreviousAnswer(JSONArray answer) {
         try {
             int answerOne = answer.getInt(0);
-            if(answerOne == 0) {
-                choiceOneCheckBox.setChecked(true);
-            } else if(answerOne == 1) {
-                choiceTwoCheckBox.setChecked(true);
-            }
-        } catch (JSONException e) {
-            Log.d("DayNightChoiceExpander", "No previous answer (1)");
-        }
-        try {
-            int answerTwo = answer.getInt(1);
-            setDayNightChoice(answerTwo, R.color.questionSelectedBackground);
+            setDayNightChoice(answerOne, R.color.questionSelectedBackground);
         } catch (JSONException e) {
             Log.d("DayNightChoiceExpander", "No previous answer (1)");
         }
@@ -129,13 +97,6 @@ public class DayNightChoiceExpander extends Expander {
     @Override
     public JSONArray getSelectedAnswer() {
         JSONArray array = new JSONArray();
-        if(choiceOneCheckBox.isChecked()) {
-            array.put("0");
-        } else if(choiceTwoCheckBox.isChecked()) {
-            array.put("1");
-        } else {
-            array.put("-1");
-        }
         array.put(dayNightChoice);
         return array;
     }

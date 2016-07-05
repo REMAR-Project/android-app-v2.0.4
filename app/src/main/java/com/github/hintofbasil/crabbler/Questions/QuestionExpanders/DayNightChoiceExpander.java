@@ -24,16 +24,18 @@ public class DayNightChoiceExpander extends Expander {
 
     int count = 2;
 
-    CheckBox unknown;
+    CheckBox firstUnknown;
     LinearLayout firstDayLayout;
     LinearLayout firstNightLayout;
     LinearLayout firstDayNightLayout;
 
+    CheckBox secondUnknown;
     LinearLayout secondDayLayout;
     LinearLayout secondNightLayout;
     LinearLayout secondDayNightLayout;
 
-    int dayNightChoice = -1;
+    int firstDayNightChoice = -1;
+    int secondDayNightChoice = -1;
 
     public DayNightChoiceExpander(AppCompatActivity activity, JSONObject questionJson) {
         super(activity, questionJson, REQUIRED_ANSWERS);
@@ -49,7 +51,7 @@ public class DayNightChoiceExpander extends Expander {
 
         ImageView imageView = (ImageView) activity.findViewById(R.id.image);
         TextView titleView = (TextView) activity.findViewById(R.id.title);
-        unknown = (CheckBox) activity.findViewById(R.id.first_day_night_unknown);
+        firstUnknown = (CheckBox) activity.findViewById(R.id.first_day_night_unknown);
         firstDayLayout = (LinearLayout) activity.findViewById(R.id.first_day_view);
         firstNightLayout = (LinearLayout) activity.findViewById(R.id.first_night_view);
         firstDayNightLayout = (LinearLayout) activity.findViewById(R.id.first_day_night_view);
@@ -57,6 +59,42 @@ public class DayNightChoiceExpander extends Expander {
             secondDayLayout = (LinearLayout) activity.findViewById(R.id.second_day_view);
             secondNightLayout = (LinearLayout) activity.findViewById(R.id.second_night_view);
             secondDayNightLayout = (LinearLayout) activity.findViewById(R.id.second_day_night_view);
+            secondUnknown = (CheckBox) activity.findViewById(R.id.second_day_night_unknown);
+
+            secondDayLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    setDayNightChoiceTwo(0, R.color.questionSelectedBackground);
+                    enableDisableNext();
+                }
+            });
+
+            secondNightLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    setDayNightChoiceTwo(1, R.color.questionSelectedBackground);
+                    enableDisableNext();
+                }
+            });
+
+            secondDayNightLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    setDayNightChoiceTwo(2, R.color.questionSelectedBackground);
+                    enableDisableNext();
+                }
+            });
+
+            secondUnknown.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    setDayNightChoiceTwo(3, R.color.questionSelectedBackground);
+                    enableDisableNext();
+                }
+            });
+
+            //Override template defaults
+            secondUnknown.setTextColor(activity.getResources().getColor(android.R.color.tertiary_text_light));
         }
 
         imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
@@ -65,7 +103,7 @@ public class DayNightChoiceExpander extends Expander {
         firstDayLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setDayNightChoice(0, R.color.questionSelectedBackground);
+                setDayNightChoiceOne(0, R.color.questionSelectedBackground);
                 enableDisableNext();
             }
         });
@@ -73,7 +111,7 @@ public class DayNightChoiceExpander extends Expander {
         firstNightLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setDayNightChoice(1, R.color.questionSelectedBackground);
+                setDayNightChoiceOne(1, R.color.questionSelectedBackground);
                 enableDisableNext();
             }
         });
@@ -81,29 +119,29 @@ public class DayNightChoiceExpander extends Expander {
         firstDayNightLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setDayNightChoice(2, R.color.questionSelectedBackground);
+                setDayNightChoiceOne(2, R.color.questionSelectedBackground);
                 enableDisableNext();
             }
         });
 
-        unknown.setOnClickListener(new View.OnClickListener() {
+        firstUnknown.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setDayNightChoice(3, R.color.questionSelectedBackground);
+                setDayNightChoiceOne(3, R.color.questionSelectedBackground);
                 enableDisableNext();
             }
         });
 
         //Override template defaults
         titleView.setTextSize(activity.getResources().getDimension(R.dimen.day_night_choice_title));
-        unknown.setTextColor(activity.getResources().getColor(android.R.color.tertiary_text_light));
+        firstUnknown.setTextColor(activity.getResources().getColor(android.R.color.tertiary_text_light));
     }
 
     @Override
     protected void setPreviousAnswer(JSONArray answer) {
         try {
             int answerOne = answer.getInt(0);
-            setDayNightChoice(answerOne, R.color.questionSelectedBackground);
+            setDayNightChoiceOne(answerOne, R.color.questionSelectedBackground);
         } catch (JSONException e) {
             Log.d("DayNightChoiceExpander", "No previous answer (1)");
         }
@@ -112,16 +150,16 @@ public class DayNightChoiceExpander extends Expander {
     @Override
     public JSONArray getSelectedAnswer() {
         JSONArray array = new JSONArray();
-        array.put(dayNightChoice);
+        array.put(firstDayNightChoice);
         return array;
     }
 
-    private void setDayNightChoice(int choice, int colorId) {
+    private void setDayNightChoiceOne(int choice, int colorId) {
         highlightLinearLayout(firstDayLayout, R.color.none);
         highlightLinearLayout(firstNightLayout, R.color.none);
         highlightLinearLayout(firstDayNightLayout, R.color.none);
-        unknown.setChecked(false);
-        dayNightChoice = choice;
+        firstUnknown.setChecked(false);
+        firstDayNightChoice = choice;
         switch(choice) {
             case 0:
                 highlightLinearLayout(firstDayLayout, colorId);
@@ -133,7 +171,29 @@ public class DayNightChoiceExpander extends Expander {
                 highlightLinearLayout(firstDayNightLayout, colorId);
                 break;
             case 3:
-                unknown.setChecked(true);
+                firstUnknown.setChecked(true);
+                break;
+        }
+    }
+
+    private void setDayNightChoiceTwo(int choice, int colorId) {
+        highlightLinearLayout(secondDayLayout, R.color.none);
+        highlightLinearLayout(secondNightLayout, R.color.none);
+        highlightLinearLayout(secondDayNightLayout, R.color.none);
+        secondUnknown.setChecked(false);
+        secondDayNightChoice = choice;
+        switch(choice) {
+            case 0:
+                highlightLinearLayout(secondDayLayout, colorId);
+                break;
+            case 1:
+                highlightLinearLayout(secondNightLayout, colorId);
+                break;
+            case 2:
+                highlightLinearLayout(secondDayNightLayout, colorId);
+                break;
+            case 3:
+                secondUnknown.setChecked(true);
                 break;
         }
     }

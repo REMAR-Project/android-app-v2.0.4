@@ -15,6 +15,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
+
 /**
  * Created by will on 03/06/16.
  */
@@ -22,7 +24,7 @@ public class DayNightChoiceExpander extends Expander {
 
     private static final int REQUIRED_ANSWERS = 1;
 
-    int count = 2;
+    int count = 0;
 
     CheckBox firstUnknown;
     LinearLayout firstDayLayout;
@@ -43,6 +45,20 @@ public class DayNightChoiceExpander extends Expander {
 
     @Override
     public void expandLayout() throws JSONException {
+        //Get count
+        try {
+            int countQuestionId = questionJson.getInt("quantityQuestion");
+            JSONArray answers = getAnswer(countQuestionId);
+            Log.i("-----", "L: " + answers);
+            for(int i=0;i<answers.length();i++) {
+                if(answers.getBoolean(i)) {
+                    count++;
+                }
+            }
+        } catch (IOException e) {
+            Log.e("DayNightChoiceExpander", "No attribute quantityQuestion");
+        }
+        Log.i("----", "P: " + count);
         if(count == 1) {
             activity.setContentView(R.layout.expander_day_night_choice);
         } else if(count == 2) {
@@ -145,11 +161,13 @@ public class DayNightChoiceExpander extends Expander {
         } catch (JSONException e) {
             Log.d("DayNightChoiceExpander", "No previous answer (0)");
         }
-        try {
-            int answerTwo = answer.getInt(1);
-            setDayNightChoiceTwo(answerTwo, R.color.questionSelectedBackground);
-        } catch (JSONException e) {
-            Log.d("DayNightChoiceExpander", "No previous answer (1)");
+        if(count == 2) {
+            try {
+                int answerTwo = answer.getInt(1);
+                setDayNightChoiceTwo(answerTwo, R.color.questionSelectedBackground);
+            } catch (JSONException e) {
+                Log.d("DayNightChoiceExpander", "No previous answer (1)");
+            }
         }
     }
 

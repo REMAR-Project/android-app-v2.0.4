@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content">
 
                 <LinearLayout
-                    android:id="@+id/day_view"
+                    android:id="@+id/first_day_view"
                     android:layout_width="@dimen/day_night_image_holder_width"
                     android:layout_height="@dimen/day_night_image_holder_height"
                     android:orientation="vertical"
@@ -68,12 +68,12 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/night_view"
+                    android:id="@+id/first_night_view"
                     android:layout_width="@dimen/day_night_image_holder_width"
                     android:layout_height="@dimen/day_night_image_holder_height"
                     android:orientation="vertical"
                     android:gravity="center_horizontal"
-                    android:layout_toRightOf="@+id/day_view"
+                    android:layout_toRightOf="@+id/first_day_view"
 
                     android:paddingBottom="@dimen/day_night_choice_vertical_padding"
                     android:paddingLeft="@dimen/day_night_choice_horizontal_padding"
@@ -100,12 +100,12 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/day_night_view"
+                    android:id="@+id/first_day_night_view"
                     android:layout_width="@dimen/day_night_image_holder_width_double"
                     android:layout_height="@dimen/day_night_image_holder_height"
                     android:orientation="vertical"
                     android:gravity="center_horizontal"
-                    android:layout_below="@+id/day_view"
+                    android:layout_below="@+id/first_day_view"
                     android:layout_centerInParent="true"
 
                     android:paddingBottom="@dimen/day_night_choice_vertical_padding"
@@ -135,7 +135,7 @@
             </RelativeLayout>
 
             <CheckBox
-                android:id="@+id/day_night_unknown"
+                android:id="@+id/first_day_night_unknown"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/day_night_unknown"

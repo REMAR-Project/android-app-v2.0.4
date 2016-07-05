@@ -53,7 +53,8 @@
     "questionPicture": "q0_(0:0)",
     "questionTitle": "crab_title_(0:0)",
     "choiceOneText": "Na lua nova",
-    "choiceTwoText": "Na lua cheia"
+    "choiceTwoText": "Na lua cheia",
+    "quantityQuestion": 2
   },
   {
     "questionNumber": 6,

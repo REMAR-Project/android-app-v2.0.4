@@ -27,6 +27,8 @@
     <dimen name="day_night_choice_horizontal_margin">10dp</dimen>
     <dimen name="day_night_choice_vertical_margin">0dp</dimen>
     <dimen name="day_night_choice_title">7sp</dimen>
+    <dimen name="day_night_choice_horizontal_padding_double">2dp</dimen>
+    <dimen name="day_night_choice_horizontal_margin_double">2dp</dimen>
 
     <dimen name="user_details_input_width">220dp</dimen>
 

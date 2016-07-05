@@ -22,10 +22,16 @@ public class DayNightChoiceExpander extends Expander {
 
     private static final int REQUIRED_ANSWERS = 1;
 
+    int count = 2;
+
     CheckBox unknown;
-    LinearLayout dayLayout;
-    LinearLayout nightLayout;
-    LinearLayout dayNightLayout;
+    LinearLayout firstDayLayout;
+    LinearLayout firstNightLayout;
+    LinearLayout firstDayNightLayout;
+
+    LinearLayout secondDayLayout;
+    LinearLayout secondNightLayout;
+    LinearLayout secondDayNightLayout;
 
     int dayNightChoice = -1;
 
@@ -35,19 +41,28 @@ public class DayNightChoiceExpander extends Expander {
 
     @Override
     public void expandLayout() throws JSONException {
-        activity.setContentView(R.layout.expander_day_night_choice);
+        if(count == 1) {
+            activity.setContentView(R.layout.expander_day_night_choice);
+        } else if(count == 2) {
+            activity.setContentView(R.layout.expander_day_night_choice_double);
+        }
 
         ImageView imageView = (ImageView) activity.findViewById(R.id.image);
         TextView titleView = (TextView) activity.findViewById(R.id.title);
-        unknown = (CheckBox) activity.findViewById(R.id.day_night_unknown);
-        dayLayout = (LinearLayout) activity.findViewById(R.id.day_view);
-        nightLayout = (LinearLayout) activity.findViewById(R.id.night_view);
-        dayNightLayout = (LinearLayout) activity.findViewById(R.id.day_night_view);
+        unknown = (CheckBox) activity.findViewById(R.id.first_day_night_unknown);
+        firstDayLayout = (LinearLayout) activity.findViewById(R.id.first_day_view);
+        firstNightLayout = (LinearLayout) activity.findViewById(R.id.first_night_view);
+        firstDayNightLayout = (LinearLayout) activity.findViewById(R.id.first_day_night_view);
+        if(count == 2) {
+            secondDayLayout = (LinearLayout) activity.findViewById(R.id.second_day_view);
+            secondNightLayout = (LinearLayout) activity.findViewById(R.id.second_night_view);
+            secondDayNightLayout = (LinearLayout) activity.findViewById(R.id.second_day_night_view);
+        }
 
         imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
         titleView.setText(getRichTextQuestionString("questionTitle"));
 
-        dayLayout.setOnClickListener(new View.OnClickListener() {
+        firstDayLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setDayNightChoice(0, R.color.questionSelectedBackground);
@@ -55,7 +70,7 @@ public class DayNightChoiceExpander extends Expander {
             }
         });
 
-        nightLayout.setOnClickListener(new View.OnClickListener() {
+        firstNightLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setDayNightChoice(1, R.color.questionSelectedBackground);
@@ -63,7 +78,7 @@ public class DayNightChoiceExpander extends Expander {
             }
         });
 
-        dayNightLayout.setOnClickListener(new View.OnClickListener() {
+        firstDayNightLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setDayNightChoice(2, R.color.questionSelectedBackground);
@@ -102,20 +117,20 @@ public class DayNightChoiceExpander extends Expander {
     }
 
     private void setDayNightChoice(int choice, int colorId) {
-        highlightLinearLayout(dayLayout, R.color.none);
-        highlightLinearLayout(nightLayout, R.color.none);
-        highlightLinearLayout(dayNightLayout, R.color.none);
+        highlightLinearLayout(firstDayLayout, R.color.none);
+        highlightLinearLayout(firstNightLayout, R.color.none);
+        highlightLinearLayout(firstDayNightLayout, R.color.none);
         unknown.setChecked(false);
         dayNightChoice = choice;
         switch(choice) {
             case 0:
-                highlightLinearLayout(dayLayout, colorId);
+                highlightLinearLayout(firstDayLayout, colorId);
                 break;
             case 1:
-                highlightLinearLayout(nightLayout, colorId);
+                highlightLinearLayout(firstNightLayout, colorId);
                 break;
             case 2:
-                highlightLinearLayout(dayNightLayout, colorId);
+                highlightLinearLayout(firstDayNightLayout, colorId);
                 break;
             case 3:
                 unknown.setChecked(true);

@@ -45,6 +45,14 @@
                     android:layout_weight="0.5"
                     android:orientation="vertical" >
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/calendar_legend_full_moon"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_horizontal"
+                        android:textSize="@dimen/description" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -72,7 +80,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/only_day"
-                                android:textSize="@dimen/day_night_choice_text"/>
+                                android:textSize="@dimen/day_night_choice_text"
+                                android:textAlignment="center" />
 
                             <ImageView
                                 android:layout_width="wrap_content"
@@ -103,7 +112,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/only_night"
-                                android:textSize="@dimen/day_night_choice_text"/>
+                                android:textSize="@dimen/day_night_choice_text"
+                                android:textAlignment="center" />
 
                             <ImageView
                                 android:id="@+id/first_night_image"
@@ -136,7 +146,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/day_and_night"
-                            android:textSize="@dimen/day_night_choice_text"/>
+                            android:textSize="@dimen/day_night_choice_text"
+                            android:textAlignment="center" />
 
                         <ImageView
                             android:id="@+id/first_day_image"
@@ -152,9 +163,14 @@
                         android:layout_height="wrap_content"
                         android:text="@string/day_night_unknown"
                         android:textSize="@dimen/checkbox_text"
-                        android:layout_below="@+id/first_day_night_view"/>
+                        android:layout_gravity="center_horizontal" />
 
                 </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/caldroid_black" />
 
                 <LinearLayout
                     android:id="@+id/second_choice_one_view"
@@ -163,6 +179,14 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
                     android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/calendar_legend_new_moon"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_horizontal"
+                        android:textSize="@dimen/description" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -191,7 +215,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/only_day"
-                                android:textSize="@dimen/day_night_choice_text"/>
+                                android:textSize="@dimen/day_night_choice_text"
+                                android:textAlignment="center" />
 
                             <ImageView
                                 android:layout_width="wrap_content"
@@ -222,7 +247,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/only_night"
-                                android:textSize="@dimen/day_night_choice_text"/>
+                                android:textSize="@dimen/day_night_choice_text"
+                                android:textAlignment="center" />
 
                             <ImageView
                                 android:id="@+id/second_night_image"
@@ -255,7 +281,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/day_and_night"
-                            android:textSize="@dimen/day_night_choice_text"/>
+                            android:textSize="@dimen/day_night_choice_text"
+                            android:textAlignment="center" />
 
                         <ImageView
                             android:id="@+id/second_day_image"
@@ -271,7 +298,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/day_night_unknown"
                         android:textSize="@dimen/checkbox_text"
-                        android:layout_below="@+id/first_day_night_view"/>
+                        android:layout_gravity="center" />
 
                 </LinearLayout>
 

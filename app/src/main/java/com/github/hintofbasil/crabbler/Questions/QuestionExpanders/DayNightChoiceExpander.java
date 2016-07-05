@@ -143,6 +143,12 @@ public class DayNightChoiceExpander extends Expander {
             int answerOne = answer.getInt(0);
             setDayNightChoiceOne(answerOne, R.color.questionSelectedBackground);
         } catch (JSONException e) {
+            Log.d("DayNightChoiceExpander", "No previous answer (0)");
+        }
+        try {
+            int answerTwo = answer.getInt(1);
+            setDayNightChoiceTwo(answerTwo, R.color.questionSelectedBackground);
+        } catch (JSONException e) {
             Log.d("DayNightChoiceExpander", "No previous answer (1)");
         }
     }
@@ -151,6 +157,9 @@ public class DayNightChoiceExpander extends Expander {
     public JSONArray getSelectedAnswer() {
         JSONArray array = new JSONArray();
         array.put(firstDayNightChoice);
+        if(count == 2) {
+            array.put(secondDayNightChoice);
+        }
         return array;
     }
 

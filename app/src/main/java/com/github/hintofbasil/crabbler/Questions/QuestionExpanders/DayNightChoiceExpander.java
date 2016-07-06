@@ -49,7 +49,6 @@ public class DayNightChoiceExpander extends Expander {
         try {
             int countQuestionId = questionJson.getInt("quantityQuestion");
             JSONArray answers = getAnswer(countQuestionId);
-            Log.i("-----", "L: " + answers);
             for(int i=0;i<answers.length();i++) {
                 if(answers.getBoolean(i)) {
                     count++;
@@ -58,7 +57,6 @@ public class DayNightChoiceExpander extends Expander {
         } catch (IOException e) {
             Log.e("DayNightChoiceExpander", "No attribute quantityQuestion");
         }
-        Log.i("----", "P: " + count);
         if(count == 1) {
             activity.setContentView(R.layout.expander_day_night_choice);
         } else if(count == 2) {

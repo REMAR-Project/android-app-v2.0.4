@@ -72,8 +72,8 @@
                             android:paddingTop="@dimen/day_night_choice_vertical_padding"
 
                             android:layout_marginBottom="@dimen/day_night_choice_vertical_margin"
-                            android:layout_marginLeft="@dimen/day_night_choice_horizontal_margin"
-                            android:layout_marginRight="@dimen/day_night_choice_horizontal_margin"
+                            android:layout_marginLeft="@dimen/day_night_choice_horizontal_margin_double"
+                            android:layout_marginRight="@dimen/day_night_choice_horizontal_margin_double"
                             android:layout_marginTop="@dimen/day_night_choice_vertical_margin" >
 
                             <TextView
@@ -104,8 +104,8 @@
                             android:paddingTop="@dimen/day_night_choice_vertical_padding"
 
                             android:layout_marginBottom="@dimen/day_night_choice_vertical_margin"
-                            android:layout_marginLeft="@dimen/day_night_choice_horizontal_margin"
-                            android:layout_marginRight="@dimen/day_night_choice_horizontal_margin"
+                            android:layout_marginLeft="@dimen/day_night_choice_horizontal_margin_double"
+                            android:layout_marginRight="@dimen/day_night_choice_horizontal_margin_double"
                             android:layout_marginTop="@dimen/day_night_choice_vertical_margin" >
 
                             <TextView
@@ -138,8 +138,8 @@
                         android:paddingTop="@dimen/day_night_choice_vertical_padding"
 
                         android:layout_marginBottom="@dimen/day_night_choice_vertical_margin"
-                        android:layout_marginLeft="@dimen/day_night_choice_horizontal_margin"
-                        android:layout_marginRight="@dimen/day_night_choice_horizontal_margin"
+                        android:layout_marginLeft="@dimen/day_night_choice_horizontal_margin_double"
+                        android:layout_marginRight="@dimen/day_night_choice_horizontal_margin_double"
                         android:layout_marginTop="@dimen/day_night_choice_vertical_margin" >
 
                         <TextView
@@ -207,8 +207,8 @@
                             android:paddingTop="@dimen/day_night_choice_vertical_padding"
 
                             android:layout_marginBottom="@dimen/day_night_choice_vertical_margin"
-                            android:layout_marginLeft="@dimen/day_night_choice_horizontal_margin"
-                            android:layout_marginRight="@dimen/day_night_choice_horizontal_margin"
+                            android:layout_marginLeft="@dimen/day_night_choice_horizontal_margin_double"
+                            android:layout_marginRight="@dimen/day_night_choice_horizontal_margin_double"
                             android:layout_marginTop="@dimen/day_night_choice_vertical_margin" >
 
                             <TextView
@@ -239,8 +239,8 @@
                             android:paddingTop="@dimen/day_night_choice_vertical_padding"
 
                             android:layout_marginBottom="@dimen/day_night_choice_vertical_margin"
-                            android:layout_marginLeft="@dimen/day_night_choice_horizontal_margin"
-                            android:layout_marginRight="@dimen/day_night_choice_horizontal_margin"
+                            android:layout_marginLeft="@dimen/day_night_choice_horizontal_margin_double"
+                            android:layout_marginRight="@dimen/day_night_choice_horizontal_margin_double"
                             android:layout_marginTop="@dimen/day_night_choice_vertical_margin" >
 
                             <TextView
@@ -273,8 +273,8 @@
                         android:paddingTop="@dimen/day_night_choice_vertical_padding"
 
                         android:layout_marginBottom="@dimen/day_night_choice_vertical_margin"
-                        android:layout_marginLeft="@dimen/day_night_choice_horizontal_margin"
-                        android:layout_marginRight="@dimen/day_night_choice_horizontal_margin"
+                        android:layout_marginLeft="@dimen/day_night_choice_horizontal_margin_double"
+                        android:layout_marginRight="@dimen/day_night_choice_horizontal_margin_double"
                         android:layout_marginTop="@dimen/day_night_choice_vertical_margin" >
 
                         <TextView

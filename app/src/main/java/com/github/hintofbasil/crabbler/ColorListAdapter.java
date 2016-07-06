@@ -11,19 +11,22 @@ import android.widget.CheckedTextView;
  */
 public class ColorListAdapter<T> extends ArrayAdapter<T> {
 
-    private int selected;
+    private int selected, max;
     private View selectedView = null;
 
-    public ColorListAdapter(Context context, int resource, T[] data, int selected) {
+    public ColorListAdapter(Context context, int resource, T[] data, int selected, int max) {
         super(context, resource, data);
         this.selected = selected;
+        this.max = max;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = super.getView(position, convertView, parent);
         view.setBackgroundResource(R.drawable.color_list);
-        if(selected == position) {
+        if(max >= 0 && position > max) {
+            view.setBackgroundResource(R.drawable.colour_list_disabled);
+        } else if(selected == position) {
             view.setBackgroundResource(R.color.questionBackground);
             selectedView = view;
         }

@@ -17,6 +17,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Calendar;
+import java.util.Date;
+
 public class TwoChoiceDateExpander extends Expander {
 
     private static final int REQUIRED_ANSWERS = 3;
@@ -32,6 +35,8 @@ public class TwoChoiceDateExpander extends Expander {
 
     ColorListAdapter<String> yearsAdapter;
     ColorListAdapter<String> monthsAdapter;
+
+    int currentYear;
 
     public TwoChoiceDateExpander(AppCompatActivity activity, JSONObject questionJson) {
         super(activity, questionJson, REQUIRED_ANSWERS);
@@ -52,6 +57,8 @@ public class TwoChoiceDateExpander extends Expander {
         titleView.setText(getRichTextQuestionString("questionTitle"));
         choiceOneCheckBox.setText(getRichTextQuestionString("choiceOneText"));
         choiceTwoCheckBox.setText(getRichTextQuestionString("choiceTwoText"));
+
+        currentYear = Calendar.getInstance().get(Calendar.YEAR);
 
         choiceOneCheckBox.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,6 +92,9 @@ public class TwoChoiceDateExpander extends Expander {
         yearListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if((position + 2016) > currentYear) { //TODO remove magic number
+                    return;
+                }
                 yearNo = position;
                 view.setSelected(true);
                 // Colour is set as background on first selected.  Must override
@@ -151,14 +161,16 @@ public class TwoChoiceDateExpander extends Expander {
                 activity.getBaseContext(),
                 R.layout.list_background,
                 activity.getResources().getStringArray(R.array.months),
-                monthNo);
+                monthNo,
+                -1);
         monthListView.setAdapter(monthsAdapter);
 
         yearsAdapter = new ColorListAdapter<String>(
                 activity.getBaseContext(),
                 R.layout.list_background,
                 activity.getResources().getStringArray(R.array.years),
-                yearNo);
+                yearNo,
+                currentYear - 2016); // 2016 due to min value in calendar
         yearListView.setAdapter(yearsAdapter);
     }
 

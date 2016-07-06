@@ -220,7 +220,8 @@ public class ChoiceSelectExpander extends Expander {
                 activity.getBaseContext(),
                 R.layout.list_background,
                 listStrings,
-                regionId);
+                regionId,
+                -1);
         listHolder.setAdapter(adapter);
     }
 }

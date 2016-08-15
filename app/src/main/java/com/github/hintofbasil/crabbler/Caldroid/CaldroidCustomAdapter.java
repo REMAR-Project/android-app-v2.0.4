@@ -22,34 +22,34 @@ import hirondelle.date4j.DateTime;
 public class CaldroidCustomAdapter extends CaldroidGridAdapter {
 
     public static final int[][] newMoonDates = new int[][]{
-            new int[]{10,1},
-            new int[]{8,2},
-            new int[]{9,3},
-            new int[]{7,4},
-            new int[]{6,5},
-            new int[]{5,6},
-            new int[]{4,7},
-            new int[]{2,8},
-            new int[]{1,9},
-            new int[]{1,10},
-            new int[]{30,10},
-            new int[]{29,11},
-            new int[]{29,12}
+            new int[]{9,1,2016},
+            new int[]{8,2,2016},
+            new int[]{8,3,2016},
+            new int[]{7,4,2016},
+            new int[]{6,5,2016},
+            new int[]{5,6,2016},
+            new int[]{4,7,2016},
+            new int[]{2,8,2016},
+            new int[]{1,9,2016},
+            new int[]{1,10,2016},
+            new int[]{30,10,2016},
+            new int[]{30,11,2016},
+            new int[]{29,12,2016}
     };
 
     public static final int[][] fullMoonDates = new int[][]{
-            new int[]{24,1},
-            new int[]{22,2},
-            new int[]{23,3},
-            new int[]{22,4},
-            new int[]{21,5},
-            new int[]{20,6},
-            new int[]{19,7},
-            new int[]{18,8},
-            new int[]{16,9},
-            new int[]{16,10},
-            new int[]{14,11},
-            new int[]{14,12}
+            new int[]{23,1,2016},
+            new int[]{22,2,2016},
+            new int[]{23,3,2016},
+            new int[]{22,4,2016},
+            new int[]{21,5,2016},
+            new int[]{20,6,2016},
+            new int[]{19,7,2016},
+            new int[]{18,8,2016},
+            new int[]{16,9,2016},
+            new int[]{16,10,2016},
+            new int[]{14,11,2016},
+            new int[]{13,12,2016}
     };
 
     private int resourceId;
@@ -138,12 +138,12 @@ public class CaldroidCustomAdapter extends CaldroidGridAdapter {
         }*/
 
         for(int[] date : newMoonDates) {
-            if (date[0] == dateTime.getDay() && date[1] == dateTime.getMonth()) {
+            if (date[0] == dateTime.getDay() && date[1] == dateTime.getMonth() && date[2] == dateTime.getYear()) {
                 newMoon.setVisibility(View.VISIBLE);
             }
         }
         for(int[] date : fullMoonDates) {
-            if (date[0] == dateTime.getDay() && date[1] == dateTime.getMonth()) {
+            if (date[0] == dateTime.getDay() && date[1] == dateTime.getMonth() && date[2] == dateTime.getYear()) {
                 fullMoon.setVisibility(View.VISIBLE);
             }
         }

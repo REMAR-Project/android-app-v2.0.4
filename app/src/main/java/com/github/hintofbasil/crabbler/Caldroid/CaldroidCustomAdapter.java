@@ -21,6 +21,7 @@ import hirondelle.date4j.DateTime;
  */
 public class CaldroidCustomAdapter extends CaldroidGridAdapter {
 
+    // Dates taken from http://www.calendario-365.com.br/lua/fases-da-lua.html
     public static final int[][] newMoonDates = new int[][]{
             new int[]{9,1,2016},
             new int[]{8,2,2016},

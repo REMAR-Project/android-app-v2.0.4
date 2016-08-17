@@ -44,6 +44,7 @@
     <dimen name="day_night_choice_horizontal_margin">10dp</dimen>
     <dimen name="day_night_choice_vertical_margin">0dp</dimen>
     <dimen name="day_night_choice_text">26sp</dimen>
+    <dimen name="day_night_choice_title">20sp</dimen>
 
     <!-- List select -->
     <dimen name="list_select_list_height">450dp</dimen>

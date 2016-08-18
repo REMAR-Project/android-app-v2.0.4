@@ -102,7 +102,7 @@
     "questionType": "UserDetails",
     "questionPicture": "q0_(0:0)",
     "questionTitle": "crab_title_(0:0)",
-    "description": "It would be great to know who you are and how to get in contact, to acknowledge you",
+    "description": "It would be great to know who you are and how to get in contact, to acknowledge you\n(optional)",
     "postAs": "userDetails",
     "optional": true,
     "cacheAnswer": true

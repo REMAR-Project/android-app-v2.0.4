@@ -88,6 +88,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/list_select_input_text"
                     android:textAlignment="center"
+                    android:inputType="textCapWords"
                     />
 
             </LinearLayout>

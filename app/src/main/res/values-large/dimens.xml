@@ -4,6 +4,7 @@
     <!-- Two choice pictures -->
     <dimen name="question_font_size">25sp</dimen>
     <dimen name="question_selection_title">32sp</dimen>
+    <dimen name="question_selection_title_double">64sp</dimen>
     <dimen name="two_choice_picture_height">320dp</dimen>
 
     <!-- Two choice date -->

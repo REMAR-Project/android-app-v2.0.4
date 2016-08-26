@@ -57,15 +57,15 @@
                     android:layout_marginLeft="@dimen/question_select_outside_margin"
                     android:layout_centerHorizontal="true"
                     >
-                    <me.grantland.widget.AutofitTextView
+                    <TextView
                         android:id="@+id/choice_one_title"
                         android:layout_width="wrap_content"
-                        android:layout_height="@dimen/question_selection_title_double"
-                        android:singleLine="true"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:textAlignment="center"
                         android:textSize="@dimen/question_selection_title"
                         android:text=""
+                        android:lines="2"
                         />
                     <ImageView
                         android:id="@+id/choice_one_image"
@@ -86,15 +86,15 @@
                     android:layout_marginRight="@dimen/question_select_outside_margin"
                     android:layout_centerHorizontal="true"
                     >
-                    <me.grantland.widget.AutofitTextView
+                    <TextView
                         android:id="@+id/choice_two_title"
                         android:layout_width="wrap_content"
-                        android:layout_height="@dimen/question_selection_title_double"
-                        android:singleLine="true"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:textAlignment="center"
                         android:textSize="@dimen/question_selection_title"
                         android:text=""
+                        android:lines="2"
                         />
                     <ImageView
                         android:id="@+id/choice_two_image"

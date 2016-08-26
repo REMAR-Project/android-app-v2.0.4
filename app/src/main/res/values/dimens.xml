@@ -7,6 +7,7 @@
 
     <dimen name="question_font_size">15sp</dimen>
     <dimen name="question_selection_title">18sp</dimen>
+    <dimen name="question_selection_title_double">36sp</dimen>
     <dimen name="question_select_padding">10dp</dimen>
     <dimen name="question_select_margin">10dp</dimen>
     <dimen name="question_select_outside_margin">0dp</dimen>

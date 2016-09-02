@@ -13,6 +13,7 @@
     <dimen name="question_select_outside_margin">0dp</dimen>
     <dimen name="question_of_question">22sp</dimen>
     <dimen name="back_next_button_size">40dp</dimen>
+    <dimen name="back_next_description_size">16sp</dimen>
     <dimen name="done_text_size">22sp</dimen>
 
     <dimen name="about_us_title">18sp</dimen>

@@ -64,4 +64,6 @@
     <string name="andada_new_1">There was &lt;b>NO&lt;/b> andada after the &lt;b>new moon&lt;/b></string>
     <string name="andada_full_1">There was &lt;b>NO&lt;/b> andada after the &lt;b>full moon&lt;/b></string>
 
+    <string name="back_next_description_text"></string>
+
 </resources>

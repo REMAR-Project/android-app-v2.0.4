@@ -93,4 +93,6 @@
     <string name="andada_new_1">&lt;b>Não&lt;/b> houve andada após a &lt;b>lua nova&lt;/b></string>
     <string name="andada_full_1">&lt;b>Não&lt;/b> houve andada após a &lt;b>lua cheia&lt;/b></string>
 
+    <string name="back_next_description_text">Clique nas setas para\navançar ou voltar</string>
+
 </resources>

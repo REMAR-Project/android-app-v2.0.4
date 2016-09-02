@@ -37,7 +37,7 @@ public abstract class Expander {
     int definedQuestionId = -1;
     JSONObject questionJson;
     QuestionManager questionManager;
-    int requiredAnswers;
+    protected int requiredAnswers;
 
     public Expander(AppCompatActivity activity, JSONObject questionJson, int requiredAnswers) {
         this.activity = activity;

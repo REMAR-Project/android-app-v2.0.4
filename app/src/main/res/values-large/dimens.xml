@@ -4,6 +4,7 @@
     <!-- Two choice pictures -->
     <dimen name="question_font_size">25sp</dimen>
     <dimen name="question_selection_title">32sp</dimen>
+    <dimen name="question_selection_title_double">64sp</dimen>
     <dimen name="two_choice_picture_height">320dp</dimen>
 
     <!-- Two choice date -->
@@ -44,6 +45,7 @@
     <dimen name="day_night_choice_horizontal_margin">10dp</dimen>
     <dimen name="day_night_choice_vertical_margin">0dp</dimen>
     <dimen name="day_night_choice_text">26sp</dimen>
+    <dimen name="day_night_choice_title">20sp</dimen>
 
     <!-- List select -->
     <dimen name="list_select_list_height">450dp</dimen>

@@ -49,7 +49,8 @@
                 android:layout_gravity="center_horizontal"
                 android:textAlignment="center"
                 android:hint="@string/enter_name"
-                android:textSize="@dimen/list_select_input_text"/>
+                android:textSize="@dimen/list_select_input_text"
+                android:inputType="textCapWords" />
 
             <EditText
                 android:id="@+id/email"

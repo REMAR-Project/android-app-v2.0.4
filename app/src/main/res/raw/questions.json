@@ -2,7 +2,7 @@
   {
     "questionNumber": 0,
     "questionType": "TwoPictureChoice",
-    "questionText": "Ajude monitorar a ocorrência e ausência das andadas reprodutivas do caranguejo-uçá e do guaiamum em relação a lua, na costa brasileira, entre Novembro e Abril<br><br>Essa informação vai ajudar a melhorar a normativa que proíbe a captura do caranguejo-uçá e do guaiamum durante a andada, andança, suatá ou carnaval<br><br>Para mais informações, clique no botão abaixo.<br><br>Para mais informações, clique no botão abaixo.",
+    "questionText": "Ajude monitorar a ocorrência e ausência das andadas reprodutivas do caranguejo-uçá e do guaiamum em relação a lua, na costa brasileira, entre Novembro e Abril<br><br>Essa informação vai ajudar a melhorar a normativa que proíbe a captura do caranguejo-uçá e do guaiamum durante a andada, andança, suatá ou carnaval<br><br>Para passar informações sobre andada, clique em um dos botões abaixo:<br><br>Para mais informações, clique no botão abaixo.",
     "choiceOneTitle": "Caranguejo-uçá",
     "choiceOnePicture": "q0_0",
     "choiceTwoTitle": "Guaiamum",
@@ -61,7 +61,7 @@
     "questionType": "ListSelect",
     "questionPicture": "q0_(0:0)",
     "questionTitle": "crab_title_(0:0)",
-    "description": "Qual o estado em que foi feito o monitoramento?",
+    "description": "Qual o estado em que foi feito o monitoramento?<br>Rolar a lista abaixo e selecionar o seu estado",
     "jsonInput": "regions.json",
     "detailPicture": "brazil_regions.png",
     "disableCustom": "true"
@@ -94,16 +94,18 @@
     "questionPicture": "q0_(0:0)",
     "questionTitle": "crab_title_(0:0)",
     "questionText": "O manguezal monitorado está em unidade de conservação (ex. RESEX, APA, Parque)?",
-    "extraDetailText": "Qual é o nome da unidade de conservação?"
+    "extraDetailText": "Qual é o nome da unidade de conservação?",
+    "cacheAnswer": true
   },
   {
     "questionNumber": 10,
     "questionType": "UserDetails",
     "questionPicture": "q0_(0:0)",
     "questionTitle": "crab_title_(0:0)",
-    "description": "Seria ótimo saber quem é você e como mantermos contato",
+    "description": "Seria ótimo saber quem é você e como mantermos contato para agradecimento",
     "postAs": "userDetails",
-    "optional": true
+    "optional": true,
+    "cacheAnswer": true
   },
   {
     "questionType": "Done",

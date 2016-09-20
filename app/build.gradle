@@ -24,4 +24,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.roomorama:caldroid:3.0.1'
+    compile 'me.grantland:autofittextview:0.2.+'
 }

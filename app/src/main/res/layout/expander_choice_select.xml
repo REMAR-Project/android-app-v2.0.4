@@ -53,7 +53,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
                     android:textSize="@dimen/list_select_input_text"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:inputType="textCapWords" />
 
                 <ListView
                     android:id="@+id/item_select"

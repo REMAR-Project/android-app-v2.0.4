@@ -21,7 +21,7 @@
     <string name="day_and_night">Dia e noite</string>
     <string name="day_night_unknown">Não sei se a andada ocorreu de dia ou de noite</string>
 
-    <string name="done">Done</string>
+    <string name="done">Concluído</string>
     <string name="thank_you">Muito obrigado pela participação!</string>
     <string name="citizen_scientist">Agora você é um cientista cidadão!</string>
     <string name="thank_you_toast">Suas respostas foram enviadas com sucesso.</string>
@@ -88,9 +88,11 @@
     <string name="calendar_legend_new_moon">Lua nova</string>
     <string name="calendar_legend_full_moon">Lua cheia</string>
 
-    <string name="andada_new_0">Houve andada após a lua nova</string>
-    <string name="andada_full_0">Houve andada após a lua cheia</string>
-    <string name="andada_new_1"><b>Não</b> houve andada após a lua nova</string>
-    <string name="andada_full_1"><b>Não</b> houve andada após a lua cheia</string>
+    <string name="andada_new_0">Houve andada após a &lt;b>lua nova&lt;/b></string>
+    <string name="andada_full_0">Houve andada após a &lt;b>lua cheia&lt;/b></string>
+    <string name="andada_new_1">&lt;b>Não&lt;/b> houve andada após a &lt;b>lua nova&lt;/b></string>
+    <string name="andada_full_1">&lt;b>Não&lt;/b> houve andada após a &lt;b>lua cheia&lt;/b></string>
+
+    <string name="back_next_description_text">Clique nas setas para\navançar ou voltar</string>
 
 </resources>

@@ -1,35 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/back_next_button_size">
+    android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/page_of"
+        android:id="@+id/back_next_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/question_of_question"
-        android:textColor="@color/questionOfQuestionText"
-        android:text="0/0"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin" />
-
-    <ImageView
-        android:id="@+id/back_button"
-        android:layout_width="@dimen/back_next_button_size"
-        android:layout_height="@dimen/back_next_button_size"
-        android:src="@drawable/previous_background"
-        android:onClick="previousQuestion"
-        android:layout_toStartOf="@+id/forward_button"
-        android:layout_toLeftOf="@+id/forward_button"
-        />
-
-    <ImageView
-        android:id="@+id/forward_button"
-        android:layout_width="@dimen/back_next_button_size"
-        android:layout_height="@dimen/back_next_button_size"
-        android:onClick="nextQuestion"
-        android:src="@drawable/next_background"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
+        android:paddingRight="5dp"
+        android:textAlignment="viewEnd"
+        android:gravity="end"
+        android:text="@string/back_next_description_text"
+        android:textSize="@dimen/back_next_description_size"
+        android:visibility="gone"
         />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/back_next_button_size"
+        android:layout_below="@id/back_next_description" >
+
+        <TextView
+            android:id="@+id/page_of"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/question_of_question"
+            android:textColor="@color/questionOfQuestionText"
+            android:text="0/0"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin" />
+
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="@dimen/back_next_button_size"
+            android:layout_height="@dimen/back_next_button_size"
+            android:src="@drawable/previous_background"
+            android:onClick="previousQuestion"
+            android:layout_toStartOf="@+id/forward_button"
+            android:layout_toLeftOf="@+id/forward_button"
+            />
+
+        <ImageView
+            android:id="@+id/forward_button"
+            android:layout_width="@dimen/back_next_button_size"
+            android:layout_height="@dimen/back_next_button_size"
+            android:onClick="nextQuestion"
+            android:src="@drawable/next_background"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            />
+
+    </RelativeLayout>
 
 </RelativeLayout>

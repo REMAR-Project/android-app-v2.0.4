@@ -22,12 +22,15 @@ import org.json.JSONObject;
  */
 public class YesNoExtraExpander extends Expander {
 
-    private static final int REQUIRED_ANSWERS = 2;
+    private static final int REQUIRED_ANSWERS = 1;
 
     CheckBox chkYes;
     CheckBox chkNo;
     CheckBox chkMaybe;
     EditText hiddenInput;
+    LinearLayout hiddenInputContainer;
+
+    Expander expander = this;
 
     public YesNoExtraExpander(AppCompatActivity activity, JSONObject questionJson) {
         super(activity, questionJson, REQUIRED_ANSWERS);
@@ -46,7 +49,9 @@ public class YesNoExtraExpander extends Expander {
         chkNo = (CheckBox) activity.findViewById(R.id.chk_no);
         chkMaybe = (CheckBox) activity.findViewById(R.id.chk_maybe);
 
+
         hiddenInput = (EditText) activity.findViewById(R.id.extra_input);
+        hiddenInputContainer = (LinearLayout) activity.findViewById(R.id.extra_details_container);
 
         imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
         titleView.setText(getRichTextQuestionString("questionTitle"));
@@ -58,6 +63,8 @@ public class YesNoExtraExpander extends Expander {
             public void onClick(View v) {
                 chkNo.setChecked(false);
                 chkMaybe.setChecked(false);
+                hiddenInputContainer.setVisibility(View.VISIBLE);
+                expander.requiredAnswers = 2;
                 enableDisableNext();
             }
         });
@@ -67,6 +74,8 @@ public class YesNoExtraExpander extends Expander {
             public void onClick(View v) {
                 chkYes.setChecked(false);
                 chkMaybe.setChecked(false);
+                hiddenInputContainer.setVisibility(View.GONE);
+                expander.requiredAnswers = 1;
                 enableDisableNext();
             }
         });
@@ -76,6 +85,8 @@ public class YesNoExtraExpander extends Expander {
             public void onClick(View v) {
                 chkYes.setChecked(false);
                 chkNo.setChecked(false);
+                hiddenInputContainer.setVisibility(View.GONE);
+                expander.requiredAnswers = 1;
                 enableDisableNext();
             }
         });
@@ -105,6 +116,7 @@ public class YesNoExtraExpander extends Expander {
             switch(i) {
                 case 0:
                     chkYes.setChecked(true);
+                    hiddenInputContainer.setVisibility(View.VISIBLE);
                     break;
                 case 1:
                     chkNo.setChecked(true);
@@ -139,6 +151,7 @@ public class YesNoExtraExpander extends Expander {
         } else {
             array.put(-1);
         }
+
         String answer = hiddenInput.getText().toString();
         if(answer.isEmpty() && hiddenInput.getHint() != null) {
             answer = hiddenInput.getHint().toString();
@@ -153,6 +166,8 @@ public class YesNoExtraExpander extends Expander {
             switch (answer.getInt(0)) {
                 case 0:
                     chkYes.setChecked(true);
+                    hiddenInputContainer.setVisibility(View.VISIBLE);
+                    expander.requiredAnswers = 2;
                     break;
                 case 1:
                     chkNo.setChecked(true);

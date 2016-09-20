@@ -58,6 +58,11 @@ public class TwoChoiceDateExpander extends Expander {
         choiceOneCheckBox.setText(getRichTextQuestionString("choiceOneText"));
         choiceTwoCheckBox.setText(getRichTextQuestionString("choiceTwoText"));
 
+        TextView backNextDescription = (TextView) activity.findViewById(R.id.back_next_description);
+        if(!backNextDescription.getText().toString().isEmpty()) {
+            backNextDescription.setVisibility(View.VISIBLE);
+        }
+
         currentYear = Calendar.getInstance().get(Calendar.YEAR);
 
         choiceOneCheckBox.setOnClickListener(new View.OnClickListener() {

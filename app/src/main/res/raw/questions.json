@@ -64,7 +64,6 @@
     "questionTitle": "crab_title_(0:0)",
     "description": "Qual o estado em que foi feito o monitoramento?<br>Rolar a lista abaixo e selecionar o seu estado",
     "jsonInput": "regions.json",
-    "detailPicture": "brazil_regions.png",
     "disableCustom": "true"
   },
   {
@@ -74,7 +73,6 @@
     "questionTitle": "crab_title_(0:0)",
     "description": "Rolar e selecionar o município onde você fez sua observação",
     "jsonInput": "region_counties.json",
-    "detailPicture": "brazil_regions.png",
     "disableCustom": "true",
     "jsonKey": "(-1:0)"
   },

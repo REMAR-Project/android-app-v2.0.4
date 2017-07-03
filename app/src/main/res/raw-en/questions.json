@@ -63,7 +63,6 @@
     "questionTitle": "crab_title_(0:0)",
     "description": "Scroll and select the state where you made your observation",
     "jsonInput": "regions.json",
-    "detailPicture": "brazil_regions.png",
     "disableCustom": "true"
   },
   {
@@ -73,7 +72,6 @@
     "questionTitle": "crab_title_(0:0)",
     "description": "Scroll and select the county where you made your observation",
     "jsonInput": "region_counties.json",
-    "detailPicture": "brazil_regions.png",
     "disableCustom": "true",
     "jsonKey": "(-1:0)"
   },

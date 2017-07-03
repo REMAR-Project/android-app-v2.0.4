@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.github.hintofbasil.crabbler.AboutUsActivity;
 import com.github.hintofbasil.crabbler.Keys;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.ChoiceSelectExpander;
+import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.MonthChoiceExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.UserDetailsExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DateRangeExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DateRangeSelectExpander;
@@ -80,6 +81,9 @@ public class QuestionActivity extends AppCompatActivity {
                         break;
                     case "Done":
                         expander = new DoneExpander(this, questionJson);
+                        break;
+                    case "MonthChoice":
+                        expander = new MonthChoiceExpander(this, questionJson);
                         break;
                     default:
                         Log.e("QuestionActivity", "Unknown question type.");

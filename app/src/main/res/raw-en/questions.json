@@ -10,11 +10,9 @@
   },
   {
     "questionNumber": 1,
-    "questionType": "TwoChoiceDate",
+    "questionType": "MonthChoice",
     "questionPicture": "q0_(0:0)",
-    "questionTitle": "crab_title_(0:0)",
-    "choiceOneText": "I want to report the occurrence of andada",
-    "choiceTwoText": "I want to inform absence of andada"
+    "questionTitle": "crab_title_(0:0)"
   },
   {
     "questionNumber": 2,

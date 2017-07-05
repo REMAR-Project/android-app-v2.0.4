@@ -13,6 +13,7 @@ import com.github.hintofbasil.crabbler.AboutUsActivity;
 import com.github.hintofbasil.crabbler.Keys;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.ChoiceSelectExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.MonthChoiceExpander;
+import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.OneChoiceExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.UserDetailsExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DateRangeExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DateRangeSelectExpander;
@@ -84,6 +85,9 @@ public class QuestionActivity extends AppCompatActivity {
                         break;
                     case "MonthChoice":
                         expander = new MonthChoiceExpander(this, questionJson);
+                        break;
+                    case "OneChoice":
+                        expander = new OneChoiceExpander(this, questionJson);
                         break;
                     default:
                         Log.e("QuestionActivity", "Unknown question type.");

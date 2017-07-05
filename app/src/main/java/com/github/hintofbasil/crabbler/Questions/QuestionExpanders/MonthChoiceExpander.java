@@ -21,7 +21,7 @@ import java.util.Calendar;
 
 public class MonthChoiceExpander extends Expander {
 
-    private static final int REQUIRED_ANSWERS = 3;
+    private static final int REQUIRED_ANSWERS = 2;
     public static final int MIN_YEAR = 2016;
 
     CheckBox choiceOneCheckBox;

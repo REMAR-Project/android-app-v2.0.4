@@ -2,8 +2,8 @@
   {
     "questionNumber": 0,
     "questionType": "OneChoice",
-    "questionText": "<b>Become a citizen scientist in Brazil</b> and help us to record mass mating events in the mangrove crabs <i>Ucides cordatus</i> and <i>Cardisoma guanhumi</i>, in relation to the moon, between November and April each year.<br><br>This information will help to improve Brazilian fisheries legislation which prohibits the capture of these crabs during mass mating events.\n\nFor more information click on the menu.<br><br>Click on the below pictures to share your observations for the respective species.",
-    "choiceOneTitle": "Ucides cordatus",
+    "questionText": "TestVersion",
+    "choiceOneTitle": "TestVersion",
     "choiceOnePicture": "q0_0"
   },
   {
@@ -18,48 +18,47 @@
   {
     "questionNumber": 2,
     "questionType": "MonthChoice",
-    "questionPicture": "q0_(0:0)",
-    "questionTitle": "crab_title_(0:0)"
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)"
   },
   {
     "questionNumber": 3,
     "questionType": "TwoChoice",
-    "questionPicture": "q0_(0:0)",
-    "questionTitle": "crab_title_(0:0)",
-    "choiceOneText": "andada_new_(-1:0)",
-    "choiceTwoText": "andada_full_(-1:0)",
-    "allowMultiple": true,
-    "jumpOn": "1:0->2"
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)",
+    "choiceOneText": "andada_new_0",
+    "choiceTwoText": "andada_full_0",
+    "allowMultiple": true
   },
   {
     "questionNumber": 4,
     "questionType": "DateRange",
-    "questionPicture": "q0_(0:0)",
-    "questionTitle": "crab_title_(0:0)",
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)",
     "description": "Click on the days that you noted andada",
-    "month": "(1:1)",
-    "year": "(1:2)",
+    "month": "(2:0)",
+    "year": "(2:1)",
     "filterOnQuestion": -1
   },
   {
     "questionNumber": 5,
     "questionType": "DateRangeSelect",
-    "questionPicture": "q0_(0:0)",
-    "questionTitle": "crab_title_(0:0)",
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)",
     "description": "Click the day that andada was strongest<br>(optional)",
-    "month": "(1:1)",
-    "year": "(1:2)",
+    "month": "(2:0)",
+    "year": "(2:1)",
     "filterOnQuestion": -1,
     "optional": true
   },
   {
     "questionNumber": 6,
     "questionType": "DayNightChoice",
-    "questionPicture": "q0_(0:0)",
+    "questionPicture": "q0_(1:0)",
     "questionTitle": "Click on the period (day or night) when andada occured.  In case you don't know proceed to the next page.",
     "choiceOneText": "At new moon",
     "choiceTwoText": "At full moon",
-    "quantityQuestion": 2
+    "quantityQuestion": 3
   },
   {
     "questionNumber": 7,

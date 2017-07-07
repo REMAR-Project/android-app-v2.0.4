@@ -1,10 +1,11 @@
 package com.github.hintofbasil.crabbler.Questions.QuestionExpanders;
 
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.github.hintofbasil.crabbler.R;
@@ -14,14 +15,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * Created by will on 13/05/16.
+ * Created by will on 05/05/16.
  */
 public class OneChoiceExpander extends Expander {
 
     private static final int REQUIRED_ANSWERS = 1;
 
-    CheckBox choiceOneCheckBox;
-    boolean allowMultiple = false;
+    private int currentAnswer = -1;
+    LinearLayout questionOneButton;
 
     public OneChoiceExpander(AppCompatActivity activity, JSONObject questionJson) {
         super(activity, questionJson, REQUIRED_ANSWERS);
@@ -30,39 +31,52 @@ public class OneChoiceExpander extends Expander {
     @Override
     public void expandLayout() throws JSONException {
         activity.setContentView(R.layout.expander_one_choice);
-        ImageView imageView = (ImageView) activity.findViewById(R.id.image);
-        TextView titleView = (TextView) activity.findViewById(R.id.title);
-        choiceOneCheckBox = (CheckBox) activity.findViewById(R.id.choice_one);
+        TextView questionText = (TextView) activity.findViewById(R.id.question_text);
+        TextView choiceOneTitle = (TextView) activity.findViewById(R.id.choice_one_title);
+        questionOneButton = (LinearLayout) activity.findViewById(R.id.question_one_button);
+        ImageView choiceOneImage = (ImageView) activity.findViewById(R.id.choice_one_image);
 
-        imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
-        titleView.setText(getRichTextQuestionString("questionTitle"));
-        choiceOneCheckBox.setText(getRichTextQuestionString("choiceOneText"));
+        choiceOneImage.setImageDrawable(getDrawable(getQuestionString("choiceOnePicture")));
 
-        try {
-            allowMultiple = questionJson.getBoolean("allowMultiple");
-        } catch (JSONException e) {}
+        questionText.setText(getRichTextQuestionString("questionText"));
+        questionText.setMovementMethod(new ScrollingMovementMethod());
 
-        choiceOneCheckBox.setOnClickListener(new View.OnClickListener() {
+        choiceOneTitle.setText(getRichTextQuestionString("choiceOneTitle"));
+
+        questionOneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                currentAnswer = 0;
+                questionOneButton.setBackgroundResource(R.color.questionSelectedBackground);
                 enableDisableNext();
+                nextQuestion(200);
             }
         });
-    }
+
+        }
 
     @Override
     protected void setPreviousAnswer(JSONArray answer) {
         try {
-            choiceOneCheckBox.setChecked(answer.getBoolean(0));
+            Integer i = answer.getInt(0);
+            switch(i) {
+                case 0:
+                    questionOneButton.setBackgroundResource(R.color.questionSelectedBackground);
+                    break;
+                default:
+                    Log.d("TwoPictureLayoutExpande", "Invalid previous answer");
+            }
+            currentAnswer = i;
         } catch (JSONException e) {
-            Log.i("OneChoiceExpander", "Unable to parse answer");
+            Log.d("QuestionActivity", "No previous answer");
+            return;
         }
     }
 
     @Override
     public JSONArray getSelectedAnswer() {
         JSONArray array = new JSONArray();
-        array.put(choiceOneCheckBox.isChecked());
+        array.put(currentAnswer);
         return array;
     }
 }

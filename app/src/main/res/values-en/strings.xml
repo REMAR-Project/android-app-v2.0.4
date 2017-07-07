@@ -65,5 +65,8 @@
     <string name="andada_full_1">There was &lt;b>NO&lt;/b> andada after the &lt;b>full moon&lt;/b></string>
 
     <string name="back_next_description_text"></string>
+	
+	<string name="test1">This is a test! One</string>
+	<string name="test2">This is a test! Two</string>
 
 </resources>

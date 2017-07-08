@@ -61,29 +61,47 @@
     "quantityQuestion": 3
   },
   {
-    "questionNumber": 7,
+	"questionNumber": 7,
+    "questionType": "TwoChoice",
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "Did you see berried (ovigerous) females?",
+    "choiceOneText": "Yes",
+    "choiceTwoText": "No",
+    "allowMultiple": false
+  },
+  {
+	"questionNumber": 8,
+	"questionType": "ListSelect",
+	"questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)",
+    "description": "Where did the andada happen when you observed it?",
+    "jsonInput": "locations.json",
+    "disableCustom": "true"
+  },
+  {
+    "questionNumber": 9,
     "questionType": "ListSelect",
-    "questionPicture": "q0_(0:0)",
-    "questionTitle": "crab_title_(0:0)",
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)",
     "description": "Scroll and select the state where you made your observation",
     "jsonInput": "regions.json",
     "disableCustom": "true"
   },
   {
-    "questionNumber": 8,
+    "questionNumber": 10,
     "questionType": "ListSelect",
-    "questionPicture": "q0_(0:0)",
-    "questionTitle": "crab_title_(0:0)",
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)",
     "description": "Scroll and select the county where you made your observation",
     "jsonInput": "region_counties.json",
     "disableCustom": "true",
     "jsonKey": "(-1:0)"
   },
   {
-    "questionNumber": 9,
+    "questionNumber": 11,
     "questionType": "ListSelect",
-    "questionPicture": "q0_(0:0)",
-    "questionTitle": "crab_title_(0:0)",
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)",
     "description": "Type in the name of the district or village close to the mangrove where you made your observation (optional)",
     "disableList": true,
     "disablePicture": true,
@@ -91,19 +109,19 @@
     "cacheAnswer": true
   },
   {
-    "questionNumber": 10,
+    "questionNumber": 12,
     "questionType": "YesNoExtra",
-    "questionPicture": "q0_(0:0)",
-    "questionTitle": "crab_title_(0:0)",
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)",
     "questionText": "Is the monitored mangrove in a protected area? (eg. RESEX, APA, Park)",
     "extraDetailText": "What is the name of the area?",
     "cacheAnswer": true
   },
   {
-    "questionNumber": 11,
+    "questionNumber": 13,
     "questionType": "UserDetails",
-    "questionPicture": "q0_(0:0)",
-    "questionTitle": "crab_title_(0:0)",
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)",
     "description": "It would be great to know who you are and how to get in contact, to acknowledge you\n(optional)",
     "postAs": "userDetails",
     "optional": true,
@@ -111,8 +129,8 @@
   },
   {
     "questionType": "Done",
-    "questionPicture": "q0_(0:0)",
-    "questionTitle": "crab_title_(0:0)",
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)",
     "hideBackNext": true
   }
 ]

@@ -47,11 +47,13 @@ public class MonthChoiceExpander extends Expander {
 
         final ImageView imageView = (ImageView) activity.findViewById(R.id.image);
         TextView titleView = (TextView) activity.findViewById(R.id.title);
+        TextView questionView = (TextView) activity.findViewById(R.id.question_text);
         monthListView = (ListView) activity.findViewById(R.id.month_list_view);
         yearListView = (ListView) activity.findViewById(R.id.year_list_view);
 
         imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
         titleView.setText(getRichTextQuestionString("questionTitle"));
+        questionView.setText(getRichTextQuestionString("questionText"));
 
         TextView backNextDescription = (TextView) activity.findViewById(R.id.back_next_description);
         if(!backNextDescription.getText().toString().isEmpty()) {

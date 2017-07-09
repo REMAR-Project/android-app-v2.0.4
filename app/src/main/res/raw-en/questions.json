@@ -9,7 +9,7 @@
   {
     "questionNumber": 1,
     "questionType": "TwoPictureChoice",
-    "questionText": "<b>Become a citizen scientist in Brazil</b> and help us to record mass mating events in the mangrove crabs <i>Ucides cordatus</i> and <i>Cardisoma guanhumi</i>, in relation to the moon, between November and April each year.<br><br>This information will help to improve Brazilian fisheries legislation which prohibits the capture of these crabs during mass mating events.\n\nFor more information click on the menu.<br><br>Click on the below pictures to share your observations for the respective species.",
+    "questionText": "<b>Become a citizen scientist in Brazil</b> and help us to record mass mating events in the mangrove crabs <i>Ucides cordatus</i> and <i>Cardisoma guanhumi</i>, in relation to the moon, between November and April each year.<br><br>This information will help to improve Brazilian fisheries legislation which prohibits the capture of these crabs during mass mating events.\n\nFor more information click on the menu.<br><br>Click on one of the below species to share your observations.",
     "choiceOneTitle": "Ucides cordatus",
     "choiceOnePicture": "q0_0",
     "choiceTwoTitle": "Cardisoma guanhumi",
@@ -19,7 +19,8 @@
     "questionNumber": 2,
     "questionType": "MonthChoice",
     "questionPicture": "q0_(1:0)",
-    "questionTitle": "crab_title_(1:0)"
+    "questionTitle": "crab_title_(1:0)",
+	"questionText": "Select month and year."
   },
   {
     "questionNumber": 3,

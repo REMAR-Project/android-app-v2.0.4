@@ -59,8 +59,9 @@
     <string name="calendar_legend_new_moon">New moon</string>
     <string name="calendar_legend_full_moon">Full moon</string>
 
-    <string name="andada_new_0">There was andada after the &lt;b>new moon&lt;/b></string>
-    <string name="andada_full_0">There was andada after the &lt;b>full moon&lt;/b></string>
+    <string name="andada_new_0">There was andada around the &lt;b>new moon&lt;/b></string>
+    <string name="andada_full_0">There was andada around the &lt;b>full moon&lt;/b></string>
+	<string name="andada_newfull_0">There was andada around &lt;b>new and full moon&lt;/b></string>
     <string name="andada_new_1">There was &lt;b>NO&lt;/b> andada after the &lt;b>new moon&lt;/b></string>
     <string name="andada_full_1">There was &lt;b>NO&lt;/b> andada after the &lt;b>full moon&lt;/b></string>
 

@@ -24,12 +24,13 @@
   },
   {
     "questionNumber": 3,
-    "questionType": "TwoChoice",
+    "questionType": "ThreeChoice",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
     "choiceOneText": "andada_new_0",
     "choiceTwoText": "andada_full_0",
-    "allowMultiple": true
+	"choiceThreeText": "andada_newfull_0",
+    "allowMultiple": false
   },
   {
     "questionNumber": 4,
@@ -46,7 +47,7 @@
     "questionType": "DateRangeSelect",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "Click the day that andada was strongest<br>(optional)",
+    "description": "Click the day with the STRONGEST andada activity<br>(optional)",
     "month": "(2:0)",
     "year": "(2:1)",
     "filterOnQuestion": -1,

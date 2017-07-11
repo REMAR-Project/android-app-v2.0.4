@@ -47,7 +47,7 @@
     "questionType": "DateRangeSelect",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "Clique no dia em que a andada foi mas forte ",
+    "description": "AGORA clique no dia de andada MAIS FORTE (opcional).",
     "month": "(2:1)",
     "year": "(2:2)",
     "filterOnQuestion": -1,

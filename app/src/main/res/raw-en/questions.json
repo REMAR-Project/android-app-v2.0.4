@@ -40,7 +40,8 @@
     "description": "Click on the days that you noted andada",
     "month": "(2:0)",
     "year": "(2:1)",
-    "filterOnQuestion": -1
+    "filterOnQuestion": -1,
+	"optional": true
   },
   {
     "questionNumber": 5,

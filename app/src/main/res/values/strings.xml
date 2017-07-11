@@ -47,7 +47,8 @@
         <item>Agosto</item>
         <item>Septembro</item>
         <item>Outubro</item>
-        <item>Novembro Dezembro</item>
+        <item>Novembro</item>
+		<item>Dezembro</item>
     </string-array>
 
     <string-array name="years">
@@ -90,9 +91,13 @@
 
     <string name="andada_new_0">Houve andada após a &lt;b>lua nova&lt;/b></string>
     <string name="andada_full_0">Houve andada após a &lt;b>lua cheia&lt;/b></string>
+	<string name="andada_newfull_0">Houve andada em torno da &lt;b>lua cheia e lua nova&lt;/b></string>
     <string name="andada_new_1">&lt;b>Não&lt;/b> houve andada após a &lt;b>lua nova&lt;/b></string>
     <string name="andada_full_1">&lt;b>Não&lt;/b> houve andada após a &lt;b>lua cheia&lt;/b></string>
 
     <string name="back_next_description_text">Clique nas setas para\navançar ou voltar</string>
+	
+	<string name="TestVersion">TEST Version</string>
+	<string name="test2">This is a test! Two</string>
 
 </resources>

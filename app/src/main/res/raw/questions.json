@@ -1,6 +1,13 @@
 [
   {
     "questionNumber": 0,
+    "questionType": "OneChoice",
+    "questionText": "TestVersion",
+    "choiceOneTitle": "TestVersion",
+    "choiceOnePicture": "q0_0"
+  },
+  {
+    "questionNumber": 1,
     "questionType": "TwoPictureChoice",
     "questionText": "Ajude monitorar a ocorrência e ausência das andadas reprodutivas do caranguejo-uçá e do guaiamum em relação a lua, na costa brasileira, entre Novembro e Abril<br><br>Essa informação vai ajudar a melhorar a normativa que proíbe a captura do caranguejo-uçá e do guaiamum durante a andada, andança, suatá ou carnaval<br><br>Para passar informações sobre andada, clique em um dos botões abaixo:<br><br>Para mais informações, clique no botão \"menu\" acima.",
     "choiceOneTitle": "Caranguejo-uçá",
@@ -9,78 +16,95 @@
     "choiceTwoPicture": "q0_1"
   },
   {
-    "questionNumber": 1,
-    "questionType": "TwoChoiceDate",
-    "questionPicture": "q0_(0:0)",
-    "questionTitle": "crab_title_(0:0)",
-    "choiceOneText": "Quero informar ocorrência de andada",
-    "choiceTwoText": "Quero informar ausência de andada"
-  },
-  {
     "questionNumber": 2,
-    "questionType": "TwoChoice",
-    "questionPicture": "q0_(0:0)",
-    "questionTitle": "crab_title_(0:0)",
-    "choiceOneText": "andada_new_(-1:0)",
-    "choiceTwoText": "andada_full_(-1:0)",
-    "allowMultiple": true,
-    "jumpOn": "1:0->2"
+    "questionType": "MonthChoice",
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)",
+    "questionText": "Escolha o mês. Escolha o ano."
   },
   {
     "questionNumber": 3,
-    "questionType": "DateRange",
-    "questionPicture": "q0_(0:0)",
-    "questionTitle": "crab_title_(0:0)",
-    "description": "Clique nos dias em que  você observou andada",
-    "month": "(1:1)",
-    "year": "(1:2)",
-    "filterOnQuestion": -1
+    "questionType": "ThreeChoice",
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)",
+    "choiceOneText": "andada_new_0",
+    "choiceTwoText": "andada_full_0",
+	"choiceThreeText": "andada_newfull_0",
+    "allowMultiple": false
   },
   {
     "questionNumber": 4,
+    "questionType": "DateRange",
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)",
+    "description": "Clique nos dias em que  você observou andada",
+    "month": "(2:1)",
+    "year": "(2:2)",
+    "filterOnQuestion": -1
+  },
+  {
+    "questionNumber": 5,
     "questionType": "DateRangeSelect",
-    "questionPicture": "q0_(0:0)",
-    "questionTitle": "crab_title_(0:0)",
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)",
     "description": "Clique no dia em que a andada foi mas forte ",
-    "month": "(1:1)",
-    "year": "(1:2)",
+    "month": "(2:1)",
+    "year": "(2:2)",
     "filterOnQuestion": -1,
     "optional": true
   },
   {
-    "questionNumber": 5,
+    "questionNumber": 6,
     "questionType": "DayNightChoice",
-    "questionPicture": "q0_(0:0)",
-    "questionTitle": "crab_title_(0:0)",
-	"description": "Clique no período (dia ou noite) em que a andada ocorreu."
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)",
+	"description": "Clique no período (dia ou noite) em que a andada ocorreu.",
     "choiceOneText": "Na lua nova",
     "choiceTwoText": "Na lua cheia",
-    "quantityQuestion": 2
+    "quantityQuestion": 3
   },
   {
-    "questionNumber": 6,
+	"questionNumber": 7,
+    "questionType": "TwoChoice",
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "Você viu alguma fêmea ovada?",
+    "choiceOneText": "Sim",
+    "choiceTwoText": "Não",
+    "allowMultiple": false
+  },
+  {
+	"questionNumber": 8,
+	"questionType": "ListSelect",
+	"questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)",
+    "description": "A andada foi vista em qual ambiente?",
+    "jsonInput": "locations.json",
+    "disableCustom": "true"
+  },
+  {
+    "questionNumber": 9,
     "questionType": "ListSelect",
-    "questionPicture": "q0_(0:0)",
-    "questionTitle": "crab_title_(0:0)",
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)",
     "description": "Qual o estado em que foi feito o monitoramento?<br>Rolar a lista abaixo e selecionar o seu estado",
     "jsonInput": "regions.json",
     "disableCustom": "true"
   },
   {
-    "questionNumber": 7,
+    "questionNumber": 10,
     "questionType": "ListSelect",
-    "questionPicture": "q0_(0:0)",
-    "questionTitle": "crab_title_(0:0)",
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)",
     "description": "Rolar e selecionar o município onde você fez sua observação",
     "jsonInput": "region_counties.json",
     "disableCustom": "true",
     "jsonKey": "(-1:0)"
   },
   {
-    "questionNumber": 8,
+    "questionNumber": 11,
     "questionType": "ListSelect",
-    "questionPicture": "q0_(0:0)",
-    "questionTitle": "crab_title_(0:0)",
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)",
     "description": "Digite o nome do distrito, bairro ou vila perto do manguezal onde você fez sua observação (opcional)",
     "disableList": true,
     "disablePicture": true,
@@ -88,19 +112,19 @@
     "cacheAnswer": true
   },
   {
-    "questionNumber": 9,
+    "questionNumber": 12,
     "questionType": "YesNoExtra",
-    "questionPicture": "q0_(0:0)",
-    "questionTitle": "crab_title_(0:0)",
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)",
     "questionText": "O manguezal monitorado está em unidade de conservação (ex. RESEX, APA, Parque)?",
     "extraDetailText": "Qual é o nome da unidade de conservação?",
     "cacheAnswer": true
   },
   {
-    "questionNumber": 10,
+    "questionNumber": 13,
     "questionType": "UserDetails",
-    "questionPicture": "q0_(0:0)",
-    "questionTitle": "crab_title_(0:0)",
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)",
     "description": "Seria ótimo saber quem é você e como mantermos contato para agradecimento",
     "postAs": "userDetails",
     "optional": true,
@@ -108,8 +132,8 @@
   },
   {
     "questionType": "Done",
-    "questionPicture": "q0_(0:0)",
-    "questionTitle": "crab_title_(0:0)",
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)",
     "hideBackNext": true
   }
 ]

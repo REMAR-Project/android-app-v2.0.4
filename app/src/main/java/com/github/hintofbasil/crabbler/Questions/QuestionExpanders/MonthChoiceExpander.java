@@ -112,14 +112,8 @@ public class MonthChoiceExpander extends Expander {
 
     @Override
     protected void setPreviousAnswer(JSONArray answer) {
-        try {
+        /*try {
             switch (answer.getInt(0)) {
-                case 0:
-                    choiceOneCheckBox.setChecked(true);
-                    break;
-                case 1:
-                    choiceTwoCheckBox.setChecked(true);
-                    break;
                 case -1: // Indicates not filled in yet
                     break;
                 default:
@@ -128,16 +122,16 @@ public class MonthChoiceExpander extends Expander {
             }
         } catch (JSONException e) {
             Log.i("TwoChoiceDateExpander", "Unable to parse answer (0)");
-        }
+        }*/
 
         try {
-            monthNo = answer.getInt(1);
+            monthNo = answer.getInt(0);
         } catch (NumberFormatException|ArrayIndexOutOfBoundsException|JSONException e) {
             Log.d("TwoChoiceDate", "No previous month");
         }
 
         try {
-            yearNo = answer.getInt(2);
+            yearNo = answer.getInt(1);
         } catch (NumberFormatException|ArrayIndexOutOfBoundsException|JSONException e) {
             Log.d("TwoChoiceDate", "No previous year");
         }

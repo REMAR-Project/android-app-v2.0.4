@@ -38,8 +38,8 @@
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
     "description": "Clique nos dias em que  você observou andada",
-    "month": "(2:1)",
-    "year": "(2:2)",
+    "month": "(2:0)",
+    "year": "(2:1)",
     "filterOnQuestion": -1
   },
   {
@@ -48,8 +48,8 @@
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
     "description": "AGORA clique no dia de andada MAIS FORTE (opcional).",
-    "month": "(2:1)",
-    "year": "(2:2)",
+    "month": "(2:0)",
+    "year": "(2:1)",
     "filterOnQuestion": -1,
     "optional": true
   },

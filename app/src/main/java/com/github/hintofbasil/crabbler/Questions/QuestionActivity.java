@@ -133,7 +133,7 @@ public class QuestionActivity extends AppCompatActivity {
                 nextButton.setEnabled(false);
             }
 
-            if(questionId > 0) { // Only show menu button on first question
+            if(questionId > 1) { // Only show menu button on first question
                 LinearLayout menuButton = (LinearLayout) findViewById(R.id.toolbar_menu_button);
                 menuButton.setVisibility(View.GONE);
             } else { //Hide images if menu button is present

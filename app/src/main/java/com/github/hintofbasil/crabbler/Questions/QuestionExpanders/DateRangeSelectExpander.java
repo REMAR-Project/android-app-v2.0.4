@@ -1,5 +1,6 @@
 package com.github.hintofbasil.crabbler.Questions.QuestionExpanders;
 
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
@@ -56,6 +57,7 @@ public class DateRangeSelectExpander extends Expander {
         imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
         titleView.setText(getRichTextQuestionString("questionTitle"));
         descriptionView.setText(getRichTextQuestionString("description"));
+        descriptionView.setTextColor(Color.RED);
 
         // Build calendar
         final CaldroidListener caldroidListener = new CaldroidListener() {

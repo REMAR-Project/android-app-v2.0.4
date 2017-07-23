@@ -14,6 +14,7 @@ import com.github.hintofbasil.crabbler.R;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 
@@ -65,6 +66,7 @@ public class DayNightChoiceExpander extends Expander {
 
         ImageView imageView = (ImageView) activity.findViewById(R.id.image);
         TextView titleView = (TextView) activity.findViewById(R.id.title);
+        TextView description = (TextView) activity.findViewById(R.id.description);
         firstUnknown = (CheckBox) activity.findViewById(R.id.first_day_night_unknown);
         firstDayLayout = (LinearLayout) activity.findViewById(R.id.first_day_view);
         firstNightLayout = (LinearLayout) activity.findViewById(R.id.first_night_view);
@@ -113,6 +115,7 @@ public class DayNightChoiceExpander extends Expander {
 
         imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
         titleView.setText(getRichTextQuestionString("questionTitle"));
+        description.setText(getRichTextQuestionString("description"));
 
         firstDayLayout.setOnClickListener(new View.OnClickListener() {
             @Override

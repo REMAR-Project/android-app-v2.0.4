@@ -2,7 +2,7 @@
   {
     "questionNumber": 0,
     "questionType": "OneChoice",
-    "questionText": "TestVersion",
+    "questionText": "",
     "choiceOneTitle": "TestVersion",
     "choiceOnePicture": "q0_0"
   },
@@ -58,7 +58,8 @@
     "questionNumber": 6,
     "questionType": "DayNightChoice",
     "questionPicture": "q0_(1:0)",
-    "questionTitle": "Click on the period (day or night) when andada occured.  In case you don't know proceed to the next page.",
+    "questionTitle": "crab_title_(1:0)",
+	"description": "Click on the period (day or night) when andada occured.  In case you don't know proceed to the next page.",
     "choiceOneText": "At new moon",
     "choiceTwoText": "At full moon",
     "quantityQuestion": 3

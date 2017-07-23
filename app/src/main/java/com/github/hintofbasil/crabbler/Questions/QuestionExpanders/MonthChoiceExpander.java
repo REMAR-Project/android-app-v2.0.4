@@ -1,5 +1,6 @@
 package com.github.hintofbasil.crabbler.Questions.QuestionExpanders;
 
+import android.provider.CalendarContract;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -36,6 +37,7 @@ public class MonthChoiceExpander extends Expander {
     ColorListAdapter<String> monthsAdapter;
 
     int currentYear;
+    int currentMonth;
 
     public MonthChoiceExpander(AppCompatActivity activity, JSONObject questionJson) {
         super(activity, questionJson, REQUIRED_ANSWERS);
@@ -55,16 +57,17 @@ public class MonthChoiceExpander extends Expander {
         titleView.setText(getRichTextQuestionString("questionTitle"));
         questionView.setText(getRichTextQuestionString("questionText"));
 
-        TextView backNextDescription = (TextView) activity.findViewById(R.id.back_next_description);
-        if(!backNextDescription.getText().toString().isEmpty()) {
-            backNextDescription.setVisibility(View.VISIBLE);
-        }
-
+        currentMonth = Calendar.getInstance().get(Calendar.MONTH);
         currentYear = Calendar.getInstance().get(Calendar.YEAR);
+
 
         monthListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if((position) > currentMonth)
+                {
+                    return;
+                }
                 monthNo = position;
                 view.setSelected(true);
                 // Colour is set as background on first selected.  Must override
@@ -142,7 +145,7 @@ public class MonthChoiceExpander extends Expander {
                 R.layout.list_background,
                 activity.getResources().getStringArray(R.array.months),
                 monthNo,
-                -1);
+                currentMonth);
         monthListView.setAdapter(monthsAdapter);
 
         yearsAdapter = new ColorListAdapter<String>(

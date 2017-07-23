@@ -49,6 +49,11 @@ public class TwoPictureLayoutExpander extends Expander {
         choiceOneTitle.setText(getRichTextQuestionString("choiceOneTitle"));
         choiceTwoTitle.setText(getRichTextQuestionString("choiceTwoTitle"));
 
+        TextView backNextDescription = (TextView) activity.findViewById(R.id.back_next_description);
+        if(!backNextDescription.getText().toString().isEmpty()) {
+            backNextDescription.setVisibility(View.VISIBLE);
+        }
+
         questionOneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -64,12 +64,39 @@ public class MonthChoiceExpander extends Expander {
         monthListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if((position) > currentMonth)
+                if((position) > currentMonth && yearNo == currentYear)
                 {
+                    yearListView.setItemChecked(yearNo, true);
+                    yearListView.setSelection(yearNo);
                     return;
+                }
+                else if((position) > currentMonth && yearNo < currentYear)
+                {
+                    yearsAdapter = new ColorListAdapter<String>(
+                            activity.getBaseContext(),
+                            R.layout.list_background,
+                            activity.getResources().getStringArray(R.array.years),
+                            yearNo,
+                            currentYear - 2016 - 1); // 2016 due to min value in calendar
+                    yearListView.setAdapter(yearsAdapter);
+                    yearListView.setItemChecked(yearNo, true);
+                    yearListView.setSelection(yearNo);
+                }
+                else
+                {
+                    yearsAdapter = new ColorListAdapter<String>(
+                            activity.getBaseContext(),
+                            R.layout.list_background,
+                            activity.getResources().getStringArray(R.array.years),
+                            yearNo,
+                            currentYear - 2016); // 2016 due to min value in calendar
+                    yearListView.setAdapter(yearsAdapter);
+                    yearListView.setItemChecked(yearNo, true);
+                    yearListView.setSelection(yearNo);
                 }
                 monthNo = position;
                 view.setSelected(true);
+                monthListView.setItemChecked(monthNo, true);
                 // Colour is set as background on first selected.  Must override
                 if(monthsAdapter != null) {
                     monthsAdapter.removeDefault();
@@ -84,7 +111,28 @@ public class MonthChoiceExpander extends Expander {
                 if((position + 2016) > currentYear) { //TODO remove magic number
                     return;
                 }
+                else if((position + 2016) == currentYear)
+                {
+                    monthsAdapter = new ColorListAdapter<String>(
+                            activity.getBaseContext(),
+                            R.layout.list_background,
+                            activity.getResources().getStringArray(R.array.months),
+                            monthNo,
+                            currentMonth);
+                    monthListView.setAdapter(monthsAdapter);
+                }
+                else
+                {
+                    monthsAdapter = new ColorListAdapter<String>(
+                            activity.getBaseContext(),
+                            R.layout.list_background,
+                            activity.getResources().getStringArray(R.array.months),
+                            monthNo,
+                            -1);
+                    monthListView.setAdapter(monthsAdapter);
+                }
                 yearNo = position;
+                yearListView.setItemChecked(yearNo, true);
                 view.setSelected(true);
                 // Colour is set as background on first selected.  Must override
                 if(yearsAdapter != null) {
@@ -139,14 +187,26 @@ public class MonthChoiceExpander extends Expander {
             Log.d("TwoChoiceDate", "No previous year");
         }
 
-
-        monthsAdapter = new ColorListAdapter<String>(
-                activity.getBaseContext(),
-                R.layout.list_background,
-                activity.getResources().getStringArray(R.array.months),
-                monthNo,
-                currentMonth);
-        monthListView.setAdapter(monthsAdapter);
+        if((yearNo + 2016) == currentYear)
+        {
+            monthsAdapter = new ColorListAdapter<String>(
+                    activity.getBaseContext(),
+                    R.layout.list_background,
+                    activity.getResources().getStringArray(R.array.months),
+                    monthNo,
+                    currentMonth);
+            monthListView.setAdapter(monthsAdapter);
+        }
+        else
+        {
+            monthsAdapter = new ColorListAdapter<String>(
+                    activity.getBaseContext(),
+                    R.layout.list_background,
+                    activity.getResources().getStringArray(R.array.months),
+                    monthNo,
+                    -1);
+            monthListView.setAdapter(monthsAdapter);
+        }
 
         yearsAdapter = new ColorListAdapter<String>(
                 activity.getBaseContext(),

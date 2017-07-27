@@ -39,4 +39,9 @@ public class ColorListAdapter<T> extends ArrayAdapter<T> {
             selectedView.setBackgroundResource(R.drawable.color_list);
         }
     }
+
+    public void setMax(int max)
+    {
+        this.max = max;
+    }
 }

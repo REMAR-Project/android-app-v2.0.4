@@ -31,11 +31,13 @@ public class MonthChoiceExpander extends Expander {
     ListView monthListView;
     ListView yearListView;
     ListView month2ListView;
+    ListView year2ListView;
 
     int monthNo = -1;
     int yearNo = -1;
 
     ColorListAdapter<String> yearsAdapter;
+    ColorListAdapter<String> years2Adapter;
     ColorListAdapter<String> monthsAdapter;
     ColorListAdapter<String> months2Adapter;
 
@@ -56,6 +58,7 @@ public class MonthChoiceExpander extends Expander {
         monthListView = (ListView) activity.findViewById(R.id.month_list_view);
         yearListView = (ListView) activity.findViewById(R.id.year_list_view);
         month2ListView = (ListView) activity.findViewById(R.id.month2_list_view);
+        year2ListView = (ListView) activity.findViewById(R.id.year2_list_view);
 
         imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
         titleView.setText(getRichTextQuestionString("questionTitle"));
@@ -86,6 +89,26 @@ public class MonthChoiceExpander extends Expander {
             }
         });
 
+        month2ListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                monthNo = position;
+                if(monthNo < currentMonth)
+                {
+                    monthListView.setItemChecked(monthNo, true);
+                }
+                else
+                {
+                    monthListView.setItemChecked(currentMonth, true);
+                }
+                // Colour is set as background on first selected.  Must override
+                if(months2Adapter != null) {
+                    months2Adapter.removeDefault();
+                }
+                enableDisableNext();
+            }
+        });
+
         yearListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -103,14 +126,18 @@ public class MonthChoiceExpander extends Expander {
             }
         });
 
-        month2ListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        year2ListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                monthNo = position;
-                monthListView.setItemChecked(monthNo, true);
+                if((position + 2016) > currentYear) { //TODO remove magic number
+                    return;
+                }
+                yearNo = position;
+                year2ListView.setItemChecked(yearNo, true);
+                view.setSelected(true);
                 // Colour is set as background on first selected.  Must override
-                if(months2Adapter != null) {
-                    months2Adapter.removeDefault();
+                if(years2Adapter != null) {
+                    years2Adapter.removeDefault();
                 }
                 enableDisableNext();
             }
@@ -135,6 +162,15 @@ public class MonthChoiceExpander extends Expander {
         });
 
         month2ListView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                v.getParent().requestDisallowInterceptTouchEvent(true);
+                return false;
+            }
+        });
+
+        year2ListView.setOnTouchListener(new View.OnTouchListener() {
+
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 v.getParent().requestDisallowInterceptTouchEvent(true);
@@ -193,6 +229,14 @@ public class MonthChoiceExpander extends Expander {
                 yearNo,
                 currentYear - 2016); // 2016 due to min value in calendar
         yearListView.setAdapter(yearsAdapter);
+
+        years2Adapter = new ColorListAdapter<String>(
+                activity.getBaseContext(),
+                R.layout.list_background,
+                activity.getResources().getStringArray(R.array.years),
+                yearNo,
+                currentYear - 2017); // 2016 due to min value in calendar
+        year2ListView.setAdapter(years2Adapter);
     }
 
     @Override

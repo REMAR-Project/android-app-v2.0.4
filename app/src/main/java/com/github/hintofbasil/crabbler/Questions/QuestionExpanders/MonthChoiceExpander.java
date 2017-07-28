@@ -73,6 +73,7 @@ public class MonthChoiceExpander extends Expander {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if((position) > currentMonth)
                 {
+                    disableDisableNext();
                     return;
                 }
                 monthNo = position;
@@ -82,17 +83,14 @@ public class MonthChoiceExpander extends Expander {
                     monthsAdapter.removeDefault();
                 }
                 enableDisableNext();
-                //yearListView.invalidateViews();
-                //yearListView.setItemChecked(yearNo, true);
-                //yearListView.setSelection(yearNo);
-
+                yearListView.setVisibility(View.VISIBLE);
+                year2ListView.setVisibility(View.GONE);
             }
         });
 
         month2ListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                monthNo = position;
                 if(monthNo < currentMonth)
                 {
                     monthListView.setItemChecked(monthNo, true);
@@ -101,11 +99,36 @@ public class MonthChoiceExpander extends Expander {
                 {
                     monthListView.setItemChecked(currentMonth, true);
                 }
+                monthNo = position;
                 // Colour is set as background on first selected.  Must override
                 if(months2Adapter != null) {
                     months2Adapter.removeDefault();
                 }
                 enableDisableNext();
+                /*yearListView.setVisibility(View.VISIBLE);
+                year2ListView.setVisibility(View.VISIBLE);
+
+                if(yearNo >= currentYear-2016)
+                {
+                    year2ListView.setItemChecked(currentYear-2017, true);
+                    yearNo = currentYear-2017;
+                }
+                else
+                {
+                    year2ListView.setItemChecked(yearNo, true);
+                }*/
+
+                if(monthNo <= currentMonth)
+                {
+                    yearListView.setVisibility(View.VISIBLE);
+                    year2ListView.setVisibility(View.GONE);
+                }
+                else
+                {
+                    yearListView.setVisibility(View.GONE);
+                    year2ListView.setVisibility(View.VISIBLE);
+                }
+
             }
         });
 
@@ -113,15 +136,35 @@ public class MonthChoiceExpander extends Expander {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if((position + 2016) > currentYear) { //TODO remove magic number
+                    disableDisableNext();
                     return;
                 }
                 yearNo = position;
                 yearListView.setItemChecked(yearNo, true);
+                year2ListView.setItemChecked(yearNo, true);
                 view.setSelected(true);
                 // Colour is set as background on first selected.  Must override
                 if(yearsAdapter != null) {
                     yearsAdapter.removeDefault();
                 }
+
+                if(yearNo+2016 == currentYear)
+                {
+                    month2ListView.setVisibility(View.GONE);
+                    monthListView.setVisibility(View.VISIBLE);
+                    if(monthNo > currentMonth)
+                    {
+                        monthNo = currentMonth;
+                    }
+                    month2ListView.setItemChecked(monthNo, true);
+                }
+                else
+                {
+                    month2ListView.setVisibility(View.VISIBLE);
+                    monthListView.setVisibility(View.GONE);
+                    monthListView.setItemChecked(monthNo, true);
+                }
+
                 enableDisableNext();
             }
         });
@@ -129,11 +172,13 @@ public class MonthChoiceExpander extends Expander {
         year2ListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if((position + 2016) > currentYear) { //TODO remove magic number
+                if((position + 2017) > currentYear) { //TODO remove magic number
+                    disableDisableNext();
                     return;
                 }
                 yearNo = position;
                 year2ListView.setItemChecked(yearNo, true);
+                yearListView.setItemChecked(yearNo, true);
                 view.setSelected(true);
                 // Colour is set as background on first selected.  Must override
                 if(years2Adapter != null) {
@@ -177,6 +222,10 @@ public class MonthChoiceExpander extends Expander {
                 return false;
             }
         });
+
+        monthListView.setVisibility(View.GONE);
+        year2ListView.setVisibility(View.GONE);
+
     }
 
     @Override

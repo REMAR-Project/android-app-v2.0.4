@@ -105,7 +105,7 @@
     "questionType": "ListSelect",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "Digite o nome do distrito, bairro ou vila perto do manguezal onde você fez sua observação (opcional)",
+    "description": "Digite o nome do distrito, bairro ou vila perto do lugar onde voce (opcional)",
     "disableList": true,
     "disablePicture": true,
     "optional": true,
@@ -125,7 +125,7 @@
     "questionType": "UserDetails",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "Seria ótimo saber quem é você e como mantermos contato para agradecimento",
+    "description": "Seria ótimo saber quem é você e como mantermos contato para agradecimento (opcional)",
     "postAs": "userDetails",
     "optional": true,
     "cacheAnswer": true

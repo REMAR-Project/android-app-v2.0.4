@@ -85,6 +85,8 @@ public class MonthChoiceExpander extends Expander {
                 enableDisableNext();
                 yearListView.setVisibility(View.VISIBLE);
                 year2ListView.setVisibility(View.GONE);
+                monthListView.setSelection(monthNo);
+                month2ListView.setSelection(monthNo);
             }
         });
 
@@ -128,7 +130,8 @@ public class MonthChoiceExpander extends Expander {
                     yearListView.setVisibility(View.GONE);
                     year2ListView.setVisibility(View.VISIBLE);
                 }
-
+                monthListView.setSelection(monthNo);
+                month2ListView.setSelection(monthNo);
             }
         });
 
@@ -166,6 +169,8 @@ public class MonthChoiceExpander extends Expander {
                 }
 
                 enableDisableNext();
+                monthListView.setSelection(monthNo);
+                month2ListView.setSelection(monthNo);
             }
         });
 
@@ -185,6 +190,8 @@ public class MonthChoiceExpander extends Expander {
                     years2Adapter.removeDefault();
                 }
                 enableDisableNext();
+                monthListView.setSelection(monthNo);
+                month2ListView.setSelection(monthNo);
             }
         });
 

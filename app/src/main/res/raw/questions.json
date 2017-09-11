@@ -47,7 +47,7 @@
     "questionType": "DateRangeSelect",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "AGORA clique no dia de andada MAIS FORTE (opcional).",
+    "description": "AGORA clique no dia de andada MAIS FORTE (opcional)",
     "month": "(2:0)",
     "year": "(2:1)",
     "filterOnQuestion": -1,
@@ -125,7 +125,7 @@
     "questionType": "UserDetails",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "Seria ótimo saber quem é você e como mantermos contato para agradecimento (opcional)",
+    "description": "Seria ótimo saber quem é você e como mantermos contato para agradecimento (opcional) Digite seu endereco electronico",
     "postAs": "userDetails",
     "optional": true,
     "cacheAnswer": true

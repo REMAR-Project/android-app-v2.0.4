@@ -159,6 +159,7 @@ public class MonthChoiceExpander extends Expander {
                     {
                         monthNo = currentMonth;
                     }
+                    monthListView.setItemChecked(monthNo, true);
                     month2ListView.setItemChecked(monthNo, true);
                 }
                 else
@@ -169,7 +170,9 @@ public class MonthChoiceExpander extends Expander {
                 }
 
                 enableDisableNext();
+                monthListView.setSelection(-1);
                 monthListView.setSelection(monthNo);
+                month2ListView.setSelection(-1);
                 month2ListView.setSelection(monthNo);
             }
         });
@@ -190,7 +193,9 @@ public class MonthChoiceExpander extends Expander {
                     years2Adapter.removeDefault();
                 }
                 enableDisableNext();
+                monthListView.setSelection(-1);
                 monthListView.setSelection(monthNo);
+                month2ListView.setSelection(-1);
                 month2ListView.setSelection(monthNo);
             }
         });

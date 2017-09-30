@@ -61,7 +61,7 @@ public class TwoPictureLayoutExpander extends Expander {
                 questionTwoButton.setBackgroundResource(R.color.questionBackground);
                 questionOneButton.setBackgroundResource(R.color.questionSelectedBackground);
                 enableDisableNext();
-                nextQuestion(200);
+                //nextQuestion(200);
             }
         });
 
@@ -72,7 +72,7 @@ public class TwoPictureLayoutExpander extends Expander {
                 questionOneButton.setBackgroundResource(R.color.questionBackground);
                 questionTwoButton.setBackgroundResource(R.color.questionSelectedBackground);
                 enableDisableNext();
-                nextQuestion(200);
+                //nextQuestion(200);
             }
         });    }
 

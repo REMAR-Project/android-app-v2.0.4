@@ -138,6 +138,14 @@ public abstract class Expander {
     public void previousQuestion() {
         final Intent intent = new Intent(activity, QuestionActivity.class);
         intent.putExtra(Keys.QUESTION_ID_KEY, realQuestionId - 1);
+        try
+        {
+            saveAnswer();
+        }
+        catch (IOException|JSONException e) {
+            Log.e("Expander", "Unable to save answer\n" + Log.getStackTraceString(e));
+        }
+
         activity.startActivity(intent);
         activity.finish();
     }

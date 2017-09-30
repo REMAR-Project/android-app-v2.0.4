@@ -49,7 +49,7 @@ public class OneChoiceExpander extends Expander {
                 currentAnswer = 0;
                 questionOneButton.setBackgroundResource(R.color.questionSelectedBackground);
                 enableDisableNext();
-                nextQuestion(200);
+                //nextQuestion(200);
             }
         });
 

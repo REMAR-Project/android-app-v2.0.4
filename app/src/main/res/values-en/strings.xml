@@ -54,7 +54,7 @@
         <item>24 hours</item>
     </string-array>
 
-    <string name="menu">Menu</string>
+    <string name="menu">More Information</string>
 
     <string name="calendar_legend_new_moon">New moon</string>
     <string name="calendar_legend_full_moon">Full moon</string>

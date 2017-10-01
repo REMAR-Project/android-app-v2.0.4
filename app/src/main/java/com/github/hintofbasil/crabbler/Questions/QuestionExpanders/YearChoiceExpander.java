@@ -1,6 +1,5 @@
 package com.github.hintofbasil.crabbler.Questions.QuestionExpanders;
 
-import android.provider.CalendarContract;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -19,35 +18,34 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Calendar;
-import java.util.List;
 
-public class MonthChoiceExpander extends Expander {
+public class YearChoiceExpander extends Expander {
 
     private static final int REQUIRED_ANSWERS = 1;
     public static final int MIN_YEAR = 2016;
 
-    ListView monthListView;
+    ListView yearListView;
 
     int monthNo = -1;
+    int yearNo = -1;
 
-    ColorListAdapter<String> monthsAdapter;
+    ColorListAdapter<String> yearsAdapter;
 
     int currentYear;
     int currentMonth;
-    int year; //from previous question
 
-    public MonthChoiceExpander(AppCompatActivity activity, JSONObject questionJson) {
+    public YearChoiceExpander(AppCompatActivity activity, JSONObject questionJson) {
         super(activity, questionJson, REQUIRED_ANSWERS);
     }
 
     @Override
     public void expandLayout() throws JSONException {
-        activity.setContentView(R.layout.expander_month_choice);
+        activity.setContentView(R.layout.expander_year_choice);
 
         final ImageView imageView = (ImageView) activity.findViewById(R.id.image);
         TextView titleView = (TextView) activity.findViewById(R.id.title);
         TextView questionView = (TextView) activity.findViewById(R.id.question_text);
-        monthListView = (ListView) activity.findViewById(R.id.month_list_view);
+        yearListView = (ListView) activity.findViewById(R.id.year_list_view);
 
         imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
         titleView.setText(getRichTextQuestionString("questionTitle"));
@@ -56,30 +54,27 @@ public class MonthChoiceExpander extends Expander {
         currentMonth = Calendar.getInstance().get(Calendar.MONTH);
         currentYear = Calendar.getInstance().get(Calendar.YEAR);
 
-        year = Integer.parseInt(getQuestionString("year"));
-
-
-        monthListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        yearListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(year == currentYear-2016 && (position) > currentMonth)
+                if((position) > currentYear - 2016)
                 {
                     disableDisableNext();
                     return;
                 }
-                monthNo = position;
+                yearNo = position;
                 //month2ListView.setItemChecked(monthNo, true);
                 // Colour is set as background on first selected.  Must override
-                if(monthsAdapter != null) {
-                    monthsAdapter.removeDefault();
+                if(yearsAdapter != null) {
+                    yearsAdapter.removeDefault();
                 }
                 enableDisableNext();
-                //monthListView.setSelection(monthNo);
+                //yearListView.setSelection(yearNo);
             }
         });
 
         // Fix scrolling
-        monthListView.setOnTouchListener(new View.OnTouchListener() {
+        yearListView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 v.getParent().requestDisallowInterceptTouchEvent(true);
@@ -104,37 +99,24 @@ public class MonthChoiceExpander extends Expander {
         }*/
 
         try {
-            monthNo = answer.getInt(0);
+            yearNo = answer.getInt(0);
         } catch (NumberFormatException|ArrayIndexOutOfBoundsException|JSONException e) {
             Log.d("TwoChoiceDate", "No previous month");
         }
 
-        if(year == currentYear - 2016)
-        {
-            monthsAdapter = new ColorListAdapter<String>(
+        yearsAdapter = new ColorListAdapter<String>(
                     activity.getBaseContext(),
                     R.layout.list_background,
-                    activity.getResources().getStringArray(R.array.months),
-                    monthNo,
-                    currentMonth);
-            monthListView.setAdapter(monthsAdapter);
-        }
-        else
-        {
-            monthsAdapter = new ColorListAdapter<String>(
-                    activity.getBaseContext(),
-                    R.layout.list_background,
-                    activity.getResources().getStringArray(R.array.months),
-                    monthNo,
-                    -1);
-            monthListView.setAdapter(monthsAdapter);
-        }
+                    activity.getResources().getStringArray(R.array.years),
+                    yearNo,
+                    currentYear - 2016);
+        yearListView.setAdapter(yearsAdapter);
     }
 
     @Override
     public JSONArray getSelectedAnswer() {
         JSONArray array = new JSONArray();
-        array.put(monthNo);
+        array.put(yearNo);
         return array;
     }
 }

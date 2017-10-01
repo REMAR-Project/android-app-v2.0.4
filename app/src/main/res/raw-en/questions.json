@@ -17,13 +17,21 @@
   },
   {
     "questionNumber": 2,
-    "questionType": "MonthChoice",
+    "questionType": "YearChoice",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-	"questionText": "Select month and year."
+    "questionText": "Select year."
   },
   {
     "questionNumber": 3,
+    "questionType": "MonthChoice",
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)",
+	"questionText": "Select month.",
+    "year" : "(2:0)"
+  },
+  {
+    "questionNumber": 4,
     "questionType": "ThreeChoice",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
@@ -33,29 +41,29 @@
     "allowMultiple": false
   },
   {
-    "questionNumber": 4,
+    "questionNumber": 5,
     "questionType": "DateRange",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
     "description": "Click on the days that you noted andada",
-    "month": "(2:0)",
-    "year": "(2:1)",
+    "month": "(3:0)",
+    "year": "(2:0)",
     "filterOnQuestion": -1,
 	"optional": true
   },
   {
-    "questionNumber": 5,
+    "questionNumber": 6,
     "questionType": "DateRangeSelect",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
     "description": "Click the day with the STRONGEST andada activity<br>(optional)",
-    "month": "(2:0)",
-    "year": "(2:1)",
+    "month": "(3:0)",
+    "year": "(2:0)",
     "filterOnQuestion": -1,
     "optional": true
   },
   {
-    "questionNumber": 6,
+    "questionNumber": 7,
     "questionType": "DayNightChoice",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
@@ -65,7 +73,7 @@
     "quantityQuestion": 3
   },
   {
-	"questionNumber": 7,
+	"questionNumber": 8,
     "questionType": "TwoChoice",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "Did you see berried (ovigerous) females?",
@@ -74,7 +82,7 @@
     "allowMultiple": false
   },
   {
-	"questionNumber": 8,
+	"questionNumber": 9,
 	"questionType": "ListSelect",
 	"questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
@@ -83,7 +91,7 @@
     "disableCustom": "true"
   },
   {
-    "questionNumber": 9,
+    "questionNumber": 10,
     "questionType": "ListSelect",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
@@ -92,7 +100,7 @@
     "disableCustom": "true"
   },
   {
-    "questionNumber": 10,
+    "questionNumber": 11,
     "questionType": "ListSelect",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
@@ -102,7 +110,7 @@
     "jsonKey": "(-1:0)"
   },
   {
-    "questionNumber": 11,
+    "questionNumber": 12,
     "questionType": "ListSelect",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
@@ -113,7 +121,7 @@
     "cacheAnswer": true
   },
   {
-    "questionNumber": 12,
+    "questionNumber": 13,
     "questionType": "YesNoExtra",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",

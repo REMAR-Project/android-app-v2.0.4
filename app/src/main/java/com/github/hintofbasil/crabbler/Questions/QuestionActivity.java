@@ -24,6 +24,7 @@ import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.Expander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.TwoChoiceExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.TwoChoiceDateExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.TwoPictureLayoutExpander;
+import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.YearChoiceExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.YesNoExtraExpander;
 import com.github.hintofbasil.crabbler.R;
 
@@ -86,6 +87,9 @@ public class QuestionActivity extends AppCompatActivity {
                         break;
                     case "MonthChoice":
                         expander = new MonthChoiceExpander(this, questionJson);
+                        break;
+                    case "YearChoice":
+                        expander = new YearChoiceExpander(this, questionJson);
                         break;
                     case "OneChoice":
                         expander = new OneChoiceExpander(this, questionJson);

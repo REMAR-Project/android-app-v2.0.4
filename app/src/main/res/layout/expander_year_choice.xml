@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Questions.QuestionExpanders.MonthChoiceExpander"
+    tools:context=".Questions.QuestionExpanders.YearChoiceExpander"
     >
 
     <include layout="@layout/include_toolbar"
@@ -48,7 +48,7 @@
 
                 <!-- TODO remove fixed height -->
                 <ListView
-                    android:id="@+id/month_list_view"
+                    android:id="@+id/year_list_view"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/two_choice_date_list_size"
                     android:layout_weight="0.5"

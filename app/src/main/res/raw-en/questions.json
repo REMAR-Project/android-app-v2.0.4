@@ -104,7 +104,7 @@
 	"questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
     "description": "Where did the andada happen when you observed it?",
-    "jsonInput": "locations.json",
+    "jsonInput": "locations_(1:0).json",
     "disableCustom": "true"
   },
   {
@@ -152,10 +152,22 @@
   },
   {
     "questionNumber": 15,
+    "questionType": "ListSelect",
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)",
+    "description": "Please can you let us know what do you do? Touch screen and move finger to select.",
+    "jsonInput": "occupation.json",
+    "disableCustom": "true",
+    "enableOther": true,
+    "otherText": "Please touch field and type",
+    "otherPosition": 9
+  },
+  {
+    "questionNumber": 16,
     "questionType": "UserDetails",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "It would be great to know who you are and how to get in contact, to acknowledge you\n(optional)",
+    "description": "It would be good to know who you are so that we can ad your name to the list of citizen-scientists of the REMAR project.<br>Add how you can be contacted most easily.",
     "postAs": "userDetails",
     "optional": true,
     "cacheAnswer": true

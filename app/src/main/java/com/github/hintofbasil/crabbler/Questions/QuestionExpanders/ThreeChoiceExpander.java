@@ -104,6 +104,7 @@ public class ThreeChoiceExpander extends Expander {
                     choiceTwoCheckBox.setChecked(false);
                     choiceThreeCheckBox.setChecked(false);
                 }
+                enableDisableNext();
             }
         });
     }

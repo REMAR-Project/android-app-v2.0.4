@@ -6,6 +6,7 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.textservice.TextInfo;
 import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -19,6 +20,7 @@ import com.github.hintofbasil.crabbler.R;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -33,6 +35,9 @@ public class ChoiceSelectExpander extends Expander {
     ListView listHolder;
     EditText itemTextInput;
     CheckBox dontKnow;
+    TextView otherInfo;
+    EditText editInfo;
+    int otherSelect;
     String[] listStrings;
 
     JSONArray jsonArray = null;
@@ -55,6 +60,8 @@ public class ChoiceSelectExpander extends Expander {
         itemTextInput = (EditText) activity.findViewById(R.id.item_text_input);
         TextView descriptionView = (TextView) activity.findViewById(R.id.description);
         dontKnow = (CheckBox) activity.findViewById(R.id.dont_know);
+        otherInfo = (TextView) activity.findViewById(R.id.TextInfo);
+        editInfo = (EditText) activity.findViewById(R.id.TextEdit);
 
         imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
         titleView.setText(getRichTextQuestionString("questionTitle"));
@@ -64,6 +71,15 @@ public class ChoiceSelectExpander extends Expander {
             detailImage.setImageDrawable(getDrawable(getQuestionString("detailPicture")));
         } catch (JSONException e) {
             detailImage.setVisibility(View.GONE);
+        }
+        try {
+            if(Boolean.parseBoolean(getQuestionString("enableOther"))) {
+                otherSelect = Integer.parseInt(getQuestionString("otherPosition"));
+                otherInfo.setText(getRichTextQuestionString("otherText"));
+            }
+        } catch (JSONException e) {
+            Log.d("ChoiceSelect", "" + e.getStackTrace());
+            otherSelect = -2;
         }
         try {
             boolean disableCustom = Boolean.parseBoolean(getQuestionString("disableCustom"));
@@ -116,6 +132,16 @@ public class ChoiceSelectExpander extends Expander {
                     listHolder.setSelection(-1);
                     listHolder.setSelection(position);
                     dontKnow.setChecked(false);
+                    if(position == otherSelect)
+                    {
+                        otherInfo.setVisibility(View.VISIBLE);
+                        editInfo.setVisibility(View.VISIBLE);
+                    }
+                    else
+                    {
+                        otherInfo.setVisibility(View.GONE);
+                        editInfo.setVisibility(View.GONE);
+                    }
                     enableDisableNext();
                     listHolder.invalidateViews();
                 }

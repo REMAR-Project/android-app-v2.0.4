@@ -31,6 +31,16 @@
                 android:layout_width="match_parent"
                 />
 
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textSize="@dimen/description"
+                android:layout_marginBottom="@dimen/description_margin_bottom"/>
+
             <CheckBox
                 android:id="@+id/choice_one"
                 android:layout_width="wrap_content"
@@ -38,6 +48,7 @@
                 android:textSize="@dimen/checkbox_text"
                 android:layout_marginTop="@dimen/checkbox_margin_top"
                 android:layout_marginBottom="@dimen/checkbox_margin_bottom"
+                android:gravity="center_horizontal"
                 />
 
             <CheckBox
@@ -46,6 +57,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/checkbox_text"
                 android:layout_marginBottom="@dimen/checkbox_margin_bottom"
+                android:gravity="center_horizontal"
                 />
 
         </LinearLayout>

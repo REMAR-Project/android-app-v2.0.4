@@ -76,6 +76,16 @@
 
             </LinearLayout>
 
+            <CheckBox
+                android:id="@+id/dont_know"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/checkbox_text"
+                android:layout_marginTop="@dimen/checkbox_margin_top"
+                android:layout_marginBottom="@dimen/checkbox_margin_bottom"
+                android:visibility="gone"
+                />
+
         </LinearLayout>
 
     </ScrollView>

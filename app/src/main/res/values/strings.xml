@@ -96,6 +96,8 @@
     <string name="andada_full_1">&lt;b>Não&lt;/b> houve andada em torno da a &lt;b>lua cheia&lt;/b></string>
 
     <string name="back_next_description_text">Clique nas setas para\navançar ou voltar</string>
+
+    <string name="protectedText">Toque no espaço e escreva o nome da área protegida onde você viu a andada </string>
 	
 	<string name="TestVersion">Versão deTESTE</string>
 	<string name="test2">This is a test! Two</string>

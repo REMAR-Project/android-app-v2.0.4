@@ -65,7 +65,14 @@
     <string name="andada_new_1">There was &lt;b>NO&lt;/b> andada after the &lt;b>new moon&lt;/b></string>
     <string name="andada_full_1">There was &lt;b>NO&lt;/b> andada after the &lt;b>full moon&lt;/b></string>
 
+    <string name="protectedText">Touch field and type the name of the protected area where you observed andada</string>
+
+    <string name="lo">Low</string>
+    <string name="mid">Intermediate</string>
+    <string name="high">High</string>
+
     <string name="back_next_description_text"></string>
+    <string name="becomescience"></string>
 	
 	<string name="TestVersion">TEST Version</string>
 	<string name="test2">This is a test! Two</string>

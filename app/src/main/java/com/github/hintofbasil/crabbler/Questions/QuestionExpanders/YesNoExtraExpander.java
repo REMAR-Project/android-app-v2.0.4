@@ -4,18 +4,31 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.github.hintofbasil.crabbler.ColorListAdapter;
 import com.github.hintofbasil.crabbler.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * Created by will on 25/05/16.
@@ -27,8 +40,14 @@ public class YesNoExtraExpander extends Expander {
     CheckBox chkYes;
     CheckBox chkNo;
     CheckBox chkMaybe;
-    EditText hiddenInput;
     LinearLayout hiddenInputContainer;
+    ListView extraListview;
+    String[] listStrings;
+    int selectedListItem;
+    JSONObject jsonArray = null;
+    ColorListAdapter<String> adapter;
+    TextView manualInfo;
+    EditText manualText;
 
     Expander expander = this;
 
@@ -43,15 +62,18 @@ public class YesNoExtraExpander extends Expander {
         ImageView imageView = (ImageView) activity.findViewById(R.id.image);
         TextView titleView = (TextView) activity.findViewById(R.id.title);
         TextView questionText = (TextView) activity.findViewById(R.id.question_text);
-        TextView extraDetail = (TextView) activity.findViewById(R.id.extra_details);
+        final TextView extraDetail = (TextView) activity.findViewById(R.id.extra_details);
+        String state = "";
 
         chkYes = (CheckBox) activity.findViewById(R.id.chk_yes);
         chkNo = (CheckBox) activity.findViewById(R.id.chk_no);
         chkMaybe = (CheckBox) activity.findViewById(R.id.chk_maybe);
 
-
-        hiddenInput = (EditText) activity.findViewById(R.id.extra_input);
         hiddenInputContainer = (LinearLayout) activity.findViewById(R.id.extra_details_container);
+        extraListview = (ListView) activity.findViewById(R.id.extra_listview);
+
+        manualInfo = (TextView) activity.findViewById(R.id.manual_text);
+        manualText = (EditText) activity.findViewById(R.id.manual_protected) ;
 
         imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
         titleView.setText(getRichTextQuestionString("questionTitle"));
@@ -63,7 +85,8 @@ public class YesNoExtraExpander extends Expander {
             public void onClick(View v) {
                 chkNo.setChecked(false);
                 chkMaybe.setChecked(false);
-                hiddenInputContainer.setVisibility(View.VISIBLE);
+                extraListview.setVisibility(View.VISIBLE);
+                extraDetail.setVisibility(View.VISIBLE);
                 expander.requiredAnswers = 2;
                 enableDisableNext();
             }
@@ -74,7 +97,8 @@ public class YesNoExtraExpander extends Expander {
             public void onClick(View v) {
                 chkYes.setChecked(false);
                 chkMaybe.setChecked(false);
-                hiddenInputContainer.setVisibility(View.GONE);
+                extraListview.setVisibility(View.GONE);
+                extraDetail.setVisibility(View.GONE);
                 expander.requiredAnswers = 1;
                 enableDisableNext();
             }
@@ -91,22 +115,79 @@ public class YesNoExtraExpander extends Expander {
             }
         });
 
-        hiddenInput.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        try {
+            jsonArray = readFileObject(getQuestionString("jsonInput"));
+        } catch (IOException e) {
+            Log.e("ChoiceSelectExpander", "Unable to parse json file" + Log.getStackTraceString(e));
+        }
 
+        try {
+            extraListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    //itemTextInput.setText(((TextView) view).getText());
+                    if (adapter != null) {
+                        adapter.removeDefault();
+                    }
+                    selectedListItem = position;
+                    if(selectedListItem == listStrings.length-1) {
+                        Log.d("test", "pass");
+                        manualInfo.setVisibility(View.VISIBLE);
+                        manualText.setVisibility(View.VISIBLE);
+                    } else {
+                        Log.d("test", "fail");
+                        manualInfo.setVisibility(View.GONE);
+                        manualText.setVisibility(View.GONE);
+                    }
+                    //dontKnow.setChecked(false);
+                    enableDisableNext();
+                }
+            });
+
+            // Fix scrolling
+            extraListview.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    v.getParent().requestDisallowInterceptTouchEvent(true);
+                    return false;
+                }
+            });
+
+            state = getQuestionString("state");
+
+            JSONArray stateArray = jsonArray.getJSONArray(state);
+
+            ArrayList<String> spinnerArray = new ArrayList<String>();
+
+            for(int i = 0; i < stateArray.length(); i++) {
+                spinnerArray.add(stateArray.getString(i));
             }
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
+            int regionId = -1;
+            listStrings = new String[stateArray.length()+1];
+            for (int i = 0; i < stateArray.length(); i++) {
+                String listItem = stateArray.getString(i);
+                listStrings[i] = listItem;
+                /*if (listItem.equals(selectedRegion)) {
+                    regionId = i;
+                }*/
             }
+            listStrings[listStrings.length-1] = "Not in list";
 
-            @Override
-            public void afterTextChanged(Editable s) {
-                enableDisableNext();
-            }
-        });
+            adapter = new ColorListAdapter<String>(
+                    activity.getBaseContext(),
+                    R.layout.list_background,
+                    listStrings,
+                    regionId,
+                    -1);
+
+            extraListview.setAdapter(adapter);
+
+            setListViewHeightBasedOnChildren(extraListview);
+
+        } catch (JSONException e) {
+            Log.d("YesNoExtra", "Failed to obtain a value for state, defaults to a empty string. " + e.getMessage());
+        }
     }
 
     @Override
@@ -133,7 +214,14 @@ public class YesNoExtraExpander extends Expander {
             Log.d("YesNoExtra", "No previous selection");
         }
         try {
-            hiddenInput.setText(answer.getString(1));
+            adapter = new ColorListAdapter<String>(
+                    activity.getBaseContext(),
+                    R.layout.list_background,
+                    listStrings,
+                    answer.getInt(1),
+                    -1);
+
+            extraListview.setAdapter(adapter);
         } catch (JSONException e) {
             Log.d("YesNoExtra", "No previous text");
         }
@@ -152,9 +240,13 @@ public class YesNoExtraExpander extends Expander {
             array.put(-1);
         }
 
-        String answer = hiddenInput.getText().toString();
-        if(answer.isEmpty() && hiddenInput.getHint() != null) {
-            answer = hiddenInput.getHint().toString();
+        int answer = -1;
+        if(chkYes.isChecked()) {
+            try {
+                answer = selectedListItem;
+            } catch (Exception e) {
+                Log.d("YesNoExtra", "Failed to write selectedListItem to answer" + e.getStackTrace());
+            }
         }
         array.put(answer);
         return array;
@@ -177,8 +269,44 @@ public class YesNoExtraExpander extends Expander {
                     break;
             }
         }
-        if(answer.length() > 1) {
-            hiddenInput.setHint(answer.getString(1));
+    }
+
+    private String readFile(String filename) throws IOException, JSONException {
+        if(filename.endsWith(".json")) {
+            filename = filename.substring(0, filename.length() - 5);
         }
+        int resourceId = activity.getResources().getIdentifier(filename, "raw", activity.getPackageName());
+        InputStream jsonInputStream = activity.getBaseContext().getResources().openRawResource(resourceId);
+        byte[] buffer = new byte[65000];  // Large buffer required for region_countieses.json
+        int length = jsonInputStream.read(buffer);
+        return new String(buffer).substring(0, length);
+    }
+
+    private JSONArray readFileArray(String filename) throws IOException, JSONException {
+        return new JSONArray(readFile(filename));
+    }
+
+    private JSONObject readFileObject(String filename) throws IOException, JSONException {
+        return new JSONObject(readFile(filename));
+    }
+
+    public static void setListViewHeightBasedOnChildren(ListView listView) {
+        ListAdapter listAdapter = listView.getAdapter();
+        if (listAdapter == null) {
+            // pre-condition
+            return;
+        }
+
+        int totalHeight = 0;
+        for (int i = 0; i < listAdapter.getCount(); i++) {
+            View listItem = listAdapter.getView(i, null, listView);
+            listItem.measure(0, 0);
+            totalHeight += listItem.getMeasuredHeight();
+        }
+
+        ViewGroup.LayoutParams params = listView.getLayoutParams();
+        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
+        listView.setLayoutParams(params);
+        listView.requestLayout();
     }
 }

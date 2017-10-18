@@ -27,7 +27,7 @@ public class DayNightChoiceExpander extends Expander {
 
     int count = 0;
 
-    CheckBox firstUnknown;
+    LinearLayout firstUnknown;
     LinearLayout firstDayLayout;
     LinearLayout firstNightLayout;
     LinearLayout firstDayNightLayout;
@@ -46,8 +46,8 @@ public class DayNightChoiceExpander extends Expander {
 
     @Override
     public void expandLayout() throws JSONException {
-        //Get count
-        try {
+        //Get count //note: I really don't know why this is here. but we never need the 2nd one, so this will always return 1
+        /*try {
             int countQuestionId = questionJson.getInt("quantityQuestion");
             JSONArray answers = getAnswer(countQuestionId);
             for(int i=0;i<answers.length();i++) {
@@ -57,7 +57,8 @@ public class DayNightChoiceExpander extends Expander {
             }
         } catch (IOException e) {
             Log.e("DayNightChoiceExpander", "No attribute quantityQuestion");
-        }
+        }*/
+        count = 1;
         if(count == 1) {
             activity.setContentView(R.layout.expander_day_night_choice);
         } else if(count == 2) {
@@ -67,7 +68,7 @@ public class DayNightChoiceExpander extends Expander {
         ImageView imageView = (ImageView) activity.findViewById(R.id.image);
         TextView titleView = (TextView) activity.findViewById(R.id.title);
         TextView description = (TextView) activity.findViewById(R.id.description);
-        firstUnknown = (CheckBox) activity.findViewById(R.id.first_day_night_unknown);
+        firstUnknown = (LinearLayout) activity.findViewById(R.id.first_day_night_unknown);
         firstDayLayout = (LinearLayout) activity.findViewById(R.id.first_day_view);
         firstNightLayout = (LinearLayout) activity.findViewById(R.id.first_night_view);
         firstDayNightLayout = (LinearLayout) activity.findViewById(R.id.first_day_night_view);
@@ -151,7 +152,7 @@ public class DayNightChoiceExpander extends Expander {
 
         //Override template defaults
         titleView.setTextSize(activity.getResources().getDimension(R.dimen.day_night_choice_title));
-        firstUnknown.setTextColor(activity.getResources().getColor(android.R.color.tertiary_text_light));
+        //firstUnknown.setTextColor(activity.getResources().getColor(android.R.color.tertiary_text_light));
     }
 
     @Override
@@ -186,7 +187,8 @@ public class DayNightChoiceExpander extends Expander {
         highlightLinearLayout(firstDayLayout, R.color.none);
         highlightLinearLayout(firstNightLayout, R.color.none);
         highlightLinearLayout(firstDayNightLayout, R.color.none);
-        firstUnknown.setChecked(false);
+        highlightLinearLayout(firstUnknown, R.color.none);
+        //firstUnknown.setChecked(false);
         firstDayNightChoice = choice;
         switch(choice) {
             case 0:
@@ -199,7 +201,7 @@ public class DayNightChoiceExpander extends Expander {
                 highlightLinearLayout(firstDayNightLayout, colorId);
                 break;
             case 3:
-                firstUnknown.setChecked(true);
+                highlightLinearLayout(firstUnknown, colorId);
                 break;
         }
     }

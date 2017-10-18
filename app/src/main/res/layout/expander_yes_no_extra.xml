@@ -69,31 +69,47 @@
 
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/extra_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/description"
+                android:layout_marginBottom="@dimen/description_margin_bottom"
+                />
+
             <LinearLayout
                 android:id="@+id/extra_details_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone" >
+                android:orientation="horizontal"
+                android:baselineAligned="false"
+                >
 
-                <TextView
-                    android:id="@+id/extra_details"
-                    android:layout_width="wrap_content"
+                <!-- TODO remove fixed height -->
+                <ListView
+                    android:id="@+id/extra_listview"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/description"
-                    android:layout_marginBottom="@dimen/description_margin_bottom"
-                    />
-
-                <EditText
-                    android:id="@+id/extra_input"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/list_select_input_text"
-                    android:textAlignment="center"
-                    android:inputType="textCapWords"
-                    />
+                    android:layout_weight="0.5"
+                    android:choiceMode="singleChoice"
+                    android:listSelector="@drawable/list_background"
+                    android:scrollbarAlwaysDrawVerticalTrack="true"
+                    android:scrollbarSize="20dp"/>
 
             </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/manual_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/protectedText"/>
+
+                <EditText
+                    android:id="@+id/manual_protected"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
 
         </LinearLayout>
 

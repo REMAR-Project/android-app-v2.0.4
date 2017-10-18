@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -31,6 +32,7 @@ public class ChoiceSelectExpander extends Expander {
 
     ListView listHolder;
     EditText itemTextInput;
+    CheckBox dontKnow;
     String[] listStrings;
 
     JSONArray jsonArray = null;
@@ -52,6 +54,7 @@ public class ChoiceSelectExpander extends Expander {
         listHolder = (ListView) activity.findViewById(R.id.item_select);
         itemTextInput = (EditText) activity.findViewById(R.id.item_text_input);
         TextView descriptionView = (TextView) activity.findViewById(R.id.description);
+        dontKnow = (CheckBox) activity.findViewById(R.id.dont_know);
 
         imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
         titleView.setText(getRichTextQuestionString("questionTitle"));
@@ -71,6 +74,21 @@ public class ChoiceSelectExpander extends Expander {
             Log.d("ChoiceSelectExpander", "disableCustom not specified in questions.json.  Enabled by default");
         }
         try {
+            boolean enableDontKnow = Boolean.parseBoolean(getQuestionString("enableDontKnow"));
+            if(enableDontKnow) {
+                try {
+                    String dontKnowText = getQuestionString("dontKnowText");
+                    dontKnow.setText(dontKnowText);
+                } catch (JSONException e)
+                {
+                    Log.d("ChoiceSelectExpander", "dontKnow checkbox was enabled but without text");
+                }
+                dontKnow.setVisibility(View.VISIBLE);
+            }
+        } catch (JSONException e) {
+            Log.d("ChoiceSelectExpander", "dontKnow checkbox not specificed in questions.json. Disabled by default");
+        }
+        try {
             disableList = Boolean.parseBoolean(getQuestionString("disablePicture"));
             if(disableList) {
                 listHolder.setVisibility(View.GONE);
@@ -78,6 +96,14 @@ public class ChoiceSelectExpander extends Expander {
         } catch (JSONException e) {
             Log.d("ChoiceSelectExpander", "disablePicture not specified in questions.json.  Enabled by default");
         }
+
+        dontKnow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                enableDisableNext();
+            }
+        });
 
         if(!disableList) {
             listHolder.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -87,7 +113,11 @@ public class ChoiceSelectExpander extends Expander {
                     if (adapter != null) {
                         adapter.removeDefault();
                     }
+                    listHolder.setSelection(-1);
+                    listHolder.setSelection(position);
+                    dontKnow.setChecked(false);
                     enableDisableNext();
+                    listHolder.invalidateViews();
                 }
             });
 
@@ -132,6 +162,7 @@ public class ChoiceSelectExpander extends Expander {
                 String answer = itemTextInput.getText().toString();
                 setListTo(listHolder, answer);
                 enableDisableNext();
+                dontKnow.setChecked(false);
             }
         });
     }
@@ -160,11 +191,16 @@ public class ChoiceSelectExpander extends Expander {
     @Override
     public JSONArray getSelectedAnswer() {
         JSONArray array = new JSONArray();
-        String answer = itemTextInput.getText().toString();
-        if(answer.isEmpty() && itemTextInput.getHint() != null) {
-            answer = itemTextInput.getHint().toString();
+        String answer = "";
+        if(!dontKnow.isChecked())
+        {
+            answer = itemTextInput.getText().toString();
+            if(answer.isEmpty() && itemTextInput.getHint() != null) {
+                answer = itemTextInput.getHint().toString();
+            }
         }
         array.put(answer);
+        array.put(dontKnow.isChecked());
         return array;
     }
 

@@ -12,6 +12,7 @@ import com.github.hintofbasil.crabbler.R;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 /**
  * Created by will on 13/05/16.
@@ -23,6 +24,7 @@ public class ThreeChoiceExpander extends Expander {
     CheckBox choiceOneCheckBox;
     CheckBox choiceTwoCheckBox;
     CheckBox choiceThreeCheckBox;
+    CheckBox choiceUnknownCheckBox;
     boolean allowMultiple = false;
 
     public ThreeChoiceExpander(AppCompatActivity activity, JSONObject questionJson) {
@@ -34,12 +36,15 @@ public class ThreeChoiceExpander extends Expander {
         activity.setContentView(R.layout.expander_three_choice);
         ImageView imageView = (ImageView) activity.findViewById(R.id.image);
         TextView titleView = (TextView) activity.findViewById(R.id.title);
+        TextView questionView = (TextView) activity.findViewById(R.id.question_text);
         choiceOneCheckBox = (CheckBox) activity.findViewById(R.id.choice_one);
         choiceTwoCheckBox = (CheckBox) activity.findViewById(R.id.choice_two);
         choiceThreeCheckBox = (CheckBox) activity.findViewById(R.id.choice_three);
+        choiceUnknownCheckBox = (CheckBox) activity.findViewById(R.id.choice_unknown);
 
         imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
         titleView.setText(getRichTextQuestionString("questionTitle"));
+        questionView.setText(getRichTextQuestionString("questionText"));
         choiceOneCheckBox.setText(getRichTextQuestionString("choiceOneText"));
         choiceTwoCheckBox.setText(getRichTextQuestionString("choiceTwoText"));
         choiceThreeCheckBox.setText(getRichTextQuestionString("choiceThreeText"));
@@ -48,12 +53,20 @@ public class ThreeChoiceExpander extends Expander {
             allowMultiple = questionJson.getBoolean("allowMultiple");
         } catch (JSONException e) {}
 
+        try {
+            if(questionJson.getBoolean("dontknow")) {
+                choiceUnknownCheckBox.setVisibility(View.VISIBLE);
+                choiceUnknownCheckBox.setText(getRichTextQuestionString("choiceUnknownText"));
+            }
+        } catch (JSONException e) {}
+
         choiceOneCheckBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(!allowMultiple) {
                     choiceTwoCheckBox.setChecked(false);
                     choiceThreeCheckBox.setChecked(false);
+                    choiceUnknownCheckBox.setChecked(false);
                 }
                 enableDisableNext();
             }
@@ -65,6 +78,7 @@ public class ThreeChoiceExpander extends Expander {
                 if(!allowMultiple) {
                     choiceOneCheckBox.setChecked(false);
                     choiceThreeCheckBox.setChecked(false);
+                    choiceUnknownCheckBox.setChecked(false);
                 }
                 enableDisableNext();
             }
@@ -76,8 +90,20 @@ public class ThreeChoiceExpander extends Expander {
                 if(!allowMultiple) {
                     choiceOneCheckBox.setChecked(false);
                     choiceTwoCheckBox.setChecked(false);
+                    choiceUnknownCheckBox.setChecked(false);
                 }
                 enableDisableNext();
+            }
+        });
+
+        choiceUnknownCheckBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!allowMultiple) {
+                    choiceOneCheckBox.setChecked(false);
+                    choiceTwoCheckBox.setChecked(false);
+                    choiceThreeCheckBox.setChecked(false);
+                }
             }
         });
     }
@@ -88,6 +114,7 @@ public class ThreeChoiceExpander extends Expander {
             choiceOneCheckBox.setChecked(answer.getBoolean(0));
             choiceTwoCheckBox.setChecked(answer.getBoolean(1));
             choiceThreeCheckBox.setChecked(answer.getBoolean(2));
+            choiceUnknownCheckBox.setChecked(answer.getBoolean(3));
         } catch (JSONException e) {
             Log.i("TwoChoiceExpander", "Unable to parse answer");
         }
@@ -99,6 +126,7 @@ public class ThreeChoiceExpander extends Expander {
         array.put(choiceOneCheckBox.isChecked());
         array.put(choiceTwoCheckBox.isChecked());
         array.put(choiceThreeCheckBox.isChecked());
+        array.put(choiceUnknownCheckBox.isChecked());
         return array;
     }
 }

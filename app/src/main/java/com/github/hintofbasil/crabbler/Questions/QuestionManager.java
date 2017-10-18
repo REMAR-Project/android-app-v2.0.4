@@ -53,7 +53,7 @@ public class QuestionManager {
     private JSONArray readJSON() throws IOException, JSONException {
         if(cache == null) {
             InputStream jsonInputStream = context.getResources().openRawResource(R.raw.questions);
-            byte[] buffer = new byte[5120];
+            byte[] buffer = new byte[10240];
             int length = jsonInputStream.read(buffer);
             String jsonString = new String(buffer).substring(0, length);
             cache = new JSONArray(jsonString);

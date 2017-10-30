@@ -52,6 +52,16 @@
                 android:textSize="@dimen/list_select_input_text"
                 android:inputType="textCapWords" />
 
+            <TextView
+                android:id="@+id/description2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:textStyle="bold"
+                android:textSize="@dimen/description"
+                android:layout_marginBottom="@dimen/description_margin_bottom"/>
+
             <EditText
                 android:id="@+id/email"
                 android:inputType="textEmailAddress"

@@ -24,6 +24,7 @@ import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
 
 /**
  * Created by will on 19/05/16.
@@ -225,7 +226,13 @@ public class ChoiceSelectExpander extends Expander {
                 answer = itemTextInput.getHint().toString();
             }
         }
-        array.put(answer);
+
+        Log.d("test", ""+Arrays.asList(listStrings).contains(answer));
+        if(Arrays.asList(listStrings).contains(answer))
+        {
+            array.put(answer);
+        }
+
         array.put(dontKnow.isChecked());
         return array;
     }

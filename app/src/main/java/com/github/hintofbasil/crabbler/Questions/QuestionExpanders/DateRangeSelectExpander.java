@@ -72,13 +72,16 @@ public class DateRangeSelectExpander extends Expander {
                 if(date.equals(selectedDates[block])) {
                     selectedDates[block] = null;
                     selectedViews[block].setBackgroundResource(R.color.questionBackground);
+                    Log.d("DateRangeSelect", "test1");
                 } else {
                     selectedDates[block] = date;
                     if(selectedViews[block] != null) {
                         selectedViews[block].setBackgroundResource(R.color.questionBackground);
+                        Log.d("DateRangeSelect", "test2");
                     }
                     selectedViews[block] = view;
                     view.setBackgroundResource(R.color.questionSelectedBackground);
+                    Log.d("DateRangeSelect", "test3");
                 }
                 enableDisableNext();
             }
@@ -95,7 +98,7 @@ public class DateRangeSelectExpander extends Expander {
         }
         args.putBoolean(CaldroidFragment.ENABLE_SWIPE, false);
         args.putBoolean(CaldroidFragment.SHOW_NAVIGATION_ARROWS, false);
-        args.putInt(Keys.CALDROID_BACKGROUND_RESOURCE, R.drawable.disable_cell);
+        //args.putInt(Keys.CALDROID_BACKGROUND_RESOURCE, R.drawable.disable_cell);
         caldroidFragment.setArguments(args);
         caldroidFragment.setCaldroidListener(caldroidListener);
 

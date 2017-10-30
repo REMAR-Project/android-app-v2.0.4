@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.github.hintofbasil.crabbler.AboutUsActivity;
 import com.github.hintofbasil.crabbler.Keys;
+import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.AutoExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.ChoiceSelectExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.MonthChoiceExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.OneChoiceExpander;
@@ -97,6 +98,9 @@ public class QuestionActivity extends AppCompatActivity {
                     case "ThreeChoice":
                         expander = new ThreeChoiceExpander(this, questionJson);
                         break;
+                    case "Auto":
+                        expander = new AutoExpander(this, questionJson);
+                        break;
                     default:
                         Log.e("QuestionActivity", "Unknown question type.");
                         return;
@@ -137,7 +141,7 @@ public class QuestionActivity extends AppCompatActivity {
                 nextButton.setEnabled(false);
             }
 
-            if(questionId > 1) { // Only show menu button on first question
+            if(questionId != 1) { // Only show menu button on first question
                 LinearLayout menuButton = (LinearLayout) findViewById(R.id.toolbar_menu_button);
                 menuButton.setVisibility(View.GONE);
             } else { //Hide images if menu button is present

@@ -256,6 +256,16 @@ public abstract class Expander {
         }
     }
 
+    public void forceDisableDisableNext()
+    {
+        ImageView next = (ImageView) activity.findViewById(R.id.forward_button);
+        if(next != null) {
+            next.setEnabled(false);
+        } else {
+            Log.d("Expander", "No next button found");
+        }
+    }
+
     public JSONArray getCachedAnswer() {
         String jsonString = prefs.getString(Keys.ANSWER_CACHE, "{}");
         try {

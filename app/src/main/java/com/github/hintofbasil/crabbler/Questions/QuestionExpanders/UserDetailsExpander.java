@@ -34,6 +34,7 @@ public class UserDetailsExpander extends Expander {
         ImageView imageView = (ImageView) activity.findViewById(R.id.image);
         TextView titleView = (TextView) activity.findViewById(R.id.title);
         TextView descriptionView = (TextView) activity.findViewById(R.id.description);
+        TextView description2View = (TextView) activity.findViewById(R.id.description2);
 
         nameView = (TextView) activity.findViewById(R.id.name);
         emailView = (TextView) activity.findViewById(R.id.email);

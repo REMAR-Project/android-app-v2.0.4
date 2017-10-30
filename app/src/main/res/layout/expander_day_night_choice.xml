@@ -125,7 +125,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/only_day"
+                        android:text="@string/day_and_night"
                         android:textSize="@dimen/day_night_choice_text"/>
 
                     <ImageView

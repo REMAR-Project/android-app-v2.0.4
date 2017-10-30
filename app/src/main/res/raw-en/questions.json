@@ -1,15 +1,16 @@
 [
   {
     "questionNumber": 0,
-    "questionType": "OneChoice",
+    "questionType": "Auto",
     "questionText": "",
     "choiceOneTitle": "TestVersion",
-    "choiceOnePicture": "q0_0"
+    "choiceOnePicture": "q0_0",
+    "version": "0.9b"
   },
   {
     "questionNumber": 1,
     "questionType": "TwoPictureChoice",
-    "questionText": "<b>Become a citizen scientist</b> and help record mass mating events of commercially important Brazilian mangrove crabs.<br></br><br></br>This information will help to improve Brazilian crab fisheries legislation and fishers\' livelihoods.<br></br><br></br>For more information click on the menu.<br></br><br></br>Click on one of the below species to share your observations.",
+    "questionText": "<b>Become a citizen scientist</b> and help record mass mating events of commercially important Brazilian mangrove crabs.<br></br><br></br>This information will help to improve Brazilian crab fisheries legislation and fishers\' livelihoods.<br></br><br></br>For more information click on the above yellow field.<br></br><br></br>Click on one of the below species to share your observations.",
     "choiceOneTitle": "Ucides cordatus",
     "choiceOnePicture": "q0_0",
     "choiceTwoTitle": "Cardisoma guanhumi",
@@ -20,14 +21,14 @@
     "questionType": "YearChoice",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "questionText": "Slide screen with finger to select the correct year. In case you saw two andadas at different phases this month (one around new moon and one around full moon), please run the app for each andada seperately."
+    "questionText": "When did you observe andada? Touch screen and move finger to choose the correct year."
   },
   {
     "questionNumber": 3,
     "questionType": "MonthChoice",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-	"questionText": "Slide screen with finger to select the correct month.",
+	"questionText": "Touch screen and move finger to choose correct month.<br>In case you saw two andadas this month (one around new moon and one around full moon), please run the app for each andada seperately.",
     "year" : "(2:0)"
   },
   {
@@ -46,7 +47,7 @@
     "questionType": "DateRange",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "Click on <font color=\"#FF0000\">all</font> days that you noted andada",
+    "description": "For the andada you are reporting here, touch with finger <font color=\"#FF0000\">all</font> days that you noted it.",
     "month": "(3:0)",
     "year": "(2:0)",
     "filterOnQuestion": -1,
@@ -57,7 +58,7 @@
     "questionType": "DateRangeSelect",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "Click the day with the STRONGEST andada activity<br>(optional)",
+    "description": "Touch the day with the STRONGEST andada activity<br>(optional)",
     "month": "(3:0)",
     "year": "(2:0)",
     "filterOnQuestion": -1,
@@ -81,7 +82,7 @@
     "questionType": "DayNightChoice",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-	"description": "Click on the period (day or night) when andada occured.  In case you don't know proceed to the next page.",
+	"description": "When did andada occur? Touch correct symbol with finger.  In case you don't know proceed to the next page.",
     "choiceOneText": "At new moon",
     "choiceTwoText": "At full moon",
     "quantityQuestion": 3
@@ -91,9 +92,9 @@
     "questionType": "TwoChoice",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "Did you see berried (ovigerous) females?",
-    "choiceOneText": "Yes",
-    "choiceTwoText": "No",
+    "description": "Did you see berried (ovigerous) females?<br>Touch correct answer with finger",
+    "choiceOneText": "Yes, I saw berried females",
+    "choiceTwoText": "No, <u>there were no</u> berried females",
     "allowMultiple": false,
     "hasImage": true,
     "imageFile": "ovigerous_(1:0)"
@@ -103,7 +104,7 @@
 	"questionType": "ListSelect",
 	"questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "Where did the andada happen when you observed it?",
+    "description": "Where did the andada happen when you observed it?<br>Touch correct answer with finger",
     "jsonInput": "locations_(1:0).json",
     "disableCustom": "true"
   },
@@ -131,7 +132,7 @@
     "questionType": "ListSelect",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "Touch field and type the name of the place where you observed the andada",
+    "description": "Touch field and type the local name of the place where you observed the andada",
     "disableList": true,
     "disablePicture": true,
     "optional": true,
@@ -167,7 +168,8 @@
     "questionType": "UserDetails",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "It would be good to know who you are so that we can ad your name to the list of citizen-scientists of the REMAR project.<br>Add how you can be contacted most easily.",
+    "description": "It would be good to know who you are so that we can add your name to the list of citizen-scientists of the REMAR project.<br>Touch field and type your name.",
+    "description2": "How can you be contacted most easily? Touch field and add email address or phone number",
     "postAs": "userDetails",
     "optional": true,
     "cacheAnswer": true

@@ -23,7 +23,7 @@
     <string name="thank_you_toast">Your answers have been submitted.</string>
 
     <string name="enter_name">Full name</string>
-    <string name="enter_email">Email address</string>
+    <string name="enter_email">Email address or phone number</string>
 
     <string name="crab_title_0">Monitoring Ucides cordatus</string>
     <string name="crab_title_1">Monitoring Cardisoma guanhumi</string>

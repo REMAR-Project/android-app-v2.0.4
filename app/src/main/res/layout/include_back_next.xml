@@ -19,7 +19,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/back_next_button_size"
+        android:layout_height="@dimen/next_button_size"
         android:layout_below="@id/back_next_description" >
 
         <TextView
@@ -34,18 +34,18 @@
 
         <ImageView
             android:id="@+id/back_button"
-            android:layout_width="@dimen/back_next_button_size"
-            android:layout_height="@dimen/back_next_button_size"
+            android:layout_width="@dimen/next_button_size"
+            android:layout_height="@dimen/back_button_size"
             android:src="@drawable/previous_background"
             android:onClick="previousQuestion"
-            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
         <ImageView
             android:id="@+id/forward_button"
-            android:layout_width="@dimen/back_next_button_size"
-            android:layout_height="@dimen/back_next_button_size"
+            android:layout_width="@dimen/next_button_size"
+            android:layout_height="@dimen/next_button_size"
             android:onClick="nextQuestion"
             android:src="@drawable/next_background"
             android:layout_alignParentRight="true"

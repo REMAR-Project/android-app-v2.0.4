@@ -80,7 +80,7 @@ public class DateRangeSelectExpander extends Expander {
                         Log.d("DateRangeSelect", "test2");
                     }
                     selectedViews[block] = view;
-                    view.setBackgroundResource(R.color.questionSelectedBackground);
+                    view.setBackgroundResource(R.drawable.border);
                     Log.d("DateRangeSelect", "test3");
                 }
                 enableDisableNext();

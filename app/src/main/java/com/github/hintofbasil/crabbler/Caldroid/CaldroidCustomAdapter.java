@@ -48,6 +48,18 @@ public class CaldroidCustomAdapter extends CaldroidGridAdapter {
             new int[]{19,10,2017},
             new int[]{18,11,2017},
             new int[]{18,12,2017},
+            new int[]{17,1,2018},
+            new int[]{15,2,2018},
+            new int[]{17,3,2018},
+            new int[]{15,4,2018},
+            new int[]{15,5,2018},
+            new int[]{13,6,2018},
+            new int[]{12,7,2018},
+            new int[]{11,8,2018},
+            new int[]{9,9,2018},
+            new int[]{9,10,2018},
+            new int[]{7,11,2018},
+            new int[]{7,12,2018}
     };
 
     public static final int[][] fullMoonDates = new int[][]{
@@ -75,6 +87,19 @@ public class CaldroidCustomAdapter extends CaldroidGridAdapter {
             new int[]{5,10,2017},
             new int[]{4,11,2017},
             new int[]{3,12,2017},
+            new int[]{2,1,2018},
+            new int[]{31,1,2018},
+            new int[]{1,3,2018},
+            new int[]{31,3,2018},
+            new int[]{29,4,2018},
+            new int[]{29,5,2018},
+            new int[]{28,6,2018},
+            new int[]{27,7,2018},
+            new int[]{26,8,2018},
+            new int[]{24,9,2018},
+            new int[]{24,10,2018},
+            new int[]{23,11,2018},
+            new int[]{22,12,2018}
     };
 
     private int resourceId;

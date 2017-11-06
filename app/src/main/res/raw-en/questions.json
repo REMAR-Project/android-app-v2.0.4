@@ -66,16 +66,12 @@
   },
   {
     "questionNumber": 7,
-    "questionType": "ThreeChoice",
+    "questionType": "ListSelect",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "questionText": "Compared to other andadas that you saw, the number of crabs was",
-    "choiceOneText": "High",
-    "choiceTwoText": "Intermediate",
-    "choiceThreeText": "Low",
-    "allowMultiple": false,
-    "dontknow": true,
-    "choiceUnknownText": "maybe"
+    "description": "Touch correct answer with finger. Compared to other andadas that you saw, the number of crabs was",
+    "jsonInput": "number_of_crabs.json",
+    "disableCustom": "true"
   },
   {
     "questionNumber": 8,
@@ -89,14 +85,13 @@
   },
   {
 	"questionNumber": 9,
-    "questionType": "TwoChoice",
+    "questionType": "ListSelect",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
     "description": "Did you see berried (ovigerous) females?<br>Touch correct answer with finger",
-    "choiceOneText": "Yes, I saw berried females",
-    "choiceTwoText": "No, <u>there were no</u> berried females",
-    "allowMultiple": false,
-    "hasImage": true,
+    "jsonInput": "ovigerious.json",
+    "disableCustom": "true",
+    "hasImage": "true",
     "imageFile": "ovigerous_(1:0)"
   },
   {

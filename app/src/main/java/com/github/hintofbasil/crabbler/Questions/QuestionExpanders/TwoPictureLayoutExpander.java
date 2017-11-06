@@ -1,5 +1,6 @@
 package com.github.hintofbasil.crabbler.Questions.QuestionExpanders;
 
+import android.graphics.Paint;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
@@ -59,7 +60,7 @@ public class TwoPictureLayoutExpander extends Expander {
             public void onClick(View v) {
                 currentAnswer = 0;
                 questionTwoButton.setBackgroundResource(R.color.questionBackground);
-                questionOneButton.setBackgroundResource(R.color.questionSelectedBackground);
+                questionOneButton.setBackgroundResource(R.drawable.border);
                 enableDisableNext();
                 //nextQuestion(200);
             }
@@ -70,7 +71,7 @@ public class TwoPictureLayoutExpander extends Expander {
             public void onClick(View v) {
                 currentAnswer = 1;
                 questionOneButton.setBackgroundResource(R.color.questionBackground);
-                questionTwoButton.setBackgroundResource(R.color.questionSelectedBackground);
+                questionTwoButton.setBackgroundResource(R.drawable.border);
                 enableDisableNext();
                 //nextQuestion(200);
             }

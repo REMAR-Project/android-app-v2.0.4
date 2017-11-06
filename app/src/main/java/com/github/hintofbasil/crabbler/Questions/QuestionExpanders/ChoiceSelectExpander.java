@@ -1,18 +1,22 @@
 package com.github.hintofbasil.crabbler.Questions.QuestionExpanders;
 
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutCompat;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.textservice.TextInfo;
 import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.text.*;
 
 import com.github.hintofbasil.crabbler.ColorListAdapter;
 import com.github.hintofbasil.crabbler.R;
@@ -25,6 +29,7 @@ import org.w3c.dom.Text;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
+import java.util.Objects;
 
 /**
  * Created by will on 19/05/16.
@@ -57,6 +62,7 @@ public class ChoiceSelectExpander extends Expander {
         ImageView imageView = (ImageView) activity.findViewById(R.id.image);
         TextView titleView = (TextView) activity.findViewById(R.id.title);
         ImageView detailImage = (ImageView) activity.findViewById(R.id.detail_picture);
+        ImageView belowPicutre = (ImageView) activity.findViewById(R.id.below_picture);
         listHolder = (ListView) activity.findViewById(R.id.item_select);
         itemTextInput = (EditText) activity.findViewById(R.id.item_text_input);
         TextView descriptionView = (TextView) activity.findViewById(R.id.description);
@@ -72,6 +78,25 @@ public class ChoiceSelectExpander extends Expander {
             detailImage.setImageDrawable(getDrawable(getQuestionString("detailPicture")));
         } catch (JSONException e) {
             detailImage.setVisibility(View.GONE);
+        }
+        try
+        {
+            Log.d("ChoiceSelect", "checking for hasImage " );
+            if(Boolean.parseBoolean(getQuestionString("hasImage")))
+            {
+                try{
+                    Log.d("ChoiceSelect", "has image");
+                    belowPicutre.setImageDrawable(getDrawable(getQuestionString("imageFile")));
+                    Log.d("ChoiceSelect", "found file");
+                    belowPicutre.setVisibility(View.VISIBLE);
+                } catch (JSONException e) {
+                    belowPicutre.setVisibility(View.GONE);
+                    Log.d("ChoiceSelect", "failed to find file");
+                }
+
+            }
+        } catch (JSONException e) {
+            belowPicutre.setVisibility(View.GONE);
         }
         try {
             if(Boolean.parseBoolean(getQuestionString("enableOther"))) {
@@ -292,5 +317,44 @@ public class ChoiceSelectExpander extends Expander {
                 regionId,
                 -1);
         listHolder.setAdapter(adapter);
+
+        setListViewHeightBasedOnChildren(listHolder, 6);
+    }
+
+    public static void setListViewHeightBasedOnChildren(ListView listView, int min) {
+        ListAdapter listAdapter = listView.getAdapter();
+        if (listAdapter == null) {
+            // pre-condition
+            return;
+        }
+
+        int totalHeight = 0;
+
+        if(listAdapter.getCount()>min)
+        {
+            for (int i = 0; i < min; i++) {
+                View listItem = listAdapter.getView(i, null, listView);
+                listItem.measure(0, 0);
+                totalHeight += listItem.getMeasuredHeight();
+            }
+        }
+        else
+        {
+            for (int i = 0; i < listAdapter.getCount(); i++) {
+                View listItem = listAdapter.getView(i, null, listView);
+                listItem.measure(0, 0);
+                totalHeight += listItem.getMeasuredHeight();
+            }
+        }
+
+        Log.d("setHeight", "height is " + totalHeight);
+
+
+        ViewGroup.LayoutParams params = listView.getLayoutParams();
+
+        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
+
+        listView.setLayoutParams(params);
+        listView.requestLayout();
     }
 }

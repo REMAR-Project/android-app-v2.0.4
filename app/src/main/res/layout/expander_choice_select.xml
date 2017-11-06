@@ -43,6 +43,7 @@
                 android:layout_marginBottom="@dimen/description_margin_bottom"/>
 
             <LinearLayout
+                android:id="@+id/list_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
@@ -75,6 +76,13 @@
                     />
 
             </LinearLayout>
+
+            <ImageView
+                android:id="@+id/below_picture"
+                android:layout_width="@dimen/list_select_image_height"
+                android:layout_height="@dimen/list_select_image_height"
+                android:visibility="gone"
+                />
 
             <CheckBox
                 android:id="@+id/dont_know"

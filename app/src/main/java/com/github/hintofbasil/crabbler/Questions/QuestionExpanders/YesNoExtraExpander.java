@@ -183,7 +183,7 @@ public class YesNoExtraExpander extends Expander {
 
             extraListview.setAdapter(adapter);
 
-            setListViewHeightBasedOnChildren(extraListview);
+            setListViewHeightBasedOnChildren(extraListview, 4);
 
         } catch (JSONException e) {
             Log.d("YesNoExtra", "Failed to obtain a value for state, defaults to a empty string. " + e.getMessage());
@@ -290,7 +290,7 @@ public class YesNoExtraExpander extends Expander {
         return new JSONObject(readFile(filename));
     }
 
-    public static void setListViewHeightBasedOnChildren(ListView listView) {
+    public static void setListViewHeightBasedOnChildren(ListView listView, int min) {
         ListAdapter listAdapter = listView.getAdapter();
         if (listAdapter == null) {
             // pre-condition
@@ -298,10 +298,22 @@ public class YesNoExtraExpander extends Expander {
         }
 
         int totalHeight = 0;
-        for (int i = 0; i < listAdapter.getCount(); i++) {
-            View listItem = listAdapter.getView(i, null, listView);
-            listItem.measure(0, 0);
-            totalHeight += listItem.getMeasuredHeight();
+
+        if(listAdapter.getCount()>min)
+        {
+            for (int i = 0; i < min; i++) {
+                View listItem = listAdapter.getView(i, null, listView);
+                listItem.measure(0, 0);
+                totalHeight += listItem.getMeasuredHeight();
+            }
+        }
+        else
+        {
+            for (int i = 0; i < listAdapter.getCount(); i++) {
+                View listItem = listAdapter.getView(i, null, listView);
+                listItem.measure(0, 0);
+                totalHeight += listItem.getMeasuredHeight();
+            }
         }
 
         ViewGroup.LayoutParams params = listView.getLayoutParams();

@@ -42,6 +42,7 @@ public class UserDetailsExpander extends Expander {
         imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
         titleView.setText(getRichTextQuestionString("questionTitle"));
         descriptionView.setText(getRichTextQuestionString("description"));
+        description2View.setText(getRichTextQuestionString("description2"));
 
         nameView.addTextChangedListener(new TextWatcher() {
             @Override

@@ -75,6 +75,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/description"
                 android:layout_marginBottom="@dimen/description_margin_bottom"
+                android:visibility="gone"
                 />
 
             <LinearLayout
@@ -94,7 +95,8 @@
                     android:choiceMode="singleChoice"
                     android:listSelector="@drawable/list_background"
                     android:scrollbarAlwaysDrawVerticalTrack="true"
-                    android:scrollbarSize="20dp"/>
+                    android:scrollbarSize="20dp"
+                    android:visibility="gone"/>
 
             </LinearLayout>
 
@@ -103,12 +105,14 @@
                     android:id="@+id/manual_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/protectedText"/>
+                    android:text="@string/protectedText"
+                    android:visibility="gone"/>
 
                 <EditText
                     android:id="@+id/manual_protected"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     />
 
         </LinearLayout>

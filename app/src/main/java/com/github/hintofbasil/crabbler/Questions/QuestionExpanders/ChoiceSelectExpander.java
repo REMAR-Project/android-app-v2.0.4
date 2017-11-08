@@ -44,12 +44,15 @@ public class ChoiceSelectExpander extends Expander {
     TextView otherInfo;
     EditText editInfo;
     int otherSelect;
+    int initalSelect;
     String[] listStrings;
 
     JSONArray jsonArray = null;
     ColorListAdapter<String> adapter;
 
     boolean disableList = false;
+
+    Expander expander = this;
 
     public ChoiceSelectExpander(AppCompatActivity activity, JSONObject questionJson) {
         super(activity, questionJson, REQUIRED_ANSWERS);
@@ -106,6 +109,8 @@ public class ChoiceSelectExpander extends Expander {
         } catch (JSONException e) {
             Log.d("ChoiceSelect", "" + e.getStackTrace());
             otherSelect = -2;
+            otherInfo.setVisibility(View.GONE);
+            editInfo.setVisibility(View.GONE);
         }
         try {
             boolean disableCustom = Boolean.parseBoolean(getQuestionString("disableCustom"));
@@ -151,6 +156,7 @@ public class ChoiceSelectExpander extends Expander {
             listHolder.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    initalSelect = position;
                     itemTextInput.setText(((TextView) view).getText());
                     if (adapter != null) {
                         adapter.removeDefault();
@@ -160,11 +166,13 @@ public class ChoiceSelectExpander extends Expander {
                     dontKnow.setChecked(false);
                     if(position == otherSelect)
                     {
+                        expander.requiredAnswers = 2;
                         otherInfo.setVisibility(View.VISIBLE);
                         editInfo.setVisibility(View.VISIBLE);
                     }
                     else
                     {
+                        expander.requiredAnswers = 1;
                         otherInfo.setVisibility(View.GONE);
                         editInfo.setVisibility(View.GONE);
                     }
@@ -217,6 +225,30 @@ public class ChoiceSelectExpander extends Expander {
                 dontKnow.setChecked(false);
             }
         });
+
+        editInfo.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(s.length()>0)
+                {
+                    enableDisableNext();
+                }
+                else
+                {
+                    disableDisableNext();
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
     }
 
     @Override
@@ -238,6 +270,16 @@ public class ChoiceSelectExpander extends Expander {
         } catch (JSONException e) {
             Log.e("ChoiceSelectExpander", "Unable to populate list\n" + Log.getStackTraceString(e));
         }
+        try {
+            if(otherSelect==initalSelect)
+            {
+                otherInfo.setVisibility(View.VISIBLE);
+                editInfo.setVisibility(View.VISIBLE);
+                expander.requiredAnswers = 2;
+                editInfo.setText(answer.getString(1));
+
+            }
+        } catch (JSONException e) {}
     }
 
     @Override
@@ -258,7 +300,23 @@ public class ChoiceSelectExpander extends Expander {
             array.put(answer);
         }
 
-        array.put(dontKnow.isChecked());
+        if(editInfo.getText().toString().length()>0&&otherSelect==initalSelect)
+        {
+            array.put(editInfo.getText().toString());
+        }
+
+        try
+        {
+            if(Boolean.parseBoolean(getQuestionString("enableDontKnow")))
+            {
+                array.put(dontKnow.isChecked());
+            }
+        } catch (JSONException e)
+        {
+
+        }
+
+
         return array;
     }
 
@@ -318,6 +376,7 @@ public class ChoiceSelectExpander extends Expander {
                 -1);
         listHolder.setAdapter(adapter);
 
+        initalSelect = regionId;
         setListViewHeightBasedOnChildren(listHolder, 6);
     }
 

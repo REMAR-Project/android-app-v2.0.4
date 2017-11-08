@@ -41,6 +41,7 @@ public class YesNoExtraExpander extends Expander {
     CheckBox chkNo;
     CheckBox chkMaybe;
     LinearLayout hiddenInputContainer;
+    TextView extraDetail;
     ListView extraListview;
     String[] listStrings;
     int selectedListItem;
@@ -62,7 +63,7 @@ public class YesNoExtraExpander extends Expander {
         ImageView imageView = (ImageView) activity.findViewById(R.id.image);
         TextView titleView = (TextView) activity.findViewById(R.id.title);
         TextView questionText = (TextView) activity.findViewById(R.id.question_text);
-        final TextView extraDetail = (TextView) activity.findViewById(R.id.extra_details);
+        extraDetail = (TextView) activity.findViewById(R.id.extra_details);
         String state = "";
 
         chkYes = (CheckBox) activity.findViewById(R.id.chk_yes);
@@ -83,12 +84,33 @@ public class YesNoExtraExpander extends Expander {
         chkYes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                chkNo.setChecked(false);
-                chkMaybe.setChecked(false);
-                extraListview.setVisibility(View.VISIBLE);
-                extraDetail.setVisibility(View.VISIBLE);
-                expander.requiredAnswers = 2;
-                enableDisableNext();
+                if(!chkYes.isChecked())
+                {
+                    extraListview.setVisibility(View.GONE);
+                    extraDetail.setVisibility(View.GONE);
+                    manualInfo.setVisibility(View.GONE);
+                    manualText.setVisibility(View.GONE);
+                    disableDisableNext();
+                }
+                else
+                {
+                    chkNo.setChecked(false);
+                    chkMaybe.setChecked(false);
+                    extraListview.setVisibility(View.VISIBLE);
+                    extraDetail.setVisibility(View.VISIBLE);
+                    if(selectedListItem == listStrings.length-1)
+                    {
+                        manualInfo.setVisibility(View.VISIBLE);
+                        manualText.setVisibility(View.VISIBLE);
+                    }
+                    else
+                    {
+                        manualInfo.setVisibility(View.GONE);
+                        manualText.setVisibility(View.GONE);
+                    }
+                    expander.requiredAnswers = 2;
+                    enableDisableNext();
+                }
             }
         });
 
@@ -99,6 +121,8 @@ public class YesNoExtraExpander extends Expander {
                 chkMaybe.setChecked(false);
                 extraListview.setVisibility(View.GONE);
                 extraDetail.setVisibility(View.GONE);
+                manualInfo.setVisibility(View.GONE);
+                manualText.setVisibility(View.GONE);
                 expander.requiredAnswers = 1;
                 enableDisableNext();
             }
@@ -109,7 +133,10 @@ public class YesNoExtraExpander extends Expander {
             public void onClick(View v) {
                 chkYes.setChecked(false);
                 chkNo.setChecked(false);
-                hiddenInputContainer.setVisibility(View.GONE);
+                extraListview.setVisibility(View.GONE);
+                extraDetail.setVisibility(View.GONE);
+                manualInfo.setVisibility(View.GONE);
+                manualText.setVisibility(View.GONE);
                 expander.requiredAnswers = 1;
                 enableDisableNext();
             }
@@ -134,13 +161,23 @@ public class YesNoExtraExpander extends Expander {
                         Log.d("test", "pass");
                         manualInfo.setVisibility(View.VISIBLE);
                         manualText.setVisibility(View.VISIBLE);
+                        expander.requiredAnswers = 3;
+                        if(manualText.getText().toString().length()>0)
+                        {
+                            enableDisableNext();
+                        }
+                        else
+                        {
+                            disableDisableNext();
+                        }
                     } else {
                         Log.d("test", "fail");
                         manualInfo.setVisibility(View.GONE);
                         manualText.setVisibility(View.GONE);
+                        expander.requiredAnswers = 2;
+                        enableDisableNext();
                     }
                     //dontKnow.setChecked(false);
-                    enableDisableNext();
                 }
             });
 
@@ -150,6 +187,30 @@ public class YesNoExtraExpander extends Expander {
                 public boolean onTouch(View v, MotionEvent event) {
                     v.getParent().requestDisallowInterceptTouchEvent(true);
                     return false;
+                }
+            });
+
+            manualText.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    if(count>0)
+                    {
+                        enableDisableNext();
+                    }
+                    else
+                    {
+                        disableDisableNext();
+                    }
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+                    enableDisableNext();
                 }
             });
 
@@ -192,24 +253,45 @@ public class YesNoExtraExpander extends Expander {
 
     @Override
     protected void setPreviousAnswer(JSONArray answer) {
+        int j = -1;
         try {
             int i = answer.getInt(0);
             switch(i) {
                 case 0:
                     chkYes.setChecked(true);
-                    hiddenInputContainer.setVisibility(View.VISIBLE);
+                    extraListview.setVisibility(View.VISIBLE);
+                    extraDetail.setVisibility(View.VISIBLE);
+                    forceDisableDisableNext();
                     break;
                 case 1:
                     chkNo.setChecked(true);
+                    enableDisableNext();
                     break;
                 case 2:
                     chkMaybe.setChecked(true);
+                    enableDisableNext();
                     break;
                 case -1:
                     break;
                 default:
                     Log.e("YesNoExtraExpander", "Invalid previous answer");
             }
+            j = answer.getInt(1);
+            selectedListItem = j;
+
+            if(i==0&&j==listStrings.length-1)
+            {
+                manualInfo.setVisibility(View.VISIBLE);
+                manualText.setVisibility(View.VISIBLE);
+                expander.requiredAnswers = 3;
+            }
+            else if(i==0)
+            {
+                expander.requiredAnswers = 2;
+            }
+
+            manualText.setText(answer.getString(2));
+
         } catch (JSONException e) {
             Log.d("YesNoExtra", "No previous selection");
         }
@@ -249,6 +331,11 @@ public class YesNoExtraExpander extends Expander {
             }
         }
         array.put(answer);
+        if(manualText.getText().toString().length()>0)
+        {
+            array.put(manualText.getText().toString());
+        }
+
         return array;
     }
 

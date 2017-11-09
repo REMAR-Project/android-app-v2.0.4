@@ -161,6 +161,18 @@
   },
   {
     "questionNumber": 16,
+    "questionType": "ListSelect",
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)",
+    "description": "Any additional observations you want to share? Touch screen and move finger to select.",
+    "jsonInput": "yes_no.json",
+    "disableCustom": "true",
+    "enableOther": true,
+    "otherText": "Please touch field and type",
+    "otherPosition": 0
+  },
+  {
+    "questionNumber": 17,
     "questionType": "UserDetails",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",

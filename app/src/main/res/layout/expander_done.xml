@@ -27,11 +27,6 @@
             android:paddingTop="@dimen/activity_vertical_margin"
             android:orientation="vertical">
 
-            <include layout="@layout/include_image_text"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                />
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -60,6 +55,11 @@
                     android:text="@string/citizen_scientist"
                     android:textSize="@dimen/done_text_size"
                     android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/doneimage"/>
 
             </LinearLayout>
 

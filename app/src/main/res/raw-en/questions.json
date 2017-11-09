@@ -183,6 +183,13 @@
     "cacheAnswer": true
   },
   {
+    "questionNumber": 18,
+    "questionType": "Commit",
+    "description": "Submit your answers",
+    "choiceOneText": "Confirm",
+    "choiceTwoText": "Go back to change answers"
+  },
+  {
     "questionType": "Done",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",

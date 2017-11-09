@@ -65,6 +65,7 @@ public class YesNoExtraExpander extends Expander {
         TextView questionText = (TextView) activity.findViewById(R.id.question_text);
         extraDetail = (TextView) activity.findViewById(R.id.extra_details);
         String state = "";
+        selectedListItem = -1;
 
         chkYes = (CheckBox) activity.findViewById(R.id.chk_yes);
         chkNo = (CheckBox) activity.findViewById(R.id.chk_no);
@@ -243,6 +244,7 @@ public class YesNoExtraExpander extends Expander {
                     -1);
 
             extraListview.setAdapter(adapter);
+            adapter.notifyDataSetChanged();
 
             setListViewHeightBasedOnChildren(extraListview, 4);
 
@@ -304,6 +306,7 @@ public class YesNoExtraExpander extends Expander {
                     -1);
 
             extraListview.setAdapter(adapter);
+            adapter.notifyDataSetChanged();
         } catch (JSONException e) {
             Log.d("YesNoExtra", "No previous text");
         }
@@ -331,7 +334,7 @@ public class YesNoExtraExpander extends Expander {
             }
         }
         array.put(answer);
-        if(manualText.getText().toString().length()>0)
+        if(manualText.getText().toString().length()>0&&selectedListItem!=-1)
         {
             array.put(manualText.getText().toString());
         }

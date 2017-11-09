@@ -30,11 +30,11 @@ public class DoneExpander extends Expander {
     public void expandLayout() throws JSONException {
         activity.setContentView(R.layout.expander_done);
 
-        ImageView imageView = (ImageView) activity.findViewById(R.id.image);
-        TextView titleView = (TextView) activity.findViewById(R.id.title);
+        //ImageView imageView = (ImageView) activity.findViewById(R.id.image);
+        //TextView titleView = (TextView) activity.findViewById(R.id.title);
 
-        imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
-        titleView.setText(getRichTextQuestionString("questionTitle"));
+        //imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
+        //titleView.setText(getRichTextQuestionString("questionTitle"));
 
         new CountDownTimer(SEND_DELAY, SEND_DELAY) {
 

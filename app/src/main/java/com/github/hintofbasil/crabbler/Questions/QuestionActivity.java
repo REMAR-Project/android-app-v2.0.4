@@ -13,6 +13,7 @@ import com.github.hintofbasil.crabbler.AboutUsActivity;
 import com.github.hintofbasil.crabbler.Keys;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.AutoExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.ChoiceSelectExpander;
+import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.CommitExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.MonthChoiceExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.OneChoiceExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.ThreeChoiceExpander;
@@ -100,6 +101,9 @@ public class QuestionActivity extends AppCompatActivity {
                         break;
                     case "Auto":
                         expander = new AutoExpander(this, questionJson);
+                        break;
+                    case "Commit":
+                        expander = new CommitExpander(this, questionJson);
                         break;
                     default:
                         Log.e("QuestionActivity", "Unknown question type.");

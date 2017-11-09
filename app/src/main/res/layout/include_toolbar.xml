@@ -85,11 +85,6 @@
                 android:textSize="@dimen/toolbar_menu"
                 android:textColor="@color/toolbarTitle" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@android:drawable/ic_menu_info_details" />
-
         </LinearLayout>
 
     </LinearLayout>

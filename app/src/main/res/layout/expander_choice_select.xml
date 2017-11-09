@@ -84,15 +84,38 @@
                 android:visibility="gone"
                 />
 
-            <CheckBox
+            <LinearLayout
                 android:id="@+id/dont_know"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/checkbox_text"
-                android:layout_marginTop="@dimen/checkbox_margin_top"
-                android:layout_marginBottom="@dimen/checkbox_margin_bottom"
-                android:visibility="gone"
-                />
+                android:layout_width="@dimen/day_night_image_holder_width"
+                android:layout_height="@dimen/day_night_image_holder_height"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+
+                android:paddingBottom="@dimen/day_night_choice_vertical_padding"
+                android:paddingLeft="@dimen/day_night_choice_horizontal_padding"
+                android:paddingRight="@dimen/day_night_choice_horizontal_padding"
+                android:paddingTop="@dimen/day_night_choice_vertical_padding"
+
+                android:layout_marginBottom="@dimen/day_night_choice_vertical_margin"
+                android:layout_marginLeft="@dimen/day_night_choice_horizontal_margin"
+                android:layout_marginRight="@dimen/day_night_choice_horizontal_margin"
+                android:layout_marginTop="@dimen/day_night_choice_vertical_margin"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/dont_know_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/day_night_unknown"
+                    android:textSize="@dimen/day_night_choice_text"/>
+
+                <ImageView
+                    android:id="@+id/night_image2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/unknown" />
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/TextInfo"

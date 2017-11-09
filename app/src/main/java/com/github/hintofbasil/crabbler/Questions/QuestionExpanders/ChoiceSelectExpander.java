@@ -1,5 +1,7 @@
 package com.github.hintofbasil.crabbler.Questions.QuestionExpanders;
 
+import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.text.Editable;
@@ -13,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -29,6 +32,9 @@ import org.w3c.dom.Text;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.ListIterator;
 import java.util.Objects;
 
 /**
@@ -40,12 +46,16 @@ public class ChoiceSelectExpander extends Expander {
 
     ListView listHolder;
     EditText itemTextInput;
-    CheckBox dontKnow;
+    LinearLayout dontKnow;
+    TextView dontKnowTextView;
+    boolean dontKnowSelected;
     TextView otherInfo;
     EditText editInfo;
     int otherSelect;
     int initalSelect;
     String[] listStrings;
+    Boolean allowMultiple;
+    Boolean[] multipleSelected;
 
     JSONArray jsonArray = null;
     ColorListAdapter<String> adapter;
@@ -69,7 +79,9 @@ public class ChoiceSelectExpander extends Expander {
         listHolder = (ListView) activity.findViewById(R.id.item_select);
         itemTextInput = (EditText) activity.findViewById(R.id.item_text_input);
         TextView descriptionView = (TextView) activity.findViewById(R.id.description);
-        dontKnow = (CheckBox) activity.findViewById(R.id.dont_know);
+        dontKnow = (LinearLayout) activity.findViewById(R.id.dont_know);
+        dontKnowTextView = (TextView) activity.findViewById(R.id.dont_know_text);
+        dontKnowSelected = false;
         otherInfo = (TextView) activity.findViewById(R.id.TextInfo);
         editInfo = (EditText) activity.findViewById(R.id.TextEdit);
 
@@ -102,6 +114,16 @@ public class ChoiceSelectExpander extends Expander {
             belowPicutre.setVisibility(View.GONE);
         }
         try {
+            if(Boolean.parseBoolean(getQuestionString("allowMultiple")))
+            {
+                allowMultiple = true;
+                listHolder.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+                listHolder.setItemsCanFocus(false);
+            }
+        } catch (JSONException e) {
+            allowMultiple = false;
+        }
+        try {
             if(Boolean.parseBoolean(getQuestionString("enableOther"))) {
                 otherSelect = Integer.parseInt(getQuestionString("otherPosition"));
                 otherInfo.setText(getRichTextQuestionString("otherText"));
@@ -120,17 +142,36 @@ public class ChoiceSelectExpander extends Expander {
         } catch (JSONException e) {
             Log.d("ChoiceSelectExpander", "disableCustom not specified in questions.json.  Enabled by default");
         }
+
+        dontKnow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dontKnowSelected = !dontKnowSelected;
+                if(dontKnowSelected)
+                {
+                    highlightLinearLayout(dontKnow, R.color.questionSelectedBackground);
+                    enableDisableNext();
+                }
+                else
+                {
+                    highlightLinearLayout(dontKnow, R.color.none);
+                    enableDisableNext();
+                }
+            }
+        });
+
         try {
             boolean enableDontKnow = Boolean.parseBoolean(getQuestionString("enableDontKnow"));
             if(enableDontKnow) {
                 try {
                     String dontKnowText = getQuestionString("dontKnowText");
-                    dontKnow.setText(dontKnowText);
+                    dontKnowTextView.setText(dontKnowText);
                 } catch (JSONException e)
                 {
                     Log.d("ChoiceSelectExpander", "dontKnow checkbox was enabled but without text");
                 }
                 dontKnow.setVisibility(View.VISIBLE);
+                expander.requiredAnswers = 2;
             }
         } catch (JSONException e) {
             Log.d("ChoiceSelectExpander", "dontKnow checkbox not specificed in questions.json. Disabled by default");
@@ -144,14 +185,6 @@ public class ChoiceSelectExpander extends Expander {
             Log.d("ChoiceSelectExpander", "disablePicture not specified in questions.json.  Enabled by default");
         }
 
-        dontKnow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                enableDisableNext();
-            }
-        });
-
         if(!disableList) {
             listHolder.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
@@ -163,7 +196,8 @@ public class ChoiceSelectExpander extends Expander {
                     }
                     listHolder.setSelection(-1);
                     listHolder.setSelection(position);
-                    dontKnow.setChecked(false);
+                    highlightLinearLayout(dontKnow, R.color.none);
+                    dontKnowSelected = false;
                     if(position == otherSelect)
                     {
                         expander.requiredAnswers = 2;
@@ -176,7 +210,22 @@ public class ChoiceSelectExpander extends Expander {
                         otherInfo.setVisibility(View.GONE);
                         editInfo.setVisibility(View.GONE);
                     }
-                    enableDisableNext();
+                    if(allowMultiple)
+                    {
+                        Log.d("choice", ""+listHolder.getCheckedItemCount());
+                        multipleSelected[position] = !multipleSelected[position];
+                        if(listHolder.getCheckedItemCount()>0)
+                        {
+                            enableDisableNext();
+                        }
+                        else
+                        {
+                            disableDisableNext();
+                        }
+                    }
+                    else {
+                        enableDisableNext();
+                    }
                     listHolder.invalidateViews();
                 }
             });
@@ -214,15 +263,27 @@ public class ChoiceSelectExpander extends Expander {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
+                if(s.length()>0)
+                {
+                    enableDisableNext();
+                }
+                else
+                {
+                    if(!dontKnowSelected)
+                    {
+                        disableDisableNext();
+                    }
+                    else
+                    {
+                        enableDisableNext();
+                    }
+                }
             }
 
             @Override
             public void afterTextChanged(Editable s) {
                 String answer = itemTextInput.getText().toString();
                 setListTo(listHolder, answer);
-                enableDisableNext();
-                dontKnow.setChecked(false);
             }
         });
 
@@ -253,51 +314,125 @@ public class ChoiceSelectExpander extends Expander {
 
     @Override
     protected void setPreviousAnswer(JSONArray answer) {
-        String region = "";
-        try {
-            region = answer.getString(0);
-        } catch (JSONException e) {
-            Log.i("ChoiceSelectExpander", "Unable to parse previous answer");
-        }
-        try {
-            if (jsonArray != null) {
-                populateLists(region);
-                itemTextInput.setText(region);
-                Log.i("ChoiceSelectExpander", "Successfully populated list");
-            } else {
-                Log.e("ChoiceSelectExpander", "No questions to load");
+        Boolean mistakes = null;
+        if(!allowMultiple)
+        {
+            String region = "";
+            try {
+                region = answer.getString(0);
+                if (region.equals(" "))
+                {
+                    region = "";
+                }
+                else if (region.equals("true") || region.equals("false"))
+                {
+                    mistakes = Boolean.parseBoolean(region);
+                    region = "";
+                }
+            } catch (JSONException e) {
+                Log.i("ChoiceSelectExpander", "Unable to parse previous answer");
             }
-        } catch (JSONException e) {
-            Log.e("ChoiceSelectExpander", "Unable to populate list\n" + Log.getStackTraceString(e));
-        }
-        try {
-            if(otherSelect==initalSelect)
-            {
-                otherInfo.setVisibility(View.VISIBLE);
-                editInfo.setVisibility(View.VISIBLE);
-                expander.requiredAnswers = 2;
-                editInfo.setText(answer.getString(1));
+            try {
+                if (jsonArray != null) {
+                    populateLists(region);
+                    itemTextInput.setText(region);
+                    Log.i("ChoiceSelectExpander", "Successfully populated list");
+                } else {
+                    Log.e("ChoiceSelectExpander", "No questions to load");
+                }
+            } catch (JSONException e) {
+                Log.e("ChoiceSelectExpander", "Unable to populate list\n" + Log.getStackTraceString(e));
+            }
+            try {
+                if(otherSelect==initalSelect)
+                {
+                    otherInfo.setVisibility(View.VISIBLE);
+                    editInfo.setVisibility(View.VISIBLE);
+                    expander.requiredAnswers = 2;
+                    editInfo.setText(answer.getString(1));
+                }
+                else
+                {
+                    if (mistakes==null)
+                    {
+                        dontKnowSelected = Boolean.parseBoolean(answer.getString(1));
+                    }
+                    else
+                    {
+                        dontKnowSelected = mistakes;
+                    }
 
+                    if(dontKnowSelected)
+                    {
+                        highlightLinearLayout(dontKnow, R.color.questionSelectedBackground);
+                    }
+                    else
+                    {
+                        highlightLinearLayout(dontKnow, R.color.none);
+                    }
+                }
+            } catch (JSONException e) {}
+        }
+        else
+        {
+            try {
+                populateLists("");
+                String oldAnswers = answer.getString(0);
+                JSONArray oldArray = new JSONArray(oldAnswers);
+                for(int i = 0; i < oldArray.length(); i++)
+                {
+                    multipleSelected[i] = oldArray.getBoolean(i);
+                    listHolder.setItemChecked(i, multipleSelected[i]);
+                }
+            } catch (JSONException e) {
+                Log.i("ChoiceSelectExpander", "Unable to parse previous answer");
             }
-        } catch (JSONException e) {}
+        }
     }
 
     @Override
     public JSONArray getSelectedAnswer() {
         JSONArray array = new JSONArray();
         String answer = "";
-        if(!dontKnow.isChecked())
+        if(!allowMultiple)
         {
-            answer = itemTextInput.getText().toString();
-            if(answer.isEmpty() && itemTextInput.getHint() != null) {
-                answer = itemTextInput.getHint().toString();
+            if(!dontKnowSelected)
+            {
+                answer = itemTextInput.getText().toString();
+                if(answer.isEmpty() && itemTextInput.getHint() != null) {
+                    answer = itemTextInput.getHint().toString();
+                }
             }
-        }
 
-        Log.d("test", ""+Arrays.asList(listStrings).contains(answer));
-        if(Arrays.asList(listStrings).contains(answer))
+            Log.d("test", ""+Arrays.asList(listStrings).contains(answer));
+            if(Arrays.asList(listStrings).contains(answer))
+            {
+                array.put(answer);
+            }
+            else if(listStrings.length==0&&itemTextInput.getText().toString().length()>0)
+            {
+                array.put(itemTextInput.getText().toString());
+            }
+            else if(dontKnowSelected)
+            {
+                array.put(" ");
+            }
+
+        }
+        else
         {
-            array.put(answer);
+            boolean flag = false;
+            for (int i = 0; i<multipleSelected.length; i++)
+            {
+                if(multipleSelected[i])
+                {
+                    flag = true;
+                }
+            }
+            if(flag)
+            {
+                array.put(Arrays.toString(multipleSelected));
+            }
         }
 
         if(editInfo.getText().toString().length()>0&&otherSelect==initalSelect)
@@ -309,7 +444,7 @@ public class ChoiceSelectExpander extends Expander {
         {
             if(Boolean.parseBoolean(getQuestionString("enableDontKnow")))
             {
-                array.put(dontKnow.isChecked());
+                array.put(Boolean.toString(dontKnowSelected));
             }
         } catch (JSONException e)
         {
@@ -368,6 +503,12 @@ public class ChoiceSelectExpander extends Expander {
             }
         }
 
+        multipleSelected = new Boolean[listStrings.length];
+        for (int i = 0; i < multipleSelected.length; i++)
+        {
+            multipleSelected[i] = false;
+        }
+
         adapter = new ColorListAdapter<String>(
                 activity.getBaseContext(),
                 R.layout.list_background,
@@ -415,5 +556,13 @@ public class ChoiceSelectExpander extends Expander {
 
         listView.setLayoutParams(params);
         listView.requestLayout();
+    }
+
+    private void highlightLinearLayout(LinearLayout layout, int colorId) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            layout.setBackgroundColor(activity.getColor(colorId));
+        } else {
+            layout.setBackgroundColor(activity.getResources().getColor(colorId));
+        }
     }
 }

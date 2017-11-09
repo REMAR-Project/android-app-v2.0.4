@@ -99,8 +99,9 @@
 	"questionType": "ListSelect",
 	"questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "Where did the andada happen when you observed it?<br>Touch correct answer with finger",
+    "description": "Where did the andada happen when you observed it?<br>Touch correct answer with finger. You can chose more than one option",
     "jsonInput": "locations_(1:0).json",
+    "allowMultiple": "true",
     "disableCustom": "true"
   },
   {

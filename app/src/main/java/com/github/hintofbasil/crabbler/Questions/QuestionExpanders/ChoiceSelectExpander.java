@@ -104,7 +104,7 @@ public class ChoiceSelectExpander extends Expander {
                     belowPicutre.setImageDrawable(getDrawable(getQuestionString("imageFile")));
                     Log.d("ChoiceSelect", "found file");
                     belowPicutre.setVisibility(View.VISIBLE);
-                } catch (JSONException e) {
+                } catch (Exception e) {
                     belowPicutre.setVisibility(View.GONE);
                     Log.d("ChoiceSelect", "failed to find file");
                 }

@@ -33,6 +33,9 @@ public class DateRangeExpander extends Expander {
     private List<Date> selectedDates = new LinkedList<Date>();
     CaldroidCustomFragment caldroidFragment = new CaldroidCustomFragment();
 
+    int month;
+    int year;
+
     public DateRangeExpander(AppCompatActivity activity, JSONObject questionJson) {
         super(activity, questionJson, REQUIRED_ANSWERS);
     }
@@ -69,11 +72,11 @@ public class DateRangeExpander extends Expander {
         args.putBoolean(CaldroidFragment.ENABLE_SWIPE, false);
         args.putBoolean(CaldroidFragment.SHOW_NAVIGATION_ARROWS, false);
         if (questionJson.has("month")) {
-            int month = Integer.parseInt(getQuestionString("month"));
+            month = Integer.parseInt(getQuestionString("month"));
             args.putInt(CaldroidFragment.MONTH, month + 1); // + 1 because starts counting from 1
         }
         if (questionJson.has("year")) {
-            int year = Integer.parseInt(getQuestionString("year"));
+            year = Integer.parseInt(getQuestionString("year"));
             args.putInt(CaldroidFragment.YEAR, TwoChoiceDateExpander.MIN_YEAR + year);
         }
         caldroidFragment.setArguments(args);
@@ -92,8 +95,13 @@ public class DateRangeExpander extends Expander {
                 // Requires new SimpleDateFormat for each parse.
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
                 Date date = simpleDateFormat.parse(s.toString());
-                selectedDates.add(date);
-                caldroidFragment.setSelectedDate(date);
+                int dateMonth = date.getMonth();
+                int dateYear = date.getYear();
+                if(dateMonth==month&&dateYear==year+116)
+                {
+                    selectedDates.add(date);
+                    caldroidFragment.setSelectedDate(date);
+                }
             } catch (ParseException|JSONException e) {
                 Log.e("DateRangeExpander", "Unable to create date from answer " + Log.getStackTraceString(e));
                 return;

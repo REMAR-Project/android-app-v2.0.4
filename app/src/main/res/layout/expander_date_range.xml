@@ -39,6 +39,7 @@
                 android:layout_gravity="center_horizontal"
                 android:textAlignment="center"
                 android:textStyle="bold"
+                android:textColor="@color/questionOfQuestionText"
                 android:textSize="@dimen/description"/>
 
             <LinearLayout
@@ -62,6 +63,7 @@
                     android:paddingStart="@dimen/calendar_legend_moon_text_spacing"
                     android:paddingRight="@dimen/calendar_legend_element_spacing"
                     android:paddingEnd="@dimen/calendar_legend_element_spacing"
+                    android:textColor="@color/questionOfQuestionText"
                     android:textSize="@dimen/legend_text"/>
 
                 <View
@@ -75,6 +77,7 @@
                     android:text="@string/calendar_legend_full_moon"
                     android:paddingLeft="@dimen/calendar_legend_moon_text_spacing"
                     android:paddingStart="@dimen/calendar_legend_moon_text_spacing"
+                    android:textColor="@color/questionOfQuestionText"
                     android:textSize="@dimen/legend_text"/>
 
             </LinearLayout>

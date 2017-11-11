@@ -40,6 +40,7 @@
                 android:textAlignment="center"
                 android:textStyle="bold"
                 android:textSize="@dimen/description"
+                android:textColor="@color/questionOfQuestionText"
                 android:layout_marginBottom="@dimen/description_margin_bottom"/>
 
             <LinearLayout
@@ -106,6 +107,7 @@
                     android:id="@+id/dont_know_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/questionOfQuestionText"
                     android:text="@string/day_night_unknown"
                     android:textSize="@dimen/day_night_choice_text"/>
 
@@ -121,6 +123,7 @@
                 android:id="@+id/TextInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/questionOfQuestionText"
                 android:visibility="gone"/>
 
             <EditText

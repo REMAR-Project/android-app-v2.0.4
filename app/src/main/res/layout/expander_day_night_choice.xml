@@ -35,6 +35,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/questionOfQuestionText"
+                android:textSize="@dimen/description"
+                android:textStyle="bold"
                 android:id="@+id/description"/>
 
             <RelativeLayout
@@ -63,6 +66,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/only_day"
+                        android:textColor="@color/questionOfQuestionText"
                         android:textSize="@dimen/day_night_choice_text"/>
 
                     <ImageView
@@ -94,6 +98,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/only_night"
+                        android:textColor="@color/questionOfQuestionText"
                         android:textSize="@dimen/day_night_choice_text"/>
 
                     <ImageView
@@ -126,6 +131,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/day_and_night"
+                        android:textColor="@color/questionOfQuestionText"
                         android:textSize="@dimen/day_night_choice_text"/>
 
                     <ImageView
@@ -157,6 +163,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/questionOfQuestionText"
                         android:text="@string/day_night_unknown"
                         android:textSize="@dimen/day_night_choice_text"/>
 

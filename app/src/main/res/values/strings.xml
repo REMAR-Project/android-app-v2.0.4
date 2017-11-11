@@ -10,6 +10,7 @@
     <string name="about_us">About Us</string>
     <string name="settings">Settings</string>
 
+    <string name="proceed">Proceed</string>
     <string name="back">Voltar</string>
 
     <string name="yes">Sim</string>
@@ -84,7 +85,7 @@
     </string-array>
     <string name="pref_postFrequency_default">3600000</string>
 
-    <string name="menu">Mais informações</string>
+    <string name="menu">Saiba mais</string>
 
     <string name="calendar_legend_new_moon">Lua nova</string>
     <string name="calendar_legend_full_moon">Lua cheia</string>

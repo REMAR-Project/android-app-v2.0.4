@@ -37,6 +37,7 @@
                 android:id="@+id/question_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/questionOfQuestionText"
                 android:textSize="@dimen/description" />
 
             <LinearLayout

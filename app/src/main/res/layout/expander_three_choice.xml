@@ -35,7 +35,8 @@
                 android:id="@+id/question_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/checkbox_text"
+                android:textColor="@color/questionOfQuestionText"
+                android:textSize="@dimen/description"
                 />
 
             <CheckBox

@@ -28,7 +28,7 @@
     "questionType": "MonthChoice",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-	"questionText": "Touch screen and move finger to choose correct month.<br>In case you saw two andadas this month (one around new moon and one around full moon), please run the app for each andada seperately.",
+	"questionText": "Touch screen and move finger to choose correct month. In case you saw two andadas this month (one around new moon and one around full moon), please run the app for each andada seperately.",
     "year" : "(2:0)"
   },
   {
@@ -78,7 +78,7 @@
     "questionType": "DayNightChoice",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-	"description": "When did andada occur? Touch correct symbol with finger.  In case you don't know proceed to the next page.",
+	"description": "When did andada occur? Touch correct symbol with finger.",
     "choiceOneText": "At new moon",
     "choiceTwoText": "At full moon",
     "quantityQuestion": 3

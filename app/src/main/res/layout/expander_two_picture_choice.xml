@@ -32,6 +32,7 @@
                 android:layout_centerHorizontal="true"
                 android:textAlignment="center"
                 android:textSize="@dimen/question_font_size"
+                android:textColor="@color/questionOfQuestionText"
                 android:text=""
                 android:scrollbars="vertical"
                 />
@@ -65,6 +66,7 @@
                         android:layout_gravity="center_horizontal"
                         android:textAlignment="center"
                         android:textSize="@dimen/question_selection_title"
+                        android:textColor="@color/questionOfQuestionText"
                         android:text=""
                         />
                     <ImageView
@@ -94,6 +96,7 @@
                         android:layout_gravity="center_horizontal"
                         android:textAlignment="center"
                         android:textSize="@dimen/question_selection_title"
+                        android:textColor="@color/questionOfQuestionText"
                         android:text=""
                         />
                     <ImageView

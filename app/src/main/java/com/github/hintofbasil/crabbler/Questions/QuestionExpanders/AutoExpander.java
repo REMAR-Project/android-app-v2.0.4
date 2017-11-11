@@ -14,6 +14,7 @@ import com.github.hintofbasil.crabbler.R;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 /**
  * Created by will on 05/05/16.
@@ -37,6 +38,7 @@ public class AutoExpander extends Expander {
         TextView choiceOneTitle = (TextView) activity.findViewById(R.id.choice_one_title);
         ImageView previousButton = (ImageView) activity.findViewById(R.id.back_button);
         ImageView nextButton = (ImageView) activity.findViewById(R.id.forward_button);
+        TextView pageNumber = (TextView) activity.findViewById(R.id.page_of);
         questionOneButton = (LinearLayout) activity.findViewById(R.id.question_one_button);
         ImageView choiceOneImage = (ImageView) activity.findViewById(R.id.choice_one_image);
         version = "";
@@ -51,6 +53,7 @@ public class AutoExpander extends Expander {
 
         previousButton.setVisibility(View.GONE);
         nextButton.setVisibility(View.GONE);
+        pageNumber.setVisibility(View.GONE);
 
         nextQuestion(4000);
 

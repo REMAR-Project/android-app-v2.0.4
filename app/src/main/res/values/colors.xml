@@ -5,7 +5,7 @@
     <color name="questionSelectedBackground">#ffdd00</color>
     <color name="questionPressed">#99aabb</color>
     <color name="toolbarTitle">#000000</color>
-    <color name="questionOfQuestionText">#AAAAAA</color>
+    <color name="questionOfQuestionText">#000000</color>
     <color name="none">#00000000</color>
     <color name="white">#ffffff</color>
     <color name="newMoon">#000000</color>

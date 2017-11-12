@@ -48,8 +48,8 @@ public class DateRangeExpander extends Expander {
         TextView titleView = (TextView) activity.findViewById(R.id.title);
         TextView descriptionView = (TextView) activity.findViewById(R.id.description);
 
-        imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
-        titleView.setText(getRichTextQuestionString("questionTitle"));
+        //imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
+        //titleView.setText(getRichTextQuestionString("questionTitle"));
         descriptionView.setText(getRichTextQuestionString("description"));
 
         // Build calendar

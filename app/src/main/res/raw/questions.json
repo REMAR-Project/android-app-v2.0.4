@@ -10,7 +10,7 @@
   {
     "questionNumber": 1,
     "questionType": "TwoPictureChoice",
-    "questionText": "Ajude a monitorar as andadas reprodutivas do caranguejo-uçá e do guaiamum.<br><br>Essas informações ajudarão a prever as épocas de acasalamento e a estabelecer defesos apenas nos períodos realmente necessários.<br><br>Para mais informações, toque com dedo no botão amarelo \"Saiba mais\" acima.<br><br>Para passar informacoes sobre andada, toque em uma das duas espécies abaixo:",
+    "questionText": "Ajude a monitorar as andadas reprodutivas do caranguejo-uçá e do guaiamum.<br><br>Essas informações ajudarão a prever as épocas de acasalamento e a estabelecer defesos apenas nos períodos realmente necessários.<br><br>Para mais informações, toque com dedo no botão amarelo \"Saiba mais\" acima.<br><br>Para passar informações sobre andada, toque em uma das duas espécies abaixo:",
     "choiceOneTitle": "Caranguejo-uçá",
     "choiceOnePicture": "q0_0",
     "choiceTwoTitle": "Guaiamum",
@@ -21,7 +21,7 @@
     "questionType": "YearChoice",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "questionText": "Quando você viu uma andada?<br>Deslize o dedo sobre a tela para escolher o ano."
+    "questionText": "Quando você viu uma andada?<br>Deslize o dedo sobre a tela e toque para escolher o ano."
   },
   {
     "questionNumber": 3,
@@ -47,7 +47,7 @@
     "questionType": "DateRange",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "Marque com o dedo, quando você observou a andada.<br>Lembre-se! Caso tenha observado andadas em duas fases da lua deste mês (ex. uma em torno da lua nova, e outra em torno da lua cheia), marque somente UMA andada aqui.",
+    "description": "Marque com o dedo quando você observou a andada.<br>Lembre-se! Caso neste mês tenha observado andadas em dois períodos (ex. uma em torno da lua nova, e outro em torno da lua cheia), marque somente UM período (marque vários dias SEGUIDOS, ou apenas um dia).",
     "month": "(3:0)",
     "year": "(2:0)",
     "filterOnQuestion": -1,
@@ -99,7 +99,7 @@
 	"questionType": "ListSelect",
 	"questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "A andada foi vista em qual ambiente? Você pode marcar mais de uma opção.",
+    "description": "A andada foi vista em qual ambiente? Você pode marcar mais de um.",
     "jsonInput": "locations_(1:0).json",
     "allowMultiple": "true",
     "disableCustom": "true"
@@ -118,7 +118,7 @@
     "questionType": "ListSelect",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "Rolar e selecionar o município onde você fez sua observação. Deslize o dedo sobre a tela para escolher",
+    "description": "Deslize o dedo sobre a tela para escolher o município onde você viu a andada.",
     "jsonInput": "region_counties.json",
     "disableCustom": "true",
     "jsonKey": "(-1:0)"
@@ -142,7 +142,7 @@
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
     "questionText": "O manguezal monitorado está em unidade de conservação (ex. RESEX, APA, Parque)?",
-    "extraDetailText": "Deslize o dedo sobre a tela para achar a unidade de conservação correta?",
+    "extraDetailText": "Deslize o dedo sobre a tela para achar a unidade de conservação correta.",
     "cacheAnswer": true,
     "state": "(11:0)",
     "jsonInput": "regions_protected.json"
@@ -152,7 +152,7 @@
     "questionType": "ListSelect",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "Por favor, poderia informar o que você faz?",
+    "description": "Por favor, poderia informar o que você faz?<br>Deslize o dedo sobre a tela para escolher.",
     "jsonInput": "occupation.json",
     "disableCustom": "true",
     "enableOther": true,
@@ -194,5 +194,13 @@
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
     "hideBackNext": true
+  },
+  {
+    "questionType": "Return",
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)",
+    "description": "",
+    "choiceOneText": "Quero sair",
+    "choiceTwoText": "Quero continuar informar outra andada"
   }
 ]

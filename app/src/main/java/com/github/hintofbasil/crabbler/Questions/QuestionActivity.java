@@ -16,6 +16,7 @@ import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.ChoiceSelectE
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.CommitExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.MonthChoiceExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.OneChoiceExpander;
+import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.ReturnExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.ThreeChoiceExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.UserDetailsExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.DateRangeExpander;
@@ -104,6 +105,9 @@ public class QuestionActivity extends AppCompatActivity {
                         break;
                     case "Commit":
                         expander = new CommitExpander(this, questionJson);
+                        break;
+                    case "Return":
+                        expander = new ReturnExpander(this, questionJson);
                         break;
                     default:
                         Log.e("QuestionActivity", "Unknown question type.");

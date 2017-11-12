@@ -78,4 +78,7 @@
 	<string name="TestVersion">TEST Version</string>
 	<string name="test2">This is a test! Two</string>
 
+    <string name="closeapp">I want to close the app</string>
+    <string name="returntostart">I want to return to first page</string>
+
 </resources>

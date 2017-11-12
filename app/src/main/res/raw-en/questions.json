@@ -194,5 +194,13 @@
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
     "hideBackNext": true
+  },
+  {
+    "questionType": "Return",
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)",
+    "description": "",
+    "choiceOneText": "I want to close the app",
+    "choiceTwoText": "I want to return to first page"
   }
 ]

@@ -74,9 +74,10 @@ public class DoneExpander extends Expander {
     }
 
     private void toFirstQuestion() {
-        Intent intent = new Intent(activity.getBaseContext(),
-                QuestionActivity.class);
+        /*Intent intent = new Intent(activity.getBaseContext(),
+                ReturnExpander.class);
         activity.startActivity(intent);
-        activity.finish();
+        activity.finish();*/
+        nextQuestion(0);
     }
 }

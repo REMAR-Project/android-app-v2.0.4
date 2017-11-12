@@ -3,24 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/next_button_size">
 
-    <TextView
-        android:id="@+id/back_next_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:paddingRight="5dp"
-        android:textAlignment="viewEnd"
-        android:gravity="end"
-        android:text="@string/back_next_description_text"
-        android:textSize="@dimen/back_next_description_size"
-        android:visibility="gone"
-        />
-
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/back_next_description"
         android:id="@+id/arrow_pointer">
 
         <TextView

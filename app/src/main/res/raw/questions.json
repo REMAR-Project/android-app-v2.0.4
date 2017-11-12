@@ -1,15 +1,16 @@
 [
   {
     "questionNumber": 0,
-    "questionType": "OneChoice",
+    "questionType": "Auto",
     "questionText": "",
     "choiceOneTitle": "TestVersion",
-    "choiceOnePicture": "q0_0"
+    "choiceOnePicture": "q0_0",
+    "version": "0.9b"
   },
   {
     "questionNumber": 1,
     "questionType": "TwoPictureChoice",
-    "questionText": "Ajude a monitorar as andadas de acasalamento do caranguejo-uçá e do guaiamum.<br><br>Essas informações ajudarão a prever as épocas de acasalamento e a estabelecer defesos apenas nos períodos realmente necessários.<br><br>Para mais informações, clique no botão \"Mais informações\" acima.<br><br>Para passar informacoes sobre andada, clique em uma das duas espécies abaixo:",
+    "questionText": "Ajude a monitorar as andadas reprodutivas do caranguejo-uçá e do guaiamum.<br><br>Essas informações ajudarão a prever as épocas de acasalamento e a estabelecer defesos apenas nos períodos realmente necessários.<br><br>Para mais informações, toque com dedo no botão amarelo \"Saiba mais\" acima.<br><br>Para passar informacoes sobre andada, toque em uma das duas espécies abaixo:",
     "choiceOneTitle": "Caranguejo-uçá",
     "choiceOnePicture": "q0_0",
     "choiceTwoTitle": "Guaiamum",
@@ -17,118 +18,176 @@
   },
   {
     "questionNumber": 2,
-    "questionType": "MonthChoice",
+    "questionType": "YearChoice",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "questionText": "Escolha o mês. Escolha o ano."
+    "questionText": "Quando você viu uma andada?<br>Deslize o dedo sobre a tela para escolher o ano."
   },
   {
     "questionNumber": 3,
-    "questionType": "ThreeChoice",
+    "questionType": "MonthChoice",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "choiceOneText": "andada_new_0",
-    "choiceTwoText": "andada_full_0",
-	"choiceThreeText": "andada_newfull_0",
-    "allowMultiple": false
+    "questionText": "Deslize o dedo sobre a tela para escolher o mês.<br>Caso tenha observado andadas em duas fases da lua deste mês (ex. uma em torno da lua nova, e outra em torno da lua cheia), por favor envie um questionário para cada andada, separadamente.",
+    "year" : "(2:0)"
   },
   {
     "questionNumber": 4,
-    "questionType": "DateRange",
+    "questionType": "ThreeChoice",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "Clique nos dias em que  você observou andada",
-    "month": "(2:0)",
-    "year": "(2:1)",
-    "filterOnQuestion": -1
+    "questionText": "",
+    "choiceOneText": "andada_new_0",
+    "choiceTwoText": "andada_full_0",
+    "choiceThreeText": "andada_newfull_0",
+    "allowMultiple": false
   },
   {
     "questionNumber": 5,
+    "questionType": "DateRange",
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)",
+    "description": "Marque com o dedo, quando você observou a andada.<br>Lembre-se! Caso tenha observado andadas em duas fases da lua deste mês (ex. uma em torno da lua nova, e outra em torno da lua cheia), marque somente UMA andada aqui.",
+    "month": "(3:0)",
+    "year": "(2:0)",
+    "filterOnQuestion": -1,
+    "optional": false
+  },
+  {
+    "questionNumber": 6,
     "questionType": "DateRangeSelect",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "AGORA clique no dia de andada MAIS FORTE (opcional)",
-    "month": "(2:0)",
-    "year": "(2:1)",
+    "description": "Marque com o dedo o dia em que a andada foi mais FORTE",
+    "month": "(3:0)",
+    "year": "(2:0)",
     "filterOnQuestion": -1,
     "optional": true
   },
   {
-    "questionNumber": 6,
+    "questionNumber": 7,
+    "questionType": "ListSelect",
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)",
+    "description": "Você viu outra andada nas últimas duas semanas?<br>Toque com o dedo na resposta correta:",
+    "jsonInput": "number_of_crabs.json",
+    "disableCustom": "true"
+  },
+  {
+    "questionNumber": 8,
     "questionType": "DayNightChoice",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-	"description": "Clique no período (dia ou noite) em que a andada ocorreu.",
+	"description": "Quando a andada ocorreu? Toque na resposta",
     "choiceOneText": "Na lua nova",
-    "choiceTwoText": "Na lua cheia",
+    "choiceTwoTex": "Na lua cheia",
     "quantityQuestion": 3
-  },
-  {
-	"questionNumber": 7,
-    "questionType": "TwoChoice",
-    "questionPicture": "q0_(1:0)",
-    "questionTitle": "Você viu alguma fêmea ovada?",
-    "choiceOneText": "Sim",
-    "choiceTwoText": "Não",
-    "allowMultiple": false
-  },
-  {
-	"questionNumber": 8,
-	"questionType": "ListSelect",
-	"questionPicture": "q0_(1:0)",
-    "questionTitle": "crab_title_(1:0)",
-    "description": "A andada foi vista em qual ambiente?",
-    "jsonInput": "locations.json",
-    "disableCustom": "true"
   },
   {
     "questionNumber": 9,
     "questionType": "ListSelect",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "Qual o estado em que foi feito o monitoramento?<br>Rolar a lista abaixo e selecionar o seu estado",
-    "jsonInput": "regions.json",
-    "disableCustom": "true"
+    "description": "Você viu alguma fêmea ovada?",
+    "jsonInput": "ovigerious.json",
+    "disableCustom": "true",
+    "hasImage": "true",
+    "imageFile": "ovigerous_(1:0)"
   },
   {
-    "questionNumber": 10,
-    "questionType": "ListSelect",
-    "questionPicture": "q0_(1:0)",
+	"questionNumber": 10,
+	"questionType": "ListSelect",
+	"questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "Rolar e selecionar o município onde você fez sua observação",
-    "jsonInput": "region_counties.json",
-    "disableCustom": "true",
-    "jsonKey": "(-1:0)"
+    "description": "A andada foi vista em qual ambiente? Você pode marcar mais de uma opção.",
+    "jsonInput": "locations_(1:0).json",
+    "allowMultiple": "true",
+    "disableCustom": "true"
   },
   {
     "questionNumber": 11,
     "questionType": "ListSelect",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "Digite o nome do distrito, bairro ou vila perto do lugar onde voce (opcional)",
-    "disableList": true,
-    "disablePicture": true,
-    "optional": true,
-    "cacheAnswer": true
+    "description": "Qual o estado em que foi feito o monitoramento?<br>Deslize o dedo sobre a tela para escolher.",
+    "jsonInput": "regions.json",
+    "disableCustom": "true"
   },
   {
     "questionNumber": 12,
+    "questionType": "ListSelect",
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)",
+    "description": "Rolar e selecionar o município onde você fez sua observação. Deslize o dedo sobre a tela para escolher",
+    "jsonInput": "region_counties.json",
+    "disableCustom": "true",
+    "jsonKey": "(-1:0)"
+  },
+  {
+    "questionNumber": 13,
+    "questionType": "ListSelect",
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)",
+    "description": "Toque no espaço e escreva o nome do local onde você viu a andada.",
+    "disableList": true,
+    "disablePicture": true,
+    "optional": true,
+    "cacheAnswer": true,
+    "enableDontKnow": true,
+    "dontKnowText": "Não quero dizer"
+  },
+  {
+    "questionNumber": 14,
     "questionType": "YesNoExtra",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
     "questionText": "O manguezal monitorado está em unidade de conservação (ex. RESEX, APA, Parque)?",
-    "extraDetailText": "Qual é o nome da unidade de conservação?",
-    "cacheAnswer": true
+    "extraDetailText": "Deslize o dedo sobre a tela para achar a unidade de conservação correta?",
+    "cacheAnswer": true,
+    "state": "(11:0)",
+    "jsonInput": "regions_protected.json"
   },
   {
-    "questionNumber": 13,
+    "questionNumber": 15,
+    "questionType": "ListSelect",
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)",
+    "description": "Por favor, poderia informar o que você faz?",
+    "jsonInput": "occupation.json",
+    "disableCustom": "true",
+    "enableOther": true,
+    "otherText": "Qual ?  Toque no espaço para escrever",
+    "otherPosition": 9
+  },
+  {
+    "questionNumber": 16,
+    "questionType": "ListSelect",
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)",
+    "description": "Algo mais que você gostaria de dizer?",
+    "jsonInput": "yes_no.json",
+    "disableCustom": "true",
+    "enableOther": true,
+    "otherText": "Toque no espaço para escrever",
+    "otherPosition": 0
+  },
+  {
+    "questionNumber": 17,
     "questionType": "UserDetails",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "Seria ótimo saber quem é você e como mantermos contato para agradecimento (opcional) Digite seu endereco electronico",
+    "description": "Seria bom saber quem você é para podermos citar o seu nome na lista de pesquisadores cidadãos da REMAR.<br>Toque no espaço para escrever o seu nome (opcional)",
+    "description2": "Qual a melhor forma para entramos em contato? Toque no espaço para escrever o seu email ou telefone (opcional).",
     "postAs": "userDetails",
     "optional": true,
     "cacheAnswer": true
+  },
+  {
+    "questionNumber": 18,
+    "questionType": "Commit",
+    "description": "",
+    "choiceOneText": "QUERO MANDAR AS MINHAS RESPOSTAS",
+    "choiceTwoText": "VOLTE PARA MUDAR AS RESPOSTAS"
   },
   {
     "questionType": "Done",

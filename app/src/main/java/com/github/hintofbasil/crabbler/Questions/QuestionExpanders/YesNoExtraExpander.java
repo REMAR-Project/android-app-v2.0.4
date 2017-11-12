@@ -234,7 +234,7 @@ public class YesNoExtraExpander extends Expander {
                     regionId = i;
                 }*/
             }
-            listStrings[listStrings.length-1] = "Not in list";
+            listStrings[listStrings.length-1] = "Nome não está na lista";
 
             adapter = new ColorListAdapter<String>(
                     activity.getBaseContext(),

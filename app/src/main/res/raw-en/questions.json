@@ -14,7 +14,9 @@
     "choiceOneTitle": "Ucides cordatus",
     "choiceOnePicture": "q0_0",
     "choiceTwoTitle": "Cardisoma guanhumi",
-    "choiceTwoPicture": "q0_1"
+    "choiceTwoPicture": "q0_1",
+    "backText": "Press to go back",
+    "forwardText": "Press to proceed"
   },
   {
     "questionNumber": 2,

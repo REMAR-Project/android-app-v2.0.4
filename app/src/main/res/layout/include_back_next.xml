@@ -9,6 +9,7 @@
         android:id="@+id/arrow_pointer">
 
         <TextView
+            android:id="@+id/backText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/back"
@@ -21,6 +22,7 @@
             />
 
         <TextView
+            android:id="@+id/forwardText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"

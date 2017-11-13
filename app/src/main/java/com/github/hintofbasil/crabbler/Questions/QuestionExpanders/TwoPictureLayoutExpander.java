@@ -40,6 +40,8 @@ public class TwoPictureLayoutExpander extends Expander {
         questionTwoButton = (LinearLayout) activity.findViewById(R.id.question_two_button);
         ImageView choiceOneImage = (ImageView) activity.findViewById(R.id.choice_one_image);
         ImageView choiceTwoImage = (ImageView) activity.findViewById(R.id.choice_two_image);
+        TextView backText = (TextView) activity.findViewById(R.id.backText);
+        TextView forwardText = (TextView) activity.findViewById(R.id.forwardText);
 
         choiceOneImage.setImageDrawable(getDrawable(getQuestionString("choiceOnePicture")));
         choiceTwoImage.setImageDrawable(getDrawable(getQuestionString("choiceTwoPicture")));
@@ -49,6 +51,9 @@ public class TwoPictureLayoutExpander extends Expander {
 
         choiceOneTitle.setText(getRichTextQuestionString("choiceOneTitle"));
         choiceTwoTitle.setText(getRichTextQuestionString("choiceTwoTitle"));
+
+        backText.setText(getRichTextQuestionString("backText"));
+        forwardText.setText(getRichTextQuestionString("forwardText"));
 
         questionOneButton.setOnClickListener(new View.OnClickListener() {
             @Override

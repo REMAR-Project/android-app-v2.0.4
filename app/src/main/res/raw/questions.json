@@ -66,12 +66,13 @@
   },
   {
     "questionNumber": 7,
-    "questionType": "ListSelect",
+    "questionType": "YesNoExtra",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "Você viu outra andada nas últimas duas semanas?<br>Toque com o dedo na resposta correta:",
-    "jsonInput": "number_of_crabs.json",
-    "disableCustom": "true"
+    "questionText": "Toque com o dedo na resposta correta",
+    "extraDetailText": "Comparado à andada anterior, a quantidade de caranguejos andando DESTA vez foi :",
+    "cacheAnswer": true,
+    "jsonInput": "number_of_crabs.json"
   },
   {
     "questionNumber": 8,
@@ -145,7 +146,8 @@
     "extraDetailText": "Deslize o dedo sobre a tela para achar a unidade de conservação correta.",
     "cacheAnswer": true,
     "state": "(11:0)",
-    "jsonInput": "regions_protected.json"
+    "jsonInput": "regions_protected.json",
+    "hasManual": "true"
   },
   {
     "questionNumber": 15,

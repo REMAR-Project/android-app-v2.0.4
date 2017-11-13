@@ -66,12 +66,13 @@
   },
   {
     "questionNumber": 7,
-    "questionType": "ListSelect",
+    "questionType": "YesNoExtra",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "Touch correct answer with finger. Compared to other andadas that you saw, the number of crabs was",
-    "jsonInput": "number_of_crabs.json",
-    "disableCustom": "true"
+    "questionText": "Did you see another andada in the last 2 weeks? Touch correct answer with finger.",
+    "extraDetailText": "Compared to the former andada, the CURRENT andada was:",
+    "cacheAnswer": true,
+    "jsonInput": "number_of_crabs.json"
   },
   {
     "questionNumber": 8,

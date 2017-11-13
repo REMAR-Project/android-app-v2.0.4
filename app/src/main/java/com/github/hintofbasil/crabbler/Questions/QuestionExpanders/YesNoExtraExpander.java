@@ -47,6 +47,7 @@ public class YesNoExtraExpander extends Expander {
     int selectedListItem;
     JSONObject jsonArray = null;
     ColorListAdapter<String> adapter;
+    Boolean hasManual;
     TextView manualInfo;
     EditText manualText;
 
@@ -82,6 +83,19 @@ public class YesNoExtraExpander extends Expander {
         questionText.setText(getRichTextQuestionString("questionText"));
         extraDetail.setText(getRichTextQuestionString("extraDetailText"));
 
+        try {
+            jsonArray = readFileObject(getQuestionString("jsonInput"));
+        } catch (IOException e) {
+            Log.e("ChoiceSelectExpander", "Unable to parse json file" + Log.getStackTraceString(e));
+        }
+
+        try {
+            hasManual = Boolean.parseBoolean(getQuestionString("hasManual"));
+        } catch (JSONException e)
+        {
+            hasManual = false;
+        }
+
         chkYes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,7 +113,7 @@ public class YesNoExtraExpander extends Expander {
                     chkMaybe.setChecked(false);
                     extraListview.setVisibility(View.VISIBLE);
                     extraDetail.setVisibility(View.VISIBLE);
-                    if(selectedListItem == listStrings.length-1)
+                    if(selectedListItem == listStrings.length-1&&hasManual)
                     {
                         manualInfo.setVisibility(View.VISIBLE);
                         manualText.setVisibility(View.VISIBLE);
@@ -144,12 +158,6 @@ public class YesNoExtraExpander extends Expander {
         });
 
         try {
-            jsonArray = readFileObject(getQuestionString("jsonInput"));
-        } catch (IOException e) {
-            Log.e("ChoiceSelectExpander", "Unable to parse json file" + Log.getStackTraceString(e));
-        }
-
-        try {
             extraListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -158,7 +166,7 @@ public class YesNoExtraExpander extends Expander {
                         adapter.removeDefault();
                     }
                     selectedListItem = position;
-                    if(selectedListItem == listStrings.length-1) {
+                    if(selectedListItem == listStrings.length-1&&hasManual) {
                         Log.d("test", "pass");
                         manualInfo.setVisibility(View.VISIBLE);
                         manualText.setVisibility(View.VISIBLE);
@@ -215,9 +223,16 @@ public class YesNoExtraExpander extends Expander {
                 }
             });
 
-            state = getQuestionString("state");
+            JSONArray stateArray;
 
-            JSONArray stateArray = jsonArray.getJSONArray(state);
+            try
+            {
+                state = getQuestionString("state");
+                stateArray = jsonArray.getJSONArray(state);
+            } catch (Exception e)
+            {
+                stateArray = jsonArray.getJSONArray("a");
+            }
 
             ArrayList<String> spinnerArray = new ArrayList<String>();
 
@@ -226,7 +241,16 @@ public class YesNoExtraExpander extends Expander {
             }
 
             int regionId = -1;
-            listStrings = new String[stateArray.length()+1];
+
+            if(hasManual)
+            {
+                listStrings = new String[stateArray.length()+1];
+            }
+            else
+            {
+                listStrings = new String[stateArray.length()];
+            }
+
             for (int i = 0; i < stateArray.length(); i++) {
                 String listItem = stateArray.getString(i);
                 listStrings[i] = listItem;
@@ -234,7 +258,11 @@ public class YesNoExtraExpander extends Expander {
                     regionId = i;
                 }*/
             }
-            listStrings[listStrings.length-1] = "Nome não está na lista";
+
+            if(hasManual)
+            {
+                listStrings[listStrings.length-1] = "Nome não está na lista";
+            }
 
             adapter = new ColorListAdapter<String>(
                     activity.getBaseContext(),
@@ -281,7 +309,7 @@ public class YesNoExtraExpander extends Expander {
             j = answer.getInt(1);
             selectedListItem = j;
 
-            if(i==0&&j==listStrings.length-1)
+            if(i==0&&j==listStrings.length-1&&hasManual)
             {
                 manualInfo.setVisibility(View.VISIBLE);
                 manualText.setVisibility(View.VISIBLE);

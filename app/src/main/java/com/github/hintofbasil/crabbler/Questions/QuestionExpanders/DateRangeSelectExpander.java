@@ -95,8 +95,8 @@ public class DateRangeSelectExpander extends Expander {
                         Log.d("DateRangeSelect", "test2");
                     }
                     selectedViews[block] = view;
-                    view.setBackgroundResource(R.drawable.border);
-                    caldroidFragment.setBackgroundDrawableForDate(activity.getResources().getDrawable(R.drawable.border), selectedDates[0]);
+                    view.setBackgroundResource(R.color.questionSelectedBackground);
+                    caldroidFragment.setBackgroundDrawableForDate(activity.getResources().getDrawable(R.color.questionSelectedBackground), selectedDates[0]);
                     Log.d("DateRangeSelect", "test3");
                     caldroidFragment.refreshView();
                 }
@@ -141,7 +141,7 @@ public class DateRangeSelectExpander extends Expander {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
             Date date = simpleDateFormat.parse(s);
             selectedDates[0] = date;
-            caldroidFragment.setBackgroundDrawableForDate(activity.getResources().getDrawable(R.drawable.border), selectedDates[0]);
+            caldroidFragment.setBackgroundDrawableForDate(activity.getResources().getDrawable(R.color.questionSelectedBackground), selectedDates[0]);
         } catch (ParseException|JSONException e) {
             Log.e("DateRangeExpander", "Unable to create date from answer " + Log.getStackTraceString(e));
             return;

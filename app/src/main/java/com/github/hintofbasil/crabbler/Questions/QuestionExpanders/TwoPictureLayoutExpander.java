@@ -55,7 +55,7 @@ public class TwoPictureLayoutExpander extends Expander {
             public void onClick(View v) {
                 currentAnswer = 0;
                 questionTwoButton.setBackgroundResource(R.color.questionBackground);
-                questionOneButton.setBackgroundResource(R.drawable.border);
+                questionOneButton.setBackgroundResource(R.color.questionSelectedBackground);
                 enableDisableNext();
                 //nextQuestion(200);
             }
@@ -66,7 +66,7 @@ public class TwoPictureLayoutExpander extends Expander {
             public void onClick(View v) {
                 currentAnswer = 1;
                 questionOneButton.setBackgroundResource(R.color.questionBackground);
-                questionTwoButton.setBackgroundResource(R.drawable.border);
+                questionTwoButton.setBackgroundResource(R.color.questionSelectedBackground);
                 enableDisableNext();
                 //nextQuestion(200);
             }
@@ -78,10 +78,10 @@ public class TwoPictureLayoutExpander extends Expander {
             Integer i = answer.getInt(0);
             switch(i) {
                 case 0:
-                    questionOneButton.setBackgroundResource(R.drawable.border);
+                    questionOneButton.setBackgroundResource(R.color.questionSelectedBackground);
                     break;
                 case 1:
-                    questionTwoButton.setBackgroundResource(R.drawable.border);
+                    questionTwoButton.setBackgroundResource(R.color.questionSelectedBackground);
                     break;
                 default:
                     Log.d("TwoPictureLayoutExpande", "Invalid previous answer");

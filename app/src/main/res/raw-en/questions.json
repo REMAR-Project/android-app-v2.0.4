@@ -60,7 +60,7 @@
     "questionType": "DateRangeSelect",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "Touch the day with the STRONGEST andada activity<br>(optional)",
+    "description": "Touch the day with the STRONGEST andada activity<br>(optional)<br><br>",
     "month": "(3:0)",
     "year": "(2:0)",
     "filterOnQuestion": -1,

@@ -15,22 +15,22 @@
     "choiceOnePicture": "q0_0",
     "choiceTwoTitle": "Guaiamum",
     "choiceTwoPicture": "q0_1",
-    "backText": "Toque na seta para voltar",
-    "forwardText": "Toque na seta para avançar"
+    "backText": "Toque para voltar",
+    "forwardText": "Toque para avançar"
   },
   {
     "questionNumber": 2,
     "questionType": "YearChoice",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "questionText": "Quando você viu uma andada?<br>Deslize o dedo sobre a tela e toque para escolher o ano."
+    "questionText": "Quando você viu uma andada?<br>Deslize o dedo sobre a tela e toque para escolher o mes."
   },
   {
     "questionNumber": 3,
     "questionType": "MonthChoice",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "questionText": "Deslize o dedo sobre a tela para escolher o mês.<br>Caso tenha observado andadas em duas fases da lua deste mês (ex. uma em torno da lua nova, e outra em torno da lua cheia), por favor envie um questionário para cada andada, separadamente.",
+    "questionText": "Deslize o dedo sobre a tela para escolher o mês.<br>Caso tenha observado andadas em dois períodos deste mês (ex. um em torno da lua nova, e outro em torno da lua cheia), por favor envie um questionário para cada período de andada, separadamente.",
     "year" : "(2:0)"
   },
   {
@@ -49,7 +49,7 @@
     "questionType": "DateRange",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "Marque com o dedo quando você observou a andada.<br>Lembre-se! Caso neste mês tenha observado andadas em dois períodos (ex. uma em torno da lua nova, e outro em torno da lua cheia), marque somente UM período (marque vários dias SEGUIDOS, ou apenas um dia).",
+    "description": "Marque com o dedo quando você observou a andada.<br><b>Lembre-se!</b> Caso neste mês tenha observado andadas em dois períodos (ex. um em torno da lua nova, e outro em torno da lua cheia), marque somente UM período (marque vários dias SEGUIDOS, ou apenas um dia).",
     "month": "(3:0)",
     "year": "(2:0)",
     "filterOnQuestion": -1,
@@ -60,7 +60,7 @@
     "questionType": "DateRangeSelect",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "Marque com o dedo o dia em que a andada foi mais FORTE",
+    "description": "<b>Marque com o dedo o dia em que a andada foi mais FORTE</b><br><br>",
     "month": "(3:0)",
     "year": "(2:0)",
     "filterOnQuestion": -1,
@@ -71,7 +71,7 @@
     "questionType": "YesNoExtra",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "questionText": "Toque com o dedo na resposta correta",
+    "questionText": "Você viu outra andada nas últimas duas semanas? Toque com o dedo na resposta correta",
     "extraDetailText": "Comparado à andada anterior, a quantidade de caranguejos andando DESTA vez foi :",
     "cacheAnswer": true,
     "jsonInput": "number_of_crabs.json"
@@ -112,7 +112,7 @@
     "questionType": "ListSelect",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "Qual o estado em que foi feito o monitoramento?<br>Deslize o dedo sobre a tela para escolher.",
+    "description": "Qual o estado em que foi feito o monitoramento?<br>Deslize o dedo sobre a tela e toque para escolher.",
     "jsonInput": "regions.json",
     "disableCustom": "true"
   },
@@ -121,7 +121,7 @@
     "questionType": "ListSelect",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "Deslize o dedo sobre a tela para escolher o município onde você viu a andada.",
+    "description": "Deslize o dedo sobre a tela e toque para escolher o município onde você viu a andada.",
     "jsonInput": "region_counties.json",
     "disableCustom": "true",
     "jsonKey": "(-1:0)"
@@ -145,7 +145,7 @@
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
     "questionText": "O manguezal monitorado está em unidade de conservação (ex. RESEX, APA, Parque)?",
-    "extraDetailText": "Deslize o dedo sobre a tela para achar a unidade de conservação correta.",
+    "extraDetailText": "Deslize o dedo sobre a tela para achar a unidade de conservação e toque para escolher.",
     "cacheAnswer": true,
     "state": "(11:0)",
     "jsonInput": "regions_protected.json",
@@ -156,7 +156,7 @@
     "questionType": "ListSelect",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "Por favor, poderia informar o que você faz?<br>Deslize o dedo sobre a tela para escolher.",
+    "description": "Por favor, poderia informar o que você faz?<br>Deslize o dedo sobre a tela e toque para escolher.",
     "jsonInput": "occupation.json",
     "disableCustom": "true",
     "enableOther": true,

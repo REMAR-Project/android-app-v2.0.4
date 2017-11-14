@@ -47,8 +47,8 @@ public class YearChoiceExpander extends Expander {
         TextView questionView = (TextView) activity.findViewById(R.id.question_text);
         yearListView = (ListView) activity.findViewById(R.id.year_list_view);
 
-        imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
         titleView.setText(getRichTextQuestionString("questionTitle"));
+        imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
         questionView.setText(getRichTextQuestionString("questionText"));
 
         currentMonth = Calendar.getInstance().get(Calendar.MONTH);

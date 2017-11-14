@@ -266,6 +266,8 @@ public class ChoiceSelectExpander extends Expander {
                 if(s.length()>0)
                 {
                     enableDisableNext();
+                    highlightLinearLayout(dontKnow, R.color.none);
+                    dontKnowSelected = false;
                 }
                 else
                 {

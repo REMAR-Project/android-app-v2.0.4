@@ -30,6 +30,7 @@
             <include layout="@layout/include_image_text"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
+                android:visibility="gone"
                 />
 
             <TextView
@@ -111,7 +112,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/questionOfQuestionText"
-                    android:textSize="@dimen/description"
                     android:text="@string/protectedText"
                     android:visibility="gone"/>
 

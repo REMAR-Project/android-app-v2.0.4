@@ -18,7 +18,7 @@
     <string name="proceed">Proceed</string>
     <string name="back">Back</string>
 
-    <string name="done">Done</string>
+    <string name="done">Your answers have been submitted</string>
     <string name="thank_you">Thank you for participating!</string>
     <string name="citizen_scientist">Now you are a citizen scientist!</string>
     <string name="thank_you_toast">Your answers have been submitted.</string>

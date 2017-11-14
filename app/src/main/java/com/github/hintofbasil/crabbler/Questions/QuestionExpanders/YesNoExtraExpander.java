@@ -78,8 +78,8 @@ public class YesNoExtraExpander extends Expander {
         manualInfo = (TextView) activity.findViewById(R.id.manual_text);
         manualText = (EditText) activity.findViewById(R.id.manual_protected) ;
 
-        imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
-        titleView.setText(getRichTextQuestionString("questionTitle"));
+        //imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
+        //titleView.setText(getRichTextQuestionString("questionTitle"));
         questionText.setText(getRichTextQuestionString("questionText"));
         extraDetail.setText(getRichTextQuestionString("extraDetailText"));
 

@@ -9,6 +9,15 @@
   },
   {
     "questionNumber": 1,
+    "questionType": "ModeChoose",
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)",
+    "description": "",
+    "choiceOneText": "Advanced",
+    "choiceTwoText": "Basic"
+  },
+  {
+    "questionNumber": 2,
     "questionType": "TwoPictureChoice",
     "questionText": "<b>Become a citizen scientist</b> and help record mass mating events of commercially important Brazilian mangrove crabs.<br></br><br></br>This information will help to improve Brazilian crab fisheries legislation and fishers\' livelihoods.<br></br><br></br>For more information click on the above yellow field.<br></br><br></br>Click on one of the below species to share your observations.",
     "choiceOneTitle": "Ucides cordatus",
@@ -19,25 +28,25 @@
     "forwardText": "Press to proceed"
   },
   {
-    "questionNumber": 2,
+    "questionNumber": 3,
     "questionType": "YearChoice",
-    "questionPicture": "q0_(1:0)",
-    "questionTitle": "crab_title_(1:0)",
+    "questionPicture": "q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
     "questionText": "When did you observe andada? Touch screen and move finger to choose the correct year."
   },
   {
-    "questionNumber": 3,
+    "questionNumber": 4,
     "questionType": "MonthChoice",
-    "questionPicture": "q0_(1:0)",
-    "questionTitle": "crab_title_(1:0)",
+    "questionPicture": "q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
 	"questionText": "Touch screen and move finger to choose correct month. In case you saw two andadas this month (one around new moon and one around full moon), please run the app for each andada seperately.",
-    "year" : "(2:0)"
+    "year" : "(3:0)"
   },
   {
-    "questionNumber": 4,
+    "questionNumber": 5,
     "questionType": "ThreeChoice",
-    "questionPicture": "q0_(1:0)",
-    "questionTitle": "crab_title_(1:0)",
+    "questionPicture": "q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
     "questionText": "",
     "choiceOneText": "andada_new_0",
     "choiceTwoText": "andada_full_0",
@@ -45,92 +54,92 @@
     "allowMultiple": false
   },
   {
-    "questionNumber": 5,
+    "questionNumber": 6,
     "questionType": "DateRange",
-    "questionPicture": "q0_(1:0)",
-    "questionTitle": "crab_title_(1:0)",
-    "description": "For the andada you are reporting here, touch with finger <font color=\"#FF0000\">all</font> days that you noted it.",
-    "month": "(3:0)",
-    "year": "(2:0)",
+    "questionPicture": "q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
+    "description": "For the andada you are reporting here, touch with finger <font color=\"#FF0000\">when</font> you noted it. Remember: In case you saw two andadas this month (one around new moon and one around full moon), only mark ONE (type this in capitals) andada.",
+    "month": "(4:0)",
+    "year": "(3:0)",
     "filterOnQuestion": -1,
 	"optional": false
   },
   {
-    "questionNumber": 6,
+    "questionNumber": 7,
     "questionType": "DateRangeSelect",
-    "questionPicture": "q0_(1:0)",
-    "questionTitle": "crab_title_(1:0)",
+    "questionPicture": "q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
     "description": "Touch the day with the STRONGEST andada activity<br>(optional)<br><br>",
-    "month": "(3:0)",
-    "year": "(2:0)",
+    "month": "(4:0)",
+    "year": "(3:0)",
     "filterOnQuestion": -1,
     "optional": true
   },
   {
-    "questionNumber": 7,
+    "questionNumber": 8,
     "questionType": "YesNoExtra",
-    "questionPicture": "q0_(1:0)",
-    "questionTitle": "crab_title_(1:0)",
+    "questionPicture": "q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
     "questionText": "Did you see another andada in the last 2 weeks? Touch correct answer with finger.",
     "extraDetailText": "Compared to the former andada, the CURRENT andada was:",
     "cacheAnswer": true,
     "jsonInput": "number_of_crabs.json"
   },
   {
-    "questionNumber": 8,
+    "questionNumber": 9,
     "questionType": "DayNightChoice",
-    "questionPicture": "q0_(1:0)",
-    "questionTitle": "crab_title_(1:0)",
+    "questionPicture": "q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
 	"description": "When did andada occur? Touch correct symbol with finger.",
     "choiceOneText": "At new moon",
     "choiceTwoText": "At full moon",
     "quantityQuestion": 3
   },
   {
-	"questionNumber": 9,
+	"questionNumber": 10,
     "questionType": "ListSelect",
-    "questionPicture": "q0_(1:0)",
-    "questionTitle": "crab_title_(1:0)",
+    "questionPicture": "q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
     "description": "Did you see berried (ovigerous) females?<br>Touch correct answer with finger",
     "jsonInput": "ovigerious.json",
     "disableCustom": "true",
     "hasImage": "true",
-    "imageFile": "ovigerous_(1:0)"
+    "imageFile": "ovigerous_(2:0)"
   },
   {
-	"questionNumber": 10,
+	"questionNumber": 11,
 	"questionType": "ListSelect",
-	"questionPicture": "q0_(1:0)",
-    "questionTitle": "crab_title_(1:0)",
+	"questionPicture": "q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
     "description": "Where did the andada happen when you observed it?<br>Touch correct answer with finger. You can chose more than one option",
-    "jsonInput": "locations_(1:0).json",
+    "jsonInput": "locations_(2:0).json",
     "allowMultiple": "true",
-    "disableCustom": "true"
-  },
-  {
-    "questionNumber": 11,
-    "questionType": "ListSelect",
-    "questionPicture": "q0_(1:0)",
-    "questionTitle": "crab_title_(1:0)",
-    "description": "Touch screen and move with finger to select the state where you made your observation",
-    "jsonInput": "regions.json",
     "disableCustom": "true"
   },
   {
     "questionNumber": 12,
     "questionType": "ListSelect",
-    "questionPicture": "q0_(1:0)",
-    "questionTitle": "crab_title_(1:0)",
+    "questionPicture": "q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
+    "description": "Touch screen and move with finger to select the state where you made your observation",
+    "jsonInput": "regions.json",
+    "disableCustom": "true"
+  },
+  {
+    "questionNumber": 13,
+    "questionType": "ListSelect",
+    "questionPicture": "q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
     "description": "Touch screen and move with finger to select the county where you made your observation",
     "jsonInput": "region_counties.json",
     "disableCustom": "true",
     "jsonKey": "(-1:0)"
   },
   {
-    "questionNumber": 13,
+    "questionNumber": 14,
     "questionType": "ListSelect",
-    "questionPicture": "q0_(1:0)",
-    "questionTitle": "crab_title_(1:0)",
+    "questionPicture": "q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
     "description": "Touch field and type the local name of the place where you observed the andada",
     "disableList": true,
     "disablePicture": true,
@@ -140,45 +149,46 @@
     "dontKnowText": "Don't know"
   },
   {
-    "questionNumber": 14,
+    "questionNumber": 15,
     "questionType": "YesNoExtra",
-    "questionPicture": "q0_(1:0)",
-    "questionTitle": "crab_title_(1:0)",
+    "questionPicture": "q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
     "questionText": "Is the monitored mangrove in a protected area? (eg. RESEX, APA, Park)",
     "extraDetailText": "Touch screen and move finger to find the correct Protected Area",
     "cacheAnswer": true,
-    "state": "(11:0)",
-    "jsonInput": "regions_protected.json"
-  },
-  {
-    "questionNumber": 15,
-    "questionType": "ListSelect",
-    "questionPicture": "q0_(1:0)",
-    "questionTitle": "crab_title_(1:0)",
-    "description": "Please can you let us know what do you do? Touch screen and move finger to select.",
-    "jsonInput": "occupation.json",
-    "disableCustom": "true",
-    "enableOther": true,
-    "otherText": "Please touch field and type",
-    "otherPosition": 9
+    "state": "(12:0)",
+    "jsonInput": "regions_protected.json",
+    "hasManual": "true"
   },
   {
     "questionNumber": 16,
     "questionType": "ListSelect",
-    "questionPicture": "q0_(1:0)",
-    "questionTitle": "crab_title_(1:0)",
+    "questionPicture": "q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
+    "description": "Please can you let us know what you do? Touch screen and move finger to select.",
+    "jsonInput": "occupation.json",
+    "disableCustom": "true",
+    "enableOther": true,
+    "otherText": "Please touch field and type",
+    "otherPosition": 10
+  },
+  {
+    "questionNumber": 17,
+    "questionType": "ListSelect",
+    "questionPicture": "q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
     "description": "Any additional observations you want to share? Touch screen and move finger to select.",
     "jsonInput": "yes_no.json",
     "disableCustom": "true",
     "enableOther": true,
     "otherText": "Please touch field and type",
-    "otherPosition": 0
+    "otherPosition": 1
   },
   {
-    "questionNumber": 17,
+    "questionNumber": 18,
     "questionType": "UserDetails",
-    "questionPicture": "q0_(1:0)",
-    "questionTitle": "crab_title_(1:0)",
+    "questionPicture": "q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
     "description": "It would be good to know who you are so that we can add your name to the list of citizen-scientists of the REMAR project.<br>Touch field and type your name.",
     "description2": "How can you be contacted most easily? Touch field and add email address or phone number",
     "postAs": "userDetails",
@@ -186,22 +196,22 @@
     "cacheAnswer": true
   },
   {
-    "questionNumber": 18,
+    "questionNumber": 19,
     "questionType": "Commit",
     "description": "Submit your answers",
-    "choiceOneText": "Confirm",
-    "choiceTwoText": "Go back to change answers"
+    "choiceOneText": "I WANT TO SUBMIT MY ANSWERS",
+    "choiceTwoText": "GO BACK TO CHANGE ANSWERS"
   },
   {
     "questionType": "Done",
-    "questionPicture": "q0_(1:0)",
-    "questionTitle": "crab_title_(1:0)",
+    "questionPicture": "q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
     "hideBackNext": true
   },
   {
     "questionType": "Return",
-    "questionPicture": "q0_(1:0)",
-    "questionTitle": "crab_title_(1:0)",
+    "questionPicture": "q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
     "description": "",
     "choiceOneText": "I want to close the app",
     "choiceTwoText": "I want to return to first page"

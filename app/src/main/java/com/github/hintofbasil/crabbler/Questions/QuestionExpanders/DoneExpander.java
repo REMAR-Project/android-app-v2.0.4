@@ -30,6 +30,12 @@ public class DoneExpander extends Expander {
     public void expandLayout() throws JSONException {
         activity.setContentView(R.layout.expander_done);
 
+        TextView backText = (TextView) activity.findViewById(R.id.backText);
+        TextView forwardText = (TextView) activity.findViewById(R.id.forwardText);
+
+        backText.setText("");
+        forwardText.setText("");
+
         //ImageView imageView = (ImageView) activity.findViewById(R.id.image);
         //TextView titleView = (TextView) activity.findViewById(R.id.title);
 

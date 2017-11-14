@@ -14,6 +14,7 @@ import com.github.hintofbasil.crabbler.Keys;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.AutoExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.ChoiceSelectExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.CommitExpander;
+import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.ModeChooseExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.MonthChoiceExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.OneChoiceExpander;
 import com.github.hintofbasil.crabbler.Questions.QuestionExpanders.ReturnExpander;
@@ -108,6 +109,9 @@ public class QuestionActivity extends AppCompatActivity {
                         break;
                     case "Return":
                         expander = new ReturnExpander(this, questionJson);
+                        break;
+                    case "ModeChoose":
+                        expander = new ModeChooseExpander(this, questionJson);
                         break;
                     default:
                         Log.e("QuestionActivity", "Unknown question type.");

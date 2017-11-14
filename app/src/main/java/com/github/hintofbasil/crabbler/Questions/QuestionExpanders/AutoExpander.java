@@ -41,6 +41,11 @@ public class AutoExpander extends Expander {
         TextView pageNumber = (TextView) activity.findViewById(R.id.page_of);
         questionOneButton = (LinearLayout) activity.findViewById(R.id.question_one_button);
         ImageView choiceOneImage = (ImageView) activity.findViewById(R.id.choice_one_image);
+        TextView backText = (TextView) activity.findViewById(R.id.backText);
+        TextView forwardText = (TextView) activity.findViewById(R.id.forwardText);
+
+        backText.setText("");
+        forwardText.setText("");
         version = "";
 
         choiceOneImage.setImageDrawable(getDrawable(getQuestionString("choiceOnePicture")));

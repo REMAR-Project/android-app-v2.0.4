@@ -70,7 +70,8 @@ public class DateRangeSelectExpander extends Expander {
                 if(!validDates.contains(date)) {
                     return;
                 }
-                int block = getDateBlock(date);
+                //int block = getDateBlock(date);
+                int block = 0;
                 if(selectedDates[block] != null)
                 {
                     caldroidFragment.setBackgroundDrawableForDate(activity.getResources().getDrawable(R.drawable.caldroid_cell_green), selectedDates[0]);

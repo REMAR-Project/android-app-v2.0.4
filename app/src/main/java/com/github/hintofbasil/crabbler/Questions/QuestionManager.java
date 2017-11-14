@@ -28,9 +28,12 @@ public class QuestionManager {
     Context context;
     SharedPreferences answerPrefs;
     int[] loopCounter;
+    static int questionFile;
+    int previousFile;
 
     private QuestionManager(Context context) {
         this.context = context;
+        questionFile = R.raw.questions;
         answerPrefs = context.getSharedPreferences(Keys.SAVED_PREFERENCES_KEY, Context.MODE_PRIVATE);
     }
 
@@ -46,17 +49,26 @@ public class QuestionManager {
         }
     }
 
+    public static void changeQuestionFile(int fileID) {
+        questionFile = fileID;
+        try {
+            questionManager.readJSON();
+        } catch (Exception e) {}
+
+    }
+
     public static QuestionManager get() {
         return questionManager;
     }
 
     private JSONArray readJSON() throws IOException, JSONException {
-        if(cache == null) {
-            InputStream jsonInputStream = context.getResources().openRawResource(R.raw.questions);
+        if(cache == null || previousFile != questionFile) {
+            InputStream jsonInputStream = context.getResources().openRawResource(questionFile);
             byte[] buffer = new byte[10240];
             int length = jsonInputStream.read(buffer);
             String jsonString = new String(buffer).substring(0, length);
             cache = new JSONArray(jsonString);
+            previousFile = questionFile;
         }
         return cache;
     }

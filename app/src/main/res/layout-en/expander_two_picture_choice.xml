@@ -31,6 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:textAlignment="center"
+                android:textColor="@color/questionOfQuestionText"
                 android:textSize="@dimen/question_font_size"
                 android:text=""
                 android:scrollbars="vertical"

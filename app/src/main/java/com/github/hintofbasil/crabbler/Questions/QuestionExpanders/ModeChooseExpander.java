@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.github.hintofbasil.crabbler.Questions.QuestionManager;
@@ -23,8 +24,12 @@ public class ModeChooseExpander extends Expander {
 
     private static final int REQUIRED_ANSWERS = 1;
 
-    Button choiceOneButton;
-    Button choiceTwoButton;
+    LinearLayout choiceOneButton;
+    LinearLayout choiceTwoButton;
+    TextView choiceOneTitle;
+    TextView choiceTwoTitle;
+    TextView choiceOneTitleTwo;
+    TextView choiceTwoTitleTwo;
     boolean allowMultiple = false;
     int chosenMode;
 
@@ -37,15 +42,23 @@ public class ModeChooseExpander extends Expander {
         activity.setContentView(R.layout.expander_modechoose);
         //ImageView imageView = (ImageView) activity.findViewById(R.id.image);
         //TextView titleView = (TextView) activity.findViewById(R.id.title);
-        TextView description = (TextView) activity.findViewById(R.id.description);
-        choiceOneButton = (Button) activity.findViewById(R.id.choice_one);
-        choiceTwoButton = (Button) activity.findViewById(R.id.choice_two);
-
+        TextView description = (TextView) activity.findViewById(R.id.question_text);
+        choiceOneButton = (LinearLayout) activity.findViewById(R.id.choice_one);
+        choiceTwoButton = (LinearLayout) activity.findViewById(R.id.choice_two);
+        choiceOneTitle = (TextView) activity.findViewById(R.id.choice_one_title);
+        choiceTwoTitle = (TextView) activity.findViewById(R.id.choice_two_title);
+        choiceOneTitleTwo = (TextView) activity.findViewById(R.id.choice_one_title_two);
+        choiceTwoTitleTwo = (TextView) activity.findViewById(R.id.choice_two_title_two);
         //imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
         //titleView.setText(getRichTextQuestionString("questionTitle"));
         description.setText(getRichTextQuestionString("description"));
-        choiceOneButton.setText(getRichTextQuestionString("choiceOneText"));
-        choiceTwoButton.setText(getRichTextQuestionString("choiceTwoText"));
+        choiceOneTitle.setText(getRichTextQuestionString("choiceOneText"));
+        choiceTwoTitle.setText(getRichTextQuestionString("choiceTwoText"));
+        choiceOneTitleTwo.setText(getRichTextQuestionString("choiceOneTextTwo"));
+        choiceTwoTitleTwo.setText(getRichTextQuestionString("choiceTwoTextTwo"));
+
+        TextView pageof = (TextView) activity.findViewById(R.id.page_of);
+        pageof.setVisibility(View.GONE);
 
         chosenMode = -1;
 
@@ -70,25 +83,47 @@ public class ModeChooseExpander extends Expander {
         choiceOneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                QuestionManager.changeQuestionFile(R.raw.questions);
+                QuestionManager.changeQuestionFile(R.raw.questions2);
                 chosenMode = 0;
-                nextQuestion(0);
+                choiceTwoButton.setBackgroundResource(R.color.questionBackground);
+                choiceOneButton.setBackgroundResource(R.color.questionSelectedBackground);
+                enableDisableNext();
+                //nextQuestion(0);
             }
         });
 
         choiceTwoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                QuestionManager.changeQuestionFile(R.raw.questions2);
+                QuestionManager.changeQuestionFile(R.raw.questions);
                 chosenMode = 1;
-                nextQuestion(0);
+                choiceOneButton.setBackgroundResource(R.color.questionBackground);
+                choiceTwoButton.setBackgroundResource(R.color.questionSelectedBackground);
+                enableDisableNext();
+                //nextQuestion(0);
             }
         });
     }
 
     @Override
     protected void setPreviousAnswer(JSONArray answer) {
-
+        try {
+            Integer i = answer.getInt(0);
+            switch(i) {
+                case 0:
+                    choiceOneButton.setBackgroundResource(R.color.questionSelectedBackground);
+                    break;
+                case 1:
+                    choiceTwoButton.setBackgroundResource(R.color.questionSelectedBackground);
+                    break;
+                default:
+                    Log.d("TwoPictureLayoutExpande", "Invalid previous answer");
+            }
+            chosenMode = i;
+        } catch (JSONException e) {
+            Log.d("QuestionActivity", "No previous answer");
+            return;
+        }
     }
 
     @Override

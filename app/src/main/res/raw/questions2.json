@@ -12,9 +12,11 @@
     "questionType": "ModeChoose",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "Para mais informações, toque com dedo no botão amarelo \"Saiba mais\" acima.",
-    "choiceOneText": "Advanced",
-    "choiceTwoText": "Basic"
+    "description": "<b><i>Para mais informações, toque com dedo no botão amarelo \"Saiba mais\" acima.</i><br><br>Toque com dedo em uma das opções abaixo.</b>",
+    "choiceOneText": "<b>Quero<br>simplificar</b>",
+    "choiceOneTextTwo": "<b>REMAR<br>Básico</b>",
+    "choiceTwoText": "<b>Quero ajudar<br>ao máximo</b>",
+    "choiceTwoTextTwo": "<b>REMAR<br>Avançado</b>"
   },
   {
     "questionNumber": 2,
@@ -85,7 +87,7 @@
     "jsonInput": "occupation.json",
     "disableCustom": "true",
     "enableOther": true,
-    "otherText": "Qual ?  Toque no espaço para escrever",
+    "otherText": "Qual ?  Toque no espaço para escrever.",
     "otherPosition": 10
   },
   {

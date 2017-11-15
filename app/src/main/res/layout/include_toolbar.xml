@@ -83,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/menu"
                 android:textSize="@dimen/toolbar_menu"
-                android:textColor="@color/toolbarTitle" />
+                android:textColor="@color/questionOfQuestionText" />
 
         </LinearLayout>
 

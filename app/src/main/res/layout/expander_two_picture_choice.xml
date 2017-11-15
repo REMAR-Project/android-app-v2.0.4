@@ -65,7 +65,7 @@
                         android:singleLine="true"
                         android:layout_gravity="center_horizontal"
                         android:textAlignment="center"
-                        android:textSize="@dimen/question_selection_title"
+                        android:textSize="28sp"
                         android:textColor="@color/questionOfQuestionText"
                         android:text=""
                         />
@@ -95,7 +95,7 @@
                         android:singleLine="true"
                         android:layout_gravity="center_horizontal"
                         android:textAlignment="center"
-                        android:textSize="@dimen/question_selection_title"
+                        android:textSize="28sp"
                         android:textColor="@color/questionOfQuestionText"
                         android:text=""
                         />

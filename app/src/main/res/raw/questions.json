@@ -91,9 +91,7 @@
     "questionTitle": "crab_title_(2:0)",
     "description": "Você viu alguma fêmea ovada?",
     "jsonInput": "ovigerious.json",
-    "disableCustom": "true",
-    "hasImage": "true",
-    "imageFile": "ovigerous_(2:0)"
+    "disableCustom": "true"
   },
   {
 	"questionNumber": 10,

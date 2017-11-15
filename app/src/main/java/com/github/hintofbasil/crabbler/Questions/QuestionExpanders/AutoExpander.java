@@ -51,7 +51,7 @@ public class AutoExpander extends Expander {
         //choiceOneImage.setImageDrawable(getDrawable(getQuestionString("choiceOnePicture")));
 
         //questionText.setText(getRichTextQuestionString("questionText"));
-        questionText.setMovementMethod(new ScrollingMovementMethod());
+        //questionText.setMovementMethod(new ScrollingMovementMethod());
 
         //choiceOneTitle.setText(getRichTextQuestionString("choiceOneTitle"));
         version = getQuestionString("version");
@@ -60,7 +60,7 @@ public class AutoExpander extends Expander {
         nextButton.setVisibility(View.GONE);
         pageNumber.setVisibility(View.GONE);
 
-        nextQuestion(4000);
+        nextQuestion(6000);
 
         }
 

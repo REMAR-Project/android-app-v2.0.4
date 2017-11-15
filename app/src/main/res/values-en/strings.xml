@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">REMAR Citizen</string>
+    <string name="app_name">REMAR_Citizen</string>
     <string name="description">Monitoring Mass Mating Events of Mangrove Crabs</string>
 
     <string name="toolbar_app_name">REMAR_</string>

@@ -91,9 +91,7 @@
     "questionTitle": "crab_title_(2:0)",
     "description": "Did you see berried (ovigerous) females?<br>Touch correct answer with finger",
     "jsonInput": "ovigerious.json",
-    "disableCustom": "true",
-    "hasImage": "true",
-    "imageFile": "ovigerous_(2:0)"
+    "disableCustom": "true"
   },
   {
 	"questionNumber": 10,

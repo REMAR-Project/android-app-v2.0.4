@@ -278,7 +278,7 @@ public class YesNoExtraExpander extends Expander {
 
             if(hasManual)
             {
-                listStrings[listStrings.length-1] = "Nome não está na lista";
+                listStrings[listStrings.length-1] = activity.getString(R.string.not_in_list);
             }
 
             adapter = new ColorListAdapter<String>(

@@ -12,14 +12,14 @@
     "questionType": "ModeChoose",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "",
+    "description": "Para mais informações, toque com dedo no botão amarelo \"Saiba mais\" acima.",
     "choiceOneText": "Advanced",
     "choiceTwoText": "Basic"
   },
   {
     "questionNumber": 2,
     "questionType": "TwoPictureChoice",
-    "questionText": "Ajude a monitorar as andadas reprodutivas do caranguejo-uçá e do guaiamum.<br><br>Essas informações ajudarão a prever as épocas de acasalamento e a estabelecer defesos apenas nos períodos realmente necessários.<br><br>Para mais informações, toque com dedo no botão amarelo \"Saiba mais\" acima.<br><br>Para passar informações sobre andada, toque em uma das duas espécies abaixo:",
+    "questionText": "Ajude a monitorar as andadas reprodutivas do caranguejo-uçá e do guaiamum.<br><br>Essas informações ajudarão a prever as épocas de acasalamento e a estabelecer defesos apenas nos períodos realmente necessários.<br><br>Para passar informações sobre andada, toque em uma das duas espécies abaixo:",
     "choiceOneTitle": "Caranguejo-uçá",
     "choiceOnePicture": "q0_0",
     "choiceTwoTitle": "Guaiamum",
@@ -44,17 +44,6 @@
   },
   {
     "questionNumber": 5,
-    "questionType": "ThreeChoice",
-    "questionPicture": "q0_(2:0)",
-    "questionTitle": "crab_title_(2:0)",
-    "questionText": "",
-    "choiceOneText": "andada_new_0",
-    "choiceTwoText": "andada_full_0",
-    "choiceThreeText": "andada_newfull_0",
-    "allowMultiple": false
-  },
-  {
-    "questionNumber": 6,
     "questionType": "DateRange",
     "questionPicture": "q0_(2:0)",
     "questionTitle": "crab_title_(2:0)",
@@ -65,18 +54,18 @@
     "optional": false
   },
   {
-    "questionNumber": 7,
+    "questionNumber": 6,
     "questionType": "DateRangeSelect",
     "questionPicture": "q0_(2:0)",
     "questionTitle": "crab_title_(2:0)",
-    "description": "<b>Marque com o dedo o dia em que a andada foi mais FORTE</b><br><br>",
+    "description": "<b>Marque com o dedo o dia em que a andada foi mais FORTE.</b><br><br>",
     "month": "(4:0)",
     "year": "(3:0)",
     "filterOnQuestion": -1,
     "optional": true
   },
   {
-    "questionNumber": 8,
+    "questionNumber": 7,
     "questionType": "YesNoExtra",
     "questionPicture": "q0_(2:0)",
     "questionTitle": "crab_title_(2:0)",
@@ -86,7 +75,7 @@
     "jsonInput": "number_of_crabs.json"
   },
   {
-    "questionNumber": 9,
+    "questionNumber": 8,
     "questionType": "DayNightChoice",
     "questionPicture": "q0_(2:0)",
     "questionTitle": "crab_title_(2:0)",
@@ -96,7 +85,7 @@
     "quantityQuestion": 3
   },
   {
-    "questionNumber": 10,
+    "questionNumber": 9,
     "questionType": "ListSelect",
     "questionPicture": "q0_(2:0)",
     "questionTitle": "crab_title_(2:0)",
@@ -107,7 +96,7 @@
     "imageFile": "ovigerous_(2:0)"
   },
   {
-	"questionNumber": 11,
+	"questionNumber": 10,
 	"questionType": "ListSelect",
 	"questionPicture": "q0_(2:0)",
     "questionTitle": "crab_title_(2:0)",
@@ -117,7 +106,7 @@
     "disableCustom": "true"
   },
   {
-    "questionNumber": 12,
+    "questionNumber": 11,
     "questionType": "ListSelect",
     "questionPicture": "q0_(2:0)",
     "questionTitle": "crab_title_(2:0)",
@@ -126,7 +115,7 @@
     "disableCustom": "true"
   },
   {
-    "questionNumber": 13,
+    "questionNumber": 12,
     "questionType": "ListSelect",
     "questionPicture": "q0_(2:0)",
     "questionTitle": "crab_title_(2:0)",
@@ -140,7 +129,7 @@
     "otherIsLastItem": "true"
   },
   {
-    "questionNumber": 14,
+    "questionNumber": 13,
     "questionType": "ListSelect",
     "questionPicture": "q0_(2:0)",
     "questionTitle": "crab_title_(2:0)",
@@ -153,20 +142,20 @@
     "dontKnowText": "Não quero dizer"
   },
   {
-    "questionNumber": 15,
+    "questionNumber": 14,
     "questionType": "YesNoExtra",
     "questionPicture": "q0_(2:0)",
     "questionTitle": "crab_title_(2:0)",
     "questionText": "O manguezal monitorado está em unidade de conservação (ex. RESEX, APA, Parque)?",
     "extraDetailText": "Deslize o dedo sobre a tela para achar a unidade de conservação e toque para escolher.",
     "cacheAnswer": true,
-    "state": "(12:0)",
+    "state": "(11:0)",
     "jsonInput": "regions_protected.json",
     "hasManual": "true",
     "hideHeader": "true"
   },
   {
-    "questionNumber": 16,
+    "questionNumber": 15,
     "questionType": "ListSelect",
     "questionPicture": "q0_(2:0)",
     "questionTitle": "crab_title_(2:0)",
@@ -178,7 +167,7 @@
     "otherPosition": 10
   },
   {
-    "questionNumber": 17,
+    "questionNumber": 16,
     "questionType": "ListSelect",
     "questionPicture": "q0_(2:0)",
     "questionTitle": "crab_title_(2:0)",
@@ -190,18 +179,18 @@
     "otherPosition": 1
   },
   {
-    "questionNumber": 18,
+    "questionNumber": 17,
     "questionType": "UserDetails",
     "questionPicture": "q0_(2:0)",
     "questionTitle": "crab_title_(2:0)",
-    "description": "Seria bom saber quem você é para podermos citar o seu nome na lista de pesquisadores cidadãos da REMAR.<br>Toque no espaço para escrever o seu nome (opcional)",
-    "description2": "Qual a melhor forma para entramos em contato? Toque no espaço para escrever o seu email ou telefone (opcional).",
+    "description": "Seria bom saber quem você é para colocarmos o seu nome na lista de pesquisadores cidadãos da REMAR.<br>Qual a melhor forma para entramos em contato? Toque no espaço para escrever o seu email ou telefone (opcional).",
+    "description2": "Toque no espaço para escrever o seu nome (opcional).",
     "postAs": "userDetails",
     "optional": true,
     "cacheAnswer": true
   },
   {
-    "questionNumber": 19,
+    "questionNumber": 18,
     "questionType": "Commit",
     "description": "",
     "choiceOneText": "QUERO MANDAR AS MINHAS RESPOSTAS",

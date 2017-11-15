@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">REMAR citizen</string>
+    <string name="app_name">REMAR Citizen</string>
     <string name="description">Monitoring Mass Mating Events of Mangrove Crabs</string>
 
     <string name="toolbar_app_name">REMAR_</string>
@@ -81,5 +81,7 @@
 
     <string name="closeapp">I want to close the app</string>
     <string name="returntostart">I want to return to first page</string>
+
+    <string name="not_in_list">Name not in list</string>
 
 </resources>

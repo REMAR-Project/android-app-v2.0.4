@@ -12,14 +12,14 @@
     "questionType": "ModeChoose",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "",
+    "description": "For more information click on the above yellow field.",
     "choiceOneText": "Advanced",
     "choiceTwoText": "Basic"
   },
   {
-    "questionNumber": 1,
+    "questionNumber": 2,
     "questionType": "TwoPictureChoice",
-    "questionText": "<b>Become a citizen scientist</b> and help record mass mating events of commercially important Brazilian mangrove crabs.<br></br><br></br>This information will help to improve Brazilian crab fisheries legislation and fishers\' livelihoods.<br></br><br></br>For more information click on the above yellow field.<br></br><br></br>Click on one of the below species to share your observations.",
+    "questionText": "<b>Become a citizen scientist</b> and help record mass mating events of commercially important Brazilian mangrove crabs.<br></br><br></br>This information will help to improve Brazilian crab fisheries legislation and fishers\' livelihoods.<br></br><br></br>Click on one of the below species to share your observations.",
     "choiceOneTitle": "Ucides cordatus",
     "choiceOnePicture": "q0_0",
     "choiceTwoTitle": "Cardisoma guanhumi",
@@ -28,24 +28,81 @@
     "forwardText": "Press to proceed"
   },
   {
-    "questionNumber": 2,
+    "questionNumber": 3,
     "questionType": "YearChoice",
     "questionPicture": "q0_(2:0)",
     "questionTitle": "crab_title_(2:0)",
-    "questionText": "When did you observe andada? Touch screen and move finger and tap to choose the correct year."
-  },
-  {
-    "questionNumber": 3,
-    "questionType": "MonthChoice",
-    "questionPicture": "q0_(2:0)",
-    "questionTitle": "crab_title_(2:0)",
-	"questionText": "Touch screen and move finger to choose correct month. In case you saw two andadas this month (one around new moon and one around full moon), please run the app for each andada seperately.",
-    "year" : "(3:0)"
+    "questionText": "When did you observe andada? Touch screen, move finger and tap to choose the correct year."
   },
   {
     "questionNumber": 4,
+    "questionType": "MonthChoice",
+    "questionPicture": "q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
+    "questionText": "Touch screen and move finger to choose correct month. In case you saw two andadas this month (one around new moon and one around full moon), please run the app for each andada seperately.",
+    "year" : "(3:0)"
+  },
+  {
+    "questionNumber": 5,
+    "questionType": "DateRange",
+    "questionPicture": "q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
+    "description": "For the andada you are reporting here, touch with finger when you noted it. Remember: In case you saw andada in two periods (e.g. one around new moon and one around full moon), only mark ONE period (SEVERAL CONSECUTIVE DAYS OR ONE DAY).",
+    "month": "(4:0)",
+    "year": "(3:0)",
+    "filterOnQuestion": -1,
+    "optional": false
+  },
+  {
+    "questionNumber": 6,
+    "questionType": "ListSelect",
+    "questionPicture": "q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
+    "description": "Touch screen, move with finger and tap to select the state where you made your observation",
+    "jsonInput": "regions.json",
+    "disableCustom": "true"
+  },
+  {
+    "questionNumber": 7,
+    "questionType": "ListSelect",
+    "questionPicture": "q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
+    "description": "Touch screen and move with finger to select the county where you made your observation",
+    "jsonInput": "region_counties.json",
+    "disableCustom": "true",
+    "jsonKey": "(-1:0)",
+    "enableOther": true,
+    "otherText": "Touch the field and type the name of the county.",
+    "otherPosition": -1,
+    "otherIsLastItem": "true"
+  },
+  {
+    "questionNumber": 8,
+    "questionType": "ListSelect",
+    "questionPicture": "q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
+    "description": "Please can you let us know what you do? Touch screen and move finger to select.",
+    "jsonInput": "occupation.json",
+    "disableCustom": "true",
+    "enableOther": true,
+    "otherText": "Please touch field and type",
+    "otherPosition": 10
+  },
+  {
+    "questionNumber": 9,
+    "questionType": "UserDetails",
+    "questionPicture": "q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
+    "description": "It would be good to know who you are so that we can add your name to the list of citizen-scientists of the REMAR project.<br>How can you be contacted most easily? Touch field and add email address or phone number.",
+    "description2": "Touch field and type your name.",
+    "postAs": "userDetails",
+    "optional": true,
+    "cacheAnswer": true
+  },
+  {
+    "questionNumber": 10,
     "questionType": "Commit",
-    "description": "Submit your answers",
+    "description": "",
     "choiceOneText": "I WANT TO SUBMIT MY ANSWERS",
     "choiceTwoText": "GO BACK TO CHANGE ANSWERS"
   },
@@ -57,8 +114,8 @@
   },
   {
     "questionType": "Return",
-    "questionPicture": "q0_(1:0)",
-    "questionTitle": "crab_title_(1:0)",
+    "questionPicture": "q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
     "description": "",
     "choiceOneText": "I want to close the app",
     "choiceTwoText": "I want to return to first page"

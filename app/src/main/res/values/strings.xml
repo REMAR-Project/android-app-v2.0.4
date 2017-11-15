@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">REMAR cidadão</string>
+    <string name="app_name">REMAR Cidadão</string>
     <string name="description">Monitoramento de andadas reprodutivas de caraguejos de manguezal</string>
 
     <string name="toolbar_app_name">REMAR_</string>
@@ -106,5 +106,7 @@
 
     <string name="closeapp">Quero sair</string>
     <string name="returntostart">Quero continuar informar outra andada</string>
+
+    <string name="not_in_list">Nome não está na lista</string>
 
 </resources>

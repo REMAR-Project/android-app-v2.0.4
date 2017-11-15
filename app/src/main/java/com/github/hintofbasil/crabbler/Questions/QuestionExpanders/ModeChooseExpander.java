@@ -26,6 +26,7 @@ public class ModeChooseExpander extends Expander {
     Button choiceOneButton;
     Button choiceTwoButton;
     boolean allowMultiple = false;
+    int chosenMode;
 
     public ModeChooseExpander(AppCompatActivity activity, JSONObject questionJson) {
         super(activity, questionJson, REQUIRED_ANSWERS);
@@ -45,6 +46,8 @@ public class ModeChooseExpander extends Expander {
         description.setText(getRichTextQuestionString("description"));
         choiceOneButton.setText(getRichTextQuestionString("choiceOneText"));
         choiceTwoButton.setText(getRichTextQuestionString("choiceTwoText"));
+
+        chosenMode = -1;
 
         try {
             Boolean addImage = Boolean.parseBoolean(getQuestionString("hasImage"));
@@ -68,6 +71,7 @@ public class ModeChooseExpander extends Expander {
             @Override
             public void onClick(View v) {
                 QuestionManager.changeQuestionFile(R.raw.questions);
+                chosenMode = 0;
                 nextQuestion(0);
             }
         });
@@ -76,6 +80,7 @@ public class ModeChooseExpander extends Expander {
             @Override
             public void onClick(View v) {
                 QuestionManager.changeQuestionFile(R.raw.questions2);
+                chosenMode = 1;
                 nextQuestion(0);
             }
         });
@@ -89,7 +94,7 @@ public class ModeChooseExpander extends Expander {
     @Override
     public JSONArray getSelectedAnswer() {
         JSONArray array = new JSONArray();
-        array.put(0);
+        array.put(chosenMode);
         return array;
     }
 }

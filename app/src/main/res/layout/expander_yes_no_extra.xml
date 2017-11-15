@@ -37,6 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/description"
+                android:textStyle="bold"
                 android:layout_marginBottom="@dimen/description_margin_bottom"
                 android:textColor="@color/questionOfQuestionText"
                 />
@@ -52,6 +53,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/checkbox_text"
+                    android:textStyle="bold"
                     android:textColor="@color/questionOfQuestionText"
                     android:text="@string/yes"/>
 
@@ -60,6 +62,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/checkbox_text"
+                    android:textStyle="bold"
                     android:textColor="@color/questionOfQuestionText"
                     android:text="@string/no"/>
 
@@ -68,6 +71,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/checkbox_text"
+                    android:textStyle="bold"
                     android:textColor="@color/questionOfQuestionText"
                     android:text="@string/maybe"/>
 
@@ -78,6 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/description"
+                android:textStyle="bold"
                 android:layout_marginBottom="@dimen/description_margin_bottom"
                 android:textColor="@color/questionOfQuestionText"
                 android:visibility="gone"
@@ -110,6 +115,7 @@
                     android:id="@+id/manual_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textStyle="bold"
                     android:textColor="@color/questionOfQuestionText"
                     android:text="@string/protectedText"
                     android:visibility="gone"/>

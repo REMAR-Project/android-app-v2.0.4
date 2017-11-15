@@ -25,6 +25,8 @@ public class TwoPictureLayoutExpander extends Expander {
     private int currentAnswer = -1;
     LinearLayout questionOneButton;
     LinearLayout questionTwoButton;
+    ImageView choiceOneImage;
+    ImageView choiceTwoImage;
 
     public TwoPictureLayoutExpander(AppCompatActivity activity, JSONObject questionJson) {
         super(activity, questionJson, REQUIRED_ANSWERS);
@@ -38,8 +40,8 @@ public class TwoPictureLayoutExpander extends Expander {
         TextView choiceTwoTitle = (TextView) activity.findViewById(R.id.choice_two_title);
         questionOneButton = (LinearLayout) activity.findViewById(R.id.question_one_button);
         questionTwoButton = (LinearLayout) activity.findViewById(R.id.question_two_button);
-        ImageView choiceOneImage = (ImageView) activity.findViewById(R.id.choice_one_image);
-        ImageView choiceTwoImage = (ImageView) activity.findViewById(R.id.choice_two_image);
+        choiceOneImage = (ImageView) activity.findViewById(R.id.choice_one_image);
+        choiceTwoImage = (ImageView) activity.findViewById(R.id.choice_two_image);
         TextView backText = (TextView) activity.findViewById(R.id.backText);
         TextView forwardText = (TextView) activity.findViewById(R.id.forwardText);
 
@@ -61,6 +63,12 @@ public class TwoPictureLayoutExpander extends Expander {
                 currentAnswer = 0;
                 questionTwoButton.setBackgroundResource(R.color.questionBackground);
                 questionOneButton.setBackgroundResource(R.color.questionSelectedBackground);
+                try
+                {
+                    choiceOneImage.setImageDrawable(getDrawable(getQuestionString("choiceOnePicTwo")));
+                    choiceTwoImage.setImageDrawable(getDrawable(getQuestionString("choiceTwoPicture")));
+                } catch (JSONException e) {}
+
                 enableDisableNext();
                 //nextQuestion(200);
             }
@@ -72,6 +80,12 @@ public class TwoPictureLayoutExpander extends Expander {
                 currentAnswer = 1;
                 questionOneButton.setBackgroundResource(R.color.questionBackground);
                 questionTwoButton.setBackgroundResource(R.color.questionSelectedBackground);
+                try
+                {
+                    choiceOneImage.setImageDrawable(getDrawable(getQuestionString("choiceOnePicture")));
+                    choiceTwoImage.setImageDrawable(getDrawable(getQuestionString("choiceTwoPicTwo")));
+                } catch (JSONException e) {}
+
                 enableDisableNext();
                 //nextQuestion(200);
             }
@@ -84,9 +98,11 @@ public class TwoPictureLayoutExpander extends Expander {
             switch(i) {
                 case 0:
                     questionOneButton.setBackgroundResource(R.color.questionSelectedBackground);
+                    choiceOneImage.setImageDrawable(getDrawable(getQuestionString("choiceOnePicTwo")));
                     break;
                 case 1:
                     questionTwoButton.setBackgroundResource(R.color.questionSelectedBackground);
+                    choiceTwoImage.setImageDrawable(getDrawable(getQuestionString("choiceTwoPicTwo")));
                     break;
                 default:
                     Log.d("TwoPictureLayoutExpande", "Invalid previous answer");

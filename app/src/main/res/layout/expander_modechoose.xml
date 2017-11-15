@@ -105,7 +105,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:textAlignment="center"
-                        android:textSize="@dimen/question_selection_title"
+                        android:textSize="16sp"
                         android:textColor="@color/questionOfQuestionText"
                         android:text=""
                         />
@@ -121,7 +121,7 @@
                         android:textAlignment="center"
                         android:background="@drawable/border"
                         android:padding="3dp"
-                        android:textSize="@dimen/question_selection_title"
+                        android:textSize="16sp"
                         android:textColor="@color/questionOfQuestionText"
                         android:text=""
                         />
@@ -144,7 +144,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:textAlignment="center"
-                        android:textSize="@dimen/question_selection_title"
+                        android:textSize="16sp"
                         android:textColor="@color/questionOfQuestionText"
                         android:text=""
                         />
@@ -160,7 +160,7 @@
                         android:textAlignment="center"
                         android:padding="3dp"
                         android:background="@drawable/border"
-                        android:textSize="@dimen/question_selection_title"
+                        android:textSize="16sp"
                         android:textColor="@color/questionOfQuestionText"
                         android:text=""
                         />

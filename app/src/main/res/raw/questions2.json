@@ -28,6 +28,8 @@
     "choiceOnePicture": "q0_0",
     "choiceTwoTitle": "Guaiamum",
     "choiceTwoPicture": "q0_1",
+    "choiceOnePicTwo": "q1_0",
+    "choiceTwoPicTwo": "q1_1",
     "backText": "Toque para voltar",
     "forwardText": "Toque para avançar"
   },

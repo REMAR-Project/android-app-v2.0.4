@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#009933</color>
+    <color name="colorPrimary">#55bb33</color>
     <color name="questionBackground">#55bb33</color>
     <color name="questionSelectedBackground">#ffdd00</color>
     <color name="questionPressed">#99aabb</color>

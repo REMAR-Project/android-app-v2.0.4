@@ -60,6 +60,11 @@ public class ModeChooseExpander extends Expander {
         TextView pageof = (TextView) activity.findViewById(R.id.page_of);
         pageof.setVisibility(View.GONE);
 
+        TextView backText = (TextView) activity.findViewById(R.id.backText);
+        TextView forwardText = (TextView) activity.findViewById(R.id.forwardText);
+        backText.setText(getRichTextQuestionString("backText"));
+        forwardText.setText(getRichTextQuestionString("forwardText"));
+
         chosenMode = -1;
 
         try {

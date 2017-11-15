@@ -16,7 +16,9 @@
     "choiceOneText": "<b>Quero<br>simplificar</b>",
     "choiceOneTextTwo": "<b>REMAR<br>Básico</b>",
     "choiceTwoText": "<b>Quero ajudar<br>ao máximo</b>",
-    "choiceTwoTextTwo": "<b>REMAR<br>Avançado</b>"
+    "choiceTwoTextTwo": "<b>REMAR<br>Avançado</b>",
+    "backText": "Toque para voltar",
+    "forwardText": "Toque para avançar"
   },
   {
     "questionNumber": 2,

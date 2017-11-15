@@ -15,8 +15,10 @@
     "description": "<b><i>For more information, click on the above yellow field.</i><br><br>Chose one of the below options by tapping with finger.</b>",
     "choiceOneText": "<b>Simple<br>version</b>",
     "choiceOneTextTwo": "<b>REMAR<br>Basic</b>",
-    "choiceTwoText": "<b>Comprehensive<br>version</b>",
-    "choiceTwoTextTwo": "<b>REMAR<br>Advanced</b>"
+    "choiceTwoText": "<b>Full<br>version</b>",
+    "choiceTwoTextTwo": "<b>REMAR<br>Advanced</b>",
+    "backText": "Press to go back",
+    "forwardText": "Press to proceed"
   },
   {
     "questionNumber": 2,

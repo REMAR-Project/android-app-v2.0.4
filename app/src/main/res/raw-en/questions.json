@@ -133,7 +133,11 @@
     "description": "Touch screen and move with finger to select the county where you made your observation",
     "jsonInput": "region_counties.json",
     "disableCustom": "true",
-    "jsonKey": "(-1:0)"
+    "jsonKey": "(-1:0)",
+    "enableOther": true,
+    "otherText": "Touch the field and type the name of the county.",
+    "otherPosition": -1,
+    "otherIsLastItem": "true"
   },
   {
     "questionNumber": 14,
@@ -158,7 +162,8 @@
     "cacheAnswer": true,
     "state": "(12:0)",
     "jsonInput": "regions_protected.json",
-    "hasManual": "true"
+    "hasManual": "true",
+    "hideHeader": "true"
   },
   {
     "questionNumber": 16,

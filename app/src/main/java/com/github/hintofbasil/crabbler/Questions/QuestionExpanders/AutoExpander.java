@@ -48,12 +48,12 @@ public class AutoExpander extends Expander {
         forwardText.setText("");
         version = "";
 
-        choiceOneImage.setImageDrawable(getDrawable(getQuestionString("choiceOnePicture")));
+        //choiceOneImage.setImageDrawable(getDrawable(getQuestionString("choiceOnePicture")));
 
-        questionText.setText(getRichTextQuestionString("questionText"));
+        //questionText.setText(getRichTextQuestionString("questionText"));
         questionText.setMovementMethod(new ScrollingMovementMethod());
 
-        choiceOneTitle.setText(getRichTextQuestionString("choiceOneTitle"));
+        //choiceOneTitle.setText(getRichTextQuestionString("choiceOneTitle"));
         version = getQuestionString("version");
 
         previousButton.setVisibility(View.GONE);

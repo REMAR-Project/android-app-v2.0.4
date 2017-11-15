@@ -78,8 +78,25 @@ public class YesNoExtraExpander extends Expander {
         manualInfo = (TextView) activity.findViewById(R.id.manual_text);
         manualText = (EditText) activity.findViewById(R.id.manual_protected) ;
 
-        //imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
-        //titleView.setText(getRichTextQuestionString("questionTitle"));
+        Boolean hideHeader = false;
+
+        try {
+            hideHeader = Boolean.parseBoolean(getQuestionString("hideHeader"));
+        } catch (JSONException e)
+        {
+        }
+
+        if(!hideHeader)
+        {
+            imageView.setImageDrawable(getDrawable(getQuestionString("questionPicture")));
+            titleView.setText(getRichTextQuestionString("questionTitle"));
+        }
+        else
+        {
+            imageView.setVisibility(View.GONE);
+            titleView.setVisibility(View.GONE);
+        }
+
         questionText.setText(getRichTextQuestionString("questionText"));
         extraDetail.setText(getRichTextQuestionString("extraDetailText"));
 
@@ -274,7 +291,7 @@ public class YesNoExtraExpander extends Expander {
             extraListview.setAdapter(adapter);
             adapter.notifyDataSetChanged();
 
-            setListViewHeightBasedOnChildren(extraListview, 4);
+            setListViewHeightBasedOnChildren(extraListview, 6);
 
         } catch (JSONException e) {
             Log.d("YesNoExtra", "Failed to obtain a value for state, defaults to a empty string. " + e.getMessage());

@@ -255,6 +255,17 @@ public class ChoiceSelectExpander extends Expander {
             jsonArray = new JSONArray();
         }
 
+        try
+        {
+            if(Boolean.parseBoolean(getQuestionString("otherIsLastItem")))
+            {
+                otherSelect = jsonArray.length()-1;
+            }
+        } catch (JSONException e)
+        {
+
+        }
+
         itemTextInput.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {

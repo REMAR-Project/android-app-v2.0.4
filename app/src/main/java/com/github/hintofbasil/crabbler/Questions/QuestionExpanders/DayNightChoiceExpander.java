@@ -151,7 +151,7 @@ public class DayNightChoiceExpander extends Expander {
         });
 
         //Override template defaults
-        titleView.setTextSize(activity.getResources().getDimension(R.dimen.day_night_choice_title));
+        //titleView.setTextSize(activity.getResources().getDimension(R.dimen.day_night_choice_title));
         //firstUnknown.setTextColor(activity.getResources().getColor(android.R.color.tertiary_text_light));
     }
 

@@ -40,6 +40,7 @@
                         android:singleLine="true"
                         android:layout_gravity="center_horizontal"
                         android:textAlignment="center"
+                        android:layout_marginTop="20dp"
                         android:textSize="45sp"
                         android:textColor="@color/questionOfQuestionText"
                         android:text="@string/app_name"

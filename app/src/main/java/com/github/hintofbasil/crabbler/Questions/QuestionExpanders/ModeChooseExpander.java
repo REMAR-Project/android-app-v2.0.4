@@ -57,14 +57,6 @@ public class ModeChooseExpander extends Expander {
         choiceOneTitleTwo.setText(getRichTextQuestionString("choiceOneTextTwo"));
         choiceTwoTitleTwo.setText(getRichTextQuestionString("choiceTwoTextTwo"));
 
-        TextView pageof = (TextView) activity.findViewById(R.id.page_of);
-        pageof.setVisibility(View.GONE);
-
-        TextView backText = (TextView) activity.findViewById(R.id.backText);
-        TextView forwardText = (TextView) activity.findViewById(R.id.forwardText);
-        backText.setText(getRichTextQuestionString("backText"));
-        forwardText.setText(getRichTextQuestionString("forwardText"));
-
         chosenMode = -1;
 
         try {
@@ -92,8 +84,7 @@ public class ModeChooseExpander extends Expander {
                 chosenMode = 0;
                 choiceTwoButton.setBackgroundResource(R.color.questionBackground);
                 choiceOneButton.setBackgroundResource(R.color.questionSelectedBackground);
-                enableDisableNext();
-                //nextQuestion(0);
+                nextQuestion(0);
             }
         });
 
@@ -104,31 +95,14 @@ public class ModeChooseExpander extends Expander {
                 chosenMode = 1;
                 choiceOneButton.setBackgroundResource(R.color.questionBackground);
                 choiceTwoButton.setBackgroundResource(R.color.questionSelectedBackground);
-                enableDisableNext();
-                //nextQuestion(0);
+                nextQuestion(0);
             }
         });
     }
 
     @Override
     protected void setPreviousAnswer(JSONArray answer) {
-        try {
-            Integer i = answer.getInt(0);
-            switch(i) {
-                case 0:
-                    choiceOneButton.setBackgroundResource(R.color.questionSelectedBackground);
-                    break;
-                case 1:
-                    choiceTwoButton.setBackgroundResource(R.color.questionSelectedBackground);
-                    break;
-                default:
-                    Log.d("TwoPictureLayoutExpande", "Invalid previous answer");
-            }
-            chosenMode = i;
-        } catch (JSONException e) {
-            Log.d("QuestionActivity", "No previous answer");
-            return;
-        }
+
     }
 
     @Override

@@ -1,11 +1,16 @@
 <resources>
-    <string name="app_name">REMAR_Citizen</string>
+    <string name="app_name">REMAR Citizen</string>
     <string name="description">Monitoring Mass Mating Events of Mangrove Crabs</string>
 
     <string name="toolbar_app_name">REMAR_</string>
     <string name="toolbar_app_sub_name">CITIZEN</string>
 
     <string name="internal_error">An internal error occurred.  Please restart.</string>
+
+    <string name="back_button">Previous</string>
+    <string name="forward_button">Forward</string>
+    <string name="about_us">About Us</string>
+    <string name="settings">Settings</string>
 
     <string name="yes">Yes</string>
     <string name="no">No</string>
@@ -45,6 +50,29 @@
         <item>December</item>
     </string-array>
 
+    <string-array name="years">
+        <item>2016</item>
+        <item>2017</item>
+        <item>2018</item>
+        <item>2019</item>
+        <item>2020</item>
+        <item>2021</item>
+        <item>2022</item>
+        <item>2023</item>
+        <item>2024</item>
+        <item>2025</item>
+    </string-array>
+
+    <string-array name="pref_postFrequency_values">
+        <item>60000</item>
+        <item>300000</item>
+        <item>900000</item>
+        <item>3600000</item>
+        <item>10800000</item>
+        <item>86400000</item>
+    </string-array>
+    <string name="pref_postFrequency_default">3600000</string>
+
     <string name="pref_postFrequency_title">Post Frequency</string>
     <string name="pref_postFrequency_summary">The frequency with which the app attempts to post answers to the web.</string>
     <string-array name="pref_postFrequency_entries">
@@ -69,12 +97,10 @@
 
     <string name="protectedText">Touch field and type the name of the protected area where you observed andada</string>
 
-    <string name="lo">Low</string>
-    <string name="mid">Intermediate</string>
-    <string name="high">High</string>
+    <string name="url_login">http://40180582.pythonanywhere.com/static/login</string>
+    <string name="preference_session_id">session_id</string>
 
     <string name="back_next_description_text"></string>
-    <string name="becomescience"></string>
 	
 	<string name="TestVersion">TEST Version</string>
 	<string name="test2">This is a test! Two</string>

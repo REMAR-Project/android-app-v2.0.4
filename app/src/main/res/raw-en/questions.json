@@ -5,14 +5,14 @@
     "questionText": "",
     "choiceOneTitle": "TestVersion",
     "choiceOnePicture": "q0_0",
-    "version": "0.9b"
+    "version": "1.0"
   },
   {
     "questionNumber": 1,
     "questionType": "ModeChoose",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "<b><i>For more information, click on the above yellow field.</i><br><br>Chose one of the below options by tapping with finger.</b>",
+    "description": "<b><i>For more information, click on the above yellow field.</i><br><br><br><br>Chose one of the below options by tapping with finger.</b>",
     "choiceOneText": "<b>Simple<br>version</b>",
     "choiceOneTextTwo": "<b>REMAR<br>Basic</b>",
     "choiceTwoText": "<b>Full<br>version</b>",
@@ -184,19 +184,8 @@
   },
   {
     "questionNumber": 17,
-    "questionType": "UserDetails",
-    "questionPicture": "q0_(2:0)",
-    "questionTitle": "crab_title_(2:0)",
-    "description": "It would be good to know who you are so that we can add your name to the list of citizen-scientists of the REMAR project.<br>How can you be contacted most easily? Touch field and add email address or phone number.",
-    "description2": "Touch field and type your name.",
-    "postAs": "userDetails",
-    "optional": true,
-    "cacheAnswer": true
-  },
-  {
-    "questionNumber": 18,
     "questionType": "Commit",
-    "description": "",
+    "description": "If you want to add your name to the list of citizen-scientists of the REMAR Project, send a message to remar.quest@gmail.com",
     "choiceOneText": "I WANT TO SUBMIT MY ANSWERS",
     "choiceTwoText": "GO BACK TO CHANGE ANSWERS"
   },

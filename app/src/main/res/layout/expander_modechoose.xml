@@ -81,7 +81,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/question_select_margin"
-                android:padding="@dimen/question_select_padding"
                 android:layout_marginRight="@dimen/question_select_outside_margin"
                 android:layout_centerHorizontal="true"
                 android:orientation="horizontal"
@@ -176,6 +175,7 @@
         android:layout_alignParentBottom="true"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:visibility="gone"
         />
 
 </RelativeLayout>

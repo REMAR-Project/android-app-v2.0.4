@@ -5,14 +5,14 @@
     "questionText": "",
     "choiceOneTitle": "TestVersion",
     "choiceOnePicture": "q0_0",
-    "version": "0.9b"
+    "version": "1.0"
   },
   {
     "questionNumber": 1,
     "questionType": "ModeChoose",
     "questionPicture": "q0_(1:0)",
     "questionTitle": "crab_title_(1:0)",
-    "description": "<b><i>Para mais informações, toque com dedo no botão amarelo \"Saiba mais\" acima.</i><br><br>Toque com dedo em uma das opções abaixo.</b>",
+    "description": "<b><i>Para mais informações, toque com dedo no botão amarelo \"Saiba mais\" acima.</i><br><br><br><br>Toque com dedo em uma das opções abaixo.</b>",
     "choiceOneText": "<b>Quero<br>simplificar</b>",
     "choiceOneTextTwo": "<b>REMAR<br>Básico</b>",
     "choiceTwoText": "<b>Quero ajudar<br>ao máximo</b>",
@@ -184,19 +184,8 @@
   },
   {
     "questionNumber": 17,
-    "questionType": "UserDetails",
-    "questionPicture": "q0_(2:0)",
-    "questionTitle": "crab_title_(2:0)",
-    "description": "Seria bom saber quem você é para colocarmos o seu nome na lista de pesquisadores cidadãos da REMAR.<br>Qual a melhor forma para entramos em contato? Toque no espaço para escrever o seu email ou telefone (opcional).",
-    "description2": "Toque no espaço para escrever o seu nome (opcional).",
-    "postAs": "userDetails",
-    "optional": true,
-    "cacheAnswer": true
-  },
-  {
-    "questionNumber": 18,
     "questionType": "Commit",
-    "description": "",
+    "description": "Caso queira colocar o seu nome na lista de pesquisadores cidadãos da REMAR, envie uma mensagem para  remar.quest@gmail.com",
     "choiceOneText": "QUERO MANDAR AS MINHAS RESPOSTAS",
     "choiceTwoText": "VOLTE PARA MUDAR AS RESPOSTAS"
   },

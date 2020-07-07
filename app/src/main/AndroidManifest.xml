@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.github.hintofbasil.crabbler">
+    package="com.github.musevarg.remar">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -32,7 +32,7 @@
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity android:name=".AboutUsActivity" />
         <activity android:name=".Settings.SettingsActivity" />
-        <activity android:name=".LaunchDataAmend"
+        <activity android:name=".MainActivity"
             android:windowSoftInputMode="stateAlwaysHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

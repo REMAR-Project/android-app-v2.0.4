@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.darwinsys:hirondelle-date4j:1.5.1@jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.darwinsys/hirondelle-date4j/1.5.1/7b52de513f87ae4d9ff5d17518def0a1e9bc3df0/hirondelle-date4j-1.5.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.darwinsys/hirondelle-date4j/1.5.1/8063202ba25070e774df138a76b1b6cb497775ff/hirondelle-date4j-1.5.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.darwinsys/hirondelle-date4j/1.5.1/29de908e9c9061165e85bde9069ee7b8f1bf36c2/hirondelle-date4j-1.5.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

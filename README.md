@@ -17,4 +17,6 @@ Links to the playstore:
 [Portuguese (Brazil) Playstore Link](https://play.google.com/store/apps/details?id=com.github.hintofbasil.crabbler&hl=pt_BR) OR 
 [English Playstore Link](https://play.google.com/store/apps/details?id=com.github.hintofbasil.crabbler&hl=en_UK)
 
+(please note the app can only be downloaded from the Brazilian playstore)
+
 ![](https://raw.githubusercontent.com/musevarg/REMAR-android-app/android-app-2020/images/app-screenshots.png)

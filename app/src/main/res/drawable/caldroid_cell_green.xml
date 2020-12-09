@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:caldroid="http://schemas.android.com/apk/res-auto" xmlns:caldrdoid="http://schemas.android.com/tools">
-
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:drawable="@color/questionBackground" />
-
 </selector>

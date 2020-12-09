@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/appBackgroundColor"
     tools:context=".Questions.QuestionExpanders.YearChoiceExpander"
     >
 
@@ -15,8 +16,9 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fillViewport="true"
         android:layout_above="@+id/back_next_include"
-        android:layout_below="@+id/toolbar" >
+        android:layout_below="@+id/toolbar">
 
         <LinearLayout
             android:id="@+id/content_layout"
@@ -30,10 +32,10 @@
 
             <include layout="@layout/include_image_text"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                />
+                android:layout_width="match_parent" />
 
             <TextView
+                android:layout_marginTop="15dp"
                 android:id="@+id/question_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -43,20 +45,21 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:minHeight="@dimen/listview_min_size"
+                android:layout_marginTop="15dp"
                 android:orientation="horizontal"
                 android:baselineAligned="false"
-                >
+                android:background="@drawable/border_grey" >
 
-                <!-- TODO remove fixed height -->
                 <ListView
                     android:id="@+id/year_list_view"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/two_choice_date_list_size"
-                    android:layout_weight="0.5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:choiceMode="singleChoice"
-                    android:listSelector="@drawable/list_background"
+                    android:listSelector="@drawable/background_list"
                     android:scrollbarAlwaysDrawVerticalTrack="true"
-                    android:scrollbarSize="20dp"/>
+                    android:scrollbarSize="@dimen/listview_scrollbar"
+                    android:layout_margin="@dimen/listview_margin"/>
 
             </LinearLayout>
 
@@ -64,11 +67,11 @@
 
     </ScrollView>
 
+
     <include layout="@layout/include_back_next"
         android:id="@+id/back_next_include"
         android:layout_alignParentBottom="true"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        />
+        android:layout_width="match_parent" />
 
 </RelativeLayout>

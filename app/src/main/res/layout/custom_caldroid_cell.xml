@@ -6,7 +6,7 @@
     android:background="@drawable/cell_bg"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="10dp" >
+    android:padding="@dimen/toolbar_image_padding" >
 
     <LinearLayout
         android:id="@+id/container"
@@ -16,25 +16,25 @@
 
         <View
             android:id="@+id/newMoon"
-            android:layout_width="@dimen/caldroid_moon_size"
-            android:layout_height="@dimen/caldroid_moon_size"
-            android:background="@drawable/new_moon_circle_background"
+            android:layout_width="@dimen/calendar_cell"
+            android:layout_height="@dimen/calendar_cell"
+            android:background="@drawable/ic_moon_new"
             android:layout_gravity="center_vertical"
             android:visibility="gone"
-            android:paddingRight="4dp"
-            android:paddingEnd="4dp" />
+            android:layout_marginEnd="@dimen/calendar_cell_margin"
+            android:layout_marginRight="@dimen/calendar_cell_margin" />
 
         <View
             android:id="@+id/fullMoon"
-            android:layout_width="@dimen/caldroid_moon_size"
-            android:layout_height="@dimen/caldroid_moon_size"
-            android:background="@drawable/full_moon_circle_background"
+            android:layout_width="@dimen/calendar_cell"
+            android:layout_height="@dimen/calendar_cell"
+            android:background="@drawable/ic_moon_full"
             android:layout_gravity="center_vertical"
             android:visibility="gone"
-            android:paddingRight="4dp"
-            android:paddingEnd="4dp" />
+            android:layout_marginEnd="@dimen/calendar_cell_margin"
+            android:layout_marginRight="@dimen/calendar_cell_margin" />
 
-        <TextView
+        <me.grantland.widget.AutofitTextView
             android:id="@+id/tv1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

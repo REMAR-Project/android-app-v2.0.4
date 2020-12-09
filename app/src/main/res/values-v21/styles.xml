@@ -1,0 +1,13 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:statusBarColor">@color/black</item>
+    </style>
+
+    <style name="customEditText" parent="Widget.AppCompat.EditText">
+        <item name="colorControlActivated">@color/colorPrimary</item>
+    </style>
+
+</resources>

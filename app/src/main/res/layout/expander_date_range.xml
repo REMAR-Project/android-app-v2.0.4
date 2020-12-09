@@ -3,13 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/appBackgroundColor"
     tools:context=".Questions.QuestionExpanders.DateRangeExpander">
 
     <include layout="@layout/include_toolbar"
         android:id="@+id/toolbar"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        />
+        android:layout_width="match_parent" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -21,17 +21,13 @@
             android:id="@+id/content_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/activity_vertical_margin"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:paddingTop="@dimen/activity_vertical_margin"
+            android:padding="@dimen/activity_vertical_margin"
             android:orientation="vertical">
 
             <include layout="@layout/include_image_text"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_width="match_parent"
-                android:visibility="gone"
-                />
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/description"
@@ -47,12 +43,13 @@
                 android:orientation="horizontal"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center_vertical"
-                android:paddingBottom="5dp" >
+                android:layout_marginTop="@dimen/toolbar_vertical_margin"
+                android:layout_marginBottom="@dimen/toolbar_vertical_margin">
 
                 <View
                     android:layout_width="@dimen/calendar_legend_moon"
                     android:layout_height="@dimen/calendar_legend_moon"
-                    android:background="@drawable/new_moon_circle_background" />
+                    android:background="@drawable/ic_moon_new" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -68,7 +65,7 @@
                 <View
                     android:layout_width="@dimen/calendar_legend_moon"
                     android:layout_height="@dimen/calendar_legend_moon"
-                    android:background="@drawable/full_moon_circle_background" />
+                    android:background="@drawable/ic_moon_full" />
 
                 <TextView
                     android:layout_width="wrap_content"

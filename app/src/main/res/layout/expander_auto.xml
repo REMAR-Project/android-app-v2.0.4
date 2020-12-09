@@ -3,49 +3,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.github.hintofbasil.crabbler.Questions.QuestionActivity">
+    android:background="@color/appBackgroundColor"
+    tools:context=".Questions.QuestionActivity">
 
     <include layout="@layout/include_toolbar"
         android:id="@+id/toolbar"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:visibility="gone"
-        />
+        android:visibility="gone" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/napier_page_1_logo"
-        android:id="@+id/logos"/>
-
-    <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:layout_below="@+id/logos"
-        android:layout_above="@+id/imageView">
-
-                <LinearLayout
+                <RelativeLayout
                     android:id="@+id/question_one_button"
                     android:layout_width="match_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="0.5"
+                    android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:background="@color/questionBackground"
-                    android:layout_centerHorizontal="true"
-                    >
+                    android:layout_above="@+id/logos"
+                    android:layout_alignParentTop="true" >
+
                     <me.grantland.widget.AutofitTextView
                         android:id="@+id/choice_one_title"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:singleLine="true"
                         android:layout_gravity="center_horizontal"
                         android:textAlignment="center"
-                        android:layout_marginTop="20dp"
-                        android:textSize="45sp"
+                        android:layout_marginLeft="@dimen/toolbar_vertical_margin"
+                        android:layout_marginRight="@dimen/toolbar_vertical_margin"
+                        android:layout_marginTop="@dimen/title_margin_top"
+                        android:textSize="@dimen/title_text_size"
                         android:textColor="@color/questionOfQuestionText"
-                        android:text="@string/app_name"
-                        android:textStyle="italic"
-                        />
+                        android:text="@string/app_name" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_margin="@dimen/toolbar_vertical_margin">
+
                     <me.grantland.widget.AutofitTextView
                         android:id="@+id/choice_one_title2"
                         android:layout_width="wrap_content"
@@ -54,40 +49,48 @@
                         android:singleLine="false"
                         android:layout_gravity="center_horizontal"
                         android:textAlignment="center"
-                        android:textSize="26sp"
+                        android:textSize="@dimen/title_subtext_size"
                         android:textColor="@color/questionOfQuestionText"
                         android:text="@string/description"
                         android:textStyle="bold"
+                        android:layout_margin="@dimen/toolbar_vertical_margin"
                         />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity ="bottom"
-                        android:weightSum ="3">
-
                         <ImageView
+                            android:layout_marginTop="10dp"
                             android:id="@+id/choice_one_image"
-                            android:layout_width="fill_parent"
-                            android:layout_height="155dp"
-                            android:layout_marginEnd="5dp"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginRight="5dp"
-                            android:layout_marginStart="5dp"
-                            android:src="@drawable/page1crabs" />
-                    </LinearLayout>
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/title_pics_margin"
+                            android:layout_marginLeft="@dimen/title_pics_margin"
+                            android:layout_marginRight="@dimen/title_pics_margin"
+                            android:layout_marginStart="@dimen/title_pics_margin"
+                            android:layout_below="@+id/choice_one_title2"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/raster_page1_crabs" />
 
-                </LinearLayout>
+                    </RelativeLayout>
 
-        </RelativeLayout>
+                </RelativeLayout>
+
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/logos"
+        android:src="@drawable/raster_page1_logos_1"
+        android:id="@+id/logos"
+        android:layout_above="@+id/logos2"
+        android:background="@color/white"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/raster_page1_logos_2"
         android:layout_alignParentBottom="true"
-        android:id="@+id/imageView" />
+        android:id="@+id/logos2"
+        android:background="@color/white"/>
+
+
 
     <include layout="@layout/include_back_next"
         android:id="@+id/back_next_include"
@@ -96,6 +99,7 @@
         android:layout_width="match_parent"
         android:visibility="gone"
         />
+
 
 
 </RelativeLayout>

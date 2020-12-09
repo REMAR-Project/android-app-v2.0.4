@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">REMAR Citizen</string>
+    <string name="app_name"><b>REMAR</b><small>_CITIZEN</small></string>
     <string name="description">Monitoring Mass Mating Events of Mangrove Crabs</string>
 
-    <string name="toolbar_app_name">REMAR_</string>
-    <string name="toolbar_app_sub_name">CITIZEN</string>
+    <string name="toolbar_app_name">REMAR </string>
+    <string name="toolbar_app_sub_name">_CITIZEN</string>
 
     <string name="internal_error">An internal error occurred.  Please restart.</string>
 
@@ -19,21 +19,21 @@
     <string name="only_day">Only at day</string>
     <string name="only_night">Only at night</string>
     <string name="day_and_night">At day and night</string>
-    <string name="day_night_unknown">I don\'t know</string>
+    <string name="day_night_unknown">I did not look</string>
 
     <string name="proceed">Proceed</string>
     <string name="back">Back</string>
 
-    <string name="done">Your answers have been submitted</string>
+    <string name="done">Done!</string>
     <string name="thank_you">Thank you for participating!</string>
-    <string name="citizen_scientist">Now you are a citizen scientist!</string>
+    <string name="citizen_scientist">You are now a citizen scientist!</string>
     <string name="thank_you_toast">Your answers have been submitted.</string>
 
     <string name="enter_name">Full name</string>
     <string name="enter_email">Contact Detail</string>
 
-    <string name="crab_title_0">Monitoring Ucides cordatus</string>
-    <string name="crab_title_1">Monitoring Cardisoma guanhumi</string>
+    <string name="crab_title_0">Monitoring <i>Ucides cordatus</i></string>
+    <string name="crab_title_1">Monitoring <i>Cardisoma guanhumi</i></string>
 
     <string-array name="months">
         <item>January</item>
@@ -95,13 +95,13 @@
     <string name="andada_new_1">There was &lt;b>NO&lt;/b> andada after the &lt;b>new moon&lt;/b></string>
     <string name="andada_full_1">There was &lt;b>NO&lt;/b> andada after the &lt;b>full moon&lt;/b></string>
 
+    <string name="back_next_description_text">Click here to continue or to come back</string>
+
     <string name="protectedText">Touch field and type the name of the protected area where you observed andada</string>
 
     <string name="url_login">http://40180582.pythonanywhere.com/static/login</string>
     <string name="preference_session_id">session_id</string>
 
-    <string name="back_next_description_text"></string>
-	
 	<string name="TestVersion">TEST Version</string>
 	<string name="test2">This is a test! Two</string>
 
@@ -109,5 +109,19 @@
     <string name="returntostart">I want to return to first page</string>
 
     <string name="not_in_list">Name not in list</string>
+
+    <string name="read_more">For more information, click on the green button below.</string>
+    <string name="placeholder">Type here</string>
+
+    <string name="doneContact">Did you like this app? \n<b>For rating/commenting, <a href="https://play.google.com/store/apps/details?id=com.github.hintofbasil.crabbler">click here</a></b>.</string>
+    <string name="lastPageData">I am only testing/showing the app without sending real data</string>
+
+    <string name="privacyPolicy">Privacy Policy</string>
+    <string name="privacyPolicyContent">Edinburgh Napier University complies with the data protection law. This application does not specifically collect any personal data and we ask that you do not provide any personal data in the free text fields. However, if you inadvertently provide any personal data, we will protect this data in accordance with the General Data Protection Regulation (GDPR) and other relevant data protection laws.</string>
+
+    <string name="testWarning">App Testing</string>
+    <string name="testWarningContent">Thank you for testing REMAR<small>_CIDADÃO</small>. We understand that the responses you entered are not real and we will not analyze them.</string>
+    <string name="testWarningBack">Back</string>
+    <string name="testWarningAccept">Proceed</string>
 
 </resources>

@@ -3,19 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Questions.QuestionExpanders.DateRangeExpander">
+    android:background="@color/appBackgroundColor"
+    tools:context=".Questions.QuestionExpanders.DateRangeExpander"
+    android:id="@+id/mainChoiceSelect">
 
     <include layout="@layout/include_toolbar"
         android:id="@+id/toolbar"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        />
+        android:layout_width="match_parent" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/back_next_include"
-        android:layout_below="@id/toolbar" >
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:layout_above="@+id/back_next_include"
+            android:layout_below="@id/toolbar">
 
         <LinearLayout
             android:id="@+id/content_layout"
@@ -27,120 +29,130 @@
             android:paddingTop="@dimen/activity_vertical_margin"
             android:orientation="vertical">
 
-            <include layout="@layout/include_image_text"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                />
-
-            <TextView
-                android:id="@+id/description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:textAlignment="center"
-                android:textStyle="bold"
-                android:textSize="@dimen/description"
-                android:textColor="@color/questionOfQuestionText"
-                android:layout_marginBottom="@dimen/description_margin_bottom"/>
-
             <LinearLayout
-                android:id="@+id/list_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-                <EditText
-                    android:id="@+id/item_text_input"
-                    android:layout_width="0dp"
+                <include layout="@layout/include_image_text"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
-                    android:textSize="@dimen/list_select_input_text"
-                    android:textAlignment="center"
-                    android:inputType="textCapWords" />
-
-                <ListView
-                    android:id="@+id/item_select"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/list_select_list_height"
-                    android:layout_weight="0.5"
-                    android:choiceMode="singleChoice"
-                    android:scrollbarAlwaysDrawVerticalTrack="true"
-                    />
-
-                <!-- TODO remove fixed height -->
-                <ImageView
-                    android:id="@+id/detail_picture"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/list_select_image_height"
-                    android:layout_weight="0.5"
-                    android:layout_gravity="center_vertical"
-                    />
-
-            </LinearLayout>
-
-            <ImageView
-                android:id="@+id/below_picture"
-                android:layout_width="@dimen/list_select_image_height"
-                android:layout_height="@dimen/list_select_image_height"
-                android:visibility="gone"
-                />
-
-            <LinearLayout
-                android:id="@+id/dont_know"
-                android:layout_width="@dimen/day_night_image_holder_width"
-                android:layout_height="@dimen/day_night_image_holder_height"
-                android:orientation="vertical"
-                android:gravity="center_horizontal"
-
-                android:paddingBottom="@dimen/day_night_choice_vertical_padding"
-                android:paddingLeft="@dimen/day_night_choice_horizontal_padding"
-                android:paddingRight="@dimen/day_night_choice_horizontal_padding"
-                android:paddingTop="@dimen/day_night_choice_vertical_padding"
-
-                android:layout_marginBottom="@dimen/day_night_choice_vertical_margin"
-                android:layout_marginLeft="@dimen/day_night_choice_horizontal_margin"
-                android:layout_marginRight="@dimen/day_night_choice_horizontal_margin"
-                android:layout_marginTop="@dimen/day_night_choice_vertical_margin"
-                android:visibility="gone">
+                    android:layout_width="match_parent" />
 
                 <TextView
-                    android:id="@+id/dont_know_text"
+                    android:layout_marginTop="@dimen/toolbar_vertical_margin"
+                    android:id="@+id/description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/description"
                     android:textColor="@color/questionOfQuestionText"
-                    android:text="@string/day_night_unknown"
-                    android:textSize="@dimen/day_night_choice_text"/>
+                    android:layout_marginBottom="@dimen/description_margin_bottom"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="0dp"
+                    android:background="@drawable/border_grey">
+
+                    <ListView
+                        android:id="@+id/item_select"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:minHeight="@dimen/listview_min_size"
+                        android:scrollbarSize="@dimen/listview_scrollbar"
+                        android:layout_margin="@dimen/listview_margin"
+                        android:choiceMode="singleChoice"/>
+
+                </LinearLayout>
+
+                <EditText
+                    android:layout_marginTop="@dimen/toolbar_vertical_margin"
+                    android:id="@+id/item_text_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:layout_gravity="center"
+                    android:inputType="text"
+                    android:hint="@string/placeholder"
+                    android:theme="@style/customEditText"
+                    android:maxLines="1"/>
 
                 <ImageView
-                    android:id="@+id/night_image2"
+                    android:id="@+id/detail_picture"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/unknown" />
+                    android:layout_gravity="center_vertical" />
+
+                <ImageView
+                    android:id="@+id/below_picture"
+                    android:layout_width="@dimen/list_select_image_height"
+                    android:layout_height="@dimen/list_select_image_height"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/dont_know"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dont_know_button"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:background="@drawable/background_rounded_transparent_to_green"
+                    android:padding="@dimen/day_night_choice_horizontal_padding"
+                    android:layout_margin="@dimen/day_night_choice_horizontal_margin"
+                    android:layout_gravity="center"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/dont_know_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/questionOfQuestionText"
+                        android:text="@string/day_night_unknown"
+                        android:textSize="@dimen/day_night_choice_text"/>
+
+                    <ImageView
+                        android:id="@+id/night_image2"
+                        android:layout_marginTop="@dimen/toolbar_vertical_margin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_d_question"
+                        android:adjustViewBounds="true"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_marginTop="@dimen/toolbar_vertical_margin"
+                    android:id="@+id/TextInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/questionOfQuestionText"
+                    android:visibility="gone"/>
+
+                <EditText
+                    android:layout_marginTop="@dimen/toolbar_vertical_margin"
+                    android:id="@+id/TextEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:hint="@string/placeholder"
+                    android:textAlignment="center"
+                    android:gravity="center_horizontal"
+                    android:theme="@style/customEditText"
+                    android:inputType="text"
+                    android:maxLines="1"/>
 
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/TextInfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/questionOfQuestionText"
-                android:visibility="gone"/>
-
-            <EditText
-                android:id="@+id/TextEdit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone"/>
 
         </LinearLayout>
 
-    </ScrollView>
+        </ScrollView>
+
 
     <include layout="@layout/include_back_next"
         android:id="@+id/back_next_include"
         android:layout_alignParentBottom="true"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        />
+        android:layout_width="match_parent" />
 
 </RelativeLayout>

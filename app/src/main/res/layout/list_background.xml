@@ -3,8 +3,5 @@
     android:background="@drawable/color_list"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    android:paddingRight="@dimen/list_horizontal_padding"
-    android:paddingLeft="@dimen/list_horizontal_padding"
-    android:paddingTop="@dimen/list_vertical_padding"
-    android:paddingBottom="@dimen/list_vertical_padding"
+    android:padding="@dimen/list_horizontal_padding"
     android:textSize="@dimen/list_element_text" />

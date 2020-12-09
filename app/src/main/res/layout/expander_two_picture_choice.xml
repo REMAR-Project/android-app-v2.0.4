@@ -3,13 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.github.hintofbasil.crabbler.Questions.QuestionActivity">
+    android:background="@color/appBackgroundColor"
+    tools:context=".Questions.QuestionActivity">
 
     <include layout="@layout/include_toolbar"
         android:id="@+id/toolbar"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        />
+        android:layout_width="match_parent" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -35,7 +35,8 @@
                 android:textColor="@color/questionOfQuestionText"
                 android:text=""
                 android:scrollbars="vertical"
-                />
+                android:gravity="center_horizontal" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -45,19 +46,20 @@
                 android:layout_centerHorizontal="true"
                 android:orientation="horizontal"
                 android:layout_below="@id/question_text"
-                >
+                android:layout_marginEnd="@dimen/question_select_outside_margin">
+
                 <LinearLayout
                     android:id="@+id/question_one_button"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/two_choice_picture_height"
                     android:layout_weight="0.5"
                     android:orientation="vertical"
-                    android:background="@color/questionBackground"
+                    android:background="@drawable/background_rounded_green_to_yellow"
                     android:layout_margin="@dimen/question_select_margin"
                     android:padding="@dimen/question_select_padding"
                     android:layout_marginLeft="@dimen/question_select_outside_margin"
-                    android:layout_centerHorizontal="true"
-                    >
+                    android:layout_marginStart="@dimen/question_select_outside_margin">
+
                     <me.grantland.widget.AutofitTextView
                         android:id="@+id/choice_one_title"
                         android:layout_width="wrap_content"
@@ -67,27 +69,28 @@
                         android:textAlignment="center"
                         android:textSize="25sp"
                         android:textColor="@color/questionOfQuestionText"
-                        android:text=""
-                        />
+                        android:textStyle="bold" />
+
                     <ImageView
                         android:id="@+id/choice_one_image"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/white"
-                        />
+                        android:background="@drawable/background_rounded_white" />
+
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/question_two_button"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/two_choice_picture_height"
                     android:layout_weight="0.5"
                     android:orientation="vertical"
-                    android:background="@color/questionBackground"
+                    android:background="@drawable/background_rounded_green_to_yellow"
                     android:layout_margin="@dimen/question_select_margin"
                     android:padding="@dimen/question_select_padding"
                     android:layout_marginRight="@dimen/question_select_outside_margin"
-                    android:layout_centerHorizontal="true"
-                    >
+                    android:layout_marginEnd="@dimen/question_select_outside_margin">
+
                     <me.grantland.widget.AutofitTextView
                         android:id="@+id/choice_two_title"
                         android:layout_width="wrap_content"
@@ -97,15 +100,16 @@
                         android:textAlignment="center"
                         android:textSize="25sp"
                         android:textColor="@color/questionOfQuestionText"
-                        android:text=""
-                        />
+                        android:textStyle="bold" />
+
                     <ImageView
                         android:id="@+id/choice_two_image"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/white"
-                        />
+                        android:background="@drawable/background_rounded_white" />
+
                 </LinearLayout>
+
             </LinearLayout>
 
         </RelativeLayout>

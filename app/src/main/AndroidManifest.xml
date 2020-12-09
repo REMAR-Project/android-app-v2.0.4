@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.github.musevarg.remar">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.github.hintofbasil.crabbler">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -11,28 +12,17 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <receiver android:name=".BackgroundDataPost.DataPostAutoStart">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
-            </intent-filter>
-        </receiver>
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="m">
 
-        <service
-            android:name=".BackgroundDataPost.DataPostLaunchService"
-            android:enabled="true" />
-
-        <receiver android:name=".BackgroundDataPost.DataPostAlarm" />
-
-        <service android:name=".BackgroundDataPost.DataPostProcessService" />
+        <service android:name="com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostProcessService" />
 
         <activity
-            android:name=".Questions.QuestionActivity"
+            android:name="com.github.hintofbasil.crabbler.Questions.QuestionActivity"
             android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity android:name=".AboutUsActivity" />
-        <activity android:name=".Settings.SettingsActivity" />
-        <activity android:name=".MainActivity"
+        <activity android:name="com.github.hintofbasil.crabbler.AboutUsActivity" />
+        <activity android:name="com.github.hintofbasil.crabbler.MainActivity"
             android:windowSoftInputMode="stateAlwaysHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

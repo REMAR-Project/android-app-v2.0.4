@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/appBackgroundColor"
     tools:context=".Questions.QuestionExpanders.ReturnExpander" >
 
     <include layout="@layout/include_toolbar"
@@ -20,11 +21,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/activity_vertical_margin"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:paddingTop="@dimen/activity_vertical_margin"
-            android:orientation="vertical">
+            android:padding="@dimen/activity_vertical_margin"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp">
 
             <TextView
                 android:id="@+id/description"
@@ -35,25 +35,46 @@
                 android:textStyle="bold"
                 android:textSize="@dimen/description"
                 android:textColor="@color/questionOfQuestionText"
-                android:layout_marginBottom="@dimen/description_margin_bottom"/>
+                android:textColorLink="@color/colorPrimary"
+                android:layout_marginBottom="15dp" />
 
             <Button
                 android:id="@+id/choice_one"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:textAlignment="center"
                 android:text="@string/closeapp"
-                android:textSize="@dimen/checkbox_text" />
+                android:textAlignment="center"
+                android:gravity="center"
+                android:background="@drawable/button_color"
+                android:layout_margin="@dimen/button_margin"
+                android:textSize="@dimen/checkbox_text"
+                android:padding="@dimen/button_padding"
+                android:shadowColor="@color/colorPrimaryDark" />
 
             <Button
                 android:id="@+id/choice_two"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/returntostart"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:background="@drawable/button_color"
+                android:layout_margin="@dimen/button_margin"
+                android:textSize="@dimen/checkbox_text"
+                android:padding="@dimen/button_padding"
+                android:shadowColor="@color/colorPrimaryDark" />
+
+            <TextView
+                android:id="@+id/doneContact"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="50dp"
+                android:text="@string/doneContact"
+                android:textSize="16sp"
+                android:layout_gravity="center"
                 android:textAlignment="center"
-                android:text="@string/returntostart"
-                android:textSize="@dimen/checkbox_text" />
+                android:textColor="@color/black"
+                android:textColorLink="@color/colorPrimary"/>
 
         </LinearLayout>
 

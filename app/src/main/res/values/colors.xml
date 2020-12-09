@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#55bb33</color>
-    <color name="questionBackground">#55bb33</color>
-    <color name="questionSelectedBackground">#ffdd00</color>
+    <color name="colorPrimary">#4CAF50</color>
+    <color name="colorPrimaryDark">#4CAF50</color>
+    <color name="colorAccent">#4CAF50</color>
+
+    <color name="questionBackground">#4CAF50</color>
+    <color name="questionSelectedBackground">#FFC107</color>
     <color name="questionPressed">#99aabb</color>
     <color name="toolbarTitle">#000000</color>
     <color name="questionOfQuestionText">#000000</color>
+
     <color name="none">#00000000</color>
     <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+
     <color name="newMoon">#000000</color>
     <color name="fullMoon">#ffdd00</color>
+    <color name="calendarCell2">#FFC107</color>
+
+    <color name="appBackgroundColor">#FFFFFF</color>
 </resources>

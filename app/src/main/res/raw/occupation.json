@@ -4,10 +4,16 @@
   "• Sou beneficiador de carne de caranguejo-uçá",
   "• Sou comerciante de caranguejo-uçá ou guaiamum",
   "• Sou morador local e normalmente não pego caranguejos ou guaiamuns",
-  "• Sou funcionário do ICMBio",
-  "• Sou funcionário do IBAMA",
-  "• Sou servidor da Prefeitura",
-  "• Sou pesquisador",
-  "• Não quero informar",
-  "• Outro"
+  "• Sou do ICMBio e observei eu mesmo",
+  "• Sou do ICMBio e relato resultados de um extrativista",
+  "• Sou do IBAMA e observei eu mesmo",
+  "• Sou do IBAMA e relato resultados de um extrativista",
+  "• Sou da Prefeitura e observei eu mesmo",
+  "• Sou da Prefeitura e relato resultados de um extrativista",
+  "• Sou pesquisador e observei eu mesmo",
+  "• Sou pesquisador e relato resultados de um extrativista",
+  "• Sou turista",
+  "• Trabalho com turismo",
+  "• Outro",
+  "• Não quero informar"
 ]

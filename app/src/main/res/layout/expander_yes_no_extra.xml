@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/appBackgroundColor"
     tools:context=".Questions.QuestionExpanders.DateRangeExpander">
 
     <include layout="@layout/include_toolbar"
@@ -12,10 +13,11 @@
         />
 
     <ScrollView
+        android:id="@+id/yesScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/back_next_include"
-        android:layout_below="@id/toolbar" >
+        android:layout_below="@id/toolbar">
 
         <LinearLayout
             android:id="@+id/content_layout"
@@ -55,7 +57,8 @@
                     android:textSize="@dimen/checkbox_text"
                     android:textStyle="bold"
                     android:textColor="@color/questionOfQuestionText"
-                    android:text="@string/yes"/>
+                    android:text="@string/yes"
+                    android:buttonTint="@color/colorPrimary"/>
 
                 <CheckBox
                     android:id="@+id/chk_no"
@@ -64,7 +67,8 @@
                     android:textSize="@dimen/checkbox_text"
                     android:textStyle="bold"
                     android:textColor="@color/questionOfQuestionText"
-                    android:text="@string/no"/>
+                    android:text="@string/no"
+                    android:buttonTint="@color/colorPrimary"/>
 
                 <CheckBox
                     android:id="@+id/chk_maybe"
@@ -73,7 +77,8 @@
                     android:textSize="@dimen/checkbox_text"
                     android:textStyle="bold"
                     android:textColor="@color/questionOfQuestionText"
-                    android:text="@string/maybe"/>
+                    android:text="@string/maybe"
+                    android:buttonTint="@color/colorPrimary"/>
 
             </LinearLayout>
 
@@ -92,26 +97,26 @@
                 android:id="@+id/extra_details_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:background="@drawable/border_grey"
                 android:baselineAligned="false"
-                >
+                android:orientation="horizontal">
 
-                <!-- TODO remove fixed height -->
                 <ListView
                     android:id="@+id/extra_listview"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/listview_margin"
                     android:choiceMode="singleChoice"
-                    android:listSelector="@drawable/list_background"
+                    android:listSelector="@drawable/background_list"
                     android:scrollbarAlwaysDrawVerticalTrack="true"
-                    android:scrollbarSize="20dp"
-                    android:visibility="gone"/>
+                    android:scrollbarSize="@dimen/listview_scrollbar"
+                    android:visibility="gone" />
 
             </LinearLayout>
 
 
                 <TextView
+                    android:layout_marginTop="10dp"
                     android:id="@+id/manual_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -121,11 +126,17 @@
                     android:visibility="gone"/>
 
                 <EditText
+                    android:layout_marginTop="10dp"
                     android:id="@+id/manual_protected"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:visibility="gone"
-                    />
+                    android:hint="@string/placeholder"
+                    android:textAlignment="center"
+                    android:gravity="center_horizontal"
+                    android:theme="@style/customEditText"
+                    android:inputType="text"
+                    android:maxLines="1" />
 
         </LinearLayout>
 

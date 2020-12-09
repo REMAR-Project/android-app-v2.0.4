@@ -2,38 +2,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.github.hintofbasil.crabbler.AboutUsFragment">
+    android:background="@color/appBackgroundColor"
+    tools:context=".AboutUsFragment">
 
     <TableLayout
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:onClick="onFragmentInteraction" >
+        android:layout_width="match_parent"
+        android:onClick="onFragmentInteraction"
+        tools:ignore="OnClick">
 
-        <TableRow>
+        <TableRow
+            android:layout_width="match_parent">
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:orientation="horizontal">
 
                 <ImageView
                     android:id="@+id/expand"
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/about_us_button_size"
-                    android:src="@drawable/expand" />
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/icon_plus" />
 
                 <ImageView
                     android:id="@+id/contract"
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/about_us_button_size"
-                    android:visibility="gone"
-                    android:src="@drawable/contract" />
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/icon_minus"
+                    android:visibility="gone" />
 
             </LinearLayout>
 
             <TextView
                 android:id="@+id/title"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/about_us_title"
                 android:layout_gravity="center_vertical" />
@@ -48,13 +52,12 @@
 
             <TextView
                 android:id="@+id/content"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/about_us_content"
+                android:textColorLink="@color/colorPrimary"
                 android:visibility="gone"
-                android:paddingRight="@dimen/about_us_text_padding"
-                android:paddingEnd="@dimen/about_us_text_padding" />
-
+                android:textSize="@dimen/about_us_content" />
         </TableRow>
 
     </TableLayout>

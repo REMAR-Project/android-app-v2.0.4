@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:caldroid="http://schemas.android.com/apk/res-auto">
+
+    <item android:drawable="@drawable/disabled_cell_dark" caldroid:state_date_disabled="true"/>
+    <item android:drawable="@color/questionBackground"  android:state_activated="true" />
+    <item android:drawable="@color/caldroid_lighter_gray" android:state_pressed="true"/>
+    <item android:drawable="@color/white" android:state_pressed="false" />
+
+</selector>

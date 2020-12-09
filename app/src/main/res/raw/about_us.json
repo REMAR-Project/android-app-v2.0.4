@@ -1,0 +1,58 @@
+[
+  {
+    "title": "A nova versão 2.0 do aplicativo",
+    "content": "Em dezembro de 2020 a versão 1.0 do aplicativo REMAR<small>_CIDADÃO</small> (lançada em novembro 2017) foi substituída pela versão 2.0. A nova versão apresenta aprimoramentos no layout e nas sequências de questões. Note que agora você pode testar o aplicativo, ou explicar o seu uso para outra pessoa, digitando respostas não reais e clicando em um botão específico na página final do aplicativo. As respostas do teste não serão mandadas para o servidor de dados.<br>"
+  },
+  {
+    "title": "O que é a REMAR",
+    "content": "Fundada em 2013, a REMAR é uma rede de pesquisadores de vários locais e instituições do Brasil e da Escócia, estudando a ocorrência das andadas reprodutivas de caranguejos.  A REMAR realiza amostragens de campo utilizando um método de avaliação rápida, que envolve a contagem de caranguejos em andada em vários locais brasileiros, de norte a sul. Adicionalmente, em 2017 a REMAR desenvolveu o aplicativo REMAR<small>_CIDADÃO</small>, que permite um monitoramento participativo no qual as populações extrativistas e o público em geral podem fornecer informações sobre ocorrências de andadas (ciência cidadã).<br>"
+  },
+  {
+    "title": "O que é uma andada?",
+    "content": "A andada, também conhecida por andança, carnaval ou suatá, é um fenômeno no qual os caranguejos saem de suas tocas, ficam agitados e realizam movimentos em massa para acasalamento. No Brasil, em geral, as andadas ocorrem em torno da lua nova ou cheia, ou, ocasionalmente, em torno de ambas as fases da lua, durante 3 a 4 meses entre novembro e abril de cada ano (dependendo do lugar).<br>"
+  },
+  {
+    "title": "Por que saber quando ocorrem andadas?",
+    "content": "Durante as andadas os caranguejos estão se reproduzindo, e é justamente neste período que eles ficam expostos fora de suas tocas e podem ser capturados em grandes quantidades, mesmo por pessoas que não vivem do extrativismo. Por isso, para permitir o uso mais sustentável destes recursos pesqueiros e para conservar as espécies, a legislação proíbe na maioria dos estados brasileiros as capturas durante as andadas. Antes da REMAR começar a fornecer subsídios para o ordenamento pesqueiro, não existia uma ferramenta para prever com exatidão se, em um dado mês, a andada ocorreria em torno da lua nova ou cheia. Assim, na maioria dos estados, a captura era proibida por precaução após ambas as fases da lua. Quando ocorria fiscalização em um período sem andada, coletores de caranguejo deixavam de trabalhar ou tinham seus caranguejos apreendidos sem necessidade. Adicionalmente, operações de fiscalização eram realizadas desnecessariamente, desperdiçando recursos públicos que poderiam ser aplicados na gestão e conservação dos caranguejos.<br>"
+  },
+  {
+    "title": "O objetivo da REMAR",
+    "content": "Nosso objetivo é permitir o uso sustentável de caranguejos, conservar as espécies e evitar os problemas socioeconômicos que podem acontecer se os períodos de proibição de captura estiverem errados. Para conseguir isso, a REMAR estudou a sincronia do ritmo reprodutivo de caranguejos com ciclos geofísicos em locais com diferentes ambientes, tanto em relação a clima como a marés, e desenvolveu uma ferramenta que permite uma previsão robusta das fases da lua em que os caranguejos irão andar nos anos futuros. Desde 2020, as previsões vêm sendo utilizadas na elaboração de instruções normativas para a suspensão de captura do caranguejo-uçá durante a época da sua reprodução no Norte e Nordeste do Brasil. As previsões corretas da ocorrência das andadas trazem importantes vantagens: Nos períodos SEM andadas, a liberação da captura permite que extrativistas e comerciantes obtenham renda, evita conflitos entre órgãos fiscalizadores e extrativistas, evita o desperdício de recursos públicos com fiscalizações desnecessárias e aumenta a credibilidade da comunidade extrativista nos cientistas, tomadores de decisão e gestores, permitindo a maior adesão aos períodos de suspensão de captura. Assim, a adequada suspensão de captura apenas nos períodos COM andadas permite uma maior participação popular e maior canalização de recursos para operações de fiscalização mais eficientes. O resultado final é uma gestão pesqueira mais eficaz e uma pesca mais sustentável.<br>"
+  },
+  {
+    "title": "Por que o caranguejo-uçá e o guaiamum?",
+    "content": "O caranguejo-uçá, <i>Ucides cordatus</i>, é uma espécie que vive em tocas na lama e se alimenta basicamente de folhas de mangues, sendo, portanto, de grande importância para a teia alimentar do manguezal. Já o guaiamum, <i>Cardisoma guanhumi</i>, cava suas tocas em áreas de restinga, um dos ambientes mais ameaçados pela ocupação humana desordenada. Ambas as espécies realizam andadas, quando então ficam extremamente vulneráveis à captura, não só por extrativistas profissionais, mas pelas pessoas em geral, o que pode comprometer a sustentabilidade das suas pescarias.<br>"
+  },
+  {
+    "title": "Como você pode contribuir?",
+    "content": "A equipe da REMAR não tem recursos para observar e contar os caranguejos durante a andada em todos estados e localidades do Brasil, por isso precisamos da sua ajuda para, através do aplicativo REMAR<small>_CIDADÃO</small>, fornecer preciosas informações sobre presença e ausência de andadas em torno da lua cheia e nova nos meses de reprodução dos caranguejos. Assim, com apenas 14 cliques (opção avançada) ou 10 cliques (opção básica), você terá a chance de atuar como um verdadeiro pesquisador e ainda contribuir para o uso sustentável de um importante recurso pesqueiro e para melhorar a qualidade de vida dos extrativistas. A sua contribuição é fundamental para a avaliação e aprimoramento das previsões de andadas e das normativas de suspensão de captura de caranguejos nos anos futuros.<br>"
+  },
+  {
+    "title": "Como informar sobre várias andadas, e sobre andadas de anos anteriores",
+    "content": "Caso tenha observado, em um mesmo mês, andadas em torno da lua nova e da lua cheia, por favor envie as informações separadamente para cada fase lunar, usando o aplicativo duas vezes (uma vez para cada observação). Caso tenha guardado observações de anos anteriores, você ainda pode inserir as informações selecionando o respectivo ano passado no menu da página de seleção de ano (enviar separadamente as informações de cada andada, de cada mês e ano, utilizando o aplicativo quantas vezes for necessário).<br>"
+  },
+  {
+    "title": "Quem somos?",
+    "content": "Nós somos pesquisadores de universidades e centros de pesquisa dedicados ao estudo de animais marinhos, entre os quais se destacam os caranguejos com importância ecológica e socioeconômica.<br><br>Coordenadores científicos da REMAR:<br>Profa. Dra. Karen Diele, Edinburgh Napier University, Escócia, UK<br>Dr. Anders J. Schmidt, Universidade Federal do Sul da Bahia, Brasil<br><br>Colaboradores principais no Brasil<br>MSc. Márcio Ferreira, Universidade do Estado do Amapá, UEAP, AP<br>Dr. Darlan Simith, UFPA, PA<br>Dr. José Mourão, UEPB, PB<br>MSc. Andrei Cardoso, ICMBio, APA Costa Dos Corais, AL (antes RESEXMAR, Soure, PA)<br>Dra. Ana Rosa da Rocha Araujo, UFS, SE<br>Dr. Luiz Fernando Fernandez, UFES, ES<br>Prof. Paulo Lana, UFPR, PR<br>Dr. Paulo Pagliosa, UFSC, SC<br><br>"
+  },
+  {
+    "title": "Contato",
+    "content": "Se você deseja entrar em contato com REMAR, por favor use<br><b><a href=\"mailto:remar.quest@gmail.com?subject=Pergunta para REMAR\">remar.quest@gmail.com</a></b><br>"
+  },
+  {
+    "title": "Quem desenvolveu este aplicativo?",
+    "content": "O aplicativo REMAR<small>_CIDADÃO</small> foi idealizado e desenvolvido pela Profa. Dra. Karen Diele, da Edinburgh Napier University, Reino Unido, e pelo Dr. Anders J. Schmidt, da Universidade Federal do Sul da Bahia, Brasil.<br><br>A programação foi realizada por engenheiros e estudantes de computação da Edinburgh Napier University: Dr. Simon Wells, Profa. Dra. Emma Hart, Dr. Neil Urquhart, Michael Gauld e Maxime Greffe.<br><br>O trabalho foi patrocinado pela Edinburgh Napier University e pelo \"Fisheries Science Forum\" da \"Marine Alliance for Science and Technology for Scotland (MASTS)\", e teve apoio do \"SUPER  Doctoral Training Partnership\", financiado pelo \"Natural Environment Research Council (NERC)\". Créditos das ilustrações de caranguejos: Frederico Lencioni Neto. Crédito da foto do guaiamum (imagem da direita na página inicial do aplicativo): Paula Saldanha, Pedro S. Werneck, Tiago Almeida.<br>"
+  },
+  {
+    "title": "O que acontece com os dados recebidos pelo aplicativo REMAR<small>_CIDADÃO</small>?",
+    "content": "Os dados recebidos por meio do aplicativo são enviados para um servidor de dados alojado na Edinburgh Napier University. Metadados podem ser visualizados pelo público em geral por meio de consultas pré-definidas na “webpage” da REMAR na UFSB (dados disponíveis a partir da temporada 2020/2021). A REMAR fará uso dos dados em relatórios e publicações e reconhecerá os usuários anônimos do aplicativo nas seções de agradecimentos.<br>"
+  },
+  {
+    "title": "Onde ver as análises?",
+    "content": "Para ver as análises das informações que recebemos de você e de outros cientistas cidadãos, por favor consulte a página da REMAR em<br><b><a href=\"https://ufsb.edu.br/remar/o-remar-cidadao\">https://ufsb.edu.br/remar/o-remar-cidadao</a></b><br>OU<br><b><a href=\"http://crabdata.napier.ac.uk/public/\">http://crabdata.napier.ac.uk/public/</a></b><br>"
+  },
+  {
+    "title": "Como testar o aplicativo?",
+    "content": "Você pode testar o aplicativo, ou explicar o seu uso para outra pessoa, digitando respostas não reais e clicando em um botão específico na página final do aplicativo. As respostas do teste não serão mandadas para o servidor de dados."
+  }
+]

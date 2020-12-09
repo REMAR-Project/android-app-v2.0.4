@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/appBackgroundColor" >
+
+        <LinearLayout
+            android:id="@+id/mainToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1.6"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:id="@+id/toolbarTitleText"
+                android:orientation="horizontal"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp">
+
+                <TextView
+                    android:id="@+id/toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/toolbar_app_name"
+                    android:textSize="@dimen/toolbar_title"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:gravity="center_horizontal"
+                    android:textColor="@color/toolbarTitle" />
+
+                <me.grantland.widget.AutofitTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/toolbar_app_sub_name"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="2dp"
+                    android:textColor="@color/toolbarTitle"
+                    android:textAlignment="center"
+                    android:gravity="center_horizontal"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/toolbar_image1"
+                android:layout_width="0dp"
+                android:layout_weight="0.8"
+                android:layout_height="60dp"
+                android:orientation="horizontal"
+                android:layout_gravity="center_vertical"
+                tools:ignore="Suspicious0dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:layout_marginLeft="@dimen/toolbar_image_padding"
+                    android:src="@drawable/raster_logo_ufsb"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/toolbar_image2"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="60dp"
+                android:orientation="horizontal"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="5dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:layout_marginStart="@dimen/toolbar_image_padding"
+                    android:layout_marginLeft="@dimen/toolbar_image_padding"
+                    android:src="@drawable/raster_logo_napier" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/separator"
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:background="@color/colorPrimary"
+            android:layout_below="@+id/mainToolbar"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

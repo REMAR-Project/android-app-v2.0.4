@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/appBackgroundColor"
+    tools:context=".Questions.QuestionExpanders.DateRangeExpander">
+
+    <include layout="@layout/include_toolbar"
+        android:id="@+id/toolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        />
+
+    <ScrollView
+        android:id="@+id/yesScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/back_next_include"
+        android:layout_below="@id/toolbar">
+
+        <LinearLayout
+            android:id="@+id/content_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:orientation="vertical">
+
+            <include layout="@layout/include_image_text"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                />
+
+            <TextView
+                android:id="@+id/question_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/description"
+                android:textStyle="bold"
+                android:layout_marginBottom="@dimen/description_margin_bottom"
+                android:textColor="@color/questionOfQuestionText"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/description_margin_bottom" >
+
+                <CheckBox
+                    android:id="@+id/chk_yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/checkbox_text"
+                    android:textStyle="bold"
+                    android:textColor="@color/questionOfQuestionText"
+                    android:text="@string/yes"
+                    android:buttonTint="@color/colorPrimary"/>
+
+                <CheckBox
+                    android:id="@+id/chk_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/checkbox_text"
+                    android:textStyle="bold"
+                    android:textColor="@color/questionOfQuestionText"
+                    android:text="@string/no"
+                    android:buttonTint="@color/colorPrimary"/>
+
+                <CheckBox
+                    android:id="@+id/chk_maybe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/checkbox_text"
+                    android:textStyle="bold"
+                    android:textColor="@color/questionOfQuestionText"
+                    android:text="@string/maybe"
+                    android:buttonTint="@color/colorPrimary"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/extra_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/description"
+                android:textStyle="bold"
+                android:layout_marginBottom="@dimen/description_margin_bottom"
+                android:textColor="@color/questionOfQuestionText"
+                android:visibility="gone"
+                />
+
+            <LinearLayout
+                android:id="@+id/extra_details_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_grey"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <ListView
+                    android:id="@+id/extra_listview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/listview_margin"
+                    android:choiceMode="singleChoice"
+                    android:listSelector="@drawable/background_list"
+                    android:scrollbarAlwaysDrawVerticalTrack="true"
+                    android:scrollbarSize="@dimen/listview_scrollbar"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/manual_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="@color/questionOfQuestionText"
+                    android:text="@string/protectedText"
+                    android:visibility="gone"/>
+
+                <EditText
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/manual_protected"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:hint="@string/placeholder"
+                    android:textAlignment="center"
+                    android:gravity="center_horizontal"
+                    android:theme="@style/customEditText"
+                    android:inputType="text"
+                    android:maxLines="1" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <include layout="@layout/include_back_next"
+        android:id="@+id/back_next_include"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        />
+
+</RelativeLayout>

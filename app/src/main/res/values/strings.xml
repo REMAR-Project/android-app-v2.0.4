@@ -1,0 +1,125 @@
+<resources>
+    <string name="app_name"><b>REMAR</b><small>_CIDADÃO</small></string>
+    <string name="description">Monitoramento de andadas reprodutivas de caranguejos de manguezal</string>
+
+    <string name="toolbar_app_name">REMAR</string>
+    <string name="toolbar_app_sub_name">_CIDADÃO</string>
+
+    <string name="internal_error">An internal error occurred.  Please restart.</string>
+    <string name="back_button">Previous</string>
+    <string name="forward_button">Forward</string>
+    <string name="about_us">About Us</string>
+    <string name="settings">Settings</string>
+
+    <string name="proceed">Avançar</string>
+    <string name="back">Voltar</string>
+
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+    <string name="maybe">Não sei</string>
+
+    <string name="only_day">Somente de dia</string>
+    <string name="only_night">Somente de noite</string>
+    <string name="day_and_night">Dia e noite</string>
+    <string name="day_night_unknown">Não olhei</string>
+
+    <string name="done">Concluído!</string>
+    <string name="thank_you">Muito obrigado pela participação!</string>
+    <string name="citizen_scientist">Parabéns:\nAgora você é um cientista cidadão!</string>
+    <string name="thank_you_toast">Suas respostas foram enviadas com sucesso.</string>
+
+    <string name="enter_name">Escreva seu nome completo</string>
+    <string name="enter_email">Digite seu endereço eletrônico</string>
+
+    <string name="crab_title_0">Monitoramento do Caranguejo-uçá</string>
+    <string name="crab_title_1">Monitoramento do Guaiamum</string>
+
+    <string name="preference_session_id">session_id</string>
+
+    <string name="url_login">http://40180582.pythonanywhere.com/static/login</string>
+
+    <string-array name="months">
+        <item>Janeiro</item>
+        <item>Fevereiro</item>
+        <item>Março</item>
+        <item>Abril</item>
+        <item>Maio</item>
+        <item>Junho</item>
+        <item>Julho</item>
+        <item>Agosto</item>
+        <item>Setembro</item>
+        <item>Outubro</item>
+        <item>Novembro</item>
+		<item>Dezembro</item>
+    </string-array>
+
+    <string-array name="years">
+        <item>2016</item>
+        <item>2017</item>
+        <item>2018</item>
+        <item>2019</item>
+        <item>2020</item>
+        <item>2021</item>
+        <item>2022</item>
+        <item>2023</item>
+        <item>2024</item>
+        <item>2025</item>
+    </string-array>
+
+    <string name="pref_postFrequency_title">Post Frequency</string>
+    <string name="pref_postFrequency_summary">The frequency with which the app attempts to post answers to the web.</string>
+    <string-array name="pref_postFrequency_entries">
+        <item>1 minute</item>
+        <item>5 minutes</item>
+        <item>15 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>24 hours</item>
+    </string-array>
+    <string-array name="pref_postFrequency_values">
+        <item>60000</item>
+        <item>300000</item>
+        <item>900000</item>
+        <item>3600000</item>
+        <item>10800000</item>
+        <item>86400000</item>
+    </string-array>
+    <string name="pref_postFrequency_default">3600000</string>
+
+    <string name="menu">Saiba mais</string>
+
+    <string name="calendar_legend_new_moon">Lua nova</string>
+    <string name="calendar_legend_full_moon">Lua cheia</string>
+
+    <string name="andada_new_0">Houve andada em torno da &lt;b>lua nova&lt;/b></string>
+    <string name="andada_full_0">Houve andada em torno da &lt;b>lua cheia&lt;/b></string>
+	<string name="andada_newfull_0">Houve andada em torno da &lt;b>lua cheia e lua nova&lt;/b></string>
+    <string name="andada_new_1">&lt;b>Não&lt;/b> houve andada em torno da a &lt;b>lua nova&lt;/b></string>
+    <string name="andada_full_1">&lt;b>Não&lt;/b> houve andada em torno da a &lt;b>lua cheia&lt;/b></string>
+
+    <string name="back_next_description_text">Clique nas setas para\navançar ou voltar</string>
+
+    <string name="protectedText">Toque no espaço e escreva o nome da unidade de conservação onde você viu a andada e depois clique em avançar.</string>
+	
+	<string name="TestVersion">Versão deTESTE</string>
+	<string name="test2">This is a test! Two</string>
+
+    <string name="closeapp">Quero sair</string>
+    <string name="returntostart">Quero continuar informar outra andada</string>
+
+    <string name="not_in_list">Nome não está na lista</string>
+
+    <string name="read_more">Para mais informações, toque com dedo no botão verde Saiba Mais abaixo.</string>
+    <string name="placeholder">Digite aqui</string>
+
+    <string name="doneContact">Você gostou deste aplicativo? \n<b>Para avaliar/comentar, <a href="https://play.google.com/store/apps/details?id=com.github.hintofbasil.crabbler">clique aqui</a></b>.</string>
+    <string name="lastPageData">Estou apenas testando/mostrando o aplicativo sem enviar respostas reais</string>
+
+    <string name="privacyPolicy">Política de Privacidade</string>
+    <string name="privacyPolicyContent">A Edinburgh Napier University está em conformidade com a lei de proteção de dados. Este aplicativo não coleta especificamente quaisquer dados pessoais e pedimos que você não forneça quaisquer dados pessoais nos campos de texto livre enviados. No entanto, se você fornecer inadvertidamente quaisquer dados pessoais, iremos proteger estes dados em conformidade com o Regulamento Geral de Proteção de Dados (GDPR) e outras leis de proteção de dados relevantes.</string>
+
+    <string name="testWarning">Testando o aplicativo</string>
+    <string name="testWarningContent">Obrigado por testar o REMAR<small>_CIDADÃO</small>. Entendemos que as respostas enviadas não são reais e não iremos analisá-las.</string>
+    <string name="testWarningBack">Voltar</string>
+    <string name="testWarningAccept">Continuar</string>
+</resources>

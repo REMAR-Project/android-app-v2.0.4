@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/appBackgroundColor"
+    tools:context=".Questions.QuestionExpanders.DateRangeExpander">
+
+    <include layout="@layout/include_toolbar"
+        android:id="@+id/toolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/back_next_include"
+        android:layout_below="@id/toolbar" >
+
+        <LinearLayout
+            android:id="@+id/content_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/activity_vertical_margin"
+            android:orientation="vertical">
+
+            <include layout="@layout/include_image_text"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/questionOfQuestionText"
+                android:textSize="@dimen/description"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="@dimen/toolbar_vertical_margin"
+                android:layout_marginBottom="@dimen/toolbar_vertical_margin">
+
+                <View
+                    android:layout_width="@dimen/calendar_legend_moon"
+                    android:layout_height="@dimen/calendar_legend_moon"
+                    android:background="@drawable/ic_moon_new" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/calendar_legend_new_moon"
+                    android:paddingLeft="@dimen/calendar_legend_moon_text_spacing"
+                    android:paddingStart="@dimen/calendar_legend_moon_text_spacing"
+                    android:paddingRight="@dimen/calendar_legend_element_spacing"
+                    android:paddingEnd="@dimen/calendar_legend_element_spacing"
+                    android:textColor="@color/questionOfQuestionText"
+                    android:textSize="@dimen/legend_text"/>
+
+                <View
+                    android:layout_width="@dimen/calendar_legend_moon"
+                    android:layout_height="@dimen/calendar_legend_moon"
+                    android:background="@drawable/ic_moon_full" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/calendar_legend_full_moon"
+                    android:paddingLeft="@dimen/calendar_legend_moon_text_spacing"
+                    android:paddingStart="@dimen/calendar_legend_moon_text_spacing"
+                    android:textColor="@color/questionOfQuestionText"
+                    android:textSize="@dimen/legend_text"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <include layout="@layout/include_back_next"
+        android:id="@+id/back_next_include"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        />
+
+</RelativeLayout>

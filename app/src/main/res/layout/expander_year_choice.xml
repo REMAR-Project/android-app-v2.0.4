@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/appBackgroundColor"
+    tools:context=".Questions.QuestionExpanders.YearChoiceExpander"
+    >
+
+    <include layout="@layout/include_toolbar"
+        android:id="@+id/toolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:layout_above="@+id/back_next_include"
+        android:layout_below="@+id/toolbar">
+
+        <LinearLayout
+            android:id="@+id/content_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:orientation="vertical">
+
+            <include layout="@layout/include_image_text"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent" />
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:id="@+id/question_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/questionOfQuestionText"
+                android:textSize="@dimen/description" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/listview_min_size"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:baselineAligned="false"
+                android:background="@drawable/border_grey" >
+
+                <ListView
+                    android:id="@+id/year_list_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:choiceMode="singleChoice"
+                    android:listSelector="@drawable/background_list"
+                    android:scrollbarAlwaysDrawVerticalTrack="true"
+                    android:scrollbarSize="@dimen/listview_scrollbar"
+                    android:layout_margin="@dimen/listview_margin"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <include layout="@layout/include_back_next"
+        android:id="@+id/back_next_include"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent" />
+
+</RelativeLayout>

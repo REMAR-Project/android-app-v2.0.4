@@ -1,0 +1,58 @@
+[
+  {
+    "title": "Version 2.0",
+    "content": "In December 2020, version 1.0 of the REMAR<small>_CIDADÃO</small> application (launched in November 2017) was replaced by version 2.0. The new version has improvements in layout and question sequences. Note that you can now test the application, or explain its use to someone else, by typing non-real responses and clicking on a specific button on the final page of the application. Test responses will not be sent to the data server.<br>"
+  },
+  {
+    "title": "What is REMAR?",
+    "content": "Founded in 2013, REMAR is a network of researchers from various locations and institutions in Brazil and Scotland, studying the occurrence of mass mating events (locally called andada) of mangrove crabs. REMAR conducts field work using a rapid assessment method, which involves counting the crabs performing andada in various Brazilian mangroves, from north to south. Additionally, in 2017, REMAR developed the REMAR<small>_CIDADÃO</small> smartphone application, which allows participatory monitoring where crab fishers and the general public can provide information on the occurrence of andada events (citizen science).<br>"
+  },
+  {
+    "title": "What is andada?",
+    "content": "Andada, also called andança, carnaval or suatá, is a phenomenon in which the crabs come out of their burrows, are agitated and perform mass movements for mate-searching and mating. In Brazil, andada typically occurs around new moon, or around full moon, or, occasionally, around both syzygy moon phases, during three to four months between November and April each year (depending upon the location).<br>"
+  },
+  {
+    "title": "Why do we want to know when andada occurs?",
+    "content": "During andada events, crabs are mate-searching and mating outside their burrows and can therefore be easily captured in large quantities, even by non-professionals, i.e. people who do not normally make their living from collecting crabs. For this reason, in order to allow a more sustainable use and to conserve the species, in most Brazilian states the legislation prohibits crab capture during andada events. Before REMAR started providing scientific advice for fisheries management, there was no tool to accurately predict whether, in a given future month, andada would take place around new or full moon. Thus, in most states, capture was prohibited as a precaution around both syzygy moons. When policing took place during a syzygy phase without andada, crab fishers had to stop working or had their crabs seized unnecessarily. Additionally, policing operations were performed unnecessarily, wasting public resources that could instead help to improve the management and conservation of the crabs.<br>"
+  },
+  {
+    "title": "The aims of REMAR",
+    "content": "Our goal is to enable the sustainable fishery of crabs, conserve the species and avoid socioeconomic problems that are taking place when the placement  of capture bans is biologically wrong. To achieve this, REMAR has studied the synchrony of the reproductive rhythm of the crabs with geophysical cycles at locations with different climate and tidal regimes, and has developed a tool that allows a robust forecast of the likely moon phases when crabs will perform andada in future years. REMAR’s forecasts have been implemented into the Government’s normative instructions for the suspension of mangrove crab capture (caranguejo-uçá)  during  the reproductive season in North and Northeast Brazil. Correct predictions of the occurrence of andada events are avantageous for several reasons:  At full or new moon phases WITHOUT andada happening, the release of precautionary capture bans allows crab fishers and traders to earn income, it avoids conflicts between policing staff and fishers, it avoids the waste of public resources through unnecessary policing, and, importandly, it increases the credibility of scientists, decision makers and managers among fishers and traders, resulting in greater law compliance.  The correct placement of capture bans only at syzygy phases WITH andada events happening promotes public participation in the fisheries management process and the channeling of limited fincial resources to more efficient policing. The end result is a more effective participatory fisheries management, enhanced sustainability and species conservation.<br>"
+  },
+  {
+    "title": "Why <i>Ucides cordatus</i> and <i>Cardisoma guanhumi</i>?",
+    "content": "The mangrove crab <i>Ucides cordatus</i> is a species that lives in burrows in the mud and feeds on mangrove leaf litter. It therefore is of great importance to the food web of mangrove ecosystems. The land crab <i>Cardisoma guanhumi</i> digs its burrows in salt marshes near mangroves and is one of the most threatened crab species in Brazil due to human encroachment and habitat destruction. Both species perform andada, where they are extremely vulnerable to excessive crab capture, not only by professional fishers, but also by the general public, which can compromise the sustainability of their fisheries.<br>"
+  },
+  {
+    "title": "How can you contribute?",
+    "content": "The REMAR team does not have the resources to observe and count the crabs during andada events in all states and locations in Brazil, so we need your help to provide precious information about presence and absence of andada events around full and new moons during the crabs’ reproductive season, through the use of the REMAR<small>_CIDADÃO</small> application . With just 14 clicks (advanced option) or 10 clicks (basic option), you will have the chance to act as a true researcher and contribute to the sustainability of an important fishery and to improve the quality of life of fishers. Your contribution is fundamental for the evaluation and improvement of the predictions of andada events and capture bans in future years.<br>"
+  },
+  {
+    "title": "How to inform about multiple andadas, and andadas in previous years?",
+    "content": "If you have observed two andada events in any given month (at both new and full moon), please send the data seperately, using the app twice (once for each andada).  If you have observations from previous years, these can still be reported by selecting the respective (past) year on the year selection page  in the app (again – per andada and month/year use the app once).<br>"
+  },
+  {
+    "title": "Who are we?",
+    "content": "We are researchers from universities and research centers dedicated to the study of marine animals, among them ecologically and economically important crabs.<br><br>REMAR coordinators:<br>Prof. Karen Diele, Edinburgh Napier University/St Abbs Marine Station, Scotland<br>Dr. Anders J. Schmidt, Universidade Federal do Sul da Bahia, Brazil<br><br>Key collaborators<br>Dr. Marcio Ferreira, Universidade do Estado do Amapá (UEAP), AP<br>Dr. Darlan Simith, UFPA, PA<br>Dr. José Mourão, UEPB, PB<br>MSc. Andrei Cardoso, ICMBio, APA Costa Dos Corais, AL (antes RESEXMAR, Soure, PA)<br>Dr. Ana Rosa Araújo, UFS, SE<br>Dr. Luiz Fernando Fernandez, UFES, ES<br>Prof. Paulo Lana, UFPR, PR<br>Dr. Paulo Pagliosa, UFSC, SC<br>"
+  },
+  {
+    "title": "Who developed this application",
+    "content": "The REMAR<small>_CIDADÃO</small> application was developed by Prof. Karen Diele, Edinburgh Napier University, UK, and Dr. Anders J. Schmidt, Universidade Federal do Sul Da Bahia, Brazil.<br><br>Programming was performed by software engineers and students from Edinburgh Napier University: Dr. Simon Wells, Prof. Emma Hart, Dr. Neil Urquhart, Michael Gauld and Maxime Greffe. Credit for the illustrations of the crabs:  Frederico Lencioni Neto. Credit for  Cardisoma guanhumi photo on  former page (left photo): Paula Saldanha.<br><br>The work was sponsored by Edinburgh Napier University Internships and a Summer Placement Studentship provided by the Fisheries Science Forum of the Marine Alliance for Science and Technology for Scotland, MASTS and by the Doctoral Training partnership SUPER, funded by the Natural Environment Research Council (NERC).<br>"
+  },
+  {
+    "title": "Contact",
+    "content": "If you wish to contact REMAR, please use<br><a href=\"mailto:remar.quest@gmail.com?subject=Question for REMAR\">remar.quest@gmail.com</a><br>"
+  },
+  {
+    "title": "How is the data received by REMAR_Citizen processed?",
+    "content": "The data received through the application is sent to a data server hosted at Edinburgh Napier University. Metadata can be viewed by the general public through pre-defined queries on the REMAR webpage at UFSB (data available from the 2020/2021 season). REMAR will use the data in reports and publications and recognize anonymous users of the application in the acknowledgment sections.<br>"
+  },
+  {
+    "title": "Where can you see the results?",
+    "content": "To view analyzes of the information we receive from you and other citizen scientists, please see the REMAR website at<br><b><a href=\"https://ufsb.edu.br/remar/o-remar-cidadao\">https://ufsb.edu.br/remar/o-remar-cidadao</a></b><br>OR<br><b><a href=\"http://crabdata.napier.ac.uk/public/\">http://crabdata.napier.ac.uk/public/</a></b><br>"
+  },
+  {
+    "title": "How to test the application?",
+    "content": "You can test the app, or explain its use to someone else, by typing non-real responses and clicking a specific button on the app's final page. Test responses will not be sent to the data server."
+  }
+]

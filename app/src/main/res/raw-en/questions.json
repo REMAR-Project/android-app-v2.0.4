@@ -1,0 +1,189 @@
+[
+  {
+    "questionNumber": 0,
+    "questionType": "Auto",
+    "questionText": "",
+    "choiceOneTitle": "TestVersion",
+    "choiceOnePicture": "q0_0",
+    "version": "1.0"
+  },
+  {
+    "questionNumber": 1,
+    "questionType": "ModeChoose",
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)",
+    "description": "<b>Choose one of the below options by tapping with finger.</b>",
+    "choiceOneText": "<b>Simple<br>version</b>",
+    "choiceOneTextTwo": "<b>Basic<br>10 clicks</b>",
+    "choiceTwoText": "<b>Full<br>version</b>",
+    "choiceTwoTextTwo": "<b>Advanced<br>14 clicks</b>",
+    "backText": "Press to go back",
+    "forwardText": "Press to proceed"
+  },
+  {
+    "questionNumber": 2,
+    "questionType": "TwoPictureChoice",
+    "questionText": "<b>Become a citizen scientist</b> and help record mass mating events of commercially important Brazilian mangrove crabs.<br></br><br></br>This information will help to improve Brazilian crab fisheries legislation and fishers' livelihoods.<br></br><br></br>Click on one of the below species to share your observations.",
+    "choiceOneTitle": "Ucides cordatus",
+    "choiceOnePicture": "raster_q0_0",
+    "choiceTwoTitle": "Cardisoma guanhumi",
+    "choiceTwoPicture": "raster_q0_1",
+    "choiceOnePicTwo": "raster_q1_0",
+    "choiceTwoPicTwo": "raster_q1_1",
+    "backText": "Press to go back",
+    "forwardText": "Press to proceed"
+  },
+  {
+    "questionNumber": 3,
+    "questionType": "YearChoice",
+    "questionPicture": "raster_q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
+    "questionText": "When did you observe andada? Touch screen, move finger and tap to select the year you observed andada ."
+  },
+  {
+    "questionNumber": 4,
+    "questionType": "MonthChoice",
+    "questionPicture": "raster_q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
+	"questionText": "Touch screen and move finger to choose correct month. In case you saw two andadas this month (one around new moon and one around full moon), please run the app for each andada seperately.",
+    "year" : "(3:0)"
+  },
+  {
+    "questionNumber": 5,
+    "questionType": "DateRange",
+    "questionPicture": "raster_q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
+    "description": "For the andada you are reporting here, touch with finger when you noted it. Remember: In case you saw andada in two periods (e.g. one around new moon and one around full moon), only mark ONE period (SEVERAL CONSECUTIVE DAYS OR ONE DAY).",
+    "month": "(4:0)",
+    "year": "(3:0)",
+    "filterOnQuestion": -1,
+	"optional": false
+  },
+  {
+    "questionNumber": 6,
+    "questionType": "DateRangeSelect",
+    "questionPicture": "raster_q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
+    "description": "<b>Touch the day with the STRONGEST andada activity.<br>If you don’t know, you can proceed without selecting a date.<br><br></b>",
+    "month": "(4:0)",
+    "year": "(3:0)",
+    "filterOnQuestion": -1,
+    "optional": true
+  },
+  {
+    "questionNumber": 7,
+    "questionType": "ListSelect",
+    "questionPicture": "raster_q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
+    "description": "How do you estimate the intensity of the observed Andada:",
+    "jsonInput": "number_of_crabs.json",
+    "disableCustom": "true"
+  },
+  {
+    "questionNumber": 8,
+    "questionType": "DayNightChoice",
+    "questionPicture": "raster_q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
+	"description": "When did you observe andada? Touch correct symbol with finger.",
+    "choiceOneText": "At new moon",
+    "choiceTwoText": "At full moon",
+    "quantityQuestion": 3
+  },
+  {
+	"questionNumber": 9,
+    "questionType": "ListSelect",
+    "questionPicture": "raster_q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
+    "description": "Did you see berried (ovigerous) females?<br>Touch correct answer with finger.",
+    "jsonInput": "ovigerious.json",
+    "disableCustom": "true"
+  },
+  {
+	"questionNumber": 10,
+	"questionType": "ListSelect",
+	"questionPicture": "raster_q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
+    "description": "In which habitat did you observe the andada?<br>Touch correct answer with finger. You can chose more than one option.",
+    "jsonInput": "locations_(2:0).json",
+    "allowMultiple": "true",
+    "disableCustom": "true"
+  },
+  {
+    "questionNumber": 11,
+    "questionType": "ListSelect",
+    "questionPicture": "raster_q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
+    "description": "Touch screen, move with finger and tap to select the state where you made your observation.",
+    "jsonInput": "regions.json",
+    "disableCustom": "true"
+  },
+  {
+    "questionNumber": 12,
+    "questionType": "ListSelect",
+    "questionPicture": "raster_q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
+    "description": "Touch screen and move with finger to select the county where you made your observation.",
+    "jsonInput": "region_counties.json",
+    "disableCustom": "true",
+    "jsonKey": "(-1:0)",
+    "enableOther": true,
+    "otherText": "Touch the field and type the name of the county.",
+    "otherPosition": -1,
+    "otherIsLastItem": "true"
+  },
+  {
+    "questionNumber": 13,
+    "questionType": "YesNoExtra",
+    "questionPicture": "raster_q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
+    "questionText": "Is the monitored locality in a protected area?",
+    "extraDetailText": "Touch screen and move/tap finger to select the correct Protected Area.",
+    "cacheAnswer": true,
+    "state": "(11:0)",
+    "jsonInput": "regions_protected.json",
+    "hasManual": "true",
+    "hideHeader": "true"
+  },
+  {
+    "questionNumber": 14,
+    "questionType": "ListSelect",
+    "questionPicture": "raster_q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
+    "description": "Please can you let us know what you do? Touch screen and move finger to select.",
+    "jsonInput": "occupation.json",
+    "disableCustom": "true"
+  },
+  {
+    "questionNumber": 15,
+    "questionType": "ListSelect",
+    "questionPicture": "raster_q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
+    "description": "Any additional observations you want to share?",
+    "jsonInput": "yes_no.json",
+    "disableCustom": "true",
+    "enableOther": true,
+    "otherText": "Please touch field and type",
+    "otherPosition": 1
+  },
+  {
+    "questionNumber": 16,
+    "questionType": "Commit",
+    "description": "If you want to contact REMAR, find out about ways to engage more with this research, ask or suggest something, please send a message to <b><a href=\"mailto:remar.quest@gmail.com?subject=Question for REMAR\">remar.quest@gmail.com</a></b>",
+    "choiceOneText": "I WANT TO SUBMIT MY ANSWERS",
+    "choiceTwoText": "I WANT TO GO BACK TO CHANGE ANSWERS"
+  },
+  {
+    "questionType": "Done",
+    "questionPicture": "raster_q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
+    "hideBackNext": true
+  },
+  {
+    "questionType": "Return",
+    "questionPicture": "raster_q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
+    "description": "To view analyses of the information we receive from you and other citizen scientists, please see the REMAR website at<br><a href=\"https://ufsb.edu.br/remar/o-remar-cidadao\">https://ufsb.edu.br/remar/o-remar-cidadao</a><br>OR<br><a href=\"http://crabdata.napier.ac.uk/public/\">http://crabdata.napier.ac.uk/public/</a><br>",
+    "choiceOneText": "I want to close the app",
+    "choiceTwoText": "I want to return to first page"
+  }
+]

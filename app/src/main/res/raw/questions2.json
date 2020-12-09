@@ -1,0 +1,149 @@
+[
+  {
+    "questionNumber": 0,
+    "questionType": "Auto",
+    "questionText": "",
+    "choiceOneTitle": "TestVersion",
+    "choiceOnePicture": "q0_0",
+    "version": "1.0"
+  },
+  {
+    "questionNumber": 1,
+    "questionType": "ModeChoose",
+    "questionPicture": "q0_(1:0)",
+    "questionTitle": "crab_title_(1:0)",
+    "description": "<b>Toque com dedo em uma das opções abaixo.</b>",
+    "choiceOneText": "<b>Quero<br>simplificar</b>",
+    "choiceOneTextTwo": "<b>Básica<br>10 cliques</b>",
+    "choiceTwoText": "<b>Quero ajudar<br>ao máximo</b>",
+    "choiceTwoTextTwo": "<b>Avançada<br>14 cliques</b>",
+    "backText": "Voltar",
+    "forwardText": "Avançar"
+  },
+  {
+    "questionNumber": 2,
+    "questionType": "TwoPictureChoice",
+    "questionText": "Ajude a monitorar as andadas reprodutivas do caranguejo-uçá e do guaiamum.<br><br>Essas informações ajudarão a prever as épocas de acasalamento e a estabelecer defesos apenas nos períodos realmente necessários.<br><br>Para passar informações sobre andada, toque em uma das duas espécies abaixo:",
+    "choiceOneTitle": "Caranguejo-uçá",
+    "choiceOnePicture": "raster_q0_0",
+    "choiceTwoTitle": "Guaiamum",
+    "choiceTwoPicture": "raster_q0_1",
+    "choiceOnePicTwo": "raster_q1_0",
+    "choiceTwoPicTwo": "raster_q1_1",
+    "backText": "Voltar",
+    "forwardText": "Avançar"
+  },
+  {
+    "questionNumber": 3,
+    "questionType": "YearChoice",
+    "questionPicture": "raster_q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
+    "questionText": "Quando você viu uma andada?<br>Deslize o dedo sobre a tela e toque para escolher o ano."
+  },
+  {
+    "questionNumber": 4,
+    "questionType": "MonthChoice",
+    "questionPicture": "raster_q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
+    "questionText": "Deslize o dedo sobre a tela para selecionar o mês em que observou a andada.<br>Caso tenha observado andadas em dois períodos deste mês (ex. um em torno da lua nova, e outro em torno da lua cheia), por favor envie um questionário para cada período de andada, separadamente.",
+    "year" : "(3:0)"
+  },
+  {
+    "questionNumber": 5,
+    "questionType": "DateRange",
+    "questionPicture": "raster_q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
+    "description": "Marque no calendário quando você observou a andada.<br><b>Lembre-se!</b> Caso neste mês tenha visto andadas em dois períodos (ex. um em torno da lua nova, e outro em torno da cheia), marque somente UM período (vários dias SEGUIDOS, ou apenas um dia).",
+    "month": "(4:0)",
+    "year": "(3:0)",
+    "filterOnQuestion": -1,
+    "optional": false
+  },
+  {
+    "questionNumber": 6,
+    "questionType": "ListSelect",
+    "questionPicture": "raster_q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
+    "description": "Como você estima a intensidade da andada observada:",
+    "jsonInput": "number_of_crabs.json",
+    "disableCustom": "true"
+  },
+  {
+    "questionNumber": 7,
+    "questionType": "ListSelect",
+    "questionPicture": "raster_q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
+    "description": "Qual o estado em que foi feito o monitoramento?<br>Deslize o dedo sobre a tela e toque para escolher.",
+    "jsonInput": "regions.json",
+    "disableCustom": "true"
+  },
+  {
+    "questionNumber": 8,
+    "questionType": "ListSelect",
+    "questionPicture": "raster_q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
+    "description": "Deslize o dedo sobre a tela e toque para escolher o município onde você viu a andada.",
+    "jsonInput": "region_counties.json",
+    "disableCustom": "true",
+    "jsonKey": "(-1:0)",
+    "enableOther": true,
+    "otherText": "Toque no espaço e escreva o nome do município e depois clique em avançar.",
+    "otherPosition": -1,
+    "otherIsLastItem": "true"
+  },
+  {
+    "questionNumber": 9,
+    "questionType": "YesNoExtra",
+    "questionPicture": "raster_q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
+    "questionText": "A localidade monitorada está em unidade de conservação (ex. RESEX, APA, Parque)?",
+    "extraDetailText": "Deslize o dedo sobre a tela para achar a unidade de conservação e toque para escolher.",
+    "cacheAnswer": true,
+    "state": "(7:0)",
+    "jsonInput": "regions_protected.json",
+    "hasManual": "true",
+    "hideHeader": "true"
+  },
+  {
+    "questionNumber": 10,
+    "questionType": "ListSelect",
+    "questionPicture": "raster_q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
+    "description": "Por favor, poderia informar o que você faz?<br>Deslize o dedo sobre a tela e toque para escolher.",
+    "jsonInput": "occupation.json",
+    "disableCustom": "true"
+  },
+  {
+    "questionNumber": 11,
+    "questionType": "ListSelect",
+    "questionPicture": "raster_q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
+    "description": "Algo mais que você gostaria de dizer?",
+    "jsonInput": "yes_no.json",
+    "disableCustom": "true",
+    "enableOther": true,
+    "otherText": "Toque no espaço para escrever e depois clique em avançar.",
+    "otherPosition": 1
+  },
+  {
+    "questionNumber": 12,
+    "questionType": "Commit",
+    "description": "Caso queira entrar em contato com a REMAR, saber sobre formas de atuar mais intensivamente nesta pesquisa, perguntar ou sugerir algo, envie uma mensagem para <a href=\"mailto:remar.quest@gmail.com?subject=Pergunta para REMAR\">remar.quest@gmail.com</a>",
+    "choiceOneText": "QUERO MANDAR AS MINHAS RESPOSTAS",
+    "choiceTwoText": "QUERO VOLTAR PARA MUDAR AS RESPOSTAS"
+  },
+  {
+    "questionType": "Done",
+    "questionPicture": "raster_q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
+    "hideBackNext": true
+  },
+  {
+    "questionType": "Return",
+    "questionPicture": "raster_q0_(2:0)",
+    "questionTitle": "crab_title_(2:0)",
+    "description": "Para ver as análises das informações que recebemos de você e de outros cientistas cidadãos, por favor consulte a página da REMAR em<br><b><a href=\"https://ufsb.edu.br/remar/o-remar-cidadao\">https://ufsb.edu.br/remar/o-remar-cidadao</a></b><br>OU<br><b><a href=\"http://crabdata.napier.ac.uk/public/\">http://crabdata.napier.ac.uk/public/</a></b><br>",
+    "choiceOneText": "Quero sair",
+    "choiceTwoText": "Quero continuar informar outra andada"
+  }
+]

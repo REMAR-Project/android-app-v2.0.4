@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <licenses>
+        <drawable>
+            <image>expand.png</image>
+            <licence>Creative Commons</licence>
+            <source>https://www.iconfinder.com/icons/69590/basic_blue_expand_toggle_icon#size=48</source>
+        </drawable>
+        <drawable>
+            <image>contract.png</image>
+            <licence>Creative Commons</licence>
+            <source>https://www.iconfinder.com/icons/69586/basic_blue_collapse_toggle_icon#size=48</source>
+        </drawable>
+        <drawable>
+            <image>next.png</image>
+            <licence>Free for commercial use</licence>
+            <source>https://www.iconfinder.com/icons/293276/next_right_icon#size=64</source>
+        </drawable>
+        <drawable>
+            <image>previous.png</image>
+            <licence>Free for commercial use</licence>
+            <source>https://www.iconfinder.com/icons/293277/left_pre_previous_icon#size=64</source>
+        </drawable>
+        <drawable>
+            <image>day.png</image>
+            <licence>License: Free for commercial use</licence>
+            <source>https://www.iconfinder.com/icons/183467/sun_icon#size=128</source>
+        </drawable>
+        <drawable>
+            <image>night.png</image>
+            <licence>License: Free for commercial use</licence>
+            <source>https://www.iconfinder.com/icons/183379/moon_stars_icon#size=128</source>
+        </drawable>
+    </licenses>
+</selector>

@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 33
 
     defaultConfig {
         applicationId "com.github.hintofbasil.crabbler"
         minSdkVersion 16
-        targetSdkVersion 29
-        versionCode 7
-        versionName "2.0.4"
+        targetSdkVersion 33
+        versionCode 34
+        versionName "2.0.6"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -19,6 +19,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    namespace 'com.github.hintofbasil.crabbler'
 }
 
 dependencies {
@@ -27,7 +28,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'com.google.android.material:material:1.0.0'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.roomorama:caldroid:3.0.1'
     implementation 'me.grantland:autofittextview:0.2.+'

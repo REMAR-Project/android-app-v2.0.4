@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.github.hintofbasil.crabbler">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -14,16 +13,23 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
-        tools:targetApi="m">
+        tools:targetApi="m"
+        android:exported="true"
+        >
+
 
         <service android:name="com.github.hintofbasil.crabbler.BackgroundDataPost.DataPostProcessService" />
 
         <activity
             android:name="com.github.hintofbasil.crabbler.Questions.QuestionActivity"
-            android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity android:name="com.github.hintofbasil.crabbler.AboutUsActivity" />
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:exported="true" />
+
+        <activity android:name="com.github.hintofbasil.crabbler.AboutUsActivity" android:exported="true" />
+
         <activity android:name="com.github.hintofbasil.crabbler.MainActivity"
-            android:windowSoftInputMode="stateAlwaysHidden">
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

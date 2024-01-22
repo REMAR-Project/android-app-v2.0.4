@@ -21,7 +21,8 @@ public class RegisterHelper extends PostHelper {
     Context context;
 
     public RegisterHelper(SharedPreferences prefs, Context context) {
-        super("http://crab.napier.ac.uk/api/0.2/users");
+        //super("http://crab.napier.ac.uk/api/0.2/users");
+        super("http://remar-dev.watson.vc/api/0.2/users");
         //super(null);
         this.prefs = prefs;
         this.context = context;

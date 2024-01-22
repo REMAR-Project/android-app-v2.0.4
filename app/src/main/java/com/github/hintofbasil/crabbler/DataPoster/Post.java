@@ -19,7 +19,8 @@ public class Post {
     {
         RequestQueue queue = Volley.newRequestQueue(context);
 
-        String url = "http://crab.napier.ac.uk/api/0.2/sightings";
+        //String url = "http://crab.napier.ac.uk/api/0.2/sightings";
+        String url = "http://remar-dev.watson.vc/submission";
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>()
                 {

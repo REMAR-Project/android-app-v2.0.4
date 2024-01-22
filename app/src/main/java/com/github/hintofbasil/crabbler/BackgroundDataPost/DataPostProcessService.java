@@ -97,7 +97,8 @@ public class DataPostProcessService extends IntentService {
         if (GlobalVariables.appTest == false)
         {
             //this.url = new URL("http://192.168.1.84:8080/api/0.2/sightings");
-            url = "http://crab.napier.ac.uk/api/0.2/sightings";
+            //url = "http://crab.napier.ac.uk/api/0.2/sightings";
+            url = "http://remar-dev.watson.vc/submission"; // Test URL for Group Project
 
         }
         else

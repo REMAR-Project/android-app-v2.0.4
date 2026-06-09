@@ -13,10 +13,23 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    def keystorePath = file("release.keystore")
+    signingConfigs {
+        release {
+            if (keystorePath.exists()) {
+                storeFile keystorePath
+                storePassword "remar123"
+                keyAlias "remar"
+                keyPassword "remar123"
+            }
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
     namespace 'com.github.hintofbasil.crabbler'
@@ -32,6 +45,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.roomorama:caldroid:3.0.1'
     implementation 'me.grantland:autofittextview:0.2.+'
-    implementation 'com.android.volley:volley:1.1.1'
+    implementation 'com.android.volley:volley:1.2.1'
 
 }

@@ -195,6 +195,15 @@ public class QuestionActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onDestroy() {
+        try {
+            super.onDestroy();
+        } catch (NullPointerException e) {
+            Log.w("QuestionActivity", "Ignored NPE during onDestroy (Caldroid compat)", e);
+        }
+    }
+
+    @Override
     public void onBackPressed()
     {
         if (expander.getClass().getSimpleName().equals("ModeChooseExpander"))

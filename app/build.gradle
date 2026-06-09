@@ -33,6 +33,19 @@ android {
         }
     }
     namespace 'com.github.hintofbasil.crabbler'
+
+    configurations.all {
+        resolutionStrategy {
+            force 'androidx.fragment:fragment:1.2.5'
+            force 'androidx.activity:activity:1.2.4'
+        }
+    }
+
+    packaging {
+        resources {
+            excludes += ['META-INF/NOTICE', 'META-INF/LICENSE']
+        }
+    }
 }
 
 dependencies {

@@ -20,3 +20,22 @@ Links to the playstore:
 (please note the app can only be downloaded from the Brazilian playstore, with a Brazilian google account)
 
 ![](https://raw.githubusercontent.com/musevarg/REMAR-android-app/android-app-2020/images/app-screenshots.png)
+
+## Building & running
+
+Build a debug APK:
+
+    ./gradlew assembleDebug
+
+Install and launch on a running emulator:
+
+    adb install app/build/outputs/apk/debug/app-debug.apk
+    adb shell am start -n com.github.hintofbasil.crabbler/.MainActivity
+
+View crash logs:
+
+    adb logcat -s AndroidRuntime:* *:S
+
+Or stream all app logs in real time:
+
+    adb logcat | grep crabbler

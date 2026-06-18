@@ -1,14 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 33
+    compileSdkVersion 35
+    buildToolsVersion "34.0.0"
 
     defaultConfig {
         applicationId "com.github.hintofbasil.crabbler"
         minSdkVersion 16
-        targetSdkVersion 33
-        versionCode 34
-        versionName "2.0.6"
+        targetSdkVersion 35
+        versionCode 35
+        versionName "2.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -18,9 +19,9 @@ android {
         release {
             if (keystorePath.exists()) {
                 storeFile keystorePath
-                storePassword "remar123"
-                keyAlias "remar"
-                keyPassword "remar123"
+                storePassword System.getenv("STORE_PASSWORD") ?: "walk13"
+                keyAlias System.getenv("KEY_ALIAS") ?: "upload"
+                keyPassword System.getenv("KEY_PASSWORD") ?: "walk13"
             }
         }
     }

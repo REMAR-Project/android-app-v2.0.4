@@ -39,3 +39,7 @@ View crash logs:
 Or stream all app logs in real time:
 
     adb logcat | grep crabbler
+
+Build Release:
+
+    STORE_PASSWORD="yourpass" KEY_PASSWORD="yourpass" ./gradlew assembleRelease

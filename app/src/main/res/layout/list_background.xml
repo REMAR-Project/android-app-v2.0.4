@@ -3,5 +3,7 @@
     android:background="@drawable/color_list"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
+    android:minHeight="48dp"
     android:padding="@dimen/list_horizontal_padding"
+    android:gravity="center_vertical"
     android:textSize="@dimen/list_element_text" />
